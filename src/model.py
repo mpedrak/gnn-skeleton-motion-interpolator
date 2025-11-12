@@ -19,10 +19,9 @@ class SkeletalMotionInterpolator(nn.Module):
         self.convs = []
         self.convs.append(GATConv(in_features, hidden_dim, heads=heads, concat=True, dropout=dropout))
 
-        for _ in range(hidden_layers - 2): 
+        for _ in range(hidden_layers - 1): 
             self.convs.append(GATConv(hidden_dim * heads, hidden_dim, heads=heads, concat=True, dropout=dropout))
 
-        self.convs.append(GATConv(hidden_dim * heads, hidden_dim, heads=heads, concat=True, dropout=dropout))
         self.convs = torch.nn.ModuleList(self.convs)
         
         self.fc_rot = nn.Linear(hidden_dim * heads, out_features)
@@ -30,6 +29,7 @@ class SkeletalMotionInterpolator(nn.Module):
 
         root_in = self.context_len * graph_features
         root_out = target_len * graph_features
+
         self.root_head = nn.Sequential(
             nn.Linear(root_in, root_pos_hidden_dim),
             nn.LeakyReLU(),

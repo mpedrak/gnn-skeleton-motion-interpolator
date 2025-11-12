@@ -56,21 +56,6 @@ def build_edge_index_from_parents(parent_indices):
     return edge_index
 
 
-def extract_prev_euler_from_bvh(mocap, frame_idx):
-    joint_list = mocap.get_joints()
-    J = len(joint_list)
-    prev = np.zeros((J, 3), dtype=np.float32)
-    for j, node in enumerate(joint_list):
-        z = float(mocap.frame_joint_channel(frame_idx, node.name, 'Zrotation'))
-        y = float(mocap.frame_joint_channel(frame_idx, node.name, 'Yrotation'))
-        x = float(mocap.frame_joint_channel(frame_idx, node.name, 'Xrotation'))
-        prev[j, 0] = z
-        prev[j, 1] = y
-        prev[j, 2] = x
-
-    return prev
-
-
 def replace_gap_in_bvh_text(orig_text, mocap, gap_start, target_len, euler_zyx_deg, root_pred_xyz, decimals=6):
     lines = orig_text.splitlines()
     motion_idx = next(i for i, ln in enumerate(lines) if ln.strip().upper() == "MOTION")

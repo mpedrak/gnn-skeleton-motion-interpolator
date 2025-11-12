@@ -1,24 +1,37 @@
 import os
-import sys
 import yaml
 import torch
 import numpy as np
+import argparse
 
 from bvh import Bvh
 from torch_geometric.data import Data
 
 from src.model import SkeletalMotionInterpolator
-from src.utils.bvh import build_edge_index_from_parents, extract_prev_euler_from_bvh, replace_gap_in_bvh_text, parse_bvh_file
-from src.utils.rotation import rot_6d_to_euler_zyx, unwrap_euler_sequence
+from src.utils.bvh import build_edge_index_from_parents, replace_gap_in_bvh_text, parse_bvh_file
+from src.utils.rotation import rot_6d_to_euler_zyx
 
 
+predict_data_dir = "data/predict/"
+
+parser = argparse.ArgumentParser()
+parser.add_argument("file", type=str)
+parser.add_argument("gap_start", type=int) 
+
+args = parser.parse_args()
+input_bvh_path = predict_data_dir + args.file
+gap_start_frame = args.gap_start - 1 # 0 based index in code
+
+if not os.path.isfile(input_bvh_path):
+    raise FileNotFoundError(f"Input BVH file not found: {input_bvh_path}")
+ 
 config_path = "./config/cfg.yaml"
 with open(config_path, "r") as f:
         config = yaml.safe_load(f)
-        
-input_bvh_path = "data/predict/test_3.bvh"
-gap_start_frame = 70
 
+if gap_start_frame <= config["context_len_pre"] or gap_start_frame >= 200 - config["context_len_post"] - config["target_len"]:
+    raise ValueError("Invalid gap start frame")        
+        
 device = "cuda" if torch.cuda.is_available() else "cpu"
 print(f"Using device: {device}")
 
@@ -115,8 +128,6 @@ with torch.no_grad():
 
 euler_zyx_deg_rad = rot_6d_to_euler_zyx(rot_pred)
 euler_zyx_deg = np.rad2deg(euler_zyx_deg_rad)
-prev_euler_deg = extract_prev_euler_from_bvh(mocap, gap_start_frame - 1)
-euler_zyx_deg = unwrap_euler_sequence(euler_zyx_deg, prev_deg=prev_euler_deg)
 
 new_text = replace_gap_in_bvh_text(
     orig_text=text,

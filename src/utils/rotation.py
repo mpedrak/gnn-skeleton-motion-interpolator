@@ -1,4 +1,3 @@
-import numpy as np
 import torch
 
 from scipy.spatial.transform import Rotation as R
@@ -34,20 +33,3 @@ def rot_6d_to_euler_zyx(rot_6d):
     euler = euler.reshape(F, J, 3)
 
     return euler
-
-
-def unwrap_euler_sequence(euler_seq_deg, prev_deg=None):
-    # Ensure angle continuity by adding or subtracting 360 degrees in array [F, J, 3]
-    e = euler_seq_deg.copy()
-    F, J, _ = e.shape
-
-    for j in range(0, J):
-        if prev_deg is not None:
-            base = prev_deg[j] 
-            diff_0 = e[0, j] - base
-            e[0, j] = e[0, j] - np.round(diff_0 / 360.0) * 360.0
-        for t in range(1, F):
-            diff = e[t, j] - e[t - 1, j]
-            e[t, j] = e[t, j] - np.round(diff / 360.0) * 360.0
-            
-    return e
