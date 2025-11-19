@@ -1,7 +1,7 @@
 # Model parameters
 context_len_pre: 10
 context_len_post: 5
-target_len: 2
+target_len: 10
 hidden_dim: 32
 hidden_layers: 7
 heads: 16
@@ -21,7 +21,7 @@ epochs: 200
 lr: 0.0001
 validation_split: 0.2
 patience: 7
-root_loss_weight: 0.3
+root_loss_weight: 0.5
 train_data_dir: "data/train"
 train_log_path: "results/baseline_train.txt"
 

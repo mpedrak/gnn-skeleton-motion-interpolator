@@ -84,3 +84,11 @@ def replace_gap_in_bvh_text(orig_text, mocap, gap_start, target_len, euler_zyx_d
     text = "\n".join(new_lines) + ("\n" if orig_text.endswith("\n") else "")
     
     return text
+
+
+def compute_root_deltas(root_pos):
+    # [F, 3] (numpy) -> [F, 3] (deltas, torch.FloatTensor)
+    deltas = np.zeros_like(root_pos, dtype=np.float32)
+    deltas[1 : ] = root_pos[1 : ] - root_pos[ : -1]
+    deltas = torch.tensor(deltas, dtype=torch.float32)
+    return deltas

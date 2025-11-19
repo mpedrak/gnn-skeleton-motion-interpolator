@@ -8,7 +8,7 @@ from bvh import Bvh
 from torch_geometric.data import Data
 
 from src.model import SkeletalMotionInterpolator
-from src.utils.bvh import build_edge_index_from_parents, replace_gap_in_bvh_text, parse_bvh_file
+from src.utils.bvh import build_edge_index_from_parents, replace_gap_in_bvh_text, parse_bvh_file, compute_root_deltas
 from src.utils.rotation import rot_6d_to_euler_zyx
 
 
@@ -48,12 +48,12 @@ def predict_gap(model, device, rot_6d, root_pos, parent_indices, context_len_pre
     rot_ctx = np.concatenate([first_part_rot, second_part_rot], axis=0)
     x_feat = torch.tensor(rot_ctx, dtype=torch.float32).permute(1, 0, 2).reshape(J, -1) # [J, F, 6] -> [J, F * 6]
 
-    first_part_root = root_pos[gap_start - context_len_pre : gap_start]
-    second_part_root = root_pos[second_start : second_start + context_len_post]
-    root_ctx_raw = np.concatenate([first_part_root, second_part_root], axis=0)
+    root_pos_deltas = compute_root_deltas(root_pos) 
+    first_part_root = root_pos_deltas[gap_start - context_len_pre : gap_start]
+    second_part_root = root_pos_deltas[second_start : second_start + context_len_post]
+    root_ctx_delta = torch.cat([first_part_root, second_part_root], dim=0).to(device) 
 
-    root_ctx_norm = (torch.tensor(root_ctx_raw, dtype=torch.float32, device=device) - root_mean) / root_std
-    root_ctx_norm = root_ctx_norm.reshape(-1)
+    root_ctx_norm = ((root_ctx_delta - root_mean) / root_std).reshape(-1)
 
     edge_index = build_edge_index_from_parents(parent_indices)
 
@@ -65,11 +65,18 @@ def predict_gap(model, device, rot_6d, root_pos, parent_indices, context_len_pre
 
     out = model(data)
     rot_pred = out["rot"]
-    root_norm_pred = out["root_norm"]
+    root_pos_pred = out["root_norm"]
 
-    rot_pred = rot_pred.view(J, target_len, 6).permute(1, 0, 2).contiguous() # [J, F, 6] -> [F, J, 6]
-    root_norm_pred = root_norm_pred.view(1, -1).view(target_len, 3)            
-    root_pred = root_mean + root_norm_pred * root_std                     
+    # Denormalize root deltas
+    root_delta_norm_pred = root_pos_pred.view(1, -1).view(target_len, 3)
+    root_delta_pred = root_mean + root_delta_norm_pred * root_std 
+
+    # Reconstruct root positions
+    start_pos = torch.tensor(root_pos[gap_start - 1], dtype=torch.float32, device=device) 
+    cumulative = torch.cumsum(root_delta_pred, dim=0)
+    root_pred = start_pos.unsqueeze(0) + cumulative
+
+    rot_pred = rot_pred.view(J, target_len, 6).permute(1, 0, 2).contiguous() # [J, F, 6] -> [F, J, 6]                   
 
     return rot_pred.cpu(), root_pred.cpu()
 

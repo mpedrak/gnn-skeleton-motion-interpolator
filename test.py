@@ -99,6 +99,6 @@ def log_str(str):
         log_file.write(str + "\n")
 
 log_str("\n--- Test Results ---")
-log_str(f"MSE 6D rotations:                   {results['rot_6d_mse']:.7f}")
-log_str(f"MSE root positions:                 {results['root_mse_norm']:.7f}")
-log_str(f"MSE sum (with root loss weight):    {results['overall_mse']:.7f}")
+log_str(f"MSE 6D rotations:                          {results['rot_6d_mse']:.7f}")
+log_str(f"MSE root positions (normalized deltas):    {results['root_mse_norm']:.7f}")
+log_str(f"MSE sum (with root loss weight):           {results['overall_mse']:.7f}")

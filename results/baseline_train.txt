@@ -1,377 +1,639 @@
 
 --- Epoch 1/200 ---
-Train loss:           0.3621684
-Validation loss:      0.2102484
+Train loss:           0.6015783
+Validation loss:      0.3952425
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 2/200 ---
-Train loss:           0.1674962
-Validation loss:      0.1179189
+Train loss:           0.3266264
+Validation loss:      0.2587909
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 3/200 ---
-Train loss:           0.1209376
-Validation loss:      0.0919291
+Train loss:           0.2550228
+Validation loss:      0.2275337
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 4/200 ---
-Train loss:           0.0913664
-Validation loss:      0.0584065
+Train loss:           0.2252156
+Validation loss:      0.1935870
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 5/200 ---
-Train loss:           0.0674691
-Validation loss:      0.0405316
+Train loss:           0.1932662
+Validation loss:      0.1620573
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 6/200 ---
-Train loss:           0.0533074
-Validation loss:      0.0349170
+Train loss:           0.1703508
+Validation loss:      0.1490638
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 7/200 ---
-Train loss:           0.0455463
-Validation loss:      0.0324462
+Train loss:           0.1563291
+Validation loss:      0.1393161
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 8/200 ---
-Train loss:           0.0404671
-Validation loss:      0.0299341
+Train loss:           0.1457629
+Validation loss:      0.1309856
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 9/200 ---
-Train loss:           0.0365534
-Validation loss:      0.0277942
+Train loss:           0.1379190
+Validation loss:      0.1252079
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 10/200 ---
-Train loss:           0.0332044
-Validation loss:      0.0267412
+Train loss:           0.1316319
+Validation loss:      0.1189987
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 11/200 ---
-Train loss:           0.0303836
-Validation loss:      0.0251000
+Train loss:           0.1262753
+Validation loss:      0.1144790
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 12/200 ---
-Train loss:           0.0279933
-Validation loss:      0.0235632
+Train loss:           0.1212973
+Validation loss:      0.1097047
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 13/200 ---
-Train loss:           0.0259996
-Validation loss:      0.0224730
+Train loss:           0.1173642
+Validation loss:      0.1060369
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 14/200 ---
-Train loss:           0.0242930
-Validation loss:      0.0209052
+Train loss:           0.1137433
+Validation loss:      0.1019592
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 15/200 ---
-Train loss:           0.0228177
-Validation loss:      0.0201694
+Train loss:           0.1105526
+Validation loss:      0.0988556
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 16/200 ---
-Train loss:           0.0215206
-Validation loss:      0.0192169
+Train loss:           0.1075018
+Validation loss:      0.0958612
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 17/200 ---
-Train loss:           0.0203973
-Validation loss:      0.0183101
+Train loss:           0.1048796
+Validation loss:      0.0930721
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 18/200 ---
-Train loss:           0.0193973
-Validation loss:      0.0169087
+Train loss:           0.1026778
+Validation loss:      0.0906515
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 19/200 ---
-Train loss:           0.0185107
-Validation loss:      0.0157032
+Train loss:           0.1004910
+Validation loss:      0.0881574
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 20/200 ---
-Train loss:           0.0177169
-Validation loss:      0.0144798
+Train loss:           0.0987918
+Validation loss:      0.0861377
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 21/200 ---
-Train loss:           0.0170107
-Validation loss:      0.0135734
+Train loss:           0.0971422
+Validation loss:      0.0843814
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 22/200 ---
-Train loss:           0.0163544
-Validation loss:      0.0123607
+Train loss:           0.0956203
+Validation loss:      0.0827477
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 23/200 ---
-Train loss:           0.0157897
-Validation loss:      0.0114918
+Train loss:           0.0942420
+Validation loss:      0.0815337
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 24/200 ---
-Train loss:           0.0152450
-Validation loss:      0.0108812
+Train loss:           0.0930133
+Validation loss:      0.0801198
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 25/200 ---
-Train loss:           0.0147338
-Validation loss:      0.0095008
+Train loss:           0.0918900
+Validation loss:      0.0791194
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 26/200 ---
-Train loss:           0.0142898
-Validation loss:      0.0090171
+Train loss:           0.0908748
+Validation loss:      0.0780187
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 27/200 ---
-Train loss:           0.0138608
-Validation loss:      0.0082151
+Train loss:           0.0897402
+Validation loss:      0.0769321
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 28/200 ---
-Train loss:           0.0134590
-Validation loss:      0.0078567
+Train loss:           0.0889570
+Validation loss:      0.0762869
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 29/200 ---
-Train loss:           0.0130920
-Validation loss:      0.0074827
+Train loss:           0.0879775
+Validation loss:      0.0753503
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 30/200 ---
-Train loss:           0.0127390
-Validation loss:      0.0069406
+Train loss:           0.0871857
+Validation loss:      0.0745690
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 31/200 ---
-Train loss:           0.0124228
-Validation loss:      0.0066975
+Train loss:           0.0864108
+Validation loss:      0.0737476
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 32/200 ---
-Train loss:           0.0121093
-Validation loss:      0.0061519
+Train loss:           0.0857503
+Validation loss:      0.0731467
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 33/200 ---
-Train loss:           0.0118291
-Validation loss:      0.0059305
+Train loss:           0.0851161
+Validation loss:      0.0727391
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 34/200 ---
-Train loss:           0.0115654
-Validation loss:      0.0057993
+Train loss:           0.0844801
+Validation loss:      0.0721938
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 35/200 ---
-Train loss:           0.0113154
-Validation loss:      0.0054914
+Train loss:           0.0840183
+Validation loss:      0.0715178
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 36/200 ---
-Train loss:           0.0110817
-Validation loss:      0.0052861
+Train loss:           0.0832365
+Validation loss:      0.0710630
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 37/200 ---
-Train loss:           0.0108604
-Validation loss:      0.0049974
+Train loss:           0.0826922
+Validation loss:      0.0705925
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 38/200 ---
-Train loss:           0.0106664
-Validation loss:      0.0049142
+Train loss:           0.0821587
+Validation loss:      0.0701047
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 39/200 ---
-Train loss:           0.0104588
-Validation loss:      0.0047860
+Train loss:           0.0816205
+Validation loss:      0.0695736
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 40/200 ---
-Train loss:           0.0102813
-Validation loss:      0.0046037
+Train loss:           0.0810545
+Validation loss:      0.0691874
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 41/200 ---
-Train loss:           0.0100956
-Validation loss:      0.0045058
+Train loss:           0.0807499
+Validation loss:      0.0686153
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 42/200 ---
-Train loss:           0.0099346
-Validation loss:      0.0044971
+Train loss:           0.0800672
+Validation loss:      0.0682393
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 43/200 ---
-Train loss:           0.0097657
-Validation loss:      0.0044627
+Train loss:           0.0797101
+Validation loss:      0.0678966
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 44/200 ---
-Train loss:           0.0096291
-Validation loss:      0.0042839
+Train loss:           0.0793284
+Validation loss:      0.0675299
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 45/200 ---
-Train loss:           0.0094865
-Validation loss:      0.0043220
-No improvement in validation loss for 1 epochs
+Train loss:           0.0789653
+Validation loss:      0.0670768
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/baseline.pth
 
 --- Epoch 46/200 ---
-Train loss:           0.0093531
-Validation loss:      0.0041612
+Train loss:           0.0784392
+Validation loss:      0.0667676
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 47/200 ---
-Train loss:           0.0092109
-Validation loss:      0.0041966
-No improvement in validation loss for 1 epochs
+Train loss:           0.0780451
+Validation loss:      0.0663355
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/baseline.pth
 
 --- Epoch 48/200 ---
-Train loss:           0.0090959
-Validation loss:      0.0041773
-No improvement in validation loss for 2 epochs
+Train loss:           0.0776601
+Validation loss:      0.0658775
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/baseline.pth
 
 --- Epoch 49/200 ---
-Train loss:           0.0089714
-Validation loss:      0.0041227
+Train loss:           0.0772531
+Validation loss:      0.0655843
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 50/200 ---
-Train loss:           0.0088685
-Validation loss:      0.0040710
+Train loss:           0.0769763
+Validation loss:      0.0654267
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 51/200 ---
-Train loss:           0.0087537
-Validation loss:      0.0041897
-No improvement in validation loss for 1 epochs
+Train loss:           0.0765683
+Validation loss:      0.0649434
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/baseline.pth
 
 --- Epoch 52/200 ---
-Train loss:           0.0086519
-Validation loss:      0.0040758
-No improvement in validation loss for 2 epochs
+Train loss:           0.0764269
+Validation loss:      0.0647613
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/baseline.pth
 
 --- Epoch 53/200 ---
-Train loss:           0.0085496
-Validation loss:      0.0040853
-No improvement in validation loss for 3 epochs
+Train loss:           0.0758734
+Validation loss:      0.0643230
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/baseline.pth
 
 --- Epoch 54/200 ---
-Train loss:           0.0084560
-Validation loss:      0.0039701
+Train loss:           0.0755137
+Validation loss:      0.0639475
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 55/200 ---
-Train loss:           0.0083687
-Validation loss:      0.0040094
-No improvement in validation loss for 1 epochs
+Train loss:           0.0751715
+Validation loss:      0.0637220
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/baseline.pth
 
 --- Epoch 56/200 ---
-Train loss:           0.0082824
-Validation loss:      0.0039669
+Train loss:           0.0748706
+Validation loss:      0.0634467
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 57/200 ---
-Train loss:           0.0081956
-Validation loss:      0.0040617
-No improvement in validation loss for 1 epochs
+Train loss:           0.0745619
+Validation loss:      0.0631106
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/baseline.pth
 
 --- Epoch 58/200 ---
-Train loss:           0.0081053
-Validation loss:      0.0039611
+Train loss:           0.0742463
+Validation loss:      0.0629585
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 59/200 ---
-Train loss:           0.0080243
-Validation loss:      0.0039697
-No improvement in validation loss for 1 epochs
+Train loss:           0.0740004
+Validation loss:      0.0626712
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/baseline.pth
 
 --- Epoch 60/200 ---
-Train loss:           0.0079545
-Validation loss:      0.0039728
-No improvement in validation loss for 2 epochs
+Train loss:           0.0738404
+Validation loss:      0.0623932
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/baseline.pth
 
 --- Epoch 61/200 ---
-Train loss:           0.0078793
-Validation loss:      0.0039728
-No improvement in validation loss for 3 epochs
+Train loss:           0.0735028
+Validation loss:      0.0622855
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/baseline.pth
 
 --- Epoch 62/200 ---
-Train loss:           0.0078099
-Validation loss:      0.0039719
-No improvement in validation loss for 4 epochs
+Train loss:           0.0733612
+Validation loss:      0.0620332
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/baseline.pth
 
 --- Epoch 63/200 ---
-Train loss:           0.0077304
-Validation loss:      0.0040201
-No improvement in validation loss for 5 epochs
+Train loss:           0.0731983
+Validation loss:      0.0619196
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/baseline.pth
 
 --- Epoch 64/200 ---
-Train loss:           0.0076685
-Validation loss:      0.0040171
-No improvement in validation loss for 6 epochs
+Train loss:           0.0727854
+Validation loss:      0.0616306
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/baseline.pth
 
 --- Epoch 65/200 ---
-Train loss:           0.0076082
-Validation loss:      0.0040526
-No improvement in validation loss for 7 epochs
-Early stopped at epoch 65
-Training complete
+Train loss:           0.0725835
+Validation loss:      0.0615334
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/baseline.pth
+
+--- Epoch 66/200 ---
+Train loss:           0.0723814
+Validation loss:      0.0613965
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/baseline.pth
+
+--- Epoch 67/200 ---
+Train loss:           0.0721929
+Validation loss:      0.0611840
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/baseline.pth
+
+--- Epoch 68/200 ---
+Train loss:           0.0720285
+Validation loss:      0.0611279
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/baseline.pth
+
+--- Epoch 69/200 ---
+Train loss:           0.0718704
+Validation loss:      0.0610042
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/baseline.pth
+
+--- Epoch 70/200 ---
+Train loss:           0.0716892
+Validation loss:      0.0607536
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/baseline.pth
+
+--- Epoch 71/200 ---
+Train loss:           0.0716226
+Validation loss:      0.0606247
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/baseline.pth
+
+--- Epoch 72/200 ---
+Train loss:           0.0714315
+Validation loss:      0.0605135
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/baseline.pth
+
+--- Epoch 73/200 ---
+Train loss:           0.0712309
+Validation loss:      0.0603544
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/baseline.pth
+
+--- Epoch 74/200 ---
+Train loss:           0.0710267
+Validation loss:      0.0602190
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/baseline.pth
+
+--- Epoch 75/200 ---
+Train loss:           0.0707607
+Validation loss:      0.0603467
+No improvement in validation loss for 1 epochs
+
+--- Epoch 76/200 ---
+Train loss:           0.0708022
+Validation loss:      0.0599865
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/baseline.pth
+
+--- Epoch 77/200 ---
+Train loss:           0.0705812
+Validation loss:      0.0600655
+No improvement in validation loss for 1 epochs
+
+--- Epoch 78/200 ---
+Train loss:           0.0703712
+Validation loss:      0.0597936
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/baseline.pth
+
+--- Epoch 79/200 ---
+Train loss:           0.0702452
+Validation loss:      0.0595723
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/baseline.pth
+
+--- Epoch 80/200 ---
+Train loss:           0.0701674
+Validation loss:      0.0594963
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/baseline.pth
+
+--- Epoch 81/200 ---
+Train loss:           0.0700810
+Validation loss:      0.0594380
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/baseline.pth
+
+--- Epoch 82/200 ---
+Train loss:           0.0698354
+Validation loss:      0.0593812
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/baseline.pth
+
+--- Epoch 83/200 ---
+Train loss:           0.0697978
+Validation loss:      0.0592129
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/baseline.pth
+
+--- Epoch 84/200 ---
+Train loss:           0.0696202
+Validation loss:      0.0591270
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/baseline.pth
+
+--- Epoch 85/200 ---
+Train loss:           0.0695639
+Validation loss:      0.0590512
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/baseline.pth
+
+--- Epoch 86/200 ---
+Train loss:           0.0694504
+Validation loss:      0.0589485
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/baseline.pth
+
+--- Epoch 87/200 ---
+Train loss:           0.0692647
+Validation loss:      0.0588324
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/baseline.pth
+
+--- Epoch 88/200 ---
+Train loss:           0.0692052
+Validation loss:      0.0587209
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/baseline.pth
+
+--- Epoch 89/200 ---
+Train loss:           0.0689346
+Validation loss:      0.0586577
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/baseline.pth
+
+--- Epoch 90/200 ---
+Train loss:           0.0689755
+Validation loss:      0.0585299
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/baseline.pth
+
+--- Epoch 91/200 ---
+Train loss:           0.0688386
+Validation loss:      0.0584476
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/baseline.pth
+
+--- Epoch 92/200 ---
+Train loss:           0.0687458
+Validation loss:      0.0583761
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/baseline.pth
+
+--- Epoch 93/200 ---
+Train loss:           0.0685725
+Validation loss:      0.0583532
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/baseline.pth
+
+--- Epoch 94/200 ---
+Train loss:           0.0686234
+Validation loss:      0.0581500
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/baseline.pth
+
+--- Epoch 95/200 ---
+Train loss:           0.0683491
+Validation loss:      0.0581603
+No improvement in validation loss for 1 epochs
+
+--- Epoch 96/200 ---
+Train loss:           0.0684113
+Validation loss:      0.0580209
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/baseline.pth
+
+--- Epoch 97/200 ---
+Train loss:           0.0681852
+Validation loss:      0.0579391
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/baseline.pth
+
+--- Epoch 98/200 ---
+Train loss:           0.0682073
+Validation loss:      0.0579412
+No improvement in validation loss for 1 epochs
+
+--- Epoch 99/200 ---
+Train loss:           0.0680807
+Validation loss:      0.0578622
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/baseline.pth
+
+--- Epoch 100/200 ---
+Train loss:           0.0679657
+Validation loss:      0.0577357
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/baseline.pth
+
+--- Epoch 101/200 ---
+Train loss:           0.0678411
+Validation loss:      0.0576612
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/baseline.pth
+
+--- Epoch 102/200 ---
+Train loss:           0.0677087
+Validation loss:      0.0575630
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/baseline.pth
+
+--- Epoch 103/200 ---
+Train loss:           0.0676332
+Validation loss:      0.0574660
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/baseline.pth
+
+--- Epoch 104/200 ---
+Train loss:           0.0674760
+Validation loss:      0.0574904
+No improvement in validation loss for 1 epochs
+
+--- Epoch 105/200 ---
+Train loss:           0.0674993
+Validation loss:      0.0574006
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/baseline.pth
+
+--- Epoch 106/200 ---
+Train loss:           0.0674118
+Validation loss:      0.0573128
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/baseline.pth
+
+--- Epoch 107/200 ---
+Train loss:           0.0672884
+Validation loss:      0.0572699
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/baseline.pth
+
+--- Epoch 108/200 ---

@@ -31,7 +31,7 @@ print(f"Dataset ready with {len(dataset)} samples")
 root_stats_path = config["root_stats_path"]
 os.makedirs("checkpoints", exist_ok=True)
 np.savez(root_stats_path, mean=dataset.root_mean.numpy(), std=dataset.root_std.numpy())
-print(f"Saved root stats in: {root_stats_path}")
+print(f"Saved root delta stats in: {root_stats_path}")
 
 n_total = len(dataset)
 n_val = max(1, int(n_total * config["validation_split"]))

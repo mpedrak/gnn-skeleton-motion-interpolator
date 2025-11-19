@@ -1,5 +1,5 @@
 
 --- Test Results ---
-MSE 6D rotations:                   0.0027717
-MSE root positions:                 0.0027720
-MSE sum (with root loss weight):    0.0036131
+MSE 6D rotations:                          0.0073334
+MSE root positions (normalized deltas):    0.0998954
+MSE sum (with root loss weight):           0.0575558
