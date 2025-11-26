@@ -12,23 +12,27 @@ from src.utils.bvh import build_edge_index_from_parents, replace_gap_in_bvh_text
 from src.utils.rotation import rot_6d_to_euler_zyx
 
 
-predict_data_dir = "data/predict/"
+predict_data_dir = "./data/predict/"
+config_dir = "./config/"
 
 parser = argparse.ArgumentParser()
+parser.add_argument("config", type=str)
 parser.add_argument("file", type=str)
 parser.add_argument("gap_start", type=int) 
-
 args = parser.parse_args()
-input_bvh_path = predict_data_dir + args.file
-gap_start_frame = args.gap_start - 1 # 0 based index in code
 
+input_bvh_path = predict_data_dir + args.file + ".bvh"
 if not os.path.isfile(input_bvh_path):
     raise FileNotFoundError(f"Input BVH file not found: {input_bvh_path}")
- 
-config_path = "./config/cfg.yaml"
-with open(config_path, "r") as f:
-        config = yaml.safe_load(f)
 
+config_path = config_dir + args.config + ".yaml"
+if not os.path.isfile(config_path):
+    raise FileNotFoundError(f"Config file not found: {config_path}")
+
+with open(config_path, "r") as f:
+    config = yaml.safe_load(f)
+
+gap_start_frame = args.gap_start - 1 # 0 based index in code
 if gap_start_frame <= config["context_len_pre"] or gap_start_frame >= 200 - config["context_len_post"] - config["target_len"]:
     raise ValueError("Invalid gap start frame")        
         

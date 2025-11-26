@@ -2,6 +2,7 @@ import torch
 import yaml
 import numpy as np
 import os
+import argparse
 
 from torch_geometric.loader import DataLoader
 from tqdm import tqdm
@@ -11,7 +12,16 @@ from src.dataset import GraphSkeletonDataset
 from src.model import SkeletalMotionInterpolator
 
 
-config_path = "./config/cfg.yaml"
+config_dir = "./config/"
+
+parser = argparse.ArgumentParser()
+parser.add_argument("config", type=str)
+args = parser.parse_args()
+
+config_path = config_dir + args.config + ".yaml"
+if not os.path.isfile(config_path):
+    raise FileNotFoundError(f"Config file not found: {config_path}")
+
 with open(config_path, "r") as f:
     config = yaml.safe_load(f)
 
@@ -97,10 +107,12 @@ for epoch in range(1, epochs + 1):
         total_train_loss += loss.item() * batch.num_graphs
 
     avg_train_loss = total_train_loss / len(train_dataset)
-    log_str(f"Train loss:           {avg_train_loss:.7f}")
+    log_str(f"Train loss:                      {avg_train_loss:.7f}")
 
     model.eval()
     total_val_loss = 0.0
+    total_rot_loss = 0.0
+    total_root_loss = 0.0
     with torch.no_grad():
         for batch in tqdm(val_loader, desc="Val", leave=False):
             batch = batch.to(device)
@@ -110,10 +122,14 @@ for epoch in range(1, epochs + 1):
             loss_root = mse(out['root_norm'], root_tgt)
             loss = loss_rot + root_loss_weight * loss_root
             total_val_loss += loss.item() * batch.num_graphs
+            total_rot_loss += loss_rot.item() * batch.num_graphs
+            total_root_loss += loss_root.item() * batch.num_graphs
 
     avg_val_loss = total_val_loss / len(val_dataset)
-    log_str(f"Validation loss:      {avg_val_loss:.7f}")
-
+    log_str(f"Validation loss:                 {avg_val_loss:.7f}")
+    log_str(f"Validation MSE 6D rotations:     {total_rot_loss / len(val_dataset):.7f}")
+    log_str(f"Validation MSE root positions:   {total_root_loss / len(val_dataset):.7f}")
+    
     if avg_val_loss < best_val_loss:
         best_val_loss = avg_val_loss
         epochs_no_improve = 0

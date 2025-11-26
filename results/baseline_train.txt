@@ -1,639 +1,1002 @@
 
 --- Epoch 1/200 ---
-Train loss:           0.6015783
-Validation loss:      0.3952425
+Train loss:                      0.3043736
+Validation loss:                 0.2419840
+Validation MSE 6D rotations:     0.2004964
+Validation MSE root positions:   0.4148758
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 2/200 ---
-Train loss:           0.3266264
-Validation loss:      0.2587909
+Train loss:                      0.2051078
+Validation loss:                 0.1614034
+Validation MSE 6D rotations:     0.1336009
+Validation MSE root positions:   0.2780258
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 3/200 ---
-Train loss:           0.2550228
-Validation loss:      0.2275337
+Train loss:                      0.1560522
+Validation loss:                 0.1354952
+Validation MSE 6D rotations:     0.1111399
+Validation MSE root positions:   0.2435535
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 4/200 ---
-Train loss:           0.2252156
-Validation loss:      0.1935870
+Train loss:                      0.1304040
+Validation loss:                 0.1070217
+Validation MSE 6D rotations:     0.0846535
+Validation MSE root positions:   0.2236819
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 5/200 ---
-Train loss:           0.1932662
-Validation loss:      0.1620573
+Train loss:                      0.1106136
+Validation loss:                 0.0981978
+Validation MSE 6D rotations:     0.0772202
+Validation MSE root positions:   0.2097764
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 6/200 ---
-Train loss:           0.1703508
-Validation loss:      0.1490638
+Train loss:                      0.0979733
+Validation loss:                 0.0764073
+Validation MSE 6D rotations:     0.0566005
+Validation MSE root positions:   0.1980680
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 7/200 ---
-Train loss:           0.1563291
-Validation loss:      0.1393161
+Train loss:                      0.0830865
+Validation loss:                 0.0697114
+Validation MSE 6D rotations:     0.0509422
+Validation MSE root positions:   0.1876921
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 8/200 ---
-Train loss:           0.1457629
-Validation loss:      0.1309856
+Train loss:                      0.0749439
+Validation loss:                 0.0639980
+Validation MSE 6D rotations:     0.0461451
+Validation MSE root positions:   0.1785292
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 9/200 ---
-Train loss:           0.1379190
-Validation loss:      0.1252079
+Train loss:                      0.0688133
+Validation loss:                 0.0609814
+Validation MSE 6D rotations:     0.0438889
+Validation MSE root positions:   0.1709249
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 10/200 ---
-Train loss:           0.1316319
-Validation loss:      0.1189987
+Train loss:                      0.0644878
+Validation loss:                 0.0574887
+Validation MSE 6D rotations:     0.0410187
+Validation MSE root positions:   0.1647002
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 11/200 ---
-Train loss:           0.1262753
-Validation loss:      0.1144790
+Train loss:                      0.0610875
+Validation loss:                 0.0555007
+Validation MSE 6D rotations:     0.0395647
+Validation MSE root positions:   0.1593598
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 12/200 ---
-Train loss:           0.1212973
-Validation loss:      0.1097047
+Train loss:                      0.0582632
+Validation loss:                 0.0521791
+Validation MSE 6D rotations:     0.0367253
+Validation MSE root positions:   0.1545374
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 13/200 ---
-Train loss:           0.1173642
-Validation loss:      0.1060369
+Train loss:                      0.0557521
+Validation loss:                 0.0499405
+Validation MSE 6D rotations:     0.0348979
+Validation MSE root positions:   0.1504257
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 14/200 ---
-Train loss:           0.1137433
-Validation loss:      0.1019592
+Train loss:                      0.0534561
+Validation loss:                 0.0476445
+Validation MSE 6D rotations:     0.0329782
+Validation MSE root positions:   0.1466629
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 15/200 ---
-Train loss:           0.1105526
-Validation loss:      0.0988556
+Train loss:                      0.0514070
+Validation loss:                 0.0455865
+Validation MSE 6D rotations:     0.0312538
+Validation MSE root positions:   0.1433275
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 16/200 ---
-Train loss:           0.1075018
-Validation loss:      0.0958612
+Train loss:                      0.0495820
+Validation loss:                 0.0437032
+Validation MSE 6D rotations:     0.0296773
+Validation MSE root positions:   0.1402588
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 17/200 ---
-Train loss:           0.1048796
-Validation loss:      0.0930721
+Train loss:                      0.0479811
+Validation loss:                 0.0420739
+Validation MSE 6D rotations:     0.0283131
+Validation MSE root positions:   0.1376082
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 18/200 ---
-Train loss:           0.1026778
-Validation loss:      0.0906515
+Train loss:                      0.0465847
+Validation loss:                 0.0402642
+Validation MSE 6D rotations:     0.0267410
+Validation MSE root positions:   0.1352325
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 19/200 ---
-Train loss:           0.1004910
-Validation loss:      0.0881574
+Train loss:                      0.0453635
+Validation loss:                 0.0391104
+Validation MSE 6D rotations:     0.0258059
+Validation MSE root positions:   0.1330447
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 20/200 ---
-Train loss:           0.0987918
-Validation loss:      0.0861377
+Train loss:                      0.0442678
+Validation loss:                 0.0379924
+Validation MSE 6D rotations:     0.0248662
+Validation MSE root positions:   0.1312626
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 21/200 ---
-Train loss:           0.0971422
-Validation loss:      0.0843814
+Train loss:                      0.0432867
+Validation loss:                 0.0367136
+Validation MSE 6D rotations:     0.0237627
+Validation MSE root positions:   0.1295093
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 22/200 ---
-Train loss:           0.0956203
-Validation loss:      0.0827477
+Train loss:                      0.0424328
+Validation loss:                 0.0357948
+Validation MSE 6D rotations:     0.0229752
+Validation MSE root positions:   0.1281962
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 23/200 ---
-Train loss:           0.0942420
-Validation loss:      0.0815337
+Train loss:                      0.0416310
+Validation loss:                 0.0348752
+Validation MSE 6D rotations:     0.0222123
+Validation MSE root positions:   0.1266283
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 24/200 ---
-Train loss:           0.0930133
-Validation loss:      0.0801198
+Train loss:                      0.0408851
+Validation loss:                 0.0337759
+Validation MSE 6D rotations:     0.0212435
+Validation MSE root positions:   0.1253236
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 25/200 ---
-Train loss:           0.0918900
-Validation loss:      0.0791194
+Train loss:                      0.0402028
+Validation loss:                 0.0331486
+Validation MSE 6D rotations:     0.0207271
+Validation MSE root positions:   0.1242147
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 26/200 ---
-Train loss:           0.0908748
-Validation loss:      0.0780187
+Train loss:                      0.0395411
+Validation loss:                 0.0325148
+Validation MSE 6D rotations:     0.0202040
+Validation MSE root positions:   0.1231081
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 27/200 ---
-Train loss:           0.0897402
-Validation loss:      0.0769321
+Train loss:                      0.0389759
+Validation loss:                 0.0319247
+Validation MSE 6D rotations:     0.0197196
+Validation MSE root positions:   0.1220503
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 28/200 ---
-Train loss:           0.0889570
-Validation loss:      0.0762869
+Train loss:                      0.0384544
+Validation loss:                 0.0311469
+Validation MSE 6D rotations:     0.0190342
+Validation MSE root positions:   0.1211267
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 29/200 ---
-Train loss:           0.0879775
-Validation loss:      0.0753503
+Train loss:                      0.0379669
+Validation loss:                 0.0307583
+Validation MSE 6D rotations:     0.0187283
+Validation MSE root positions:   0.1202998
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 30/200 ---
-Train loss:           0.0871857
-Validation loss:      0.0745690
+Train loss:                      0.0374623
+Validation loss:                 0.0301556
+Validation MSE 6D rotations:     0.0182156
+Validation MSE root positions:   0.1194004
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 31/200 ---
-Train loss:           0.0864108
-Validation loss:      0.0737476
+Train loss:                      0.0369758
+Validation loss:                 0.0296782
+Validation MSE 6D rotations:     0.0178171
+Validation MSE root positions:   0.1186107
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 32/200 ---
-Train loss:           0.0857503
-Validation loss:      0.0731467
+Train loss:                      0.0364819
+Validation loss:                 0.0290765
+Validation MSE 6D rotations:     0.0172915
+Validation MSE root positions:   0.1178499
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 33/200 ---
-Train loss:           0.0851161
-Validation loss:      0.0727391
+Train loss:                      0.0360576
+Validation loss:                 0.0287379
+Validation MSE 6D rotations:     0.0170094
+Validation MSE root positions:   0.1172843
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 34/200 ---
-Train loss:           0.0844801
-Validation loss:      0.0721938
+Train loss:                      0.0356068
+Validation loss:                 0.0282250
+Validation MSE 6D rotations:     0.0165719
+Validation MSE root positions:   0.1165318
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 35/200 ---
-Train loss:           0.0840183
-Validation loss:      0.0715178
+Train loss:                      0.0352114
+Validation loss:                 0.0279979
+Validation MSE 6D rotations:     0.0164026
+Validation MSE root positions:   0.1159536
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 36/200 ---
-Train loss:           0.0832365
-Validation loss:      0.0710630
+Train loss:                      0.0348324
+Validation loss:                 0.0275153
+Validation MSE 6D rotations:     0.0159787
+Validation MSE root positions:   0.1153662
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 37/200 ---
-Train loss:           0.0826922
-Validation loss:      0.0705925
+Train loss:                      0.0344863
+Validation loss:                 0.0272192
+Validation MSE 6D rotations:     0.0157353
+Validation MSE root positions:   0.1148392
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 38/200 ---
-Train loss:           0.0821587
-Validation loss:      0.0701047
+Train loss:                      0.0341616
+Validation loss:                 0.0270078
+Validation MSE 6D rotations:     0.0155683
+Validation MSE root positions:   0.1143951
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 39/200 ---
-Train loss:           0.0816205
-Validation loss:      0.0695736
+Train loss:                      0.0338325
+Validation loss:                 0.0267150
+Validation MSE 6D rotations:     0.0153298
+Validation MSE root positions:   0.1138520
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 40/200 ---
-Train loss:           0.0810545
-Validation loss:      0.0691874
+Train loss:                      0.0335250
+Validation loss:                 0.0262732
+Validation MSE 6D rotations:     0.0149343
+Validation MSE root positions:   0.1133894
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 41/200 ---
-Train loss:           0.0807499
-Validation loss:      0.0686153
+Train loss:                      0.0331628
+Validation loss:                 0.0259232
+Validation MSE 6D rotations:     0.0146371
+Validation MSE root positions:   0.1128608
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 42/200 ---
-Train loss:           0.0800672
-Validation loss:      0.0682393
+Train loss:                      0.0328138
+Validation loss:                 0.0256234
+Validation MSE 6D rotations:     0.0143703
+Validation MSE root positions:   0.1125311
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 43/200 ---
-Train loss:           0.0797101
-Validation loss:      0.0678966
+Train loss:                      0.0324769
+Validation loss:                 0.0252647
+Validation MSE 6D rotations:     0.0140498
+Validation MSE root positions:   0.1121494
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 44/200 ---
-Train loss:           0.0793284
-Validation loss:      0.0675299
+Train loss:                      0.0321585
+Validation loss:                 0.0249637
+Validation MSE 6D rotations:     0.0137781
+Validation MSE root positions:   0.1118557
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 45/200 ---
-Train loss:           0.0789653
-Validation loss:      0.0670768
+Train loss:                      0.0318674
+Validation loss:                 0.0247525
+Validation MSE 6D rotations:     0.0136159
+Validation MSE root positions:   0.1113659
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 46/200 ---
-Train loss:           0.0784392
-Validation loss:      0.0667676
+Train loss:                      0.0316129
+Validation loss:                 0.0244999
+Validation MSE 6D rotations:     0.0133984
+Validation MSE root positions:   0.1110148
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 47/200 ---
-Train loss:           0.0780451
-Validation loss:      0.0663355
+Train loss:                      0.0313588
+Validation loss:                 0.0242870
+Validation MSE 6D rotations:     0.0132244
+Validation MSE root positions:   0.1106263
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 48/200 ---
-Train loss:           0.0776601
-Validation loss:      0.0658775
+Train loss:                      0.0311187
+Validation loss:                 0.0241315
+Validation MSE 6D rotations:     0.0130980
+Validation MSE root positions:   0.1103347
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 49/200 ---
-Train loss:           0.0772531
-Validation loss:      0.0655843
+Train loss:                      0.0309037
+Validation loss:                 0.0239732
+Validation MSE 6D rotations:     0.0129728
+Validation MSE root positions:   0.1100039
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 50/200 ---
-Train loss:           0.0769763
-Validation loss:      0.0654267
+Train loss:                      0.0306839
+Validation loss:                 0.0237158
+Validation MSE 6D rotations:     0.0127501
+Validation MSE root positions:   0.1096574
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 51/200 ---
-Train loss:           0.0765683
-Validation loss:      0.0649434
+Train loss:                      0.0304705
+Validation loss:                 0.0235791
+Validation MSE 6D rotations:     0.0126344
+Validation MSE root positions:   0.1094472
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 52/200 ---
-Train loss:           0.0764269
-Validation loss:      0.0647613
+Train loss:                      0.0302208
+Validation loss:                 0.0233224
+Validation MSE 6D rotations:     0.0124159
+Validation MSE root positions:   0.1090652
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 53/200 ---
-Train loss:           0.0758734
-Validation loss:      0.0643230
+Train loss:                      0.0300063
+Validation loss:                 0.0229732
+Validation MSE 6D rotations:     0.0120810
+Validation MSE root positions:   0.1089225
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 54/200 ---
-Train loss:           0.0755137
-Validation loss:      0.0639475
+Train loss:                      0.0297436
+Validation loss:                 0.0227735
+Validation MSE 6D rotations:     0.0119165
+Validation MSE root positions:   0.1085697
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 55/200 ---
-Train loss:           0.0751715
-Validation loss:      0.0637220
+Train loss:                      0.0294656
+Validation loss:                 0.0224857
+Validation MSE 6D rotations:     0.0116577
+Validation MSE root positions:   0.1082796
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 56/200 ---
-Train loss:           0.0748706
-Validation loss:      0.0634467
+Train loss:                      0.0291854
+Validation loss:                 0.0221233
+Validation MSE 6D rotations:     0.0113297
+Validation MSE root positions:   0.1079355
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 57/200 ---
-Train loss:           0.0745619
-Validation loss:      0.0631106
+Train loss:                      0.0289119
+Validation loss:                 0.0219439
+Validation MSE 6D rotations:     0.0111598
+Validation MSE root positions:   0.1078411
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 58/200 ---
-Train loss:           0.0742463
-Validation loss:      0.0629585
+Train loss:                      0.0286952
+Validation loss:                 0.0217406
+Validation MSE 6D rotations:     0.0109806
+Validation MSE root positions:   0.1075990
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 59/200 ---
-Train loss:           0.0740004
-Validation loss:      0.0626712
+Train loss:                      0.0284846
+Validation loss:                 0.0215876
+Validation MSE 6D rotations:     0.0108637
+Validation MSE root positions:   0.1072395
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 60/200 ---
-Train loss:           0.0738404
-Validation loss:      0.0623932
+Train loss:                      0.0283020
+Validation loss:                 0.0213732
+Validation MSE 6D rotations:     0.0106534
+Validation MSE root positions:   0.1071974
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 61/200 ---
-Train loss:           0.0735028
-Validation loss:      0.0622855
+Train loss:                      0.0280967
+Validation loss:                 0.0212424
+Validation MSE 6D rotations:     0.0105462
+Validation MSE root positions:   0.1069614
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 62/200 ---
-Train loss:           0.0733612
-Validation loss:      0.0620332
+Train loss:                      0.0279213
+Validation loss:                 0.0211139
+Validation MSE 6D rotations:     0.0104485
+Validation MSE root positions:   0.1066543
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 63/200 ---
-Train loss:           0.0731983
-Validation loss:      0.0619196
+Train loss:                      0.0277606
+Validation loss:                 0.0210426
+Validation MSE 6D rotations:     0.0104052
+Validation MSE root positions:   0.1063741
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 64/200 ---
-Train loss:           0.0727854
-Validation loss:      0.0616306
+Train loss:                      0.0275975
+Validation loss:                 0.0209514
+Validation MSE 6D rotations:     0.0103276
+Validation MSE root positions:   0.1062375
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 65/200 ---
-Train loss:           0.0725835
-Validation loss:      0.0615334
+Train loss:                      0.0274914
+Validation loss:                 0.0208685
+Validation MSE 6D rotations:     0.0102639
+Validation MSE root positions:   0.1060468
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 66/200 ---
-Train loss:           0.0723814
-Validation loss:      0.0613965
+Train loss:                      0.0273677
+Validation loss:                 0.0206446
+Validation MSE 6D rotations:     0.0100468
+Validation MSE root positions:   0.1059775
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 67/200 ---
-Train loss:           0.0721929
-Validation loss:      0.0611840
+Train loss:                      0.0272494
+Validation loss:                 0.0205651
+Validation MSE 6D rotations:     0.0099943
+Validation MSE root positions:   0.1057083
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 68/200 ---
-Train loss:           0.0720285
-Validation loss:      0.0611279
-Validation loss improved, saving checkpoint
-Model saved to: checkpoints/baseline.pth
+Train loss:                      0.0271031
+Validation loss:                 0.0205774
+Validation MSE 6D rotations:     0.0100374
+Validation MSE root positions:   0.1053996
+No improvement in validation loss for 1 epochs
 
 --- Epoch 69/200 ---
-Train loss:           0.0718704
-Validation loss:      0.0610042
+Train loss:                      0.0270074
+Validation loss:                 0.0205386
+Validation MSE 6D rotations:     0.0100159
+Validation MSE root positions:   0.1052272
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 70/200 ---
-Train loss:           0.0716892
-Validation loss:      0.0607536
+Train loss:                      0.0268886
+Validation loss:                 0.0204792
+Validation MSE 6D rotations:     0.0099632
+Validation MSE root positions:   0.1051604
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 71/200 ---
-Train loss:           0.0716226
-Validation loss:      0.0606247
+Train loss:                      0.0267702
+Validation loss:                 0.0203209
+Validation MSE 6D rotations:     0.0098210
+Validation MSE root positions:   0.1049990
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 72/200 ---
-Train loss:           0.0714315
-Validation loss:      0.0605135
+Train loss:                      0.0266907
+Validation loss:                 0.0203020
+Validation MSE 6D rotations:     0.0098310
+Validation MSE root positions:   0.1047105
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 73/200 ---
-Train loss:           0.0712309
-Validation loss:      0.0603544
+Train loss:                      0.0265518
+Validation loss:                 0.0202479
+Validation MSE 6D rotations:     0.0097899
+Validation MSE root positions:   0.1045802
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 74/200 ---
-Train loss:           0.0710267
-Validation loss:      0.0602190
+Train loss:                      0.0264745
+Validation loss:                 0.0202076
+Validation MSE 6D rotations:     0.0097681
+Validation MSE root positions:   0.1043955
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 75/200 ---
-Train loss:           0.0707607
-Validation loss:      0.0603467
-No improvement in validation loss for 1 epochs
+Train loss:                      0.0263864
+Validation loss:                 0.0201037
+Validation MSE 6D rotations:     0.0096742
+Validation MSE root positions:   0.1042949
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/baseline.pth
 
 --- Epoch 76/200 ---
-Train loss:           0.0708022
-Validation loss:      0.0599865
+Train loss:                      0.0263007
+Validation loss:                 0.0200207
+Validation MSE 6D rotations:     0.0095901
+Validation MSE root positions:   0.1043062
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 77/200 ---
-Train loss:           0.0705812
-Validation loss:      0.0600655
-No improvement in validation loss for 1 epochs
+Train loss:                      0.0262006
+Validation loss:                 0.0199110
+Validation MSE 6D rotations:     0.0095284
+Validation MSE root positions:   0.1038262
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/baseline.pth
 
 --- Epoch 78/200 ---
-Train loss:           0.0703712
-Validation loss:      0.0597936
+Train loss:                      0.0261077
+Validation loss:                 0.0198593
+Validation MSE 6D rotations:     0.0094753
+Validation MSE root positions:   0.1038406
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 79/200 ---
-Train loss:           0.0702452
-Validation loss:      0.0595723
-Validation loss improved, saving checkpoint
-Model saved to: checkpoints/baseline.pth
+Train loss:                      0.0260331
+Validation loss:                 0.0198597
+Validation MSE 6D rotations:     0.0094856
+Validation MSE root positions:   0.1037409
+No improvement in validation loss for 1 epochs
 
 --- Epoch 80/200 ---
-Train loss:           0.0701674
-Validation loss:      0.0594963
+Train loss:                      0.0259221
+Validation loss:                 0.0197180
+Validation MSE 6D rotations:     0.0093574
+Validation MSE root positions:   0.1036052
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 81/200 ---
-Train loss:           0.0700810
-Validation loss:      0.0594380
+Train loss:                      0.0258610
+Validation loss:                 0.0197021
+Validation MSE 6D rotations:     0.0093625
+Validation MSE root positions:   0.1033957
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 82/200 ---
-Train loss:           0.0698354
-Validation loss:      0.0593812
+Train loss:                      0.0257623
+Validation loss:                 0.0196202
+Validation MSE 6D rotations:     0.0092985
+Validation MSE root positions:   0.1032173
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 83/200 ---
-Train loss:           0.0697978
-Validation loss:      0.0592129
+Train loss:                      0.0257170
+Validation loss:                 0.0195480
+Validation MSE 6D rotations:     0.0092369
+Validation MSE root positions:   0.1031103
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 84/200 ---
-Train loss:           0.0696202
-Validation loss:      0.0591270
-Validation loss improved, saving checkpoint
-Model saved to: checkpoints/baseline.pth
+Train loss:                      0.0256350
+Validation loss:                 0.0195699
+Validation MSE 6D rotations:     0.0092815
+Validation MSE root positions:   0.1028841
+No improvement in validation loss for 1 epochs
 
 --- Epoch 85/200 ---
-Train loss:           0.0695639
-Validation loss:      0.0590512
+Train loss:                      0.0255510
+Validation loss:                 0.0195321
+Validation MSE 6D rotations:     0.0092632
+Validation MSE root positions:   0.1026882
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 86/200 ---
-Train loss:           0.0694504
-Validation loss:      0.0589485
+Train loss:                      0.0254855
+Validation loss:                 0.0194051
+Validation MSE 6D rotations:     0.0091487
+Validation MSE root positions:   0.1025638
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 87/200 ---
-Train loss:           0.0692647
-Validation loss:      0.0588324
+Train loss:                      0.0253911
+Validation loss:                 0.0193810
+Validation MSE 6D rotations:     0.0091251
+Validation MSE root positions:   0.1025597
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 88/200 ---
-Train loss:           0.0692052
-Validation loss:      0.0587209
+Train loss:                      0.0253502
+Validation loss:                 0.0192751
+Validation MSE 6D rotations:     0.0090363
+Validation MSE root positions:   0.1023884
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 89/200 ---
-Train loss:           0.0689346
-Validation loss:      0.0586577
+Train loss:                      0.0252951
+Validation loss:                 0.0192475
+Validation MSE 6D rotations:     0.0090280
+Validation MSE root positions:   0.1021952
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 90/200 ---
-Train loss:           0.0689755
-Validation loss:      0.0585299
-Validation loss improved, saving checkpoint
-Model saved to: checkpoints/baseline.pth
+Train loss:                      0.0252098
+Validation loss:                 0.0192721
+Validation MSE 6D rotations:     0.0090678
+Validation MSE root positions:   0.1020432
+No improvement in validation loss for 1 epochs
 
 --- Epoch 91/200 ---
-Train loss:           0.0688386
-Validation loss:      0.0584476
+Train loss:                      0.0251408
+Validation loss:                 0.0192123
+Validation MSE 6D rotations:     0.0090157
+Validation MSE root positions:   0.1019658
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 92/200 ---
-Train loss:           0.0687458
-Validation loss:      0.0583761
+Train loss:                      0.0250744
+Validation loss:                 0.0191514
+Validation MSE 6D rotations:     0.0089554
+Validation MSE root positions:   0.1019596
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 93/200 ---
-Train loss:           0.0685725
-Validation loss:      0.0583532
+Train loss:                      0.0250260
+Validation loss:                 0.0190497
+Validation MSE 6D rotations:     0.0088835
+Validation MSE root positions:   0.1016620
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 94/200 ---
-Train loss:           0.0686234
-Validation loss:      0.0581500
-Validation loss improved, saving checkpoint
-Model saved to: checkpoints/baseline.pth
-
---- Epoch 95/200 ---
-Train loss:           0.0683491
-Validation loss:      0.0581603
+Train loss:                      0.0249425
+Validation loss:                 0.0190677
+Validation MSE 6D rotations:     0.0089120
+Validation MSE root positions:   0.1015568
 No improvement in validation loss for 1 epochs
 
---- Epoch 96/200 ---
-Train loss:           0.0684113
-Validation loss:      0.0580209
+--- Epoch 95/200 ---
+Train loss:                      0.0248982
+Validation loss:                 0.0189377
+Validation MSE 6D rotations:     0.0087952
+Validation MSE root positions:   0.1014250
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
+--- Epoch 96/200 ---
+Train loss:                      0.0248429
+Validation loss:                 0.0190137
+Validation MSE 6D rotations:     0.0088856
+Validation MSE root positions:   0.1012810
+No improvement in validation loss for 1 epochs
+
 --- Epoch 97/200 ---
-Train loss:           0.0681852
-Validation loss:      0.0579391
+Train loss:                      0.0247842
+Validation loss:                 0.0189087
+Validation MSE 6D rotations:     0.0087918
+Validation MSE root positions:   0.1011688
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 98/200 ---
-Train loss:           0.0682073
-Validation loss:      0.0579412
-No improvement in validation loss for 1 epochs
+Train loss:                      0.0247402
+Validation loss:                 0.0188862
+Validation MSE 6D rotations:     0.0087650
+Validation MSE root positions:   0.1012119
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/baseline.pth
 
 --- Epoch 99/200 ---
-Train loss:           0.0680807
-Validation loss:      0.0578622
+Train loss:                      0.0246603
+Validation loss:                 0.0187940
+Validation MSE 6D rotations:     0.0086952
+Validation MSE root positions:   0.1009876
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 100/200 ---
-Train loss:           0.0679657
-Validation loss:      0.0577357
+Train loss:                      0.0246170
+Validation loss:                 0.0187843
+Validation MSE 6D rotations:     0.0086909
+Validation MSE root positions:   0.1009336
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 101/200 ---
-Train loss:           0.0678411
-Validation loss:      0.0576612
-Validation loss improved, saving checkpoint
-Model saved to: checkpoints/baseline.pth
+Train loss:                      0.0245556
+Validation loss:                 0.0188328
+Validation MSE 6D rotations:     0.0087540
+Validation MSE root positions:   0.1007879
+No improvement in validation loss for 1 epochs
 
 --- Epoch 102/200 ---
-Train loss:           0.0677087
-Validation loss:      0.0575630
+Train loss:                      0.0245282
+Validation loss:                 0.0187395
+Validation MSE 6D rotations:     0.0086723
+Validation MSE root positions:   0.1006713
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 103/200 ---
-Train loss:           0.0676332
-Validation loss:      0.0574660
+Train loss:                      0.0244759
+Validation loss:                 0.0186916
+Validation MSE 6D rotations:     0.0086428
+Validation MSE root positions:   0.1004878
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 104/200 ---
-Train loss:           0.0674760
-Validation loss:      0.0574904
-No improvement in validation loss for 1 epochs
-
---- Epoch 105/200 ---
-Train loss:           0.0674993
-Validation loss:      0.0574006
+Train loss:                      0.0244181
+Validation loss:                 0.0186496
+Validation MSE 6D rotations:     0.0086036
+Validation MSE root positions:   0.1004605
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
+--- Epoch 105/200 ---
+Train loss:                      0.0243636
+Validation loss:                 0.0186610
+Validation MSE 6D rotations:     0.0086248
+Validation MSE root positions:   0.1003621
+No improvement in validation loss for 1 epochs
+
 --- Epoch 106/200 ---
-Train loss:           0.0674118
-Validation loss:      0.0573128
+Train loss:                      0.0243084
+Validation loss:                 0.0186037
+Validation MSE 6D rotations:     0.0085700
+Validation MSE root positions:   0.1003368
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 107/200 ---
-Train loss:           0.0672884
-Validation loss:      0.0572699
+Train loss:                      0.0242587
+Validation loss:                 0.0185044
+Validation MSE 6D rotations:     0.0084949
+Validation MSE root positions:   0.1000951
 Validation loss improved, saving checkpoint
 Model saved to: checkpoints/baseline.pth
 
 --- Epoch 108/200 ---
+Train loss:                      0.0242357
+Validation loss:                 0.0184745
+Validation MSE 6D rotations:     0.0084720
+Validation MSE root positions:   0.1000252
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/baseline.pth
+
+--- Epoch 109/200 ---
+Train loss:                      0.0241864
+Validation loss:                 0.0185327
+Validation MSE 6D rotations:     0.0085386
+Validation MSE root positions:   0.0999412
+No improvement in validation loss for 1 epochs
+
+--- Epoch 110/200 ---
+Train loss:                      0.0241451
+Validation loss:                 0.0184351
+Validation MSE 6D rotations:     0.0084518
+Validation MSE root positions:   0.0998334
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/baseline.pth
+
+--- Epoch 111/200 ---
+Train loss:                      0.0241097
+Validation loss:                 0.0184169
+Validation MSE 6D rotations:     0.0084424
+Validation MSE root positions:   0.0997455
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/baseline.pth
+
+--- Epoch 112/200 ---
+Train loss:                      0.0240617
+Validation loss:                 0.0183841
+Validation MSE 6D rotations:     0.0084195
+Validation MSE root positions:   0.0996459
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/baseline.pth
+
+--- Epoch 113/200 ---
+Train loss:                      0.0240097
+Validation loss:                 0.0184271
+Validation MSE 6D rotations:     0.0084629
+Validation MSE root positions:   0.0996420
+No improvement in validation loss for 1 epochs
+
+--- Epoch 114/200 ---
+Train loss:                      0.0239762
+Validation loss:                 0.0182945
+Validation MSE 6D rotations:     0.0083487
+Validation MSE root positions:   0.0994587
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/baseline.pth
+
+--- Epoch 115/200 ---
+Train loss:                      0.0239162
+Validation loss:                 0.0182979
+Validation MSE 6D rotations:     0.0083654
+Validation MSE root positions:   0.0993250
+No improvement in validation loss for 1 epochs
+
+--- Epoch 116/200 ---
+Train loss:                      0.0239031
+Validation loss:                 0.0182406
+Validation MSE 6D rotations:     0.0083125
+Validation MSE root positions:   0.0992811
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/baseline.pth
+
+--- Epoch 117/200 ---
+Train loss:                      0.0238392
+Validation loss:                 0.0182532
+Validation MSE 6D rotations:     0.0083448
+Validation MSE root positions:   0.0990845
+No improvement in validation loss for 1 epochs
+
+--- Epoch 118/200 ---
+Train loss:                      0.0237998
+Validation loss:                 0.0181830
+Validation MSE 6D rotations:     0.0082798
+Validation MSE root positions:   0.0990317
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/baseline.pth
+
+--- Epoch 119/200 ---
+Train loss:                      0.0237433
+Validation loss:                 0.0182031
+Validation MSE 6D rotations:     0.0083005
+Validation MSE root positions:   0.0990266
+No improvement in validation loss for 1 epochs
+
+--- Epoch 120/200 ---
+Train loss:                      0.0237323
+Validation loss:                 0.0182173
+Validation MSE 6D rotations:     0.0083322
+Validation MSE root positions:   0.0988509
+No improvement in validation loss for 2 epochs
+
+--- Epoch 121/200 ---
+Train loss:                      0.0236883
+Validation loss:                 0.0181840
+Validation MSE 6D rotations:     0.0083034
+Validation MSE root positions:   0.0988059
+No improvement in validation loss for 3 epochs
+
+--- Epoch 122/200 ---
+Train loss:                      0.0236487
+Validation loss:                 0.0181341
+Validation MSE 6D rotations:     0.0082745
+Validation MSE root positions:   0.0985962
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/baseline.pth
+
+--- Epoch 123/200 ---
+Train loss:                      0.0236452
+Validation loss:                 0.0181127
+Validation MSE 6D rotations:     0.0082520
+Validation MSE root positions:   0.0986071
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/baseline.pth
+
+--- Epoch 124/200 ---
+Train loss:                      0.0235698
+Validation loss:                 0.0180999
+Validation MSE 6D rotations:     0.0082335
+Validation MSE root positions:   0.0986634
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/baseline.pth
+
+--- Epoch 125/200 ---
+Train loss:                      0.0235541
+Validation loss:                 0.0180174
+Validation MSE 6D rotations:     0.0081741
+Validation MSE root positions:   0.0984330
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/baseline.pth
+
+--- Epoch 126/200 ---
+Train loss:                      0.0234912
+Validation loss:                 0.0179951
+Validation MSE 6D rotations:     0.0081577
+Validation MSE root positions:   0.0983736
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/baseline.pth
+
+--- Epoch 127/200 ---
+Train loss:                      0.0234845
+Validation loss:                 0.0180208
+Validation MSE 6D rotations:     0.0081964
+Validation MSE root positions:   0.0982441
+No improvement in validation loss for 1 epochs
+
+--- Epoch 128/200 ---
