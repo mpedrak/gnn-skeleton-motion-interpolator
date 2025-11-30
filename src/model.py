@@ -2,30 +2,38 @@ import torch.nn as nn
 import torch.nn.functional as F
 import torch
 
-from torch_geometric.nn import GATConv
+from torch_geometric.nn import GATConv, global_mean_pool
 
 
 class SkeletalMotionInterpolator(nn.Module):
     def __init__(self, context_len_pre, context_len_post, target_len, hidden_dim, hidden_layers, root_pos_hidden_dim,
-            heads, dropout, node_features, graph_features):
+            heads, dropout, node_features, graph_features, num_joints):
         
         super().__init__()
         self.context_len = context_len_pre + context_len_post
         self.graph_features = graph_features
+        self.num_joints = num_joints
+        self.node_features = node_features
+        self.target_len = target_len
 
-        in_features = node_features * self.context_len
-        out_features = node_features * target_len
+        in_features = node_features
 
         self.convs = []
         self.convs.append(GATConv(in_features, hidden_dim, heads=heads, concat=True, dropout=dropout))
-
+        
         for _ in range(hidden_layers - 1): 
             self.convs.append(GATConv(hidden_dim * heads, hidden_dim, heads=heads, concat=True, dropout=dropout))
 
         self.convs = torch.nn.ModuleList(self.convs)
-        
-        self.fc_rot = nn.Linear(hidden_dim * heads, out_features)
         self.dropout = nn.Dropout(dropout)
+        
+        rot_out_dim = self.num_joints * self.target_len * node_features
+        self.fc_rot = nn.Sequential(
+            nn.Linear(hidden_dim * heads, hidden_dim * heads),
+            nn.LeakyReLU(),
+            nn.Dropout(dropout),
+            nn.Linear(hidden_dim * heads, rot_out_dim),
+        )
 
         root_in = self.context_len * graph_features
         root_out = target_len * graph_features
@@ -47,7 +55,11 @@ class SkeletalMotionInterpolator(nn.Module):
                 x = F.leaky_relu(x)
                 x = self.dropout(x)
 
+        x = global_mean_pool(x, data.batch)
+        B = x.size(0)
+
         rot_pred = self.fc_rot(x) 
+        rot_pred = rot_pred.view(B, self.num_joints, self.target_len * self.node_features)
 
         root_ctx_norm = data.root_ctx_norm  
         if root_ctx_norm.dim() != 1: root_ctx_norm = root_ctx_norm.view(-1)

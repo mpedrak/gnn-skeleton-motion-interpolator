@@ -3,7 +3,7 @@ import torch
 
 from torch_geometric.data import Data, Dataset
 
-from .utils.bvh import parse_bvh_file, build_edge_index_from_parents, compute_root_deltas
+from .utils.bvh import parse_bvh_file, build_edge_index_from_parents, compute_root_deltas, build_spatio_temporal_edge_index
 
 
 class GraphSkeletonDataset(Dataset):
@@ -49,16 +49,20 @@ class GraphSkeletonDataset(Dataset):
                 self.samples.append((fname, start))
 
         first_data = self.cache[self.files[0]]
-        self.edge_index = build_edge_index_from_parents(first_data['parent_indices'])
+        self.base_edge_index = build_edge_index_from_parents(first_data['parent_indices'])
         self.num_joints = len(first_data['joint_names'])
+        F = context_len_pre + context_len_post
+        self.edge_index = build_spatio_temporal_edge_index(F, self.num_joints, self.base_edge_index)
 
         concat_root_deltas = torch.cat(all_root_deltas, dim=0) # [F, 3]
         self.root_mean = concat_root_deltas.mean(dim=0)            
         self.root_std = concat_root_deltas.std(dim=0)
         self.root_std = torch.where(self.root_std < 1e-8, torch.ones_like(self.root_std), self.root_std)
+        
 
     def __len__(self):
         return len(self.samples)
+
 
     def __getitem__(self, idx):
         fname, start = self.samples[idx]
@@ -67,12 +71,12 @@ class GraphSkeletonDataset(Dataset):
 
         first_part = data['rot_6d'][start : start + self.context_len_pre]
         second_part = data['rot_6d'][post_ctx_start : post_ctx_start + self.context_len_post]
-        rot_6d_context = torch.cat([first_part, second_part], dim=0)      
-        x_feat = rot_6d_context.permute(1, 0, 2).reshape(self.num_joints, -1) # [F, J, 6] -> [J, F, 6] -> [J, F * 6]
+        rot_6d_context = torch.cat([first_part, second_part], dim=0)  
+        x_feat = rot_6d_context.reshape(-1, 6) # [F, J, 6] -> [F * J, 6]
 
         rot_6d_tgt = data['rot_6d'][start + self.context_len_pre : post_ctx_start]
-        y_feat = rot_6d_tgt.permute(1, 0, 2).reshape(self.num_joints, -1)          
-
+        y_feat = rot_6d_tgt.permute(1, 0, 2).reshape(self.num_joints, -1) # [F, J, 6] -> [J, F * 6]    
+        
         first_part = data['root_deltas'][start : start + self.context_len_pre] # [F, 3]
         second_part = data['root_deltas'][post_ctx_start : post_ctx_start + self.context_len_post] 
         root_ctx_raw = torch.cat([first_part, second_part], dim=0)

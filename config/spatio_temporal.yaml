@@ -1,0 +1,30 @@
+# Model parameters
+context_len_pre: 10
+context_len_post: 10
+target_len: 10
+hidden_dim: 48
+hidden_layers: 7
+heads: 16
+root_pos_hidden_dim: 128
+dropout: 0.1
+node_features: 6                                  
+graph_features: 3                                 
+model_path: "checkpoints/spatio_temporal.pth"
+root_stats_path: "checkpoints/root_stats_spatio_t.npz"
+
+# Dataset parameters
+step: 20                                          
+batch_size: 128
+
+# Training parameters
+epochs: 200
+lr: 0.0001
+validation_split: 0.25
+patience: 7
+root_loss_weight: 0.1
+train_data_dir: "data/train"
+train_log_path: "results/spatio_temporal_train.txt"
+
+# Testing parameters
+test_data_dir: "data/test"
+test_log_path: "results/spatio_temporal_test.txt"

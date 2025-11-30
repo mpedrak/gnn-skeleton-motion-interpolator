@@ -1,0 +1,5 @@
+
+--- Test Results ---
+Geo Loss 6D rotations:                     0.2570583
+MSE root positions (normalized deltas):    0.1182612
+Loss sum (with root loss weight):          0.2693639

@@ -8,7 +8,7 @@ from bvh import Bvh
 from torch_geometric.data import Data
 
 from src.model import SkeletalMotionInterpolator
-from src.utils.bvh import build_edge_index_from_parents, replace_gap_in_bvh_text, parse_bvh_file, compute_root_deltas
+from src.utils.bvh import build_edge_index_from_parents, replace_gap_in_bvh_text, parse_bvh_file, compute_root_deltas, build_spatio_temporal_edge_index
 from src.utils.rotation import rot_6d_to_euler_zyx
 
 
@@ -50,7 +50,7 @@ def predict_gap(model, device, rot_6d, root_pos, parent_indices, context_len_pre
     first_part_rot = rot_6d[gap_start - context_len_pre : gap_start]
     second_part_rot = rot_6d[second_start : second_start + context_len_post]
     rot_ctx = np.concatenate([first_part_rot, second_part_rot], axis=0)
-    x_feat = torch.tensor(rot_ctx, dtype=torch.float32).permute(1, 0, 2).reshape(J, -1) # [J, F, 6] -> [J, F * 6]
+    x_feat = torch.tensor(rot_ctx, dtype=torch.float32).view(-1, 6).to(device) # [F * J, 6]
 
     root_pos_deltas = compute_root_deltas(root_pos) 
     first_part_root = root_pos_deltas[gap_start - context_len_pre : gap_start]
@@ -59,7 +59,8 @@ def predict_gap(model, device, rot_6d, root_pos, parent_indices, context_len_pre
 
     root_ctx_norm = ((root_ctx_delta - root_mean) / root_std).reshape(-1)
 
-    edge_index = build_edge_index_from_parents(parent_indices)
+    base_edge_index = build_edge_index_from_parents(parent_indices)
+    edge_index = build_spatio_temporal_edge_index(context_len_pre + context_len_post, J, base_edge_index)
 
     data = Data(
         x=x_feat,
@@ -109,7 +110,8 @@ model = SkeletalMotionInterpolator(
     heads=config["heads"],
     dropout=config["dropout"],
     node_features=config["node_features"],
-    graph_features=config["graph_features"]
+    graph_features=config["graph_features"],
+    num_joints=len(joint_names)
 )
 
 model = model.to(device)

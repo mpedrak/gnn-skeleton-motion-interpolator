@@ -28,7 +28,7 @@ device = "cuda" if torch.cuda.is_available() else "cpu"
 print(f"Using device: {device}")
 
 
-def evaluate(model, loader, root_loss_weight):
+def evaluate(model, loader, root_loss_weight, J, F_target, node_features):
     model.eval()
     mse = torch.nn.MSELoss()
     total_loss = 0.0
@@ -41,8 +41,10 @@ def evaluate(model, loader, root_loss_weight):
         for batch in tqdm(loader, desc="Test", leave=False):
             batch = batch.to(device)
             out = model(batch)
-            # loss_rot = mse(out['rot'], batch.y)
-            loss_rot = geodesic_rotation_loss(out['rot'], batch.y)
+
+            rot_pred = out["rot"].view(batch.num_graphs * J, F_target * node_features)
+            loss_rot = geodesic_rotation_loss(rot_pred, batch.y)
+            
             root_tgt = batch.root_tgt_norm.view(batch.num_graphs, -1) 
             loss_root = mse(out['root_norm'], root_tgt)
             loss = loss_rot + root_loss_weight * loss_root
@@ -86,7 +88,8 @@ model = SkeletalMotionInterpolator(
     heads=config["heads"],
     dropout=config["dropout"],
     node_features=config["node_features"],
-    graph_features=config["graph_features"]
+    graph_features=config["graph_features"],
+    num_joints=test_dataset.num_joints
 )
 model = model.to(device)
 
@@ -96,7 +99,10 @@ model.load_state_dict(state)
 print(f"Loaded checkpoint: {model_path}")
 
 print("Starting evaluation on test set")
-results = evaluate(model, test_loader, config["root_loss_weight"])
+J = test_dataset.num_joints
+F_target = config["target_len"]
+node_features = config["node_features"]
+results = evaluate(model, test_loader, config["root_loss_weight"], J, F_target, node_features)
 
 test_log_path = config["test_log_path"]
 
@@ -111,8 +117,6 @@ def log_str(str):
         log_file.write(str + "\n")
 
 log_str("\n--- Test Results ---")
-# log_str(f"MSE 6D rotations:                          {results['rot_6d_mse']:.7f}")
 log_str(f"Geo Loss 6D rotations:                     {results['rot_6d_mse']:.7f}")
 log_str(f"MSE root positions (normalized deltas):    {results['root_mse_norm']:.7f}")
-# log_str(f"MSE sum (with root loss weight):           {results['overall_mse']:.7f}")
 log_str(f"Loss sum (with root loss weight):          {results['overall_mse']:.7f}")

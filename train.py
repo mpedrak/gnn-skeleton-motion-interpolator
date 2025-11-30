@@ -63,7 +63,8 @@ model = SkeletalMotionInterpolator(
     heads=config["heads"],
     dropout=config["dropout"],
     node_features=config["node_features"],
-    graph_features=config["graph_features"]
+    graph_features=config["graph_features"],
+    num_joints=dataset.num_joints
 )
 model = model.to(device)
 
@@ -88,7 +89,11 @@ def log_str(str):
     print(str)
     with open(train_log_path, "a") as log_file:
         log_file.write(str + "\n")
-   
+
+J = dataset.num_joints
+F_target = config["target_len"]
+node_features = config["node_features"]
+
 for epoch in range(1, epochs + 1):
     log_str(f"\n--- Epoch {epoch}/{epochs} ---")
    
@@ -99,10 +104,13 @@ for epoch in range(1, epochs + 1):
         batch = batch.to(device)
         optimizer.zero_grad()
         out = model(batch)
-        # loss_rot = mse(out['rot'], batch.y)
-        loss_rot = geodesic_rotation_loss(out['rot'], batch.y)
+        
+        rot_pred = out["rot"].view(batch.num_graphs * J, F_target * node_features)
+        loss_rot = geodesic_rotation_loss(rot_pred, batch.y)
+        
         root_tgt = batch.root_tgt_norm.view(batch.num_graphs, -1) 
         loss_root = mse(out['root_norm'], root_tgt)
+
         loss = loss_rot + root_loss_weight * loss_root
         loss.backward()
         optimizer.step()
@@ -119,10 +127,13 @@ for epoch in range(1, epochs + 1):
         for batch in tqdm(val_loader, desc="Val", leave=False):
             batch = batch.to(device)
             out = model(batch)
-            # loss_rot = mse(out['rot'], batch.y)
-            loss_rot = geodesic_rotation_loss(out['rot'], batch.y)
+            
+            rot_pred = out["rot"].view(batch.num_graphs * J, F_target * node_features)
+            loss_rot = geodesic_rotation_loss(rot_pred, batch.y)
+            
             root_tgt = batch.root_tgt_norm.view(batch.num_graphs, -1) 
             loss_root = mse(out['root_norm'], root_tgt)
+            
             loss = loss_rot + root_loss_weight * loss_root
             total_val_loss += loss.item() * batch.num_graphs
             total_rot_loss += loss_rot.item() * batch.num_graphs
@@ -130,7 +141,6 @@ for epoch in range(1, epochs + 1):
 
     avg_val_loss = total_val_loss / len(val_dataset)
     log_str(f"Validation loss:                    {avg_val_loss:.7f}")
-    # log_str(f"Validation MSE 6D rotations:      {total_rot_loss / len(val_dataset):.7f}")
     log_str(f"Validation Geo Loss 6D rotations:   {total_rot_loss / len(val_dataset):.7f}")
     log_str(f"Validation MSE root positions:      {total_root_loss / len(val_dataset):.7f}")
     

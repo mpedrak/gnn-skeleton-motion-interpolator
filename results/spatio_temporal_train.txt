@@ -1,0 +1,552 @@
+
+--- Epoch 1/200 ---
+Train loss:                         0.8838119
+Validation loss:                    0.5813488
+Validation Geo Loss 6D rotations:   0.5170514
+Validation MSE root positions:      0.6429735
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/spatio_temporal.pth
+
+--- Epoch 2/200 ---
+Train loss:                         0.5802837
+Validation loss:                    0.5517759
+Validation Geo Loss 6D rotations:   0.5156597
+Validation MSE root positions:      0.3611620
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/spatio_temporal.pth
+
+--- Epoch 3/200 ---
+Train loss:                         0.5496536
+Validation loss:                    0.5124948
+Validation Geo Loss 6D rotations:   0.4806755
+Validation MSE root positions:      0.3181929
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/spatio_temporal.pth
+
+--- Epoch 4/200 ---
+Train loss:                         0.5026198
+Validation loss:                    0.4876603
+Validation Geo Loss 6D rotations:   0.4592115
+Validation MSE root positions:      0.2844878
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/spatio_temporal.pth
+
+--- Epoch 5/200 ---
+Train loss:                         0.4722802
+Validation loss:                    0.4396600
+Validation Geo Loss 6D rotations:   0.4133423
+Validation MSE root positions:      0.2631770
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/spatio_temporal.pth
+
+--- Epoch 6/200 ---
+Train loss:                         0.4374972
+Validation loss:                    0.4196221
+Validation Geo Loss 6D rotations:   0.3946299
+Validation MSE root positions:      0.2499225
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/spatio_temporal.pth
+
+--- Epoch 7/200 ---
+Train loss:                         0.4143714
+Validation loss:                    0.3967247
+Validation Geo Loss 6D rotations:   0.3727403
+Validation MSE root positions:      0.2398439
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/spatio_temporal.pth
+
+--- Epoch 8/200 ---
+Train loss:                         0.3943551
+Validation loss:                    0.3814815
+Validation Geo Loss 6D rotations:   0.3584801
+Validation MSE root positions:      0.2300142
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/spatio_temporal.pth
+
+--- Epoch 9/200 ---
+Train loss:                         0.3800803
+Validation loss:                    0.3676360
+Validation Geo Loss 6D rotations:   0.3454698
+Validation MSE root positions:      0.2216620
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/spatio_temporal.pth
+
+--- Epoch 10/200 ---
+Train loss:                         0.3666602
+Validation loss:                    0.3533130
+Validation Geo Loss 6D rotations:   0.3319181
+Validation MSE root positions:      0.2139491
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/spatio_temporal.pth
+
+--- Epoch 11/200 ---
+Train loss:                         0.3558114
+Validation loss:                    0.3464949
+Validation Geo Loss 6D rotations:   0.3257477
+Validation MSE root positions:      0.2074715
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/spatio_temporal.pth
+
+--- Epoch 12/200 ---
+Train loss:                         0.3501539
+Validation loss:                    0.3390612
+Validation Geo Loss 6D rotations:   0.3188139
+Validation MSE root positions:      0.2024730
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/spatio_temporal.pth
+
+--- Epoch 13/200 ---
+Train loss:                         0.3430710
+Validation loss:                    0.3355138
+Validation Geo Loss 6D rotations:   0.3157609
+Validation MSE root positions:      0.1975289
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/spatio_temporal.pth
+
+--- Epoch 14/200 ---
+Train loss:                         0.3381759
+Validation loss:                    0.3325889
+Validation Geo Loss 6D rotations:   0.3132144
+Validation MSE root positions:      0.1937454
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/spatio_temporal.pth
+
+--- Epoch 15/200 ---
+Train loss:                         0.3343616
+Validation loss:                    0.3274125
+Validation Geo Loss 6D rotations:   0.3084055
+Validation MSE root positions:      0.1900700
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/spatio_temporal.pth
+
+--- Epoch 16/200 ---
+Train loss:                         0.3294309
+Validation loss:                    0.3225319
+Validation Geo Loss 6D rotations:   0.3038435
+Validation MSE root positions:      0.1868837
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/spatio_temporal.pth
+
+--- Epoch 17/200 ---
+Train loss:                         0.3255111
+Validation loss:                    0.3189842
+Validation Geo Loss 6D rotations:   0.3006169
+Validation MSE root positions:      0.1836737
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/spatio_temporal.pth
+
+--- Epoch 18/200 ---
+Train loss:                         0.3220123
+Validation loss:                    0.3142668
+Validation Geo Loss 6D rotations:   0.2961604
+Validation MSE root positions:      0.1810638
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/spatio_temporal.pth
+
+--- Epoch 19/200 ---
+Train loss:                         0.3180997
+Validation loss:                    0.3114121
+Validation Geo Loss 6D rotations:   0.2936104
+Validation MSE root positions:      0.1780175
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/spatio_temporal.pth
+
+--- Epoch 20/200 ---
+Train loss:                         0.3149466
+Validation loss:                    0.3103425
+Validation Geo Loss 6D rotations:   0.2927865
+Validation MSE root positions:      0.1755603
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/spatio_temporal.pth
+
+--- Epoch 21/200 ---
+Train loss:                         0.3118331
+Validation loss:                    0.3070405
+Validation Geo Loss 6D rotations:   0.2897435
+Validation MSE root positions:      0.1729697
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/spatio_temporal.pth
+
+--- Epoch 22/200 ---
+Train loss:                         0.3171977
+Validation loss:                    0.3076713
+Validation Geo Loss 6D rotations:   0.2906111
+Validation MSE root positions:      0.1706025
+No improvement in validation loss for 1 epochs
+
+--- Epoch 23/200 ---
+Train loss:                         0.3122565
+Validation loss:                    0.3039718
+Validation Geo Loss 6D rotations:   0.2871589
+Validation MSE root positions:      0.1681294
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/spatio_temporal.pth
+
+--- Epoch 24/200 ---
+Train loss:                         0.3053336
+Validation loss:                    0.3004835
+Validation Geo Loss 6D rotations:   0.2838838
+Validation MSE root positions:      0.1659972
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/spatio_temporal.pth
+
+--- Epoch 25/200 ---
+Train loss:                         0.3023427
+Validation loss:                    0.2977539
+Validation Geo Loss 6D rotations:   0.2813020
+Validation MSE root positions:      0.1645191
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/spatio_temporal.pth
+
+--- Epoch 26/200 ---
+Train loss:                         0.2996388
+Validation loss:                    0.2955392
+Validation Geo Loss 6D rotations:   0.2792981
+Validation MSE root positions:      0.1624104
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/spatio_temporal.pth
+
+--- Epoch 27/200 ---
+Train loss:                         0.2980572
+Validation loss:                    0.2933037
+Validation Geo Loss 6D rotations:   0.2773070
+Validation MSE root positions:      0.1599662
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/spatio_temporal.pth
+
+--- Epoch 28/200 ---
+Train loss:                         0.2949661
+Validation loss:                    0.2929066
+Validation Geo Loss 6D rotations:   0.2770682
+Validation MSE root positions:      0.1583843
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/spatio_temporal.pth
+
+--- Epoch 29/200 ---
+Train loss:                         0.2925461
+Validation loss:                    0.2895895
+Validation Geo Loss 6D rotations:   0.2739523
+Validation MSE root positions:      0.1563721
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/spatio_temporal.pth
+
+--- Epoch 30/200 ---
+Train loss:                         0.2903293
+Validation loss:                    0.2855340
+Validation Geo Loss 6D rotations:   0.2700751
+Validation MSE root positions:      0.1545890
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/spatio_temporal.pth
+
+--- Epoch 31/200 ---
+Train loss:                         0.2873744
+Validation loss:                    0.2837667
+Validation Geo Loss 6D rotations:   0.2684386
+Validation MSE root positions:      0.1532808
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/spatio_temporal.pth
+
+--- Epoch 32/200 ---
+Train loss:                         0.2854625
+Validation loss:                    0.2813282
+Validation Geo Loss 6D rotations:   0.2661926
+Validation MSE root positions:      0.1513561
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/spatio_temporal.pth
+
+--- Epoch 33/200 ---
+Train loss:                         0.2834859
+Validation loss:                    0.2813406
+Validation Geo Loss 6D rotations:   0.2663541
+Validation MSE root positions:      0.1498652
+No improvement in validation loss for 1 epochs
+
+--- Epoch 34/200 ---
+Train loss:                         0.2814054
+Validation loss:                    0.2786907
+Validation Geo Loss 6D rotations:   0.2638556
+Validation MSE root positions:      0.1483509
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/spatio_temporal.pth
+
+--- Epoch 35/200 ---
+Train loss:                         0.2792490
+Validation loss:                    0.2767249
+Validation Geo Loss 6D rotations:   0.2620588
+Validation MSE root positions:      0.1466613
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/spatio_temporal.pth
+
+--- Epoch 36/200 ---
+Train loss:                         0.2779007
+Validation loss:                    0.2744210
+Validation Geo Loss 6D rotations:   0.2598308
+Validation MSE root positions:      0.1459019
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/spatio_temporal.pth
+
+--- Epoch 37/200 ---
+Train loss:                         0.2804548
+Validation loss:                    0.2753969
+Validation Geo Loss 6D rotations:   0.2609827
+Validation MSE root positions:      0.1441421
+No improvement in validation loss for 1 epochs
+
+--- Epoch 38/200 ---
+Train loss:                         0.2756211
+Validation loss:                    0.2733233
+Validation Geo Loss 6D rotations:   0.2590351
+Validation MSE root positions:      0.1428822
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/spatio_temporal.pth
+
+--- Epoch 39/200 ---
+Train loss:                         0.2732061
+Validation loss:                    0.2722229
+Validation Geo Loss 6D rotations:   0.2580257
+Validation MSE root positions:      0.1419726
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/spatio_temporal.pth
+
+--- Epoch 40/200 ---
+Train loss:                         0.2719943
+Validation loss:                    0.2702064
+Validation Geo Loss 6D rotations:   0.2561425
+Validation MSE root positions:      0.1406381
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/spatio_temporal.pth
+
+--- Epoch 41/200 ---
+Train loss:                         0.2701457
+Validation loss:                    0.2704795
+Validation Geo Loss 6D rotations:   0.2565117
+Validation MSE root positions:      0.1396785
+No improvement in validation loss for 1 epochs
+
+--- Epoch 42/200 ---
+Train loss:                         0.2694933
+Validation loss:                    0.2679811
+Validation Geo Loss 6D rotations:   0.2541310
+Validation MSE root positions:      0.1385012
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/spatio_temporal.pth
+
+--- Epoch 43/200 ---
+Train loss:                         0.2677171
+Validation loss:                    0.2688319
+Validation Geo Loss 6D rotations:   0.2550842
+Validation MSE root positions:      0.1374768
+No improvement in validation loss for 1 epochs
+
+--- Epoch 44/200 ---
+Train loss:                         0.2664965
+Validation loss:                    0.2655859
+Validation Geo Loss 6D rotations:   0.2519437
+Validation MSE root positions:      0.1364217
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/spatio_temporal.pth
+
+--- Epoch 45/200 ---
+Train loss:                         0.2649546
+Validation loss:                    0.2638122
+Validation Geo Loss 6D rotations:   0.2502214
+Validation MSE root positions:      0.1359078
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/spatio_temporal.pth
+
+--- Epoch 46/200 ---
+Train loss:                         0.2637491
+Validation loss:                    0.2632028
+Validation Geo Loss 6D rotations:   0.2496643
+Validation MSE root positions:      0.1353852
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/spatio_temporal.pth
+
+--- Epoch 47/200 ---
+Train loss:                         0.2627970
+Validation loss:                    0.2628348
+Validation Geo Loss 6D rotations:   0.2494529
+Validation MSE root positions:      0.1338191
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/spatio_temporal.pth
+
+--- Epoch 48/200 ---
+Train loss:                         0.2614695
+Validation loss:                    0.2610943
+Validation Geo Loss 6D rotations:   0.2477137
+Validation MSE root positions:      0.1338062
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/spatio_temporal.pth
+
+--- Epoch 49/200 ---
+Train loss:                         0.2601855
+Validation loss:                    0.2593264
+Validation Geo Loss 6D rotations:   0.2460675
+Validation MSE root positions:      0.1325893
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/spatio_temporal.pth
+
+--- Epoch 50/200 ---
+Train loss:                         0.2589886
+Validation loss:                    0.2596544
+Validation Geo Loss 6D rotations:   0.2464737
+Validation MSE root positions:      0.1318068
+No improvement in validation loss for 1 epochs
+
+--- Epoch 51/200 ---
+Train loss:                         0.2581536
+Validation loss:                    0.2589876
+Validation Geo Loss 6D rotations:   0.2458742
+Validation MSE root positions:      0.1311340
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/spatio_temporal.pth
+
+--- Epoch 52/200 ---
+Train loss:                         0.2567301
+Validation loss:                    0.2594401
+Validation Geo Loss 6D rotations:   0.2463896
+Validation MSE root positions:      0.1305049
+No improvement in validation loss for 1 epochs
+
+--- Epoch 53/200 ---
+Train loss:                         0.2556927
+Validation loss:                    0.2563977
+Validation Geo Loss 6D rotations:   0.2433849
+Validation MSE root positions:      0.1301278
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/spatio_temporal.pth
+
+--- Epoch 54/200 ---
+Train loss:                         0.2547545
+Validation loss:                    0.2554691
+Validation Geo Loss 6D rotations:   0.2425089
+Validation MSE root positions:      0.1296027
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/spatio_temporal.pth
+
+--- Epoch 55/200 ---
+Train loss:                         0.2532679
+Validation loss:                    0.2549543
+Validation Geo Loss 6D rotations:   0.2420432
+Validation MSE root positions:      0.1291112
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/spatio_temporal.pth
+
+--- Epoch 56/200 ---
+Train loss:                         0.2524069
+Validation loss:                    0.2536872
+Validation Geo Loss 6D rotations:   0.2407601
+Validation MSE root positions:      0.1292706
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/spatio_temporal.pth
+
+--- Epoch 57/200 ---
+Train loss:                         0.2515135
+Validation loss:                    0.2532066
+Validation Geo Loss 6D rotations:   0.2404038
+Validation MSE root positions:      0.1280283
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/spatio_temporal.pth
+
+--- Epoch 58/200 ---
+Train loss:                         0.2505258
+Validation loss:                    0.2523892
+Validation Geo Loss 6D rotations:   0.2396768
+Validation MSE root positions:      0.1271238
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/spatio_temporal.pth
+
+--- Epoch 59/200 ---
+Train loss:                         0.2500568
+Validation loss:                    0.2512212
+Validation Geo Loss 6D rotations:   0.2385103
+Validation MSE root positions:      0.1271087
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/spatio_temporal.pth
+
+--- Epoch 60/200 ---
+Train loss:                         0.2485319
+Validation loss:                    0.2508092
+Validation Geo Loss 6D rotations:   0.2381644
+Validation MSE root positions:      0.1264484
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/spatio_temporal.pth
+
+--- Epoch 61/200 ---
+Train loss:                         0.2472546
+Validation loss:                    0.2495848
+Validation Geo Loss 6D rotations:   0.2369932
+Validation MSE root positions:      0.1259162
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/spatio_temporal.pth
+
+--- Epoch 62/200 ---
+Train loss:                         0.2468424
+Validation loss:                    0.2488329
+Validation Geo Loss 6D rotations:   0.2362912
+Validation MSE root positions:      0.1254164
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/spatio_temporal.pth
+
+--- Epoch 63/200 ---
+Train loss:                         0.2513207
+Validation loss:                    0.2494758
+Validation Geo Loss 6D rotations:   0.2369559
+Validation MSE root positions:      0.1251984
+No improvement in validation loss for 1 epochs
+
+--- Epoch 64/200 ---
+Train loss:                         0.2451096
+Validation loss:                    0.2482230
+Validation Geo Loss 6D rotations:   0.2357808
+Validation MSE root positions:      0.1244221
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/spatio_temporal.pth
+
+--- Epoch 65/200 ---
+Train loss:                         0.2444941
+Validation loss:                    0.2468664
+Validation Geo Loss 6D rotations:   0.2344569
+Validation MSE root positions:      0.1240951
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/spatio_temporal.pth
+
+--- Epoch 66/200 ---
+Train loss:                         0.2431978
+Validation loss:                    0.2472745
+Validation Geo Loss 6D rotations:   0.2349215
+Validation MSE root positions:      0.1235295
+No improvement in validation loss for 1 epochs
+
+--- Epoch 67/200 ---
+Train loss:                         0.2425319
+Validation loss:                    0.2455447
+Validation Geo Loss 6D rotations:   0.2332384
+Validation MSE root positions:      0.1230626
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/spatio_temporal.pth
+
+--- Epoch 68/200 ---
+Train loss:                         0.2415559
+Validation loss:                    0.2453933
+Validation Geo Loss 6D rotations:   0.2330765
+Validation MSE root positions:      0.1231680
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/spatio_temporal.pth
+
+--- Epoch 69/200 ---
+Train loss:                         0.2405140
+Validation loss:                    0.2441435
+Validation Geo Loss 6D rotations:   0.2318932
+Validation MSE root positions:      0.1225029
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/spatio_temporal.pth
+
+--- Epoch 70/200 ---
+Train loss:                         0.2399863
+Validation loss:                    0.2594363
+Validation Geo Loss 6D rotations:   0.2471873
+Validation MSE root positions:      0.1224897
+No improvement in validation loss for 1 epochs
+
+--- Epoch 71/200 ---

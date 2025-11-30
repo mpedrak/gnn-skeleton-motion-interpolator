@@ -93,3 +93,37 @@ def compute_root_deltas(root_pos):
     deltas[1 : ] = root_pos[1 : ] - root_pos[ : -1]
     deltas = torch.tensor(deltas, dtype=torch.float32)
     return deltas
+
+
+def build_spatio_temporal_edge_index(F, J, base_edge_index):
+    # Nodes: (frame, joint), node_id = frame * num_joints + joint
+    
+    spatial_edges = [] # Copy of spatial (skeleton) edges for each frame
+    for t in range(0, F):
+        offset = t * J
+        parents = base_edge_index[0] + offset  
+        childs = base_edge_index[1] + offset  
+        spatial_edges.append(torch.stack([parents, childs], dim=0)) 
+
+    spatial_edge_index = torch.cat(spatial_edges, dim=1) 
+
+    temporal_edges = [] # Temporal edges between consecutive frames
+    if F > 1:
+        joints = torch.arange(J, dtype=torch.long) 
+        for t in range(0, F - 1):
+            offset_t = t * J
+            offset_t_next = (t + 1) * J
+
+            nodes_t = joints + offset_t   
+            nodes_t_next = joints + offset_t_next 
+
+            e_forward = torch.stack([nodes_t, nodes_t_next], dim=0)  
+            e_backward = torch.stack([nodes_t_next, nodes_t], dim=0)  
+
+            temporal_edges.append(e_forward)
+            temporal_edges.append(e_backward)
+
+    temporal_edge_index = torch.cat(temporal_edges, dim=1)  
+    edge_index = torch.cat([spatial_edge_index, temporal_edge_index], dim=1)
+    
+    return edge_index
