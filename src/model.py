@@ -50,11 +50,12 @@ class SkeletalMotionInterpolator(nn.Module):
         rot_pred = self.fc_rot(x) 
 
         root_ctx_norm = data.root_ctx_norm  
-        if root_ctx_norm.dim() == 1:
-            total_len = len(root_ctx_norm)
-            expected = self.context_len * self.graph_features
-            batch_size = total_len // expected
-            root_ctx_norm = root_ctx_norm.view(batch_size, expected)
+        if root_ctx_norm.dim() != 1: root_ctx_norm = root_ctx_norm.view(-1)
+
+        total_len = len(root_ctx_norm)
+        per_graph = self.context_len * self.graph_features
+        batch_size = total_len // per_graph
+        root_ctx_norm = root_ctx_norm.view(batch_size, per_graph)
        
         root_norm_pred = self.root_head(root_ctx_norm) 
 

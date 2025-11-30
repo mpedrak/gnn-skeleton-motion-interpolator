@@ -3,7 +3,7 @@ import torch
 
 from bvh import Bvh 
 
-from .rotation import euler_to_rot_6d
+from .rotation import euler_zyx_to_rot_6d
 
 
 def parse_bvh_file(filepath):
@@ -39,7 +39,8 @@ def parse_bvh_file(filepath):
                 float(mocap.frame_joint_channel(f, node.name, ch)) * np.pi / 180.0
                 for f in range(0, num_frames)], dtype=np.float32)
 
-    rot_6d = euler_to_rot_6d(angles_euler) # [F, J, 6]
+    rot_6d = euler_zyx_to_rot_6d(angles_euler) # [F, J, 6]
+    rot_6d = torch.tensor(rot_6d, dtype=torch.float32)
 
     print(f"Parsed {num_frames} frames")
 
@@ -52,7 +53,7 @@ def build_edge_index_from_parents(parent_indices):
         if parent_idx != -1:
             edges.append([parent_idx, child_idx])
 
-    edge_index = torch.tensor(edges, dtype=torch.long).t().contiguous()
+    edge_index = torch.tensor(edges, dtype=torch.long).t().contiguous() # For torch geometric edge_index format
     return edge_index
 
 

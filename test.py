@@ -8,6 +8,7 @@ from tqdm import tqdm
 
 from src.dataset import GraphSkeletonDataset
 from src.model import SkeletalMotionInterpolator
+from src.utils.rotation import geodesic_rotation_loss
 
 
 config_dir = "./config/"
@@ -40,7 +41,8 @@ def evaluate(model, loader, root_loss_weight):
         for batch in tqdm(loader, desc="Test", leave=False):
             batch = batch.to(device)
             out = model(batch)
-            loss_rot = mse(out['rot'], batch.y)
+            # loss_rot = mse(out['rot'], batch.y)
+            loss_rot = geodesic_rotation_loss(out['rot'], batch.y)
             root_tgt = batch.root_tgt_norm.view(batch.num_graphs, -1) 
             loss_root = mse(out['root_norm'], root_tgt)
             loss = loss_rot + root_loss_weight * loss_root
@@ -109,6 +111,8 @@ def log_str(str):
         log_file.write(str + "\n")
 
 log_str("\n--- Test Results ---")
-log_str(f"MSE 6D rotations:                          {results['rot_6d_mse']:.7f}")
+# log_str(f"MSE 6D rotations:                          {results['rot_6d_mse']:.7f}")
+log_str(f"Geo Loss 6D rotations:                     {results['rot_6d_mse']:.7f}")
 log_str(f"MSE root positions (normalized deltas):    {results['root_mse_norm']:.7f}")
-log_str(f"MSE sum (with root loss weight):           {results['overall_mse']:.7f}")
+# log_str(f"MSE sum (with root loss weight):           {results['overall_mse']:.7f}")
+log_str(f"Loss sum (with root loss weight):          {results['overall_mse']:.7f}")

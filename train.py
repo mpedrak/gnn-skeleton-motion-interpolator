@@ -10,6 +10,7 @@ from torch.utils.data import random_split
 
 from src.dataset import GraphSkeletonDataset
 from src.model import SkeletalMotionInterpolator
+from src.utils.rotation import geodesic_rotation_loss
 
 
 config_dir = "./config/"
@@ -98,7 +99,8 @@ for epoch in range(1, epochs + 1):
         batch = batch.to(device)
         optimizer.zero_grad()
         out = model(batch)
-        loss_rot = mse(out['rot'], batch.y)
+        # loss_rot = mse(out['rot'], batch.y)
+        loss_rot = geodesic_rotation_loss(out['rot'], batch.y)
         root_tgt = batch.root_tgt_norm.view(batch.num_graphs, -1) 
         loss_root = mse(out['root_norm'], root_tgt)
         loss = loss_rot + root_loss_weight * loss_root
@@ -107,7 +109,7 @@ for epoch in range(1, epochs + 1):
         total_train_loss += loss.item() * batch.num_graphs
 
     avg_train_loss = total_train_loss / len(train_dataset)
-    log_str(f"Train loss:                      {avg_train_loss:.7f}")
+    log_str(f"Train loss:                         {avg_train_loss:.7f}")
 
     model.eval()
     total_val_loss = 0.0
@@ -117,7 +119,8 @@ for epoch in range(1, epochs + 1):
         for batch in tqdm(val_loader, desc="Val", leave=False):
             batch = batch.to(device)
             out = model(batch)
-            loss_rot = mse(out['rot'], batch.y)
+            # loss_rot = mse(out['rot'], batch.y)
+            loss_rot = geodesic_rotation_loss(out['rot'], batch.y)
             root_tgt = batch.root_tgt_norm.view(batch.num_graphs, -1) 
             loss_root = mse(out['root_norm'], root_tgt)
             loss = loss_rot + root_loss_weight * loss_root
@@ -126,9 +129,10 @@ for epoch in range(1, epochs + 1):
             total_root_loss += loss_root.item() * batch.num_graphs
 
     avg_val_loss = total_val_loss / len(val_dataset)
-    log_str(f"Validation loss:                 {avg_val_loss:.7f}")
-    log_str(f"Validation MSE 6D rotations:     {total_rot_loss / len(val_dataset):.7f}")
-    log_str(f"Validation MSE root positions:   {total_root_loss / len(val_dataset):.7f}")
+    log_str(f"Validation loss:                    {avg_val_loss:.7f}")
+    # log_str(f"Validation MSE 6D rotations:      {total_rot_loss / len(val_dataset):.7f}")
+    log_str(f"Validation Geo Loss 6D rotations:   {total_rot_loss / len(val_dataset):.7f}")
+    log_str(f"Validation MSE root positions:      {total_root_loss / len(val_dataset):.7f}")
     
     if avg_val_loss < best_val_loss:
         best_val_loss = avg_val_loss

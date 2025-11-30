@@ -33,7 +33,7 @@ class GraphSkeletonDataset(Dataset):
                 root_deltas = compute_root_deltas(root_pos)
                 data = {
                     'root_deltas': root_deltas,
-                    'rot_6d': torch.tensor(rot_6d, dtype=torch.float),
+                    'rot_6d': rot_6d,
                     'joint_names': joint_names,
                     'parent_indices': parent_indices
                 }
@@ -45,7 +45,7 @@ class GraphSkeletonDataset(Dataset):
 
             frames = data['rot_6d'].shape[0]
             used_frames = context_len_pre + context_len_post + target_len
-            for start in range(1, frames - used_frames, step):
+            for start in range(50, frames - used_frames, step):
                 self.samples.append((fname, start))
 
         first_data = self.cache[self.files[0]]
