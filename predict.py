@@ -50,17 +50,22 @@ def predict_gap(model, device, rot_6d, root_pos, parent_indices, context_len_pre
     first_part_rot = rot_6d[gap_start - context_len_pre : gap_start]
     second_part_rot = rot_6d[second_start : second_start + context_len_post]
     rot_ctx = np.concatenate([first_part_rot, second_part_rot], axis=0)
-    x_feat = torch.tensor(rot_ctx, dtype=torch.float32).view(-1, 6).to(device) # [F * J, 6]
+    # x_feat = torch.tensor(rot_ctx, dtype=torch.float32).view(-1, 6).to(device) # [F * J, 6]
+    x_feat = torch.tensor(rot_ctx, dtype=torch.float32).permute(1, 0, 2).reshape(J, -1) # [J, F * 6]
 
-    root_pos_deltas = compute_root_deltas(root_pos) 
-    first_part_root = root_pos_deltas[gap_start - context_len_pre : gap_start]
-    second_part_root = root_pos_deltas[second_start : second_start + context_len_post]
+    first_part_root = root_pos[gap_start - context_len_pre : gap_start]
+    first_part_root = compute_root_deltas(first_part_root)
+
+    second_part_root = root_pos[second_start : second_start + context_len_post]
+    second_part_root = compute_root_deltas(second_part_root)
+    
     root_ctx_delta = torch.cat([first_part_root, second_part_root], dim=0).to(device) 
 
     root_ctx_norm = ((root_ctx_delta - root_mean) / root_std).reshape(-1)
 
-    base_edge_index = build_edge_index_from_parents(parent_indices)
-    edge_index = build_spatio_temporal_edge_index(context_len_pre + context_len_post, J, base_edge_index)
+    # base_edge_index = build_edge_index_from_parents(parent_indices)
+    # edge_index = build_spatio_temporal_edge_index(context_len_pre + context_len_post, J, base_edge_index)
+    edge_index = build_edge_index_from_parents(parent_indices)
 
     data = Data(
         x=x_feat,

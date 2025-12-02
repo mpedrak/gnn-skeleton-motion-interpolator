@@ -42,7 +42,8 @@ def evaluate(model, loader, root_loss_weight, J, F_target, node_features):
             batch = batch.to(device)
             out = model(batch)
 
-            rot_pred = out["rot"].view(batch.num_graphs * J, F_target * node_features)
+            # rot_pred = out["rot"].view(batch.num_graphs * J, F_target * node_features)
+            rot_pred = out["rot"]
             loss_rot = geodesic_rotation_loss(rot_pred, batch.y)
             
             root_tgt = batch.root_tgt_norm.view(batch.num_graphs, -1) 

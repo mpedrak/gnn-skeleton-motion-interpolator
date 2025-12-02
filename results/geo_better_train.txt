@@ -1,0 +1,3057 @@
+
+--- Epoch 1/500 ---
+Train loss:                         1.3708828
+Validation loss:                    1.1771174
+Validation Geo Loss 6D rotations:   1.1366171
+Validation MSE root positions:      0.8100073
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 2/500 ---
+Train loss:                         1.1665467
+Validation loss:                    1.1407182
+Validation Geo Loss 6D rotations:   1.1036404
+Validation MSE root positions:      0.7415542
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 3/500 ---
+Train loss:                         1.1375755
+Validation loss:                    1.1250667
+Validation Geo Loss 6D rotations:   1.0902828
+Validation MSE root positions:      0.6956778
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 4/500 ---
+Train loss:                         1.1207094
+Validation loss:                    1.1048887
+Validation Geo Loss 6D rotations:   1.0729736
+Validation MSE root positions:      0.6383016
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 5/500 ---
+Train loss:                         1.1023777
+Validation loss:                    1.0876457
+Validation Geo Loss 6D rotations:   1.0592309
+Validation MSE root positions:      0.5682947
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 6/500 ---
+Train loss:                         1.0882936
+Validation loss:                    1.0772915
+Validation Geo Loss 6D rotations:   1.0528409
+Validation MSE root positions:      0.4890117
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 7/500 ---
+Train loss:                         1.0775353
+Validation loss:                    1.0680525
+Validation Geo Loss 6D rotations:   1.0474916
+Validation MSE root positions:      0.4112169
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 8/500 ---
+Train loss:                         1.0687428
+Validation loss:                    1.0596914
+Validation Geo Loss 6D rotations:   1.0422208
+Validation MSE root positions:      0.3494138
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 9/500 ---
+Train loss:                         1.0614231
+Validation loss:                    1.0520331
+Validation Geo Loss 6D rotations:   1.0364840
+Validation MSE root positions:      0.3109824
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 10/500 ---
+Train loss:                         1.0549136
+Validation loss:                    1.0436774
+Validation Geo Loss 6D rotations:   1.0291390
+Validation MSE root positions:      0.2907678
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 11/500 ---
+Train loss:                         1.0478400
+Validation loss:                    1.0336042
+Validation Geo Loss 6D rotations:   1.0196504
+Validation MSE root positions:      0.2790754
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 12/500 ---
+Train loss:                         1.0387890
+Validation loss:                    1.0194284
+Validation Geo Loss 6D rotations:   1.0059065
+Validation MSE root positions:      0.2704385
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 13/500 ---
+Train loss:                         1.0234241
+Validation loss:                    0.9865742
+Validation Geo Loss 6D rotations:   0.9734324
+Validation MSE root positions:      0.2628361
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 14/500 ---
+Train loss:                         0.9798019
+Validation loss:                    0.9247974
+Validation Geo Loss 6D rotations:   0.9120136
+Validation MSE root positions:      0.2556761
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 15/500 ---
+Train loss:                         0.9356848
+Validation loss:                    0.8818098
+Validation Geo Loss 6D rotations:   0.8693615
+Validation MSE root positions:      0.2489648
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 16/500 ---
+Train loss:                         0.8957552
+Validation loss:                    0.8694926
+Validation Geo Loss 6D rotations:   0.8573584
+Validation MSE root positions:      0.2426840
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 17/500 ---
+Train loss:                         0.8749316
+Validation loss:                    0.8584677
+Validation Geo Loss 6D rotations:   0.8466242
+Validation MSE root positions:      0.2368696
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 18/500 ---
+Train loss:                         0.8610314
+Validation loss:                    0.8507862
+Validation Geo Loss 6D rotations:   0.8392009
+Validation MSE root positions:      0.2317055
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 19/500 ---
+Train loss:                         0.8507515
+Validation loss:                    0.8436173
+Validation Geo Loss 6D rotations:   0.8322618
+Validation MSE root positions:      0.2271101
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 20/500 ---
+Train loss:                         0.8420987
+Validation loss:                    0.8352163
+Validation Geo Loss 6D rotations:   0.8240600
+Validation MSE root positions:      0.2231265
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 21/500 ---
+Train loss:                         0.8347570
+Validation loss:                    0.8348230
+Validation Geo Loss 6D rotations:   0.8238383
+Validation MSE root positions:      0.2196944
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 22/500 ---
+Train loss:                         0.8277702
+Validation loss:                    0.8255663
+Validation Geo Loss 6D rotations:   0.8147258
+Validation MSE root positions:      0.2168102
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 23/500 ---
+Train loss:                         0.8204312
+Validation loss:                    0.8163923
+Validation Geo Loss 6D rotations:   0.8056769
+Validation MSE root positions:      0.2143082
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 24/500 ---
+Train loss:                         0.8057128
+Validation loss:                    0.7959038
+Validation Geo Loss 6D rotations:   0.7852967
+Validation MSE root positions:      0.2121430
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 25/500 ---
+Train loss:                         0.7183647
+Validation loss:                    0.5963384
+Validation Geo Loss 6D rotations:   0.5858280
+Validation MSE root positions:      0.2102082
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 26/500 ---
+Train loss:                         0.5891451
+Validation loss:                    0.5499855
+Validation Geo Loss 6D rotations:   0.5395688
+Validation MSE root positions:      0.2083342
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 27/500 ---
+Train loss:                         0.5547980
+Validation loss:                    0.5239013
+Validation Geo Loss 6D rotations:   0.5135662
+Validation MSE root positions:      0.2067024
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 28/500 ---
+Train loss:                         0.5290685
+Validation loss:                    0.5022212
+Validation Geo Loss 6D rotations:   0.4919649
+Validation MSE root positions:      0.2051251
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 29/500 ---
+Train loss:                         0.5059166
+Validation loss:                    0.4798323
+Validation Geo Loss 6D rotations:   0.4696510
+Validation MSE root positions:      0.2036254
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 30/500 ---
+Train loss:                         0.4833301
+Validation loss:                    0.4545020
+Validation Geo Loss 6D rotations:   0.4443899
+Validation MSE root positions:      0.2022426
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 31/500 ---
+Train loss:                         0.4610068
+Validation loss:                    0.4312893
+Validation Geo Loss 6D rotations:   0.4212438
+Validation MSE root positions:      0.2009101
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 32/500 ---
+Train loss:                         0.4405794
+Validation loss:                    0.4117486
+Validation Geo Loss 6D rotations:   0.4017641
+Validation MSE root positions:      0.1996888
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 33/500 ---
+Train loss:                         0.4253745
+Validation loss:                    0.3997292
+Validation Geo Loss 6D rotations:   0.3898060
+Validation MSE root positions:      0.1984630
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 34/500 ---
+Train loss:                         0.4140920
+Validation loss:                    0.3926326
+Validation Geo Loss 6D rotations:   0.3827674
+Validation MSE root positions:      0.1973037
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 35/500 ---
+Train loss:                         0.4054859
+Validation loss:                    0.3868960
+Validation Geo Loss 6D rotations:   0.3770849
+Validation MSE root positions:      0.1962215
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 36/500 ---
+Train loss:                         0.3980502
+Validation loss:                    0.3803511
+Validation Geo Loss 6D rotations:   0.3705979
+Validation MSE root positions:      0.1950640
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 37/500 ---
+Train loss:                         0.3914903
+Validation loss:                    0.3760598
+Validation Geo Loss 6D rotations:   0.3663576
+Validation MSE root positions:      0.1940443
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 38/500 ---
+Train loss:                         0.3842708
+Validation loss:                    0.3706111
+Validation Geo Loss 6D rotations:   0.3609586
+Validation MSE root positions:      0.1930487
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 39/500 ---
+Train loss:                         0.3782438
+Validation loss:                    0.3657094
+Validation Geo Loss 6D rotations:   0.3561055
+Validation MSE root positions:      0.1920794
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 40/500 ---
+Train loss:                         0.3724923
+Validation loss:                    0.3630831
+Validation Geo Loss 6D rotations:   0.3535237
+Validation MSE root positions:      0.1911884
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 41/500 ---
+Train loss:                         0.3666547
+Validation loss:                    0.3593127
+Validation Geo Loss 6D rotations:   0.3498009
+Validation MSE root positions:      0.1902371
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 42/500 ---
+Train loss:                         0.3612547
+Validation loss:                    0.3562290
+Validation Geo Loss 6D rotations:   0.3467615
+Validation MSE root positions:      0.1893504
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 43/500 ---
+Train loss:                         0.3570089
+Validation loss:                    0.3543415
+Validation Geo Loss 6D rotations:   0.3449172
+Validation MSE root positions:      0.1884864
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 44/500 ---
+Train loss:                         0.3530113
+Validation loss:                    0.3502948
+Validation Geo Loss 6D rotations:   0.3409111
+Validation MSE root positions:      0.1876759
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 45/500 ---
+Train loss:                         0.3485492
+Validation loss:                    0.3480171
+Validation Geo Loss 6D rotations:   0.3386735
+Validation MSE root positions:      0.1868715
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 46/500 ---
+Train loss:                         0.3447006
+Validation loss:                    0.3456822
+Validation Geo Loss 6D rotations:   0.3363809
+Validation MSE root positions:      0.1860262
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 47/500 ---
+Train loss:                         0.3407141
+Validation loss:                    0.3426253
+Validation Geo Loss 6D rotations:   0.3333598
+Validation MSE root positions:      0.1853088
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 48/500 ---
+Train loss:                         0.3354109
+Validation loss:                    0.3415914
+Validation Geo Loss 6D rotations:   0.3323664
+Validation MSE root positions:      0.1844991
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 49/500 ---
+Train loss:                         0.3281240
+Validation loss:                    0.3387564
+Validation Geo Loss 6D rotations:   0.3295676
+Validation MSE root positions:      0.1837758
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 50/500 ---
+Train loss:                         0.3170401
+Validation loss:                    0.3369689
+Validation Geo Loss 6D rotations:   0.3278185
+Validation MSE root positions:      0.1830095
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 51/500 ---
+Train loss:                         0.3038465
+Validation loss:                    0.3320242
+Validation Geo Loss 6D rotations:   0.3229089
+Validation MSE root positions:      0.1823061
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 52/500 ---
+Train loss:                         0.2941953
+Validation loss:                    0.3227688
+Validation Geo Loss 6D rotations:   0.3136918
+Validation MSE root positions:      0.1815405
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 53/500 ---
+Train loss:                         0.2874873
+Validation loss:                    0.3064416
+Validation Geo Loss 6D rotations:   0.2973976
+Validation MSE root positions:      0.1808788
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 54/500 ---
+Train loss:                         0.2818664
+Validation loss:                    0.2759240
+Validation Geo Loss 6D rotations:   0.2669169
+Validation MSE root positions:      0.1801416
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 55/500 ---
+Train loss:                         0.2776008
+Validation loss:                    0.2636872
+Validation Geo Loss 6D rotations:   0.2547115
+Validation MSE root positions:      0.1795138
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 56/500 ---
+Train loss:                         0.2741310
+Validation loss:                    0.2524527
+Validation Geo Loss 6D rotations:   0.2435127
+Validation MSE root positions:      0.1788000
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 57/500 ---
+Train loss:                         0.2707541
+Validation loss:                    0.2474434
+Validation Geo Loss 6D rotations:   0.2385367
+Validation MSE root positions:      0.1781334
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 58/500 ---
+Train loss:                         0.2677473
+Validation loss:                    0.2406367
+Validation Geo Loss 6D rotations:   0.2317638
+Validation MSE root positions:      0.1774581
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 59/500 ---
+Train loss:                         0.2652087
+Validation loss:                    0.2377772
+Validation Geo Loss 6D rotations:   0.2289380
+Validation MSE root positions:      0.1767852
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 60/500 ---
+Train loss:                         0.2626569
+Validation loss:                    0.2350676
+Validation Geo Loss 6D rotations:   0.2262610
+Validation MSE root positions:      0.1761320
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 61/500 ---
+Train loss:                         0.2604842
+Validation loss:                    0.2321700
+Validation Geo Loss 6D rotations:   0.2233922
+Validation MSE root positions:      0.1755554
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 62/500 ---
+Train loss:                         0.2581403
+Validation loss:                    0.2291745
+Validation Geo Loss 6D rotations:   0.2204313
+Validation MSE root positions:      0.1748633
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 63/500 ---
+Train loss:                         0.2562941
+Validation loss:                    0.2276844
+Validation Geo Loss 6D rotations:   0.2189739
+Validation MSE root positions:      0.1742084
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 64/500 ---
+Train loss:                         0.2544201
+Validation loss:                    0.2260751
+Validation Geo Loss 6D rotations:   0.2173963
+Validation MSE root positions:      0.1735754
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 65/500 ---
+Train loss:                         0.2525848
+Validation loss:                    0.2238332
+Validation Geo Loss 6D rotations:   0.2151854
+Validation MSE root positions:      0.1729565
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 66/500 ---
+Train loss:                         0.2505319
+Validation loss:                    0.2221118
+Validation Geo Loss 6D rotations:   0.2134932
+Validation MSE root positions:      0.1723712
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 67/500 ---
+Train loss:                         0.2490766
+Validation loss:                    0.2209392
+Validation Geo Loss 6D rotations:   0.2123522
+Validation MSE root positions:      0.1717409
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 68/500 ---
+Train loss:                         0.2472771
+Validation loss:                    0.2190770
+Validation Geo Loss 6D rotations:   0.2105200
+Validation MSE root positions:      0.1711387
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 69/500 ---
+Train loss:                         0.2458140
+Validation loss:                    0.2172601
+Validation Geo Loss 6D rotations:   0.2087313
+Validation MSE root positions:      0.1705759
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 70/500 ---
+Train loss:                         0.2441733
+Validation loss:                    0.2155000
+Validation Geo Loss 6D rotations:   0.2070048
+Validation MSE root positions:      0.1699041
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 71/500 ---
+Train loss:                         0.2426232
+Validation loss:                    0.2142114
+Validation Geo Loss 6D rotations:   0.2057425
+Validation MSE root positions:      0.1693768
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 72/500 ---
+Train loss:                         0.2410807
+Validation loss:                    0.2130433
+Validation Geo Loss 6D rotations:   0.2046084
+Validation MSE root positions:      0.1686980
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 73/500 ---
+Train loss:                         0.2395131
+Validation loss:                    0.2114083
+Validation Geo Loss 6D rotations:   0.2030003
+Validation MSE root positions:      0.1681614
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 74/500 ---
+Train loss:                         0.2380055
+Validation loss:                    0.2100293
+Validation Geo Loss 6D rotations:   0.2016524
+Validation MSE root positions:      0.1675392
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 75/500 ---
+Train loss:                         0.2367941
+Validation loss:                    0.2088626
+Validation Geo Loss 6D rotations:   0.2005158
+Validation MSE root positions:      0.1669351
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 76/500 ---
+Train loss:                         0.2353763
+Validation loss:                    0.2074959
+Validation Geo Loss 6D rotations:   0.1991775
+Validation MSE root positions:      0.1663683
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 77/500 ---
+Train loss:                         0.2339954
+Validation loss:                    0.2058793
+Validation Geo Loss 6D rotations:   0.1975874
+Validation MSE root positions:      0.1658383
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 78/500 ---
+Train loss:                         0.2325995
+Validation loss:                    0.2047157
+Validation Geo Loss 6D rotations:   0.1964547
+Validation MSE root positions:      0.1652197
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 79/500 ---
+Train loss:                         0.2313332
+Validation loss:                    0.2033342
+Validation Geo Loss 6D rotations:   0.1950979
+Validation MSE root positions:      0.1647258
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 80/500 ---
+Train loss:                         0.2301331
+Validation loss:                    0.2023093
+Validation Geo Loss 6D rotations:   0.1941056
+Validation MSE root positions:      0.1640742
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 81/500 ---
+Train loss:                         0.2289105
+Validation loss:                    0.2010562
+Validation Geo Loss 6D rotations:   0.1928815
+Validation MSE root positions:      0.1634935
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 82/500 ---
+Train loss:                         0.2276093
+Validation loss:                    0.2001967
+Validation Geo Loss 6D rotations:   0.1920506
+Validation MSE root positions:      0.1629224
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 83/500 ---
+Train loss:                         0.2265291
+Validation loss:                    0.1991177
+Validation Geo Loss 6D rotations:   0.1909992
+Validation MSE root positions:      0.1623709
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 84/500 ---
+Train loss:                         0.2253248
+Validation loss:                    0.1978355
+Validation Geo Loss 6D rotations:   0.1897443
+Validation MSE root positions:      0.1618242
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 85/500 ---
+Train loss:                         0.2244721
+Validation loss:                    0.1969761
+Validation Geo Loss 6D rotations:   0.1889137
+Validation MSE root positions:      0.1612469
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 86/500 ---
+Train loss:                         0.2231860
+Validation loss:                    0.1957755
+Validation Geo Loss 6D rotations:   0.1877427
+Validation MSE root positions:      0.1606544
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 87/500 ---
+Train loss:                         0.2222265
+Validation loss:                    0.1946494
+Validation Geo Loss 6D rotations:   0.1866443
+Validation MSE root positions:      0.1601027
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 88/500 ---
+Train loss:                         0.2210937
+Validation loss:                    0.1939973
+Validation Geo Loss 6D rotations:   0.1860209
+Validation MSE root positions:      0.1595278
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 89/500 ---
+Train loss:                         0.2201560
+Validation loss:                    0.1927730
+Validation Geo Loss 6D rotations:   0.1848226
+Validation MSE root positions:      0.1590094
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 90/500 ---
+Train loss:                         0.2190321
+Validation loss:                    0.1925451
+Validation Geo Loss 6D rotations:   0.1846249
+Validation MSE root positions:      0.1584042
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 91/500 ---
+Train loss:                         0.2183067
+Validation loss:                    0.1912900
+Validation Geo Loss 6D rotations:   0.1833977
+Validation MSE root positions:      0.1578464
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 92/500 ---
+Train loss:                         0.2173047
+Validation loss:                    0.1904863
+Validation Geo Loss 6D rotations:   0.1826216
+Validation MSE root positions:      0.1572923
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 93/500 ---
+Train loss:                         0.2162788
+Validation loss:                    0.1896024
+Validation Geo Loss 6D rotations:   0.1817665
+Validation MSE root positions:      0.1567178
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 94/500 ---
+Train loss:                         0.2153217
+Validation loss:                    0.1886850
+Validation Geo Loss 6D rotations:   0.1808750
+Validation MSE root positions:      0.1561988
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 95/500 ---
+Train loss:                         0.2145281
+Validation loss:                    0.1879756
+Validation Geo Loss 6D rotations:   0.1801959
+Validation MSE root positions:      0.1555928
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 96/500 ---
+Train loss:                         0.2135236
+Validation loss:                    0.1870171
+Validation Geo Loss 6D rotations:   0.1792627
+Validation MSE root positions:      0.1550882
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 97/500 ---
+Train loss:                         0.2124528
+Validation loss:                    0.1859050
+Validation Geo Loss 6D rotations:   0.1781783
+Validation MSE root positions:      0.1545358
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 98/500 ---
+Train loss:                         0.2117654
+Validation loss:                    0.1853100
+Validation Geo Loss 6D rotations:   0.1776101
+Validation MSE root positions:      0.1539983
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 99/500 ---
+Train loss:                         0.2108507
+Validation loss:                    0.1846248
+Validation Geo Loss 6D rotations:   0.1769536
+Validation MSE root positions:      0.1534229
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 100/500 ---
+Train loss:                         0.2100283
+Validation loss:                    0.1841660
+Validation Geo Loss 6D rotations:   0.1765175
+Validation MSE root positions:      0.1529713
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 101/500 ---
+Train loss:                         0.2094000
+Validation loss:                    0.1833387
+Validation Geo Loss 6D rotations:   0.1757213
+Validation MSE root positions:      0.1523483
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 102/500 ---
+Train loss:                         0.2086558
+Validation loss:                    0.1827608
+Validation Geo Loss 6D rotations:   0.1751646
+Validation MSE root positions:      0.1519229
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 103/500 ---
+Train loss:                         0.2076259
+Validation loss:                    0.1823782
+Validation Geo Loss 6D rotations:   0.1748085
+Validation MSE root positions:      0.1513924
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 104/500 ---
+Train loss:                         0.2070548
+Validation loss:                    0.1816714
+Validation Geo Loss 6D rotations:   0.1741328
+Validation MSE root positions:      0.1507717
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 105/500 ---
+Train loss:                         0.2063554
+Validation loss:                    0.1812122
+Validation Geo Loss 6D rotations:   0.1736991
+Validation MSE root positions:      0.1502632
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 106/500 ---
+Train loss:                         0.2056884
+Validation loss:                    0.1807122
+Validation Geo Loss 6D rotations:   0.1732240
+Validation MSE root positions:      0.1497639
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 107/500 ---
+Train loss:                         0.2051282
+Validation loss:                    0.1801633
+Validation Geo Loss 6D rotations:   0.1727015
+Validation MSE root positions:      0.1492356
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 108/500 ---
+Train loss:                         0.2043188
+Validation loss:                    0.1793078
+Validation Geo Loss 6D rotations:   0.1718691
+Validation MSE root positions:      0.1487744
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 109/500 ---
+Train loss:                         0.2036972
+Validation loss:                    0.1788023
+Validation Geo Loss 6D rotations:   0.1713889
+Validation MSE root positions:      0.1482688
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 110/500 ---
+Train loss:                         0.2031087
+Validation loss:                    0.1781566
+Validation Geo Loss 6D rotations:   0.1707673
+Validation MSE root positions:      0.1477855
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 111/500 ---
+Train loss:                         0.2024506
+Validation loss:                    0.1776637
+Validation Geo Loss 6D rotations:   0.1702966
+Validation MSE root positions:      0.1473423
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 112/500 ---
+Train loss:                         0.2019381
+Validation loss:                    0.1775658
+Validation Geo Loss 6D rotations:   0.1702241
+Validation MSE root positions:      0.1468340
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 113/500 ---
+Train loss:                         0.2012957
+Validation loss:                    0.1767360
+Validation Geo Loss 6D rotations:   0.1694194
+Validation MSE root positions:      0.1463317
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 114/500 ---
+Train loss:                         0.2007990
+Validation loss:                    0.1763060
+Validation Geo Loss 6D rotations:   0.1690137
+Validation MSE root positions:      0.1458454
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 115/500 ---
+Train loss:                         0.2000227
+Validation loss:                    0.1757486
+Validation Geo Loss 6D rotations:   0.1684810
+Validation MSE root positions:      0.1453523
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 116/500 ---
+Train loss:                         0.1993730
+Validation loss:                    0.1754639
+Validation Geo Loss 6D rotations:   0.1682182
+Validation MSE root positions:      0.1449122
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 117/500 ---
+Train loss:                         0.1988669
+Validation loss:                    0.1747169
+Validation Geo Loss 6D rotations:   0.1674944
+Validation MSE root positions:      0.1444496
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 118/500 ---
+Train loss:                         0.1983821
+Validation loss:                    0.1740758
+Validation Geo Loss 6D rotations:   0.1668736
+Validation MSE root positions:      0.1440442
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 119/500 ---
+Train loss:                         0.1978784
+Validation loss:                    0.1739336
+Validation Geo Loss 6D rotations:   0.1667547
+Validation MSE root positions:      0.1435788
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 120/500 ---
+Train loss:                         0.1971496
+Validation loss:                    0.1733643
+Validation Geo Loss 6D rotations:   0.1662072
+Validation MSE root positions:      0.1431419
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 121/500 ---
+Train loss:                         0.1965518
+Validation loss:                    0.1728445
+Validation Geo Loss 6D rotations:   0.1657050
+Validation MSE root positions:      0.1427907
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 122/500 ---
+Train loss:                         0.1960917
+Validation loss:                    0.1723291
+Validation Geo Loss 6D rotations:   0.1652172
+Validation MSE root positions:      0.1422391
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 123/500 ---
+Train loss:                         0.1955022
+Validation loss:                    0.1719377
+Validation Geo Loss 6D rotations:   0.1648455
+Validation MSE root positions:      0.1418448
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 124/500 ---
+Train loss:                         0.1949649
+Validation loss:                    0.1715000
+Validation Geo Loss 6D rotations:   0.1644222
+Validation MSE root positions:      0.1415567
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 125/500 ---
+Train loss:                         0.1951216
+Validation loss:                    0.1717914
+Validation Geo Loss 6D rotations:   0.1647364
+Validation MSE root positions:      0.1411005
+No improvement in validation loss for 1 epochs
+
+--- Epoch 126/500 ---
+Train loss:                         0.1942492
+Validation loss:                    0.1705634
+Validation Geo Loss 6D rotations:   0.1635327
+Validation MSE root positions:      0.1406139
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 127/500 ---
+Train loss:                         0.1933812
+Validation loss:                    0.1696739
+Validation Geo Loss 6D rotations:   0.1626603
+Validation MSE root positions:      0.1402725
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 128/500 ---
+Train loss:                         0.1929010
+Validation loss:                    0.1694526
+Validation Geo Loss 6D rotations:   0.1624584
+Validation MSE root positions:      0.1398848
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 129/500 ---
+Train loss:                         0.1922070
+Validation loss:                    0.1687862
+Validation Geo Loss 6D rotations:   0.1618089
+Validation MSE root positions:      0.1395463
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 130/500 ---
+Train loss:                         0.1915574
+Validation loss:                    0.1680785
+Validation Geo Loss 6D rotations:   0.1611225
+Validation MSE root positions:      0.1391204
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 131/500 ---
+Train loss:                         0.1910351
+Validation loss:                    0.1677047
+Validation Geo Loss 6D rotations:   0.1607615
+Validation MSE root positions:      0.1388642
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 132/500 ---
+Train loss:                         0.1902871
+Validation loss:                    0.1668000
+Validation Geo Loss 6D rotations:   0.1598786
+Validation MSE root positions:      0.1384278
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 133/500 ---
+Train loss:                         0.1895484
+Validation loss:                    0.1666904
+Validation Geo Loss 6D rotations:   0.1597891
+Validation MSE root positions:      0.1380242
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 134/500 ---
+Train loss:                         0.1897476
+Validation loss:                    0.1659660
+Validation Geo Loss 6D rotations:   0.1590770
+Validation MSE root positions:      0.1377799
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 135/500 ---
+Train loss:                         0.1886673
+Validation loss:                    0.1649053
+Validation Geo Loss 6D rotations:   0.1580357
+Validation MSE root positions:      0.1373909
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 136/500 ---
+Train loss:                         0.1878360
+Validation loss:                    0.1641008
+Validation Geo Loss 6D rotations:   0.1572447
+Validation MSE root positions:      0.1371220
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 137/500 ---
+Train loss:                         0.1870589
+Validation loss:                    0.1634670
+Validation Geo Loss 6D rotations:   0.1566210
+Validation MSE root positions:      0.1369202
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 138/500 ---
+Train loss:                         0.1864432
+Validation loss:                    0.1625727
+Validation Geo Loss 6D rotations:   0.1557487
+Validation MSE root positions:      0.1364794
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 139/500 ---
+Train loss:                         0.1857623
+Validation loss:                    0.1620100
+Validation Geo Loss 6D rotations:   0.1552052
+Validation MSE root positions:      0.1360957
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 140/500 ---
+Train loss:                         0.1851945
+Validation loss:                    0.1613678
+Validation Geo Loss 6D rotations:   0.1545747
+Validation MSE root positions:      0.1358625
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 141/500 ---
+Train loss:                         0.1843777
+Validation loss:                    0.1605937
+Validation Geo Loss 6D rotations:   0.1538178
+Validation MSE root positions:      0.1355184
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 142/500 ---
+Train loss:                         0.1837608
+Validation loss:                    0.1599081
+Validation Geo Loss 6D rotations:   0.1531436
+Validation MSE root positions:      0.1352915
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 143/500 ---
+Train loss:                         0.1830297
+Validation loss:                    0.1592273
+Validation Geo Loss 6D rotations:   0.1524788
+Validation MSE root positions:      0.1349705
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 144/500 ---
+Train loss:                         0.1823743
+Validation loss:                    0.1586645
+Validation Geo Loss 6D rotations:   0.1519337
+Validation MSE root positions:      0.1346164
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 145/500 ---
+Train loss:                         0.1818071
+Validation loss:                    0.1578887
+Validation Geo Loss 6D rotations:   0.1511685
+Validation MSE root positions:      0.1344038
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 146/500 ---
+Train loss:                         0.1810757
+Validation loss:                    0.1570654
+Validation Geo Loss 6D rotations:   0.1503586
+Validation MSE root positions:      0.1341345
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 147/500 ---
+Train loss:                         0.1803986
+Validation loss:                    0.1565040
+Validation Geo Loss 6D rotations:   0.1498016
+Validation MSE root positions:      0.1340495
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 148/500 ---
+Train loss:                         0.1798709
+Validation loss:                    0.1558834
+Validation Geo Loss 6D rotations:   0.1492018
+Validation MSE root positions:      0.1336320
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 149/500 ---
+Train loss:                         0.1793932
+Validation loss:                    0.1553833
+Validation Geo Loss 6D rotations:   0.1487122
+Validation MSE root positions:      0.1334234
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 150/500 ---
+Train loss:                         0.1784797
+Validation loss:                    0.1545948
+Validation Geo Loss 6D rotations:   0.1479366
+Validation MSE root positions:      0.1331654
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 151/500 ---
+Train loss:                         0.1777634
+Validation loss:                    0.1536885
+Validation Geo Loss 6D rotations:   0.1470413
+Validation MSE root positions:      0.1329434
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 152/500 ---
+Train loss:                         0.1771545
+Validation loss:                    0.1529932
+Validation Geo Loss 6D rotations:   0.1463615
+Validation MSE root positions:      0.1326333
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 153/500 ---
+Train loss:                         0.1764206
+Validation loss:                    0.1525069
+Validation Geo Loss 6D rotations:   0.1458845
+Validation MSE root positions:      0.1324482
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 154/500 ---
+Train loss:                         0.1758262
+Validation loss:                    0.1518564
+Validation Geo Loss 6D rotations:   0.1452426
+Validation MSE root positions:      0.1322753
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 155/500 ---
+Train loss:                         0.1752931
+Validation loss:                    0.1510314
+Validation Geo Loss 6D rotations:   0.1444382
+Validation MSE root positions:      0.1318639
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 156/500 ---
+Train loss:                         0.1746259
+Validation loss:                    0.1503546
+Validation Geo Loss 6D rotations:   0.1437676
+Validation MSE root positions:      0.1317404
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 157/500 ---
+Train loss:                         0.1741063
+Validation loss:                    0.1498810
+Validation Geo Loss 6D rotations:   0.1433088
+Validation MSE root positions:      0.1314426
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 158/500 ---
+Train loss:                         0.1733851
+Validation loss:                    0.1494197
+Validation Geo Loss 6D rotations:   0.1428555
+Validation MSE root positions:      0.1312856
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 159/500 ---
+Train loss:                         0.1729106
+Validation loss:                    0.1487569
+Validation Geo Loss 6D rotations:   0.1422056
+Validation MSE root positions:      0.1310242
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 160/500 ---
+Train loss:                         0.1722920
+Validation loss:                    0.1481831
+Validation Geo Loss 6D rotations:   0.1416409
+Validation MSE root positions:      0.1308451
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 161/500 ---
+Train loss:                         0.1718017
+Validation loss:                    0.1476698
+Validation Geo Loss 6D rotations:   0.1411374
+Validation MSE root positions:      0.1306467
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 162/500 ---
+Train loss:                         0.1712822
+Validation loss:                    0.1473260
+Validation Geo Loss 6D rotations:   0.1408048
+Validation MSE root positions:      0.1304253
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 163/500 ---
+Train loss:                         0.1707834
+Validation loss:                    0.1467394
+Validation Geo Loss 6D rotations:   0.1402258
+Validation MSE root positions:      0.1302728
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 164/500 ---
+Train loss:                         0.1702390
+Validation loss:                    0.1461673
+Validation Geo Loss 6D rotations:   0.1396684
+Validation MSE root positions:      0.1299771
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 165/500 ---
+Train loss:                         0.1697303
+Validation loss:                    0.1458361
+Validation Geo Loss 6D rotations:   0.1393440
+Validation MSE root positions:      0.1298417
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 166/500 ---
+Train loss:                         0.1692975
+Validation loss:                    0.1452407
+Validation Geo Loss 6D rotations:   0.1387597
+Validation MSE root positions:      0.1296195
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 167/500 ---
+Train loss:                         0.1688927
+Validation loss:                    0.1448439
+Validation Geo Loss 6D rotations:   0.1383560
+Validation MSE root positions:      0.1297586
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 168/500 ---
+Train loss:                         0.1683956
+Validation loss:                    0.1443998
+Validation Geo Loss 6D rotations:   0.1379354
+Validation MSE root positions:      0.1292873
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 169/500 ---
+Train loss:                         0.1679842
+Validation loss:                    0.1439950
+Validation Geo Loss 6D rotations:   0.1375369
+Validation MSE root positions:      0.1291617
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 170/500 ---
+Train loss:                         0.1673804
+Validation loss:                    0.1434185
+Validation Geo Loss 6D rotations:   0.1369704
+Validation MSE root positions:      0.1289632
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 171/500 ---
+Train loss:                         0.1668806
+Validation loss:                    0.1432749
+Validation Geo Loss 6D rotations:   0.1368358
+Validation MSE root positions:      0.1287821
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 172/500 ---
+Train loss:                         0.1664869
+Validation loss:                    0.1426229
+Validation Geo Loss 6D rotations:   0.1361975
+Validation MSE root positions:      0.1285092
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 173/500 ---
+Train loss:                         0.1661150
+Validation loss:                    0.1423108
+Validation Geo Loss 6D rotations:   0.1358883
+Validation MSE root positions:      0.1284506
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 174/500 ---
+Train loss:                         0.1656158
+Validation loss:                    0.1419077
+Validation Geo Loss 6D rotations:   0.1354965
+Validation MSE root positions:      0.1282239
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 175/500 ---
+Train loss:                         0.1652839
+Validation loss:                    0.1417131
+Validation Geo Loss 6D rotations:   0.1353077
+Validation MSE root positions:      0.1281081
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 176/500 ---
+Train loss:                         0.1648155
+Validation loss:                    0.1413668
+Validation Geo Loss 6D rotations:   0.1349664
+Validation MSE root positions:      0.1280083
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 177/500 ---
+Train loss:                         0.1644891
+Validation loss:                    0.1408666
+Validation Geo Loss 6D rotations:   0.1344783
+Validation MSE root positions:      0.1277652
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 178/500 ---
+Train loss:                         0.1640210
+Validation loss:                    0.1406265
+Validation Geo Loss 6D rotations:   0.1342457
+Validation MSE root positions:      0.1276174
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 179/500 ---
+Train loss:                         0.1636400
+Validation loss:                    0.1402232
+Validation Geo Loss 6D rotations:   0.1338530
+Validation MSE root positions:      0.1274043
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 180/500 ---
+Train loss:                         0.1630373
+Validation loss:                    0.1395655
+Validation Geo Loss 6D rotations:   0.1332048
+Validation MSE root positions:      0.1272141
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 181/500 ---
+Train loss:                         0.1627828
+Validation loss:                    0.1393466
+Validation Geo Loss 6D rotations:   0.1329919
+Validation MSE root positions:      0.1270959
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 182/500 ---
+Train loss:                         0.1624325
+Validation loss:                    0.1390394
+Validation Geo Loss 6D rotations:   0.1326904
+Validation MSE root positions:      0.1269802
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 183/500 ---
+Train loss:                         0.1620703
+Validation loss:                    0.1384566
+Validation Geo Loss 6D rotations:   0.1321166
+Validation MSE root positions:      0.1267995
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 184/500 ---
+Train loss:                         0.1616811
+Validation loss:                    0.1383701
+Validation Geo Loss 6D rotations:   0.1320356
+Validation MSE root positions:      0.1266900
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 185/500 ---
+Train loss:                         0.1612809
+Validation loss:                    0.1377687
+Validation Geo Loss 6D rotations:   0.1314432
+Validation MSE root positions:      0.1265092
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 186/500 ---
+Train loss:                         0.1610023
+Validation loss:                    0.1375439
+Validation Geo Loss 6D rotations:   0.1312271
+Validation MSE root positions:      0.1263362
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 187/500 ---
+Train loss:                         0.1606116
+Validation loss:                    0.1370094
+Validation Geo Loss 6D rotations:   0.1306991
+Validation MSE root positions:      0.1262056
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 188/500 ---
+Train loss:                         0.1600895
+Validation loss:                    0.1366197
+Validation Geo Loss 6D rotations:   0.1303155
+Validation MSE root positions:      0.1260847
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 189/500 ---
+Train loss:                         0.1597529
+Validation loss:                    0.1364064
+Validation Geo Loss 6D rotations:   0.1301079
+Validation MSE root positions:      0.1259692
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 190/500 ---
+Train loss:                         0.1592862
+Validation loss:                    0.1359795
+Validation Geo Loss 6D rotations:   0.1296856
+Validation MSE root positions:      0.1258789
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 191/500 ---
+Train loss:                         0.1590196
+Validation loss:                    0.1356234
+Validation Geo Loss 6D rotations:   0.1293391
+Validation MSE root positions:      0.1256872
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 192/500 ---
+Train loss:                         0.1585693
+Validation loss:                    0.1351861
+Validation Geo Loss 6D rotations:   0.1289095
+Validation MSE root positions:      0.1255330
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 193/500 ---
+Train loss:                         0.1582073
+Validation loss:                    0.1348634
+Validation Geo Loss 6D rotations:   0.1285890
+Validation MSE root positions:      0.1254868
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 194/500 ---
+Train loss:                         0.1577452
+Validation loss:                    0.1344410
+Validation Geo Loss 6D rotations:   0.1281738
+Validation MSE root positions:      0.1253433
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 195/500 ---
+Train loss:                         0.1573483
+Validation loss:                    0.1338373
+Validation Geo Loss 6D rotations:   0.1275787
+Validation MSE root positions:      0.1251719
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 196/500 ---
+Train loss:                         0.1569742
+Validation loss:                    0.1334174
+Validation Geo Loss 6D rotations:   0.1271640
+Validation MSE root positions:      0.1250675
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 197/500 ---
+Train loss:                         0.1566206
+Validation loss:                    0.1332112
+Validation Geo Loss 6D rotations:   0.1269625
+Validation MSE root positions:      0.1249734
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 198/500 ---
+Train loss:                         0.1563001
+Validation loss:                    0.1326880
+Validation Geo Loss 6D rotations:   0.1264509
+Validation MSE root positions:      0.1247430
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 199/500 ---
+Train loss:                         0.1559954
+Validation loss:                    0.1322328
+Validation Geo Loss 6D rotations:   0.1259961
+Validation MSE root positions:      0.1247344
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 200/500 ---
+Train loss:                         0.1555390
+Validation loss:                    0.1318418
+Validation Geo Loss 6D rotations:   0.1256147
+Validation MSE root positions:      0.1245420
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 201/500 ---
+Train loss:                         0.1550947
+Validation loss:                    0.1313516
+Validation Geo Loss 6D rotations:   0.1251318
+Validation MSE root positions:      0.1243956
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 202/500 ---
+Train loss:                         0.1557199
+Validation loss:                    0.1319242
+Validation Geo Loss 6D rotations:   0.1257080
+Validation MSE root positions:      0.1243227
+No improvement in validation loss for 1 epochs
+
+--- Epoch 203/500 ---
+Train loss:                         0.1548681
+Validation loss:                    0.1308693
+Validation Geo Loss 6D rotations:   0.1246611
+Validation MSE root positions:      0.1241641
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 204/500 ---
+Train loss:                         0.1542684
+Validation loss:                    0.1304840
+Validation Geo Loss 6D rotations:   0.1242756
+Validation MSE root positions:      0.1241679
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 205/500 ---
+Train loss:                         0.1537263
+Validation loss:                    0.1301044
+Validation Geo Loss 6D rotations:   0.1239041
+Validation MSE root positions:      0.1240067
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 206/500 ---
+Train loss:                         0.1533572
+Validation loss:                    0.1296606
+Validation Geo Loss 6D rotations:   0.1234718
+Validation MSE root positions:      0.1237768
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 207/500 ---
+Train loss:                         0.1529793
+Validation loss:                    0.1295032
+Validation Geo Loss 6D rotations:   0.1233153
+Validation MSE root positions:      0.1237593
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 208/500 ---
+Train loss:                         0.1526625
+Validation loss:                    0.1291328
+Validation Geo Loss 6D rotations:   0.1229540
+Validation MSE root positions:      0.1235754
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 209/500 ---
+Train loss:                         0.1523576
+Validation loss:                    0.1288424
+Validation Geo Loss 6D rotations:   0.1226697
+Validation MSE root positions:      0.1234533
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 210/500 ---
+Train loss:                         0.1520095
+Validation loss:                    0.1286915
+Validation Geo Loss 6D rotations:   0.1225257
+Validation MSE root positions:      0.1233154
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 211/500 ---
+Train loss:                         0.1516126
+Validation loss:                    0.1283534
+Validation Geo Loss 6D rotations:   0.1221913
+Validation MSE root positions:      0.1232432
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 212/500 ---
+Train loss:                         0.1513410
+Validation loss:                    0.1280332
+Validation Geo Loss 6D rotations:   0.1218789
+Validation MSE root positions:      0.1230863
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 213/500 ---
+Train loss:                         0.1509583
+Validation loss:                    0.1277761
+Validation Geo Loss 6D rotations:   0.1216245
+Validation MSE root positions:      0.1230311
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 214/500 ---
+Train loss:                         0.1506347
+Validation loss:                    0.1276192
+Validation Geo Loss 6D rotations:   0.1214765
+Validation MSE root positions:      0.1228541
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 215/500 ---
+Train loss:                         0.1502771
+Validation loss:                    0.1272325
+Validation Geo Loss 6D rotations:   0.1210931
+Validation MSE root positions:      0.1227882
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 216/500 ---
+Train loss:                         0.1500957
+Validation loss:                    0.1272401
+Validation Geo Loss 6D rotations:   0.1211055
+Validation MSE root positions:      0.1226918
+No improvement in validation loss for 1 epochs
+
+--- Epoch 217/500 ---
+Train loss:                         0.1497724
+Validation loss:                    0.1269766
+Validation Geo Loss 6D rotations:   0.1208494
+Validation MSE root positions:      0.1225440
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 218/500 ---
+Train loss:                         0.1494046
+Validation loss:                    0.1266099
+Validation Geo Loss 6D rotations:   0.1204884
+Validation MSE root positions:      0.1224301
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 219/500 ---
+Train loss:                         0.1492449
+Validation loss:                    0.1263863
+Validation Geo Loss 6D rotations:   0.1202674
+Validation MSE root positions:      0.1223780
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 220/500 ---
+Train loss:                         0.1489597
+Validation loss:                    0.1262674
+Validation Geo Loss 6D rotations:   0.1201579
+Validation MSE root positions:      0.1221904
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 221/500 ---
+Train loss:                         0.1486434
+Validation loss:                    0.1259331
+Validation Geo Loss 6D rotations:   0.1198247
+Validation MSE root positions:      0.1221676
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 222/500 ---
+Train loss:                         0.1483458
+Validation loss:                    0.1256723
+Validation Geo Loss 6D rotations:   0.1195684
+Validation MSE root positions:      0.1220771
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 223/500 ---
+Train loss:                         0.1480999
+Validation loss:                    0.1255747
+Validation Geo Loss 6D rotations:   0.1194748
+Validation MSE root positions:      0.1219967
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 224/500 ---
+Train loss:                         0.1477887
+Validation loss:                    0.1251028
+Validation Geo Loss 6D rotations:   0.1190083
+Validation MSE root positions:      0.1218893
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 225/500 ---
+Train loss:                         0.1475347
+Validation loss:                    0.1251783
+Validation Geo Loss 6D rotations:   0.1190931
+Validation MSE root positions:      0.1217041
+No improvement in validation loss for 1 epochs
+
+--- Epoch 226/500 ---
+Train loss:                         0.1472991
+Validation loss:                    0.1248236
+Validation Geo Loss 6D rotations:   0.1187381
+Validation MSE root positions:      0.1217115
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 227/500 ---
+Train loss:                         0.1470041
+Validation loss:                    0.1245042
+Validation Geo Loss 6D rotations:   0.1184257
+Validation MSE root positions:      0.1215700
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 228/500 ---
+Train loss:                         0.1467070
+Validation loss:                    0.1246059
+Validation Geo Loss 6D rotations:   0.1185328
+Validation MSE root positions:      0.1214613
+No improvement in validation loss for 1 epochs
+
+--- Epoch 229/500 ---
+Train loss:                         0.1465297
+Validation loss:                    0.1241551
+Validation Geo Loss 6D rotations:   0.1180778
+Validation MSE root positions:      0.1215469
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 230/500 ---
+Train loss:                         0.1463069
+Validation loss:                    0.1238778
+Validation Geo Loss 6D rotations:   0.1178153
+Validation MSE root positions:      0.1212500
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 231/500 ---
+Train loss:                         0.1460959
+Validation loss:                    0.1238738
+Validation Geo Loss 6D rotations:   0.1178168
+Validation MSE root positions:      0.1211397
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 232/500 ---
+Train loss:                         0.1457677
+Validation loss:                    0.1234756
+Validation Geo Loss 6D rotations:   0.1174203
+Validation MSE root positions:      0.1211044
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 233/500 ---
+Train loss:                         0.1455113
+Validation loss:                    0.1231713
+Validation Geo Loss 6D rotations:   0.1171167
+Validation MSE root positions:      0.1210931
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 234/500 ---
+Train loss:                         0.1452360
+Validation loss:                    0.1229752
+Validation Geo Loss 6D rotations:   0.1169304
+Validation MSE root positions:      0.1208952
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 235/500 ---
+Train loss:                         0.1450186
+Validation loss:                    0.1228127
+Validation Geo Loss 6D rotations:   0.1167705
+Validation MSE root positions:      0.1208440
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 236/500 ---
+Train loss:                         0.1447101
+Validation loss:                    0.1227422
+Validation Geo Loss 6D rotations:   0.1167079
+Validation MSE root positions:      0.1206865
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 237/500 ---
+Train loss:                         0.1445984
+Validation loss:                    0.1227206
+Validation Geo Loss 6D rotations:   0.1166826
+Validation MSE root positions:      0.1207601
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 238/500 ---
+Train loss:                         0.1443999
+Validation loss:                    0.1223240
+Validation Geo Loss 6D rotations:   0.1162971
+Validation MSE root positions:      0.1205387
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 239/500 ---
+Train loss:                         0.1440117
+Validation loss:                    0.1221366
+Validation Geo Loss 6D rotations:   0.1161111
+Validation MSE root positions:      0.1205113
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 240/500 ---
+Train loss:                         0.1438998
+Validation loss:                    0.1219754
+Validation Geo Loss 6D rotations:   0.1159590
+Validation MSE root positions:      0.1203280
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 241/500 ---
+Train loss:                         0.1436352
+Validation loss:                    0.1216099
+Validation Geo Loss 6D rotations:   0.1155942
+Validation MSE root positions:      0.1203143
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 242/500 ---
+Train loss:                         0.1433788
+Validation loss:                    0.1214562
+Validation Geo Loss 6D rotations:   0.1154453
+Validation MSE root positions:      0.1202191
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 243/500 ---
+Train loss:                         0.1431400
+Validation loss:                    0.1213643
+Validation Geo Loss 6D rotations:   0.1153574
+Validation MSE root positions:      0.1201374
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 244/500 ---
+Train loss:                         0.1429010
+Validation loss:                    0.1211184
+Validation Geo Loss 6D rotations:   0.1151161
+Validation MSE root positions:      0.1200457
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 245/500 ---
+Train loss:                         0.1428069
+Validation loss:                    0.1211529
+Validation Geo Loss 6D rotations:   0.1151588
+Validation MSE root positions:      0.1198806
+No improvement in validation loss for 1 epochs
+
+--- Epoch 246/500 ---
+Train loss:                         0.1426005
+Validation loss:                    0.1206889
+Validation Geo Loss 6D rotations:   0.1146955
+Validation MSE root positions:      0.1198688
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 247/500 ---
+Train loss:                         0.1421762
+Validation loss:                    0.1205116
+Validation Geo Loss 6D rotations:   0.1145223
+Validation MSE root positions:      0.1197849
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 248/500 ---
+Train loss:                         0.1420677
+Validation loss:                    0.1205287
+Validation Geo Loss 6D rotations:   0.1145449
+Validation MSE root positions:      0.1196769
+No improvement in validation loss for 1 epochs
+
+--- Epoch 249/500 ---
+Train loss:                         0.1418772
+Validation loss:                    0.1205366
+Validation Geo Loss 6D rotations:   0.1145522
+Validation MSE root positions:      0.1196887
+No improvement in validation loss for 2 epochs
+
+--- Epoch 250/500 ---
+Train loss:                         0.1416171
+Validation loss:                    0.1200177
+Validation Geo Loss 6D rotations:   0.1140361
+Validation MSE root positions:      0.1196313
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 251/500 ---
+Train loss:                         0.1414329
+Validation loss:                    0.1199836
+Validation Geo Loss 6D rotations:   0.1140060
+Validation MSE root positions:      0.1195534
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 252/500 ---
+Train loss:                         0.1412220
+Validation loss:                    0.1197808
+Validation Geo Loss 6D rotations:   0.1138106
+Validation MSE root positions:      0.1194037
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 253/500 ---
+Train loss:                         0.1410475
+Validation loss:                    0.1195416
+Validation Geo Loss 6D rotations:   0.1135747
+Validation MSE root positions:      0.1193383
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 254/500 ---
+Train loss:                         0.1407493
+Validation loss:                    0.1195415
+Validation Geo Loss 6D rotations:   0.1135808
+Validation MSE root positions:      0.1192148
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 255/500 ---
+Train loss:                         0.1406267
+Validation loss:                    0.1194691
+Validation Geo Loss 6D rotations:   0.1135102
+Validation MSE root positions:      0.1191768
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 256/500 ---
+Train loss:                         0.1404886
+Validation loss:                    0.1191928
+Validation Geo Loss 6D rotations:   0.1132260
+Validation MSE root positions:      0.1193375
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 257/500 ---
+Train loss:                         0.1400320
+Validation loss:                    0.1188728
+Validation Geo Loss 6D rotations:   0.1129208
+Validation MSE root positions:      0.1190406
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 258/500 ---
+Train loss:                         0.1399123
+Validation loss:                    0.1189838
+Validation Geo Loss 6D rotations:   0.1130356
+Validation MSE root positions:      0.1189632
+No improvement in validation loss for 1 epochs
+
+--- Epoch 259/500 ---
+Train loss:                         0.1397631
+Validation loss:                    0.1184938
+Validation Geo Loss 6D rotations:   0.1125463
+Validation MSE root positions:      0.1189494
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 260/500 ---
+Train loss:                         0.1394979
+Validation loss:                    0.1183148
+Validation Geo Loss 6D rotations:   0.1123667
+Validation MSE root positions:      0.1189635
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 261/500 ---
+Train loss:                         0.1392444
+Validation loss:                    0.1179656
+Validation Geo Loss 6D rotations:   0.1120291
+Validation MSE root positions:      0.1187301
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 262/500 ---
+Train loss:                         0.1390154
+Validation loss:                    0.1180428
+Validation Geo Loss 6D rotations:   0.1121100
+Validation MSE root positions:      0.1186560
+No improvement in validation loss for 1 epochs
+
+--- Epoch 263/500 ---
+Train loss:                         0.1387922
+Validation loss:                    0.1176875
+Validation Geo Loss 6D rotations:   0.1117566
+Validation MSE root positions:      0.1186183
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 264/500 ---
+Train loss:                         0.1385353
+Validation loss:                    0.1176739
+Validation Geo Loss 6D rotations:   0.1117394
+Validation MSE root positions:      0.1186901
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 265/500 ---
+Train loss:                         0.1383982
+Validation loss:                    0.1175715
+Validation Geo Loss 6D rotations:   0.1116497
+Validation MSE root positions:      0.1184355
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 266/500 ---
+Train loss:                         0.1382297
+Validation loss:                    0.1173191
+Validation Geo Loss 6D rotations:   0.1113985
+Validation MSE root positions:      0.1184122
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 267/500 ---
+Train loss:                         0.1380157
+Validation loss:                    0.1170766
+Validation Geo Loss 6D rotations:   0.1111582
+Validation MSE root positions:      0.1183676
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 268/500 ---
+Train loss:                         0.1378513
+Validation loss:                    0.1167899
+Validation Geo Loss 6D rotations:   0.1108705
+Validation MSE root positions:      0.1183894
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 269/500 ---
+Train loss:                         0.1376029
+Validation loss:                    0.1167910
+Validation Geo Loss 6D rotations:   0.1108835
+Validation MSE root positions:      0.1181496
+No improvement in validation loss for 1 epochs
+
+--- Epoch 270/500 ---
+Train loss:                         0.1374507
+Validation loss:                    0.1166374
+Validation Geo Loss 6D rotations:   0.1107309
+Validation MSE root positions:      0.1181297
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 271/500 ---
+Train loss:                         0.1371616
+Validation loss:                    0.1164568
+Validation Geo Loss 6D rotations:   0.1105519
+Validation MSE root positions:      0.1180997
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 272/500 ---
+Train loss:                         0.1370023
+Validation loss:                    0.1162677
+Validation Geo Loss 6D rotations:   0.1103684
+Validation MSE root positions:      0.1179865
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 273/500 ---
+Train loss:                         0.1368237
+Validation loss:                    0.1161420
+Validation Geo Loss 6D rotations:   0.1102446
+Validation MSE root positions:      0.1179492
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 274/500 ---
+Train loss:                         0.1367006
+Validation loss:                    0.1159796
+Validation Geo Loss 6D rotations:   0.1100862
+Validation MSE root positions:      0.1178677
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 275/500 ---
+Train loss:                         0.1364691
+Validation loss:                    0.1157311
+Validation Geo Loss 6D rotations:   0.1098398
+Validation MSE root positions:      0.1178259
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 276/500 ---
+Train loss:                         0.1362648
+Validation loss:                    0.1156687
+Validation Geo Loss 6D rotations:   0.1097801
+Validation MSE root positions:      0.1177726
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 277/500 ---
+Train loss:                         0.1360128
+Validation loss:                    0.1154979
+Validation Geo Loss 6D rotations:   0.1096102
+Validation MSE root positions:      0.1177546
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 278/500 ---
+Train loss:                         0.1359090
+Validation loss:                    0.1152983
+Validation Geo Loss 6D rotations:   0.1094107
+Validation MSE root positions:      0.1177523
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 279/500 ---
+Train loss:                         0.1358535
+Validation loss:                    0.1157408
+Validation Geo Loss 6D rotations:   0.1098591
+Validation MSE root positions:      0.1176329
+No improvement in validation loss for 1 epochs
+
+--- Epoch 280/500 ---
+Train loss:                         0.1360371
+Validation loss:                    0.1153609
+Validation Geo Loss 6D rotations:   0.1094839
+Validation MSE root positions:      0.1175400
+No improvement in validation loss for 2 epochs
+
+--- Epoch 281/500 ---
+Train loss:                         0.1357699
+Validation loss:                    0.1149960
+Validation Geo Loss 6D rotations:   0.1091240
+Validation MSE root positions:      0.1174400
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 282/500 ---
+Train loss:                         0.1355389
+Validation loss:                    0.1145731
+Validation Geo Loss 6D rotations:   0.1087034
+Validation MSE root positions:      0.1173931
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 283/500 ---
+Train loss:                         0.1350598
+Validation loss:                    0.1144430
+Validation Geo Loss 6D rotations:   0.1085743
+Validation MSE root positions:      0.1173731
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 284/500 ---
+Train loss:                         0.1349056
+Validation loss:                    0.1144926
+Validation Geo Loss 6D rotations:   0.1086260
+Validation MSE root positions:      0.1173303
+No improvement in validation loss for 1 epochs
+
+--- Epoch 285/500 ---
+Train loss:                         0.1347221
+Validation loss:                    0.1142279
+Validation Geo Loss 6D rotations:   0.1083621
+Validation MSE root positions:      0.1173146
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 286/500 ---
+Train loss:                         0.1345165
+Validation loss:                    0.1141122
+Validation Geo Loss 6D rotations:   0.1082530
+Validation MSE root positions:      0.1171828
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 287/500 ---
+Train loss:                         0.1346950
+Validation loss:                    0.1142596
+Validation Geo Loss 6D rotations:   0.1084008
+Validation MSE root positions:      0.1171762
+No improvement in validation loss for 1 epochs
+
+--- Epoch 288/500 ---
+Train loss:                         0.1346136
+Validation loss:                    0.1146850
+Validation Geo Loss 6D rotations:   0.1088320
+Validation MSE root positions:      0.1170616
+No improvement in validation loss for 2 epochs
+
+--- Epoch 289/500 ---
+Train loss:                         0.1345578
+Validation loss:                    0.1138661
+Validation Geo Loss 6D rotations:   0.1080139
+Validation MSE root positions:      0.1170436
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 290/500 ---
+Train loss:                         0.1341111
+Validation loss:                    0.1135560
+Validation Geo Loss 6D rotations:   0.1077084
+Validation MSE root positions:      0.1169520
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 291/500 ---
+Train loss:                         0.1336944
+Validation loss:                    0.1134270
+Validation Geo Loss 6D rotations:   0.1075813
+Validation MSE root positions:      0.1169131
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 292/500 ---
+Train loss:                         0.1335153
+Validation loss:                    0.1133649
+Validation Geo Loss 6D rotations:   0.1075183
+Validation MSE root positions:      0.1169317
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 293/500 ---
+Train loss:                         0.1334494
+Validation loss:                    0.1132635
+Validation Geo Loss 6D rotations:   0.1074226
+Validation MSE root positions:      0.1168181
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 294/500 ---
+Train loss:                         0.1331564
+Validation loss:                    0.1129855
+Validation Geo Loss 6D rotations:   0.1071470
+Validation MSE root positions:      0.1167718
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 295/500 ---
+Train loss:                         0.1330090
+Validation loss:                    0.1128695
+Validation Geo Loss 6D rotations:   0.1070297
+Validation MSE root positions:      0.1167950
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 296/500 ---
+Train loss:                         0.1329241
+Validation loss:                    0.1126138
+Validation Geo Loss 6D rotations:   0.1067813
+Validation MSE root positions:      0.1166498
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 297/500 ---
+Train loss:                         0.1325914
+Validation loss:                    0.1122556
+Validation Geo Loss 6D rotations:   0.1064218
+Validation MSE root positions:      0.1166756
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 298/500 ---
+Train loss:                         0.1324497
+Validation loss:                    0.1122531
+Validation Geo Loss 6D rotations:   0.1064244
+Validation MSE root positions:      0.1165742
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 299/500 ---
+Train loss:                         0.1323052
+Validation loss:                    0.1121373
+Validation Geo Loss 6D rotations:   0.1063154
+Validation MSE root positions:      0.1164375
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 300/500 ---
+Train loss:                         0.1322146
+Validation loss:                    0.1120629
+Validation Geo Loss 6D rotations:   0.1062378
+Validation MSE root positions:      0.1165027
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 301/500 ---
+Train loss:                         0.1318426
+Validation loss:                    0.1118329
+Validation Geo Loss 6D rotations:   0.1060168
+Validation MSE root positions:      0.1163218
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 302/500 ---
+Train loss:                         0.1317590
+Validation loss:                    0.1116036
+Validation Geo Loss 6D rotations:   0.1057872
+Validation MSE root positions:      0.1163294
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 303/500 ---
+Train loss:                         0.1315610
+Validation loss:                    0.1116161
+Validation Geo Loss 6D rotations:   0.1058019
+Validation MSE root positions:      0.1162834
+No improvement in validation loss for 1 epochs
+
+--- Epoch 304/500 ---
+Train loss:                         0.1314166
+Validation loss:                    0.1112370
+Validation Geo Loss 6D rotations:   0.1054259
+Validation MSE root positions:      0.1162238
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 305/500 ---
+Train loss:                         0.1312818
+Validation loss:                    0.1114191
+Validation Geo Loss 6D rotations:   0.1056042
+Validation MSE root positions:      0.1162988
+No improvement in validation loss for 1 epochs
+
+--- Epoch 306/500 ---
+Train loss:                         0.1311339
+Validation loss:                    0.1110606
+Validation Geo Loss 6D rotations:   0.1052503
+Validation MSE root positions:      0.1162057
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 307/500 ---
+Train loss:                         0.1310949
+Validation loss:                    0.1109670
+Validation Geo Loss 6D rotations:   0.1051604
+Validation MSE root positions:      0.1161315
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 308/500 ---
+Train loss:                         0.1308725
+Validation loss:                    0.1108647
+Validation Geo Loss 6D rotations:   0.1050594
+Validation MSE root positions:      0.1161072
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 309/500 ---
+Train loss:                         0.1306813
+Validation loss:                    0.1107152
+Validation Geo Loss 6D rotations:   0.1049161
+Validation MSE root positions:      0.1159834
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 310/500 ---
+Train loss:                         0.1305335
+Validation loss:                    0.1105375
+Validation Geo Loss 6D rotations:   0.1047411
+Validation MSE root positions:      0.1159275
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 311/500 ---
+Train loss:                         0.1303819
+Validation loss:                    0.1106602
+Validation Geo Loss 6D rotations:   0.1048672
+Validation MSE root positions:      0.1158598
+No improvement in validation loss for 1 epochs
+
+--- Epoch 312/500 ---
+Train loss:                         0.1303399
+Validation loss:                    0.1105633
+Validation Geo Loss 6D rotations:   0.1047683
+Validation MSE root positions:      0.1159012
+No improvement in validation loss for 2 epochs
+
+--- Epoch 313/500 ---
+Train loss:                         0.1301653
+Validation loss:                    0.1102566
+Validation Geo Loss 6D rotations:   0.1044654
+Validation MSE root positions:      0.1158236
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 314/500 ---
+Train loss:                         0.1299841
+Validation loss:                    0.1100337
+Validation Geo Loss 6D rotations:   0.1042483
+Validation MSE root positions:      0.1157076
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 315/500 ---
+Train loss:                         0.1298641
+Validation loss:                    0.1100108
+Validation Geo Loss 6D rotations:   0.1042259
+Validation MSE root positions:      0.1156991
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 316/500 ---
+Train loss:                         0.1296557
+Validation loss:                    0.1099419
+Validation Geo Loss 6D rotations:   0.1041525
+Validation MSE root positions:      0.1157886
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 317/500 ---
+Train loss:                         0.1295103
+Validation loss:                    0.1096559
+Validation Geo Loss 6D rotations:   0.1038761
+Validation MSE root positions:      0.1155951
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 318/500 ---
+Train loss:                         0.1293355
+Validation loss:                    0.1096715
+Validation Geo Loss 6D rotations:   0.1038905
+Validation MSE root positions:      0.1156202
+No improvement in validation loss for 1 epochs
+
+--- Epoch 319/500 ---
+Train loss:                         0.1292418
+Validation loss:                    0.1095288
+Validation Geo Loss 6D rotations:   0.1037513
+Validation MSE root positions:      0.1155504
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 320/500 ---
+Train loss:                         0.1290466
+Validation loss:                    0.1094244
+Validation Geo Loss 6D rotations:   0.1036464
+Validation MSE root positions:      0.1155593
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 321/500 ---
+Train loss:                         0.1289994
+Validation loss:                    0.1091676
+Validation Geo Loss 6D rotations:   0.1033949
+Validation MSE root positions:      0.1154554
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 322/500 ---
+Train loss:                         0.1287433
+Validation loss:                    0.1091373
+Validation Geo Loss 6D rotations:   0.1033684
+Validation MSE root positions:      0.1153765
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 323/500 ---
+Train loss:                         0.1285575
+Validation loss:                    0.1092293
+Validation Geo Loss 6D rotations:   0.1034562
+Validation MSE root positions:      0.1154615
+No improvement in validation loss for 1 epochs
+
+--- Epoch 324/500 ---
+Train loss:                         0.1284519
+Validation loss:                    0.1089942
+Validation Geo Loss 6D rotations:   0.1032270
+Validation MSE root positions:      0.1153427
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 325/500 ---
+Train loss:                         0.1283305
+Validation loss:                    0.1089147
+Validation Geo Loss 6D rotations:   0.1031510
+Validation MSE root positions:      0.1152723
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 326/500 ---
+Train loss:                         0.1283183
+Validation loss:                    0.1086776
+Validation Geo Loss 6D rotations:   0.1029133
+Validation MSE root positions:      0.1152858
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 327/500 ---
+Train loss:                         0.1280641
+Validation loss:                    0.1086099
+Validation Geo Loss 6D rotations:   0.1028461
+Validation MSE root positions:      0.1152752
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 328/500 ---
+Train loss:                         0.1278528
+Validation loss:                    0.1085556
+Validation Geo Loss 6D rotations:   0.1027962
+Validation MSE root positions:      0.1151878
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 329/500 ---
+Train loss:                         0.1277471
+Validation loss:                    0.1083607
+Validation Geo Loss 6D rotations:   0.1026064
+Validation MSE root positions:      0.1150852
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 330/500 ---
+Train loss:                         0.1276565
+Validation loss:                    0.1081555
+Validation Geo Loss 6D rotations:   0.1024025
+Validation MSE root positions:      0.1150594
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 331/500 ---
+Train loss:                         0.1275224
+Validation loss:                    0.1081897
+Validation Geo Loss 6D rotations:   0.1024389
+Validation MSE root positions:      0.1150169
+No improvement in validation loss for 1 epochs
+
+--- Epoch 332/500 ---
+Train loss:                         0.1274063
+Validation loss:                    0.1079508
+Validation Geo Loss 6D rotations:   0.1022021
+Validation MSE root positions:      0.1149736
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 333/500 ---
+Train loss:                         0.1273481
+Validation loss:                    0.1079011
+Validation Geo Loss 6D rotations:   0.1021540
+Validation MSE root positions:      0.1149426
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 334/500 ---
+Train loss:                         0.1272156
+Validation loss:                    0.1076316
+Validation Geo Loss 6D rotations:   0.1018857
+Validation MSE root positions:      0.1149182
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 335/500 ---
+Train loss:                         0.1268815
+Validation loss:                    0.1078713
+Validation Geo Loss 6D rotations:   0.1021287
+Validation MSE root positions:      0.1148530
+No improvement in validation loss for 1 epochs
+
+--- Epoch 336/500 ---
+Train loss:                         0.1268866
+Validation loss:                    0.1077476
+Validation Geo Loss 6D rotations:   0.1020087
+Validation MSE root positions:      0.1147789
+No improvement in validation loss for 2 epochs
+
+--- Epoch 337/500 ---
+Train loss:                         0.1267056
+Validation loss:                    0.1073880
+Validation Geo Loss 6D rotations:   0.1016474
+Validation MSE root positions:      0.1148128
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 338/500 ---
+Train loss:                         0.1266374
+Validation loss:                    0.1072773
+Validation Geo Loss 6D rotations:   0.1015402
+Validation MSE root positions:      0.1147417
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 339/500 ---
+Train loss:                         0.1265341
+Validation loss:                    0.1074345
+Validation Geo Loss 6D rotations:   0.1016930
+Validation MSE root positions:      0.1148315
+No improvement in validation loss for 1 epochs
+
+--- Epoch 340/500 ---
+Train loss:                         0.1264237
+Validation loss:                    0.1074021
+Validation Geo Loss 6D rotations:   0.1016664
+Validation MSE root positions:      0.1147142
+No improvement in validation loss for 2 epochs
+
+--- Epoch 341/500 ---
+Train loss:                         0.1262231
+Validation loss:                    0.1070385
+Validation Geo Loss 6D rotations:   0.1013054
+Validation MSE root positions:      0.1146634
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 342/500 ---
+Train loss:                         0.1260246
+Validation loss:                    0.1069303
+Validation Geo Loss 6D rotations:   0.1011973
+Validation MSE root positions:      0.1146601
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 343/500 ---
+Train loss:                         0.1260323
+Validation loss:                    0.1067951
+Validation Geo Loss 6D rotations:   0.1010638
+Validation MSE root positions:      0.1146258
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 344/500 ---
+Train loss:                         0.1258605
+Validation loss:                    0.1067047
+Validation Geo Loss 6D rotations:   0.1009795
+Validation MSE root positions:      0.1145054
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 345/500 ---
+Train loss:                         0.1257291
+Validation loss:                    0.1068921
+Validation Geo Loss 6D rotations:   0.1011575
+Validation MSE root positions:      0.1146910
+No improvement in validation loss for 1 epochs
+
+--- Epoch 346/500 ---
+Train loss:                         0.1256001
+Validation loss:                    0.1066043
+Validation Geo Loss 6D rotations:   0.1008793
+Validation MSE root positions:      0.1145005
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 347/500 ---
+Train loss:                         0.1255652
+Validation loss:                    0.1064652
+Validation Geo Loss 6D rotations:   0.1007428
+Validation MSE root positions:      0.1144483
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 348/500 ---
+Train loss:                         0.1252862
+Validation loss:                    0.1063361
+Validation Geo Loss 6D rotations:   0.1006175
+Validation MSE root positions:      0.1143715
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 349/500 ---
+Train loss:                         0.1251570
+Validation loss:                    0.1064457
+Validation Geo Loss 6D rotations:   0.1007262
+Validation MSE root positions:      0.1143897
+No improvement in validation loss for 1 epochs
+
+--- Epoch 350/500 ---
+Train loss:                         0.1250337
+Validation loss:                    0.1061880
+Validation Geo Loss 6D rotations:   0.1004720
+Validation MSE root positions:      0.1143185
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 351/500 ---
+Train loss:                         0.1249446
+Validation loss:                    0.1062560
+Validation Geo Loss 6D rotations:   0.1005433
+Validation MSE root positions:      0.1142556
+No improvement in validation loss for 1 epochs
+
+--- Epoch 352/500 ---
+Train loss:                         0.1247702
+Validation loss:                    0.1060436
+Validation Geo Loss 6D rotations:   0.1003346
+Validation MSE root positions:      0.1141805
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 353/500 ---
+Train loss:                         0.1248132
+Validation loss:                    0.1057204
+Validation Geo Loss 6D rotations:   0.1000118
+Validation MSE root positions:      0.1141737
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 354/500 ---
+Train loss:                         0.1246572
+Validation loss:                    0.1057393
+Validation Geo Loss 6D rotations:   0.1000297
+Validation MSE root positions:      0.1141930
+No improvement in validation loss for 1 epochs
+
+--- Epoch 355/500 ---
+Train loss:                         0.1245142
+Validation loss:                    0.1055623
+Validation Geo Loss 6D rotations:   0.0998558
+Validation MSE root positions:      0.1141298
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 356/500 ---
+Train loss:                         0.1243275
+Validation loss:                    0.1054775
+Validation Geo Loss 6D rotations:   0.0997729
+Validation MSE root positions:      0.1140909
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 357/500 ---
+Train loss:                         0.1242033
+Validation loss:                    0.1055283
+Validation Geo Loss 6D rotations:   0.0998280
+Validation MSE root positions:      0.1140078
+No improvement in validation loss for 1 epochs
+
+--- Epoch 358/500 ---
+Train loss:                         0.1240682
+Validation loss:                    0.1053054
+Validation Geo Loss 6D rotations:   0.0996038
+Validation MSE root positions:      0.1140331
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 359/500 ---
+Train loss:                         0.1239942
+Validation loss:                    0.1052049
+Validation Geo Loss 6D rotations:   0.0995091
+Validation MSE root positions:      0.1139156
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 360/500 ---
+Train loss:                         0.1238376
+Validation loss:                    0.1050599
+Validation Geo Loss 6D rotations:   0.0993652
+Validation MSE root positions:      0.1138942
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 361/500 ---
+Train loss:                         0.1236847
+Validation loss:                    0.1049811
+Validation Geo Loss 6D rotations:   0.0992872
+Validation MSE root positions:      0.1138766
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 362/500 ---
+Train loss:                         0.1236261
+Validation loss:                    0.1048518
+Validation Geo Loss 6D rotations:   0.0991616
+Validation MSE root positions:      0.1138030
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 363/500 ---
+Train loss:                         0.1234961
+Validation loss:                    0.1047377
+Validation Geo Loss 6D rotations:   0.0990492
+Validation MSE root positions:      0.1137713
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 364/500 ---
+Train loss:                         0.1233217
+Validation loss:                    0.1045844
+Validation Geo Loss 6D rotations:   0.0988941
+Validation MSE root positions:      0.1138058
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 365/500 ---
+Train loss:                         0.1232927
+Validation loss:                    0.1045151
+Validation Geo Loss 6D rotations:   0.0988279
+Validation MSE root positions:      0.1137442
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 366/500 ---
+Train loss:                         0.1232228
+Validation loss:                    0.1046042
+Validation Geo Loss 6D rotations:   0.0989167
+Validation MSE root positions:      0.1137506
+No improvement in validation loss for 1 epochs
+
+--- Epoch 367/500 ---
+Train loss:                         0.1230691
+Validation loss:                    0.1044148
+Validation Geo Loss 6D rotations:   0.0987316
+Validation MSE root positions:      0.1136632
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 368/500 ---
+Train loss:                         0.1229878
+Validation loss:                    0.1043151
+Validation Geo Loss 6D rotations:   0.0986296
+Validation MSE root positions:      0.1137108
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 369/500 ---
+Train loss:                         0.1228132
+Validation loss:                    0.1040688
+Validation Geo Loss 6D rotations:   0.0983919
+Validation MSE root positions:      0.1135386
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 370/500 ---
+Train loss:                         0.1225685
+Validation loss:                    0.1040425
+Validation Geo Loss 6D rotations:   0.0983631
+Validation MSE root positions:      0.1135883
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 371/500 ---
+Train loss:                         0.1225555
+Validation loss:                    0.1037191
+Validation Geo Loss 6D rotations:   0.0980407
+Validation MSE root positions:      0.1135670
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 372/500 ---
+Train loss:                         0.1224161
+Validation loss:                    0.1037510
+Validation Geo Loss 6D rotations:   0.0980738
+Validation MSE root positions:      0.1135442
+No improvement in validation loss for 1 epochs
+
+--- Epoch 373/500 ---
+Train loss:                         0.1223882
+Validation loss:                    0.1038332
+Validation Geo Loss 6D rotations:   0.0981607
+Validation MSE root positions:      0.1134503
+No improvement in validation loss for 2 epochs
+
+--- Epoch 374/500 ---
+Train loss:                         0.1221737
+Validation loss:                    0.1034664
+Validation Geo Loss 6D rotations:   0.0977957
+Validation MSE root positions:      0.1134143
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 375/500 ---
+Train loss:                         0.1220741
+Validation loss:                    0.1037046
+Validation Geo Loss 6D rotations:   0.0980335
+Validation MSE root positions:      0.1134216
+No improvement in validation loss for 1 epochs
+
+--- Epoch 376/500 ---
+Train loss:                         0.1220110
+Validation loss:                    0.1034986
+Validation Geo Loss 6D rotations:   0.0978257
+Validation MSE root positions:      0.1134592
+No improvement in validation loss for 2 epochs
+
+--- Epoch 377/500 ---
+Train loss:                         0.1218394
+Validation loss:                    0.1033311
+Validation Geo Loss 6D rotations:   0.0976656
+Validation MSE root positions:      0.1133114
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 378/500 ---
+Train loss:                         0.1217198
+Validation loss:                    0.1032867
+Validation Geo Loss 6D rotations:   0.0976209
+Validation MSE root positions:      0.1133165
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 379/500 ---
+Train loss:                         0.1215665
+Validation loss:                    0.1030327
+Validation Geo Loss 6D rotations:   0.0973698
+Validation MSE root positions:      0.1132580
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 380/500 ---
+Train loss:                         0.1214303
+Validation loss:                    0.1031770
+Validation Geo Loss 6D rotations:   0.0975155
+Validation MSE root positions:      0.1132311
+No improvement in validation loss for 1 epochs
+
+--- Epoch 381/500 ---
+Train loss:                         0.1214391
+Validation loss:                    0.1030452
+Validation Geo Loss 6D rotations:   0.0973830
+Validation MSE root positions:      0.1132450
+No improvement in validation loss for 2 epochs
+
+--- Epoch 382/500 ---
+Train loss:                         0.1213204
+Validation loss:                    0.1029502
+Validation Geo Loss 6D rotations:   0.0972926
+Validation MSE root positions:      0.1131534
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 383/500 ---
+Train loss:                         0.1212100
+Validation loss:                    0.1027177
+Validation Geo Loss 6D rotations:   0.0970616
+Validation MSE root positions:      0.1131221
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 384/500 ---
+Train loss:                         0.1210721
+Validation loss:                    0.1028841
+Validation Geo Loss 6D rotations:   0.0972281
+Validation MSE root positions:      0.1131207
+No improvement in validation loss for 1 epochs
+
+--- Epoch 385/500 ---
+Train loss:                         0.1208981
+Validation loss:                    0.1025549
+Validation Geo Loss 6D rotations:   0.0968998
+Validation MSE root positions:      0.1131010
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 386/500 ---
+Train loss:                         0.1208221
+Validation loss:                    0.1025952
+Validation Geo Loss 6D rotations:   0.0969429
+Validation MSE root positions:      0.1130463
+No improvement in validation loss for 1 epochs
+
+--- Epoch 387/500 ---
+Train loss:                         0.1208139
+Validation loss:                    0.1024366
+Validation Geo Loss 6D rotations:   0.0967883
+Validation MSE root positions:      0.1129657
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/geo_better.pth
+
+--- Epoch 388/500 ---

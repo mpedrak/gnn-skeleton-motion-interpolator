@@ -1,7 +1,7 @@
 # Cuts a BVH file to keep frames in specic range
 
-input_bvh_path = "./test/run1_subject5.bvh"
-output_bvh_path = "./predict/test_3.bvh"
+input_bvh_path = "./test/obstacles6_subject5.bvh"
+output_bvh_path = "./predict/test_7.bvh"
 start_frame = 50
 length = 200
 

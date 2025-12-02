@@ -1,0 +1,30 @@
+# Model parameters
+context_len_pre: 10
+context_len_post: 10
+target_len: 10
+hidden_dim: 72
+hidden_layers: 7
+heads: 16
+root_pos_hidden_dim: 128
+dropout: 0.1
+node_features: 6                                  
+graph_features: 3                                 
+model_path: "checkpoints/geo_better.pth"
+root_stats_path: "checkpoints/root_stats_geo_b.npz"
+
+# Dataset parameters
+step: 7                                          
+batch_size: 2048
+
+# Training parameters
+epochs: 500
+lr: 0.0001
+validation_split: 0.3
+patience: 7
+root_loss_weight: 0.05
+train_data_dir: "data/train"
+train_log_path: "results/geo_better_train.txt"
+
+# Testing parameters
+test_data_dir: "data/test"
+test_log_path: "results/geo_better_test.txt"
