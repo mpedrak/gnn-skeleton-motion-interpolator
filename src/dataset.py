@@ -3,7 +3,7 @@ import torch
 
 from torch_geometric.data import Data, Dataset
 
-from .utils.bvh import parse_bvh_file, build_edge_index_from_parents, compute_root_deltas, build_spatio_temporal_edge_index
+from .utils.bvh import parse_bvh_file, build_edge_index_from_parents, compute_root_deltas
 
 
 class GraphSkeletonDataset(Dataset):

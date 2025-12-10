@@ -6,14 +6,27 @@ if "%cfg%"=="" (
     exit /b 1
 )
 
-for /L %%i in (1,1,7) do (
+set "files=aiming dance fight ground jumps run walk"
+
+setlocal enabledelayedexpansion
+
+for %%s in (%files%) do (
+    set "name=%%~s"
     echo.
-    python predict.py %cfg% test_%%i 70
+    python predict.py %cfg% !name! 70
 )
 
-for /L %%i in (1,1,7) do (
+for %%s in (%files%) do (
+    set "name=%%~s"
     echo.
-    python predict.py %cfg% test_%%i_pred 170
+    python predict.py %cfg% !name!_pred 270
 )
 
+for %%s in (%files%) do (
+    set "name=%%~s"
+    echo.
+    python predict.py %cfg% !name!_pred_pred 470
+)
+
+endlocal
 echo Done

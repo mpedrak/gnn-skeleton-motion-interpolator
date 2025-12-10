@@ -8,7 +8,7 @@ from bvh import Bvh
 from torch_geometric.data import Data
 
 from src.model import SkeletalMotionInterpolator
-from src.utils.bvh import build_edge_index_from_parents, replace_gap_in_bvh_text, parse_bvh_file, compute_root_deltas, build_spatio_temporal_edge_index
+from src.utils.bvh import build_edge_index_from_parents, replace_gap_in_bvh_text, parse_bvh_file, compute_root_deltas, get_bvh_frame_count
 from src.utils.rotation import rot_6d_to_euler_zyx
 
 
@@ -33,7 +33,8 @@ with open(config_path, "r") as f:
     config = yaml.safe_load(f)
 
 gap_start_frame = args.gap_start - 1 # 0 based index in code
-if gap_start_frame <= config["context_len_pre"] or gap_start_frame >= 200 - config["context_len_post"] - config["target_len"]:
+n_frames = get_bvh_frame_count(input_bvh_path)
+if gap_start_frame <= config["context_len_pre"] or gap_start_frame >= n_frames - config["context_len_post"] - config["target_len"]:
     raise ValueError("Invalid gap start frame")        
         
 device = "cuda" if torch.cuda.is_available() else "cpu"

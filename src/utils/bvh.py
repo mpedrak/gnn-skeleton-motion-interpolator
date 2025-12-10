@@ -1,3 +1,4 @@
+from matplotlib import lines
 import numpy as np
 import torch
 
@@ -30,14 +31,16 @@ def parse_bvh_file(filepath):
         root_pos[f, 1] = float(mocap.frame_joint_channel(f, joint_list[0].name, 'Yposition'))
         root_pos[f, 2] = float(mocap.frame_joint_channel(f, joint_list[0].name, 'Zposition'))
 
-    rot_channels = ['Zrotation', 'Yrotation', 'Xrotation']
     angles_euler = np.zeros((num_frames, len(joint_list), 3), dtype=np.float32) # [F, J, 3]
+    frames = np.array(mocap.frames, dtype=np.float32)
 
-    for j, node in enumerate(joint_list):
-        for i, ch in enumerate(rot_channels):
-            angles_euler[:, j, i] = np.array([
-                float(mocap.frame_joint_channel(f, node.name, ch)) * np.pi / 180.0
-                for f in range(0, num_frames)], dtype=np.float32)
+    for j, node in enumerate(joint_list):  
+        ch_count = len(mocap.joint_channels(node.name))      
+        node_index_end = mocap.get_joint_channels_index(node.name) + ch_count 
+        node_index_start = node_index_end - 3     
+        rot_indexes = list(range(node_index_start, node_index_end))
+        eulers = frames[:, rot_indexes] * np.pi / 180.0
+        angles_euler[:, j, :] = eulers
 
     rot_6d = euler_zyx_to_rot_6d(angles_euler) # [F, J, 6]
     rot_6d = torch.tensor(rot_6d, dtype=torch.float32)
@@ -127,3 +130,13 @@ def build_spatio_temporal_edge_index(F, J, base_edge_index):
     edge_index = torch.cat([spatial_edge_index, temporal_edge_index], dim=1)
     
     return edge_index
+
+
+def get_bvh_frame_count(bvh_path):
+    with open(bvh_path, 'r') as f:
+        lines = f.readlines()
+        
+    motion_idx = next(i for i, ln in enumerate(lines) if ln.strip().upper() == "MOTION")
+    n_frames = int(lines[motion_idx + 1].split(":")[1].strip())
+
+    return n_frames
