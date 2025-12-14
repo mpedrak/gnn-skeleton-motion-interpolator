@@ -13,17 +13,14 @@ from src.utils.rotation import rot_6d_to_euler_zyx
 
 
 # Config
-config_dir = "./config/"
+predict_data_dir = "./data/predict/"
+bvh_files = ["aiming", "dance", "fight", "ground", "jumps", "run", "walk"]
+hole_starts = [i for i in range(20, 480 + 1, 20)]
 
+config_dir = "./config/"
 parser = argparse.ArgumentParser()
 parser.add_argument("config", type=str)
-parser.add_argument("file", type=str)
-parser.add_argument("gap_start", type=int) 
 args = parser.parse_args()
-
-input_bvh_path = args.file 
-if not os.path.isfile(input_bvh_path):
-    raise FileNotFoundError(f"Input BVH file not found: {input_bvh_path}")
 
 config_path = config_dir + args.config + ".yaml"
 if not os.path.isfile(config_path):
@@ -31,11 +28,6 @@ if not os.path.isfile(config_path):
 
 with open(config_path, "r") as f:
     config = yaml.safe_load(f)
-
-gap_start_frame = args.gap_start - 1 # 0 based index in code
-n_frames = get_bvh_frame_count(input_bvh_path)
-if gap_start_frame <= config["context_len_pre"] or gap_start_frame >= n_frames - config["context_len_post"] - config["target_len"]:
-    raise ValueError("Invalid gap start frame")        
         
 device = "cuda" if torch.cuda.is_available() else "cpu"
 print(f"Using device: {device}")
@@ -99,13 +91,6 @@ stats = np.load(root_stats_path)
 root_mean = torch.tensor(stats["mean"], dtype=torch.float32)
 root_std = torch.tensor(stats["std"], dtype=torch.float32)
 
-with open(input_bvh_path, "r") as f:
-    text = f.read()
-
-mocap = Bvh(text)
-root_pos, rot_6d, joint_names, parent_indices, _ = parse_bvh_file(input_bvh_path)
-frames_total = rot_6d.shape[0]
-
 model = SkeletalMotionInterpolator(
     context_len_pre=config["context_len_pre"],
     context_len_post=config["context_len_post"],
@@ -130,36 +115,54 @@ context_len_pre = config["context_len_pre"]
 context_len_post = config["context_len_post"]
 target_len = config["target_len"]
 
-with torch.no_grad():
-    rot_pred, root_pred = predict_gap(
-        model=model,
-        device=device,
-        rot_6d=rot_6d,
-        root_pos=root_pos,
-        parent_indices=parent_indices,
-        context_len_pre=context_len_pre,
-        context_len_post=context_len_post,
-        target_len=target_len,
-        gap_start=gap_start_frame,
-        root_mean=root_mean.to(device),
-        root_std=root_std.to(device),
-    )
+for bvh_file in bvh_files:
+    input_bvh_path = os.path.join(predict_data_dir, bvh_file + ".bvh")
+    n_frames = get_bvh_frame_count(input_bvh_path)
+    with open(input_bvh_path, "r") as f:
+        text = f.read()
 
-euler_zyx_deg_rad = rot_6d_to_euler_zyx(rot_pred)
-euler_zyx_deg = np.rad2deg(euler_zyx_deg_rad)
+    mocap = Bvh(text)
+    root_pos, rot_6d, joint_names, parent_indices, _ = parse_bvh_file(input_bvh_path)
+    frames_total = rot_6d.shape[0]   
+    new_text = text  
 
-new_text = replace_gap_in_bvh_text(
-    orig_text=text,
-    mocap=mocap,
-    gap_start=gap_start_frame,
-    target_len=target_len,
-    euler_zyx_deg=euler_zyx_deg,
-    root_pred_xyz=root_pred
-)
+    for hole_start in hole_starts:
+        gap_start_frame = hole_start - 1 # 0 based index in code
 
-out_path = os.path.splitext(input_bvh_path)[0] + "_pred.bvh"
-with open(out_path, "w") as f:
-    f.write(new_text)
+        if gap_start_frame <= context_len_pre or gap_start_frame >= n_frames - context_len_post - target_len:
+            raise ValueError("Invalid gap start frame")   
 
-print(f"Saved predicted BVH to: {out_path}")
-print(f"Replaced frames: [{gap_start_frame + 1}, {gap_start_frame + target_len}]")
+        with torch.no_grad():
+            rot_pred, root_pred = predict_gap(
+                model=model,
+                device=device,
+                rot_6d=rot_6d,
+                root_pos=root_pos,
+                parent_indices=parent_indices,
+                context_len_pre=context_len_pre,
+                context_len_post=context_len_post,
+                target_len=target_len,
+                gap_start=gap_start_frame,
+                root_mean=root_mean.to(device),
+                root_std=root_std.to(device),
+            )
+
+        euler_zyx_deg_rad = rot_6d_to_euler_zyx(rot_pred)
+        euler_zyx_deg = np.rad2deg(euler_zyx_deg_rad)
+
+        new_text = replace_gap_in_bvh_text(
+            orig_text=new_text,
+            mocap=mocap,
+            gap_start=gap_start_frame,
+            target_len=target_len,
+            euler_zyx_deg=euler_zyx_deg,
+            root_pred_xyz=root_pred
+        )
+
+    out_path = os.path.splitext(input_bvh_path)[0] + "_pred_multi.bvh"
+    with open(out_path, "w") as f:
+        f.write(new_text)
+
+    print(f"Saved predicted BVH to: {out_path}")
+
+print("All predictions done")
