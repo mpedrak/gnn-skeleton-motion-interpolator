@@ -10,7 +10,7 @@ dropout: 0.1
 node_features: 6                                  
 graph_features: 3                                 
 model_path: "checkpoints/geo_better.pth"
-root_stats_path: "checkpoints/root_stats_geo_b.npz"
+root_stats_path: "checkpoints/root_stats/geo_b.npz"
 
 # Dataset parameters
 step: 7                                          

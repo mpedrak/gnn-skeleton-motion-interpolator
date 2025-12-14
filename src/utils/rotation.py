@@ -5,6 +5,7 @@ from scipy.spatial.transform import Rotation as R
 
 def euler_zyx_to_rot_6d(euler_angles):
     # Euler angles [F, J, 3] (ZYX, rad) -> 6D [F, J, 6]
+    
     F, J, _ = euler_angles.shape
     euler_flat = euler_angles.reshape(-1, 3) # [F * J, 3]
     r = R.from_euler('zyx', euler_flat, degrees=False)
@@ -16,8 +17,9 @@ def euler_zyx_to_rot_6d(euler_angles):
 
 def rot_6d_to_rot_3x3(rot_6d):
     # 6D [(shape), 6] -> 3 x 3 matrix [(shape), 3, 3]
+    
     orig_shape = rot_6d.shape[ : -1]
-    rot_6d_flat = rot_6d.view(-1, 6)
+    rot_6d_flat = rot_6d.reshape(-1, 6)
 
     a_1 = torch.stack([rot_6d_flat[:, 0], rot_6d_flat[:, 2], rot_6d_flat[:, 4]], dim=-1)
     a_2 = torch.stack([rot_6d_flat[:, 1], rot_6d_flat[:, 3], rot_6d_flat[:, 5]], dim=-1)  
@@ -35,6 +37,7 @@ def rot_6d_to_rot_3x3(rot_6d):
 
 def rot_6d_to_euler_zyx(rot_6d):
     # 6D [F, J, 6] -> Euler angles [F, J, 3] (ZYX, rad, numpy on CPU)
+    
     F, J, _ = rot_6d.shape
     rot_matrix = rot_6d_to_rot_3x3(rot_6d) # [F, J, 3, 3]
     rot_matrix = rot_matrix.view(-1, 3, 3)  # [F * J, 3, 3]
@@ -49,6 +52,7 @@ def rot_6d_to_euler_zyx(rot_6d):
 
 def geodesic_rotation_loss(pred_rot_6d, target_rot_6d):
     # Geodesic loss with mean reduction 
+    
     JxB, Fx6 = pred_rot_6d.shape
     F = Fx6 // 6
     pred_rot_6d = pred_rot_6d.view(JxB, F, 6)

@@ -10,7 +10,7 @@ dropout: 0.1
 node_features: 6                                  
 graph_features: 3                                 
 model_path: "checkpoints/baseline.pth"
-root_stats_path: "checkpoints/root_stats_base.npz"
+root_stats_path: "checkpoints/root_stats/base.npz"
 
 # Dataset parameters
 step: 1                                          

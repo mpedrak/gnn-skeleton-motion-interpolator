@@ -11,8 +11,10 @@ from torch.utils.data import random_split
 from src.dataset import GraphSkeletonDataset
 from src.model import SkeletalMotionInterpolator
 from src.utils.rotation import geodesic_rotation_loss
+from src.utils.bvh import forward_kinematics_positions_batch
 
 
+# Config
 config_dir = "./config/"
 
 parser = argparse.ArgumentParser()
@@ -29,6 +31,7 @@ with open(config_path, "r") as f:
 device = "cuda" if torch.cuda.is_available() else "cpu"
 print(f"Using device: {device}")
 
+# Dataset
 print("Loading dataset")
 dataset = GraphSkeletonDataset(
     root_dir=config["train_data_dir"],
@@ -53,6 +56,7 @@ batch_size = config["batch_size"]
 train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
 val_loader = DataLoader(val_dataset, batch_size=batch_size, shuffle=False)
 
+# Model
 model = SkeletalMotionInterpolator(
     context_len_pre=config["context_len_pre"],
     context_len_post=config["context_len_post"],
@@ -63,36 +67,41 @@ model = SkeletalMotionInterpolator(
     heads=config["heads"],
     dropout=config["dropout"],
     node_features=config["node_features"],
-    graph_features=config["graph_features"],
-    num_joints=dataset.num_joints
+    graph_features=config["graph_features"]
 )
 model = model.to(device)
 
+# Training 
 optimizer = torch.optim.Adam(model.parameters(), lr=config["lr"])
 mse = torch.nn.MSELoss()
-
-best_val_loss = float('inf')
-epochs_no_improve = 0
-
-model_path = config["model_path"]
-root_loss_weight = config["root_loss_weight"]
-patience = config["patience"]
-epochs = config["epochs"]
-train_log_path = config["train_log_path"]
-
-if os.path.exists(train_log_path):
-    os.remove(train_log_path)
+mae = torch.nn.L1Loss()
 
 os.makedirs("results", exist_ok=True)
+train_log_path = config["train_log_path"]
+if os.path.exists(train_log_path):
+    os.remove(train_log_path)
 
 def log_str(str):
     print(str)
     with open(train_log_path, "a") as log_file:
         log_file.write(str + "\n")
 
-J = dataset.num_joints
+model_path = config["model_path"]
+root_loss_weight = config["root_loss_weight"]
+fk_loss_weight = config["fk_loss_weight"]
+patience = config["patience"]
+epochs = config["epochs"]
 F_target = config["target_len"]
 node_features = config["node_features"]
+
+J = dataset.num_joints
+root_mean = dataset.root_mean.to(device).view(1, 1, 3)
+root_std = dataset.root_std.to(device).view(1, 1, 3)
+parent_indices = dataset.parent_indices.to(device)
+offsets = dataset.offsets.to(device)
+
+best_val_loss = float('inf')
+epochs_no_improve = 0
 
 for epoch in range(1, epochs + 1):
     log_str(f"\n--- Epoch {epoch}/{epochs} ---")
@@ -102,49 +111,93 @@ for epoch in range(1, epochs + 1):
 
     for batch in tqdm(train_loader, desc="Train", leave=False):
         batch = batch.to(device)
+
         optimizer.zero_grad()
         out = model(batch)
         
-        # rot_pred = out["rot"].view(batch.num_graphs * J, F_target * node_features)
+        # Rotations
         rot_pred = out["rot"]
         loss_rot = geodesic_rotation_loss(rot_pred, batch.y)
         
-        root_tgt = batch.root_tgt_norm.view(batch.num_graphs, -1) 
-        loss_root = mse(out['root_norm'], root_tgt)
+        # Root positions
+        root_pos_tgt = batch.root_pos_tgt.view(batch.num_graphs, -1) 
+        root_pos_pred = out['root_pos']
+        loss_root_pos = mse(root_pos_pred, root_pos_tgt)
 
-        loss = loss_rot + root_loss_weight * loss_root
+        # Forward kinematics 
+        rot_pred = rot_pred.view(batch.num_graphs, J, F_target, 6).permute(0, 2, 1, 3) # [B * J, F_target * 6] -> [B, F_target, J, 6]
+        root_pos_pred = root_pos_pred.view(batch.num_graphs, F_target, 3)
+        root_pos_pred = root_pos_pred * root_std + root_mean
+
+        fk_pos_pred = forward_kinematics_positions_batch(
+            offsets=offsets,
+            parent_indices=parent_indices,
+            root_pos=root_pos_pred,
+            rot_6d=rot_pred
+        ) 
+
+        fk_pos_tgt = batch.fk_pos.view(batch.num_graphs, -1)
+        fk_pos_pred = fk_pos_pred.view(batch.num_graphs, -1)
+        loss_fk = mae(fk_pos_pred, fk_pos_tgt)
+
+        # Total loss
+        loss = loss_rot + root_loss_weight * loss_root_pos + fk_loss_weight * loss_fk
         loss.backward()
+
         optimizer.step()
         total_train_loss += loss.item() * batch.num_graphs
 
     avg_train_loss = total_train_loss / len(train_dataset)
-    log_str(f"Train loss:                         {avg_train_loss:.7f}")
+    log_str(f"Training loss:                {avg_train_loss:.7f}")
 
     model.eval()
     total_val_loss = 0.0
     total_rot_loss = 0.0
     total_root_loss = 0.0
+    total_fk_loss = 0.0
     with torch.no_grad():
         for batch in tqdm(val_loader, desc="Val", leave=False):
             batch = batch.to(device)
+
             out = model(batch)
-            
-            # rot_pred = out["rot"].view(batch.num_graphs * J, F_target * node_features)
+           
+            # Rotations
             rot_pred = out["rot"]
             loss_rot = geodesic_rotation_loss(rot_pred, batch.y)
             
-            root_tgt = batch.root_tgt_norm.view(batch.num_graphs, -1) 
-            loss_root = mse(out['root_norm'], root_tgt)
-            
-            loss = loss_rot + root_loss_weight * loss_root
+            # Root positions
+            root_pos_tgt = batch.root_pos_tgt.view(batch.num_graphs, -1) 
+            root_pos_pred = out['root_pos']
+            loss_root_pos = mse(root_pos_pred, root_pos_tgt)
+
+            # Forward kinematics 
+            rot_pred = rot_pred.view(batch.num_graphs, J, F_target, 6).permute(0, 2, 1, 3) # [B * J, F_target * 6] -> [B, F_target, J, 6]
+            root_pos_pred = root_pos_pred.view(batch.num_graphs, F_target, 3)
+            root_pos_pred = root_pos_pred * root_std + root_mean
+
+            fk_pos_pred = forward_kinematics_positions_batch(
+                offsets=offsets,
+                parent_indices=parent_indices,
+                root_pos=root_pos_pred,
+                rot_6d=rot_pred
+            ) 
+
+            fk_pos_tgt = batch.fk_pos.view(batch.num_graphs, -1)
+            fk_pos_pred = fk_pos_pred.view(batch.num_graphs, -1)
+            loss_fk = mae(fk_pos_pred, fk_pos_tgt)
+                
+            # Losses
+            loss = loss_rot + root_loss_weight * loss_root_pos + fk_loss_weight * loss_fk
             total_val_loss += loss.item() * batch.num_graphs
             total_rot_loss += loss_rot.item() * batch.num_graphs
-            total_root_loss += loss_root.item() * batch.num_graphs
+            total_root_loss += loss_root_pos.item() * batch.num_graphs
+            total_fk_loss += loss_fk.item() * batch.num_graphs
 
     avg_val_loss = total_val_loss / len(val_dataset)
-    log_str(f"Validation loss:                    {avg_val_loss:.7f}")
-    log_str(f"Validation Geo Loss 6D rotations:   {total_rot_loss / len(val_dataset):.7f}")
-    log_str(f"Validation MSE root positions:      {total_root_loss / len(val_dataset):.7f}")
+    log_str(f"Validation loss:              {avg_val_loss:.7f}")
+    log_str(f"Rotations geodesic loss:      {total_rot_loss / len(val_dataset):.7f}")
+    log_str(f"Root positions MSE:           {total_root_loss / len(val_dataset):.7f}")
+    log_str(f"FK positions MAE:             {total_fk_loss / len(val_dataset):.7f}")
     
     if avg_val_loss < best_val_loss:
         best_val_loss = avg_val_loss

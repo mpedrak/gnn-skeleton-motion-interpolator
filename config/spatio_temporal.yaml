@@ -10,7 +10,7 @@ dropout: 0.1
 node_features: 6                                  
 graph_features: 3                                 
 model_path: "checkpoints/spatio_temporal.pth"
-root_stats_path: "checkpoints/root_stats_spatio_t.npz"
+root_stats_path: "checkpoints/root_stats/spatio_t.npz"
 
 # Dataset parameters
 step: 20                                          
