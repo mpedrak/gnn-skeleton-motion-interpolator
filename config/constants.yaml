@@ -1,0 +1,12 @@
+# Model
+model_path: "checkpoints/model/"
+model_suffix: ".pth"
+
+# Root stats
+root_stats_path: "checkpoints/root_stats/"
+root_stats_suffix: ".npz"
+
+# Logs
+train_log_path: "results/train/"
+test_log_path: "results/test/"
+log_suffix: ".txt"

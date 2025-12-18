@@ -28,6 +28,13 @@ if not os.path.isfile(config_path):
 
 with open(config_path, "r") as f:
     config = yaml.safe_load(f)
+
+constants_path = config_dir + "constants.yaml"
+if not os.path.isfile(constants_path):
+    raise FileNotFoundError(f"Constants file not found: {constants_path}")
+
+with open(constants_path, "r") as f:
+    constants = yaml.safe_load(f)
         
 device = "cuda" if torch.cuda.is_available() else "cpu"
 print(f"Using device: {device}")
@@ -84,8 +91,8 @@ def predict_gap(model, device, rot_6d, root_pos, parent_indices, context_len_pre
     return rot_pred.cpu(), root_pred.cpu()
 
 # Model
-model_path = config["model_path"]
-root_stats_path = config["root_stats_path"]
+model_path = constants["model_path"] + config["filename"] + constants["model_suffix"]
+root_stats_path = constants["root_stats_path"] + config["filename"] + constants["root_stats_suffix"]
 
 stats = np.load(root_stats_path)
 root_mean = torch.tensor(stats["mean"], dtype=torch.float32)

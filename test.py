@@ -27,6 +27,13 @@ if not os.path.isfile(config_path):
 with open(config_path, "r") as f:
     config = yaml.safe_load(f)
 
+constants_path = config_dir + "constants.yaml"
+if not os.path.isfile(constants_path):
+    raise FileNotFoundError(f"Constants file not found: {constants_path}")
+
+with open(constants_path, "r") as f:
+    constants = yaml.safe_load(f)
+
 device = "cuda" if torch.cuda.is_available() else "cpu"
 print(f"Using device: {device}")
 
@@ -124,14 +131,16 @@ model = SkeletalMotionInterpolator(
 )
 model = model.to(device)
 
-model_path = config["model_path"]
+model_path = constants["model_path"] + config["filename"] + constants["model_suffix"]
 state = torch.load(model_path, map_location=device)
 model.load_state_dict(state)
 print(f"Loaded checkpoint: {model_path}")
 
 # Testing
 print("Starting evaluation on test set")
-stats = np.load(config["root_stats_path"])
+root_stats_path = constants["root_stats_path"] + config["filename"] + constants["root_stats_suffix"]
+stats = np.load(root_stats_path)
+print(f"Loaded root stats from: {root_stats_path}")
 root_mean = torch.tensor(stats["mean"], dtype=torch.float32).to(device).view(1, 1, 3)
 root_std = torch.tensor(stats["std"], dtype=torch.float32).to(device).view(1, 1, 3)
 
@@ -148,8 +157,8 @@ results = evaluate(
     root_std=root_std
 )
 
-test_log_path = config["test_log_path"]
-os.makedirs("results", exist_ok=True)
+os.makedirs(constants["test_log_path"], exist_ok=True)
+test_log_path = constants["test_log_path"] + config["filename"] + constants["log_suffix"]
 if os.path.exists(test_log_path):
     os.remove(test_log_path)
 

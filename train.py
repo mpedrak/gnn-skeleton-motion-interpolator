@@ -28,6 +28,13 @@ if not os.path.isfile(config_path):
 with open(config_path, "r") as f:
     config = yaml.safe_load(f)
 
+constants_path = config_dir + "constants.yaml"
+if not os.path.isfile(constants_path):
+    raise FileNotFoundError(f"Constants file not found: {constants_path}")
+
+with open(constants_path, "r") as f:
+    constants = yaml.safe_load(f)
+
 device = "cuda" if torch.cuda.is_available() else "cpu"
 print(f"Using device: {device}")
 
@@ -42,8 +49,8 @@ dataset = GraphSkeletonDataset(
 )
 print(f"Dataset ready with {len(dataset)} samples")
 
-root_stats_path = config["root_stats_path"]
-os.makedirs("checkpoints", exist_ok=True)
+os.makedirs(constants["root_stats_path"], exist_ok=True)
+root_stats_path = constants["root_stats_path"] + config["filename"] + constants["root_stats_suffix"]
 np.savez(root_stats_path, mean=dataset.root_mean.numpy(), std=dataset.root_std.numpy())
 print(f"Saved root delta stats in: {root_stats_path}")
 
@@ -76,8 +83,8 @@ optimizer = torch.optim.Adam(model.parameters(), lr=config["lr"])
 mse = torch.nn.MSELoss()
 mae = torch.nn.L1Loss()
 
-os.makedirs("results", exist_ok=True)
-train_log_path = config["train_log_path"]
+os.makedirs(constants["train_log_path"], exist_ok=True)
+train_log_path = constants["train_log_path"] + config["filename"] + constants["log_suffix"]
 if os.path.exists(train_log_path):
     os.remove(train_log_path)
 
@@ -86,7 +93,8 @@ def log_str(str):
     with open(train_log_path, "a") as log_file:
         log_file.write(str + "\n")
 
-model_path = config["model_path"]
+os.makedirs(constants["model_path"], exist_ok=True)
+model_path = constants["model_path"] + config["filename"] + constants["model_suffix"]
 root_loss_weight = config["root_loss_weight"]
 fk_loss_weight = config["fk_loss_weight"]
 patience = config["patience"]
