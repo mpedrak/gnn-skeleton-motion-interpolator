@@ -9,7 +9,6 @@ root_pos_hidden_dim: 192
 dropout: 0.1
 node_features: 6                                  
 graph_features: 3                                 
-filename: "6_fk_better"
 
 # Dataset parameters
 step: 7                                          

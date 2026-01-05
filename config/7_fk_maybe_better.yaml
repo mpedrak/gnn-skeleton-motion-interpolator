@@ -1,6 +1,3 @@
-# All filenames 
-filename: "7_fk_maybe_better"
-
 # Model parameters
 context_len_pre: 10
 context_len_post: 10

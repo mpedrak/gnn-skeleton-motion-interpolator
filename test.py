@@ -20,7 +20,8 @@ parser = argparse.ArgumentParser()
 parser.add_argument("config", type=str)
 args = parser.parse_args()
 
-config_path = config_dir + args.config + ".yaml"
+filename = args.config
+config_path = config_dir + filename + ".yaml"
 if not os.path.isfile(config_path):
     raise FileNotFoundError(f"Config file not found: {config_path}")
 
@@ -131,14 +132,14 @@ model = SkeletalMotionInterpolator(
 )
 model = model.to(device)
 
-model_path = constants["model_path"] + config["filename"] + constants["model_suffix"]
+model_path = constants["model_path"] + filename + constants["model_suffix"]
 state = torch.load(model_path, map_location=device)
 model.load_state_dict(state)
 print(f"Loaded checkpoint: {model_path}")
 
 # Testing
 print("Starting evaluation on test set")
-root_stats_path = constants["root_stats_path"] + config["filename"] + constants["root_stats_suffix"]
+root_stats_path = constants["root_stats_path"] + filename + constants["root_stats_suffix"]
 stats = np.load(root_stats_path)
 print(f"Loaded root stats from: {root_stats_path}")
 root_mean = torch.tensor(stats["mean"], dtype=torch.float32).to(device).view(1, 1, 3)
@@ -158,7 +159,7 @@ results = evaluate(
 )
 
 os.makedirs(constants["test_log_path"], exist_ok=True)
-test_log_path = constants["test_log_path"] + config["filename"] + constants["log_suffix"]
+test_log_path = constants["test_log_path"] + filename + constants["log_suffix"]
 if os.path.exists(test_log_path):
     os.remove(test_log_path)
 

@@ -9,7 +9,6 @@ root_pos_hidden_dim: 172
 dropout: 0.1
 node_features: 6                                  
 graph_features: 3                                 
-filename: "5_fk_loss"
 
 # Dataset parameters
 step: 7                                          

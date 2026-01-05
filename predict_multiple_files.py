@@ -22,7 +22,8 @@ parser = argparse.ArgumentParser()
 parser.add_argument("config", type=str)
 args = parser.parse_args()
 
-config_path = config_dir + args.config + ".yaml"
+filename = args.config
+config_path = config_dir + filename + ".yaml"
 if not os.path.isfile(config_path):
     raise FileNotFoundError(f"Config file not found: {config_path}")
 
@@ -91,8 +92,8 @@ def predict_gap(model, device, rot_6d, root_pos, parent_indices, context_len_pre
     return rot_pred.cpu(), root_pred.cpu()
 
 # Model
-model_path = constants["model_path"] + config["filename"] + constants["model_suffix"]
-root_stats_path = constants["root_stats_path"] + config["filename"] + constants["root_stats_suffix"]
+model_path = constants["model_path"] + filename + constants["model_suffix"]
+root_stats_path = constants["root_stats_path"] + filename + constants["root_stats_suffix"]
 
 stats = np.load(root_stats_path)
 root_mean = torch.tensor(stats["mean"], dtype=torch.float32)

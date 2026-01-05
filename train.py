@@ -7,6 +7,7 @@ import argparse
 from torch_geometric.loader import DataLoader
 from tqdm import tqdm
 from torch.utils.data import random_split
+from torch.optim.lr_scheduler import ReduceLROnPlateau
 
 from src.dataset import GraphSkeletonDataset
 from src.model import SkeletalMotionInterpolator
@@ -21,7 +22,8 @@ parser = argparse.ArgumentParser()
 parser.add_argument("config", type=str)
 args = parser.parse_args()
 
-config_path = config_dir + args.config + ".yaml"
+filename = args.config
+config_path = config_dir + filename + ".yaml"
 if not os.path.isfile(config_path):
     raise FileNotFoundError(f"Config file not found: {config_path}")
 
@@ -50,7 +52,7 @@ dataset = GraphSkeletonDataset(
 print(f"Dataset ready with {len(dataset)} samples")
 
 os.makedirs(constants["root_stats_path"], exist_ok=True)
-root_stats_path = constants["root_stats_path"] + config["filename"] + constants["root_stats_suffix"]
+root_stats_path = constants["root_stats_path"] + filename + constants["root_stats_suffix"]
 np.savez(root_stats_path, mean=dataset.root_mean.numpy(), std=dataset.root_std.numpy())
 print(f"Saved root delta stats in: {root_stats_path}")
 
@@ -79,12 +81,21 @@ model = SkeletalMotionInterpolator(
 model = model.to(device)
 
 # Training 
-optimizer = torch.optim.Adam(model.parameters(), lr=config["lr"])
+start_lr = config["start_lr"]
+optimizer = torch.optim.Adam(model.parameters(), lr=start_lr)
+scheduler = ReduceLROnPlateau(
+    optimizer,
+    mode="min",
+    factor=config["lr_factor"],     
+    patience=config["lr_patience"],     
+    min_lr=config["min_lr"]
+)
+
 mse = torch.nn.MSELoss()
 mae = torch.nn.L1Loss()
 
 os.makedirs(constants["train_log_path"], exist_ok=True)
-train_log_path = constants["train_log_path"] + config["filename"] + constants["log_suffix"]
+train_log_path = constants["train_log_path"] + filename + constants["log_suffix"]
 if os.path.exists(train_log_path):
     os.remove(train_log_path)
 
@@ -94,7 +105,7 @@ def log_str(str):
         log_file.write(str + "\n")
 
 os.makedirs(constants["model_path"], exist_ok=True)
-model_path = constants["model_path"] + config["filename"] + constants["model_suffix"]
+model_path = constants["model_path"] + filename + constants["model_suffix"]
 root_loss_weight = config["root_loss_weight"]
 fk_loss_weight = config["fk_loss_weight"]
 patience = config["patience"]
@@ -113,6 +124,9 @@ epochs_no_improve = 0
 
 for epoch in range(1, epochs + 1):
     log_str(f"\n--- Epoch {epoch}/{epochs} ---")
+
+    current_lr = optimizer.param_groups[0]["lr"]
+    log_str(f"Learning rate:                {current_lr:.3e}")
    
     model.train()
     total_train_loss = 0.0
@@ -206,6 +220,8 @@ for epoch in range(1, epochs + 1):
     log_str(f"Rotations geodesic loss:      {total_rot_loss / len(val_dataset):.7f}")
     log_str(f"Root positions MSE:           {total_root_loss / len(val_dataset):.7f}")
     log_str(f"FK positions MAE:             {total_fk_loss / len(val_dataset):.7f}")
+
+    scheduler.step(avg_val_loss)
     
     if avg_val_loss < best_val_loss:
         best_val_loss = avg_val_loss

@@ -9,7 +9,6 @@ root_pos_hidden_dim: 128
 dropout: 0.1
 node_features: 6                                  
 graph_features: 3                                 
-filename: "2_geo_loss"
 
 # Dataset parameters
 step: 10                                          
