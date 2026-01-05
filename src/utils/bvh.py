@@ -208,3 +208,58 @@ def forward_kinematics_positions(offsets, parent_indices, root_pos, rot_6d):
     positions = positions_batched.squeeze(0)
 
     return positions
+
+
+def get_joint_indices_by_name(all_joint_names, target_joint_names):
+    # Returns indices of target_joint_names (torch.Tensor)
+
+    idxs = []
+    for j in target_joint_names:
+        if j not in all_joint_names: raise ValueError(f"Foot joint name '{j}' not found in all joint names")
+        idxs.append(all_joint_names.index(j))
+
+    idxs = torch.tensor(idxs, dtype=torch.long)
+
+    return idxs
+
+
+def compute_foot_contact(fk_pos, foot_joint_indices, contact_height_eps, contact_velocity_eps):
+    # Fk_pos: [F, J, 3], foot_joint_indices -> contact: [F, n_feet] {0, 1} (torch.Tensor)
+
+    feet_pos = fk_pos[:, foot_joint_indices, :]        
+    h = feet_pos[..., 1] # [F, n_feet]                   
+
+    ground = torch.quantile(h, 0.05, dim=0)        
+
+    dp = feet_pos[1 : ] - feet_pos[ : -1]                     
+    dp_plane = dp[..., (0, 2)] # X, Z
+    v = torch.norm(dp_plane, dim=-1)               
+    v = torch.cat([torch.zeros((1, v.shape[1]), dtype=v.dtype), v], dim=0)  
+
+    contact = (h <= (ground + contact_height_eps)) & (v <= contact_velocity_eps)
+    contact = contact.to(torch.float32)
+
+    return contact
+
+
+def foot_skating_loss(fk_pos_pred, tgt_foot_contact, foot_joint_indices):
+    # Fk_pos_pred: [B, F, J, 3], tgt_foot_contact: [B, F, n_feet] -> loss
+   
+    feet_pos = fk_pos_pred[:, :, foot_joint_indices, :]  
+    dp = feet_pos[:, 1 : ] - feet_pos[:, : -1]                 
+    dp_plane = dp[..., (0, 2)]
+    dp_norm = torch.norm(dp_plane, dim=-1) 
+
+    # contact in previous and current frame
+    contact_prev = tgt_foot_contact[:, : -1] 
+    contact_curr = tgt_foot_contact[:, 1 : ]    
+
+    # only penalize motion when contact is true in both frames
+    contact_pair = contact_prev * contact_curr  
+    weighted_motion = dp_norm * contact_pair  
+    num_active = contact_pair.sum()
+    num_active = torch.clamp(num_active, min=1.0)
+    
+    loss = weighted_motion.sum() / num_active
+
+    return loss
