@@ -12,7 +12,7 @@ graph_features: 3
 
 # Dataset parameters
 step: 7                                          
-batch_size: 1027
+batch_size: 1000
 
 # Training parameters
 epochs: 500
@@ -28,6 +28,8 @@ foot_joint_names: ["LeftToe", "RightToe"]
 foot_height_eps: 2.0
 foot_velocity_eps: 0.5
 foot_skate_loss_weight: 0.01
+smoothness_loss_weight: 0.015
+epoch_loss_switch: 50
 train_data_dir: "data/train"
 
 # Testing parameters

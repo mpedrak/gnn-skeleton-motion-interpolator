@@ -35,11 +35,10 @@ class GraphSkeletonDataset(Dataset):
                 print(f"Loaded cached file: {cache_path}")
             else:
                 root_pos, rot_6d, joint_names, parent_indices, offsets = parse_bvh_file(filepath)
-                root_pos_deltas = compute_root_deltas(root_pos)
                 fk_pos = forward_kinematics_positions(
                     offsets=offsets, 
                     parent_indices=parent_indices, 
-                    root_pos=root_pos_deltas, 
+                    root_pos=root_pos, 
                     rot_6d=rot_6d
                 )
                 foot_joint_indices = get_joint_indices_by_name(
@@ -52,6 +51,7 @@ class GraphSkeletonDataset(Dataset):
                     contact_height_eps=foot_height_eps,
                     contact_velocity_eps=foot_velocity_eps
                 )
+                root_pos_deltas = compute_root_deltas(root_pos)
                 data = {
                     'root_pos_deltas': root_pos_deltas,
                     'rot_6d': rot_6d,
@@ -59,7 +59,8 @@ class GraphSkeletonDataset(Dataset):
                     'parent_indices': parent_indices,
                     'offsets': offsets,
                     'fk_pos': fk_pos,
-                    'foot_contact': foot_contact
+                    'foot_contact': foot_contact,
+                    'root_pos_absolute': root_pos
                 }
                 torch.save(data, cache_path)
                 print(f"Saved cache file: {cache_path}")
@@ -126,6 +127,8 @@ class GraphSkeletonDataset(Dataset):
 
         foot_contact = data['foot_contact'][tgt_start : post_ctx_start]
 
+        last_root_pos_absolute = data['root_pos_absolute'][tgt_start - 1].unsqueeze(0)
+
         return Data(
             x=x_feat,
             y=y_feat,
@@ -133,5 +136,6 @@ class GraphSkeletonDataset(Dataset):
             root_pos_ctx=root_ctx_norm,
             root_pos_tgt=root_tgt_norm,
             fk_pos=fk_pos,
-            foot_contact=foot_contact
+            foot_contact=foot_contact,
+            last_root_pos_absolute=last_root_pos_absolute
         )

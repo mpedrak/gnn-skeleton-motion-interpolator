@@ -226,15 +226,15 @@ def get_joint_indices_by_name(all_joint_names, target_joint_names):
 def compute_foot_contact(fk_pos, foot_joint_indices, contact_height_eps, contact_velocity_eps):
     # Fk_pos: [F, J, 3], foot_joint_indices -> contact: [F, n_feet] {0, 1} (torch.Tensor)
 
-    feet_pos = fk_pos[:, foot_joint_indices, :]        
+    feet_pos = fk_pos[:, foot_joint_indices, :]
     h = feet_pos[..., 1] # [F, n_feet]                   
 
-    ground = torch.quantile(h, 0.05, dim=0)        
+    ground = torch.quantile(h, 0.05, dim=0) # 5th percentile per foot     
 
     dp = feet_pos[1 : ] - feet_pos[ : -1]                     
     dp_plane = dp[..., (0, 2)] # X, Z
     v = torch.norm(dp_plane, dim=-1)               
-    v = torch.cat([torch.zeros((1, v.shape[1]), dtype=v.dtype), v], dim=0)  
+    v = torch.cat([torch.zeros((1, v.shape[1]), dtype=v.dtype), v], dim=0) # add zero velocity for first frame  
 
     contact = (h <= (ground + contact_height_eps)) & (v <= contact_velocity_eps)
     contact = contact.to(torch.float32)
@@ -261,5 +261,15 @@ def foot_skating_loss(fk_pos_pred, tgt_foot_contact, foot_joint_indices):
     num_active = torch.clamp(num_active, min=1.0)
     
     loss = weighted_motion.sum() / num_active
+
+    return loss
+
+
+def compute_smoothness_loss(fk_pos_pred):
+    # Compute acceleration smoothness loss
+
+    v = fk_pos_pred[:, 1 : ] - fk_pos_pred[:, : -1]      
+    a = v[:, 1 : ] - v[:, : -1]   
+    loss = torch.abs(a).mean()
 
     return loss

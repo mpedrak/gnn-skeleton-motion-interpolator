@@ -10,7 +10,7 @@ from tqdm import tqdm
 from src.dataset import GraphSkeletonDataset
 from src.model import SkeletalMotionInterpolator
 from src.utils.rotation import geodesic_rotation_loss
-from src.utils.bvh import forward_kinematics_positions_batch, foot_skating_loss
+from src.utils.bvh import forward_kinematics_positions_batch, foot_skating_loss, compute_smoothness_loss
 
 
 # Config
@@ -51,6 +51,7 @@ def evaluate(model, loader, root_loss_weight, fk_loss_weight, J, F_target, offse
     geo_rot_total = 0.0
     mae_fk_total = 0.0
     total_foot_skate_loss = 0.0
+    total_smoothness_loss = 0.0
     n_batches = 0
 
     with torch.no_grad():
@@ -73,10 +74,13 @@ def evaluate(model, loader, root_loss_weight, fk_loss_weight, J, F_target, offse
             root_pos_pred = root_pos_pred.view(batch.num_graphs, F_target, 3)
             root_pos_pred = root_pos_pred * root_std + root_mean
 
+            last_root_pos_absolute = batch.last_root_pos_absolute.view(batch.num_graphs, 1, 3) # position at time target start - 1
+            root_pos_pred_absolute = last_root_pos_absolute + torch.cumsum(root_pos_pred, dim=1)
+
             fk_pos_pred = forward_kinematics_positions_batch(
                 offsets=offsets,
                 parent_indices=parent_indices,
-                root_pos=root_pos_pred,
+                root_pos=root_pos_pred_absolute,
                 rot_6d=rot_pred
             ) 
 
@@ -92,8 +96,12 @@ def evaluate(model, loader, root_loss_weight, fk_loss_weight, J, F_target, offse
                 foot_joint_indices=foot_joint_indices
             )
 
+            # Smoothness loss
+            smoothness_loss = compute_smoothness_loss(fk_pos_pred=fk_pos_pred)
+
             # Losses
-            loss = fk_loss_weight * loss_fk + root_loss_weight * loss_root_pos + loss_rot + foot_skate_loss_weight * foot_skate_loss
+            loss = fk_loss_weight * loss_fk + root_loss_weight * loss_root_pos + loss_rot 
+            loss += foot_skate_loss_weight * foot_skate_loss
             total_loss += loss.item() * batch.num_graphs
             num_samples += batch.num_graphs
 
@@ -101,6 +109,7 @@ def evaluate(model, loader, root_loss_weight, fk_loss_weight, J, F_target, offse
             mse_root_total += loss_root_pos.item()
             mae_fk_total += loss_fk.item()
             total_foot_skate_loss += foot_skate_loss.item()
+            total_smoothness_loss += smoothness_loss.item()
             n_batches += 1
 
     avg_loss = total_loss / max(1, num_samples)
@@ -108,13 +117,15 @@ def evaluate(model, loader, root_loss_weight, fk_loss_weight, J, F_target, offse
     avg_geo_rot = geo_rot_total / max(1, n_batches)
     avg_mae_fk = mae_fk_total / max(1, n_batches)
     avg_foot_skate_loss = total_foot_skate_loss / max(1, n_batches)
+    avg_smoothness_loss = total_smoothness_loss / max(1, n_batches)
 
     return {
         "total": avg_loss,
         "mse_root": avg_mse_root,
         "geo_rot": avg_geo_rot,
         "mae_fk": avg_mae_fk,
-        "foot_skate_loss": avg_foot_skate_loss
+        "foot_skate_loss": avg_foot_skate_loss,
+        "smoothness_loss": avg_smoothness_loss
     }
 
 
@@ -193,3 +204,4 @@ log_str(f"6D rotations geodesic loss:      {results['geo_rot']:.7f}")
 log_str(f"Root positions MSE:              {results['mse_root']:.7f}")
 log_str(f"FK positions MAE:                {results['mae_fk']:.7f}")
 log_str(f"Foot skating loss:               {results['foot_skate_loss']:.7f}")
+log_str(f"Smoothness loss (not in sum):    {results['smoothness_loss']:.7f}")
