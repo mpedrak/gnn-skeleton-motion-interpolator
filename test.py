@@ -39,9 +39,7 @@ device = "cuda" if torch.cuda.is_available() else "cpu"
 print(f"Using device: {device}")
 
 # Evaluate function
-def evaluate(model, loader, root_loss_weight, fk_loss_weight, J, F_target, offsets, parent_indices, root_mean, root_std,
-            foot_skate_loss_weight, foot_joint_indices):
-    
+def evaluate(model, loader, root_loss_weight, fk_loss_weight, J, F_target, offsets, parent_indices, root_mean, root_std):
     model.eval()
     mse = torch.nn.MSELoss()
     mae = torch.nn.L1Loss()
@@ -50,8 +48,6 @@ def evaluate(model, loader, root_loss_weight, fk_loss_weight, J, F_target, offse
     mse_root_total = 0.0
     geo_rot_total = 0.0
     mae_fk_total = 0.0
-    total_foot_skate_loss = 0.0
-    total_smoothness_loss = 0.0
     n_batches = 0
 
     with torch.no_grad():
@@ -84,48 +80,30 @@ def evaluate(model, loader, root_loss_weight, fk_loss_weight, J, F_target, offse
                 rot_6d=rot_pred
             ) 
 
-            fk_pos_tgt_flat = batch.fk_pos.view(batch.num_graphs, -1)
-            fk_pos_pred_flat = fk_pos_pred.view(batch.num_graphs, -1)
-            loss_fk = mae(fk_pos_pred_flat, fk_pos_tgt_flat)
-
-            # Foot skating loss
-            tgt_foot_contact = batch.foot_contact.view(batch.num_graphs, F_target, -1)  # [B, F_target, n_feet]
-            foot_skate_loss = foot_skating_loss(
-                fk_pos_pred=fk_pos_pred, 
-                tgt_foot_contact=tgt_foot_contact, 
-                foot_joint_indices=foot_joint_indices
-            )
-
-            # Smoothness loss
-            smoothness_loss = compute_smoothness_loss(fk_pos_pred=fk_pos_pred)
+            fk_pos_tgt = batch.fk_pos.view(batch.num_graphs, -1)
+            fk_pos_pred = fk_pos_pred.view(batch.num_graphs, -1)
+            loss_fk = mae(fk_pos_pred, fk_pos_tgt)
 
             # Losses
-            loss = fk_loss_weight * loss_fk + root_loss_weight * loss_root_pos + loss_rot 
-            loss += foot_skate_loss_weight * foot_skate_loss
+            loss = fk_loss_weight * loss_fk + root_loss_weight * loss_root_pos + loss_rot
             total_loss += loss.item() * batch.num_graphs
             num_samples += batch.num_graphs
 
             geo_rot_total += loss_rot.item()
             mse_root_total += loss_root_pos.item()
             mae_fk_total += loss_fk.item()
-            total_foot_skate_loss += foot_skate_loss.item()
-            total_smoothness_loss += smoothness_loss.item()
             n_batches += 1
 
     avg_loss = total_loss / max(1, num_samples)
     avg_mse_root = mse_root_total / max(1, n_batches)  
     avg_geo_rot = geo_rot_total / max(1, n_batches)
     avg_mae_fk = mae_fk_total / max(1, n_batches)
-    avg_foot_skate_loss = total_foot_skate_loss / max(1, n_batches)
-    avg_smoothness_loss = total_smoothness_loss / max(1, n_batches)
 
     return {
         "total": avg_loss,
         "mse_root": avg_mse_root,
         "geo_rot": avg_geo_rot,
-        "mae_fk": avg_mae_fk,
-        "foot_skate_loss": avg_foot_skate_loss,
-        "smoothness_loss": avg_smoothness_loss
+        "mae_fk": avg_mae_fk
     }
 
 
@@ -136,10 +114,7 @@ test_dataset = GraphSkeletonDataset(
     context_len_pre=config["context_len_pre"],
     context_len_post=config["context_len_post"],
     target_len=config["target_len"],
-    step=config["step"],
-    foot_joint_names=config["foot_joint_names"],
-    foot_height_eps=config["foot_height_eps"],
-    foot_velocity_eps=config["foot_velocity_eps"]
+    step=config["step"]
 )
 print(f"Dataset ready with {len(test_dataset)} samples")
 
@@ -178,8 +153,6 @@ results = evaluate(
     loader=test_loader,
     root_loss_weight=config["root_loss_weight"],
     fk_loss_weight=config["fk_loss_weight"],
-    foot_skate_loss_weight=config["foot_skate_loss_weight"],
-    foot_joint_indices=test_dataset.foot_joint_indices.to(device),
     J=test_dataset.num_joints,
     F_target=config["target_len"],
     offsets=test_dataset.offsets.to(device),
@@ -203,5 +176,3 @@ log_str(f"Total loss - weighted sum:       {results['total']:.7f}")
 log_str(f"6D rotations geodesic loss:      {results['geo_rot']:.7f}")
 log_str(f"Root positions MSE:              {results['mse_root']:.7f}")
 log_str(f"FK positions MAE:                {results['mae_fk']:.7f}")
-log_str(f"Foot skating loss:               {results['foot_skate_loss']:.7f}")
-log_str(f"Smoothness loss (not in sum):    {results['smoothness_loss']:.7f}")

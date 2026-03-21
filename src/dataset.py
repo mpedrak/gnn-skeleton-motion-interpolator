@@ -9,10 +9,8 @@ from .utils.bvh import (
 ) 
 
 
-
 class GraphSkeletonDataset(Dataset):
-    def __init__(self, root_dir, context_len_pre, context_len_post, target_len, step, foot_joint_names,
-                foot_height_eps, foot_velocity_eps):
+    def __init__(self, root_dir, context_len_pre, context_len_post, target_len, step):
 
         super().__init__()
         self.context_len_pre = context_len_pre
@@ -41,16 +39,6 @@ class GraphSkeletonDataset(Dataset):
                     root_pos=root_pos, 
                     rot_6d=rot_6d
                 )
-                foot_joint_indices = get_joint_indices_by_name(
-                    all_joint_names=joint_names,
-                    target_joint_names=foot_joint_names
-                )
-                foot_contact = compute_foot_contact(
-                    fk_pos=fk_pos,
-                    foot_joint_indices=foot_joint_indices,
-                    contact_height_eps=foot_height_eps,
-                    contact_velocity_eps=foot_velocity_eps
-                )
                 root_pos_deltas = compute_root_deltas(root_pos)
                 data = {
                     'root_pos_deltas': root_pos_deltas,
@@ -59,7 +47,6 @@ class GraphSkeletonDataset(Dataset):
                     'parent_indices': parent_indices,
                     'offsets': offsets,
                     'fk_pos': fk_pos,
-                    'foot_contact': foot_contact,
                     'root_pos_absolute': root_pos
                 }
                 torch.save(data, cache_path)
@@ -75,13 +62,10 @@ class GraphSkeletonDataset(Dataset):
 
         first_data = self.cache[self.files[0]]
         self.num_joints = len(first_data['joint_names'])
+        self.joint_names = first_data['joint_names']
         self.edge_index = build_edge_index_from_parents(first_data['parent_indices'])
         self.parent_indices = first_data['parent_indices']
         self.offsets = first_data['offsets']
-        self.foot_joint_indices = get_joint_indices_by_name(
-            all_joint_names=first_data['joint_names'],
-            target_joint_names=foot_joint_names
-        )
 
         concat_root_pos_deltas = torch.cat(all_root_deltas, dim=0) # [F, 3]
         self.root_mean = concat_root_pos_deltas.mean(dim=0)            
@@ -125,8 +109,6 @@ class GraphSkeletonDataset(Dataset):
 
         fk_pos = data['fk_pos'][tgt_start : post_ctx_start]
 
-        foot_contact = data['foot_contact'][tgt_start : post_ctx_start]
-
         last_root_pos_absolute = data['root_pos_absolute'][tgt_start - 1].unsqueeze(0)
 
         return Data(
@@ -136,6 +118,5 @@ class GraphSkeletonDataset(Dataset):
             root_pos_ctx=root_ctx_norm,
             root_pos_tgt=root_tgt_norm,
             fk_pos=fk_pos,
-            foot_contact=foot_contact,
             last_root_pos_absolute=last_root_pos_absolute
         )

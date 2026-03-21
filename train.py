@@ -47,10 +47,7 @@ dataset = GraphSkeletonDataset(
     context_len_pre=config["context_len_pre"],
     context_len_post=config["context_len_post"],
     target_len=config["target_len"],
-    step=config["step"],
-    foot_joint_names=config["foot_joint_names"],
-    foot_height_eps=config["foot_height_eps"],
-    foot_velocity_eps=config["foot_velocity_eps"]
+    step=config["step"]
 )
 print(f"Dataset ready with {len(dataset)} samples")
 
@@ -111,22 +108,18 @@ os.makedirs(constants["model_path"], exist_ok=True)
 model_path = constants["model_path"] + filename + constants["model_suffix"]
 root_loss_weight = config["root_loss_weight"]
 fk_loss_weight = config["fk_loss_weight"]
-foot_skate_loss_weight = config["foot_skate_loss_weight"]
 patience = config["patience"]
 epochs = config["epochs"]
 F_target = config["target_len"]
 node_features = config["node_features"]
-smoothness_loss_weight = config["smoothness_loss_weight"]
-epoch_loss_switch = config["epoch_loss_switch"]
 
 J = dataset.num_joints
 root_mean = dataset.root_mean.to(device).view(1, 1, 3)
 root_std = dataset.root_std.to(device).view(1, 1, 3)
 parent_indices = dataset.parent_indices.to(device)
 offsets = dataset.offsets.to(device)
-foot_joint_indices = dataset.foot_joint_indices.to(device)
 
-best_base_val_loss = float('inf')
+best_val_loss = float('inf')
 epochs_no_improve = 0
 
 for epoch in range(1, epochs + 1):
@@ -157,7 +150,7 @@ for epoch in range(1, epochs + 1):
         rot_pred = rot_pred.view(batch.num_graphs, J, F_target, 6).permute(0, 2, 1, 3) # [B * J, F_target * 6] -> [B, F_target, J, 6]
         root_pos_pred = root_pos_pred.view(batch.num_graphs, F_target, 3)
         root_pos_pred = root_pos_pred * root_std + root_mean
-        
+
         last_root_pos_absolute = batch.last_root_pos_absolute.view(batch.num_graphs, 1, 3) # position at time target start - 1
         root_pos_pred_absolute = last_root_pos_absolute + torch.cumsum(root_pos_pred, dim=1)
 
@@ -168,30 +161,12 @@ for epoch in range(1, epochs + 1):
             rot_6d=rot_pred
         ) 
 
-        fk_pos_tgt_flat = batch.fk_pos.view(batch.num_graphs, -1)
-        fk_pos_pred_flat = fk_pos_pred.view(batch.num_graphs, -1)
-        loss_fk = mae(fk_pos_pred_flat, fk_pos_tgt_flat)
-
-        # Foot skating loss
-        if epoch < epoch_loss_switch:
-            foot_skate_loss = torch.tensor(0.0, device=device)
-        else:
-            tgt_foot_contact = batch.foot_contact.view(batch.num_graphs, F_target, -1)  # [B, F_target, n_feet]
-            foot_skate_loss = foot_skating_loss(
-                fk_pos_pred=fk_pos_pred, 
-                tgt_foot_contact=tgt_foot_contact, 
-                foot_joint_indices=foot_joint_indices
-            )
-
-        # Smoothness loss
-        if epoch >= epoch_loss_switch:
-            smoothness_loss = torch.tensor(0.0, device=device)
-        else:
-            smoothness_loss = compute_smoothness_loss(fk_pos_pred=fk_pos_pred)
+        fk_pos_tgt = batch.fk_pos.view(batch.num_graphs, -1)
+        fk_pos_pred = fk_pos_pred.view(batch.num_graphs, -1)
+        loss_fk = mae(fk_pos_pred, fk_pos_tgt)
 
         # Total loss
-        loss = loss_rot + root_loss_weight * loss_root_pos + fk_loss_weight * loss_fk 
-        loss += foot_skate_loss_weight * foot_skate_loss + smoothness_loss_weight * smoothness_loss
+        loss = loss_rot + root_loss_weight * loss_root_pos + fk_loss_weight * loss_fk
         loss.backward()
 
         optimizer.step()
@@ -205,9 +180,6 @@ for epoch in range(1, epochs + 1):
     total_rot_loss = 0.0
     total_root_loss = 0.0
     total_fk_loss = 0.0
-    total_foot_skate_loss = 0.0
-    total_smoothness_loss = 0.0
-    total_val_base_loss = 0.0
     with torch.no_grad():
         for batch in tqdm(val_loader, desc="Val", leave=False):
             batch = batch.to(device)
@@ -238,60 +210,34 @@ for epoch in range(1, epochs + 1):
                 rot_6d=rot_pred
             ) 
 
-            fk_pos_tgt_flat = batch.fk_pos.view(batch.num_graphs, -1)
-            fk_pos_pred_flat = fk_pos_pred.view(batch.num_graphs, -1)
-            loss_fk = mae(fk_pos_pred_flat, fk_pos_tgt_flat)
-
-            # Foot skating loss
-            if epoch < epoch_loss_switch:
-                foot_skate_loss = torch.tensor(0.0, device=device)
-            else:
-                tgt_foot_contact = batch.foot_contact.view(batch.num_graphs, F_target, -1)  # [B, F_target, n_feet]
-                foot_skate_loss = foot_skating_loss(
-                    fk_pos_pred=fk_pos_pred, 
-                    tgt_foot_contact=tgt_foot_contact, 
-                    foot_joint_indices=foot_joint_indices
-                )
-
-            # Smoothness loss
-            if epoch >= epoch_loss_switch:
-                smoothness_loss = torch.tensor(0.0, device=device)
-            else:
-                smoothness_loss = compute_smoothness_loss(fk_pos_pred=fk_pos_pred)
-
+            fk_pos_tgt = batch.fk_pos.view(batch.num_graphs, -1)
+            fk_pos_pred = fk_pos_pred.view(batch.num_graphs, -1)
+            loss_fk = mae(fk_pos_pred, fk_pos_tgt)
+                
             # Losses
-            base_loss = loss_rot + root_loss_weight * loss_root_pos + fk_loss_weight * loss_fk
-            loss = base_loss + foot_skate_loss_weight * foot_skate_loss + smoothness_loss_weight * smoothness_loss
-
-            total_val_base_loss += base_loss.item() * batch.num_graphs
+            loss = loss_rot + root_loss_weight * loss_root_pos + fk_loss_weight * loss_fk
             total_val_loss += loss.item() * batch.num_graphs
             total_rot_loss += loss_rot.item() * batch.num_graphs
             total_root_loss += loss_root_pos.item() * batch.num_graphs
             total_fk_loss += loss_fk.item() * batch.num_graphs
-            total_foot_skate_loss += foot_skate_loss.item() * batch.num_graphs
-            total_smoothness_loss += smoothness_loss.item() * batch.num_graphs
 
     avg_val_loss = total_val_loss / len(val_dataset)
-    avg_val_base_loss = total_val_base_loss / len(val_dataset)
-    log_str(f"Validation base loss:         {avg_val_base_loss:.7f}")
     log_str(f"Validation loss:              {avg_val_loss:.7f}")
     log_str(f"Rotations geodesic loss:      {total_rot_loss / len(val_dataset):.7f}")
     log_str(f"Root positions MSE:           {total_root_loss / len(val_dataset):.7f}")
     log_str(f"FK positions MAE:             {total_fk_loss / len(val_dataset):.7f}")
-    log_str(f"Foot skating loss:            {total_foot_skate_loss / len(val_dataset):.7f}")
-    log_str(f"Smoothness loss:              {total_smoothness_loss / len(val_dataset):.7f}")
 
-    scheduler.step(avg_val_base_loss)
+    scheduler.step(avg_val_loss)
     
-    if avg_val_base_loss < best_base_val_loss:
-        best_base_val_loss = avg_val_base_loss
+    if avg_val_loss < best_val_loss:
+        best_val_loss = avg_val_loss
         epochs_no_improve = 0
-        log_str("Base validation loss improved, saving checkpoint")
+        log_str("Validation loss improved, saving checkpoint")
         torch.save(model.state_dict(), model_path)
         log_str(f"Model saved to: {model_path}")
     else:
         epochs_no_improve += 1
-        log_str(f"No improvement in base validation loss for {epochs_no_improve} epochs")
+        log_str(f"No improvement in validation loss for {epochs_no_improve} epochs")
         if epochs_no_improve >= patience:
             log_str(f"Early stopped at epoch {epoch}")
             break

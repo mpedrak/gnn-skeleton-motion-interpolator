@@ -11,8 +11,8 @@ from src.dataset import GraphSkeletonDataset
 from src.model import SkeletalMotionInterpolator
 from src.utils.metrics import (geodesic_rotation_loss, calculate_l2p, calculate_l2q, calculate_npss, 
         compute_smoothness_loss, foot_contact_loss) 
-from src.utils.bvh import forward_kinematics_positions_batch, compute_foot_contact, foot_skating_loss
-from src.utils.rotation import rot_6d_to_euler_zyx, euler_zyx_to_rot_6d_but_correct_this_time
+from src.utils.bvh import forward_kinematics_positions_batch, compute_foot_contact, foot_skating_loss, get_joint_indices_by_name
+from src.utils.rotation import rot_6d_to_euler_zyx
 
 
 # Config
@@ -80,35 +80,16 @@ def run_benchmark(model, loader, J, F_target, offsets, parent_indices, root_mean
             out = model(batch)
 
             # Rotations
-            rot_pred = out["rot"] # [B * J, F_target * 6]
-            rot_tgt = batch.y # [B * J, F_target * 6]
-
-            # All models to this time were trained with wrong 6D representation, 
-            # but Euler angles were correct after converting back,
-            # fix for training and prediction will be in next version
-
-            rot_pred = rot_pred.view(batch.num_graphs, J, F_target, 6).permute(0, 2, 1, 3) # 6D are wrong
-            rot_tgt = rot_tgt.view(batch.num_graphs, J, F_target, 6).permute(0, 2, 1, 3)
-            
-            rot_euler_pred = rot_6d_to_euler_zyx(rot_pred) # eulers are correct
-            rot_tgt_euler = rot_6d_to_euler_zyx(rot_tgt)
-
-            rot_pred = euler_zyx_to_rot_6d_but_correct_this_time(rot_euler_pred) # those 6D are correct
-            rot_tgt = euler_zyx_to_rot_6d_but_correct_this_time(rot_tgt_euler)
-
-            rot_pred = torch.tensor(rot_pred, dtype=torch.float32).to(device)
-            rot_tgt = torch.tensor(rot_tgt, dtype=torch.float32).to(device)
-
-            rot_pred_flat = rot_pred.permute(0, 2, 1, 3).reshape(batch.num_graphs * J, F_target * 6)
-            rot_tgt_flat = rot_tgt.permute(0, 2, 1, 3).reshape(batch.num_graphs * J, F_target * 6)
-
-            rot_geo_1_sum += rot_geo_1(rot_pred_flat, rot_tgt_flat).item()
-            rot_geo_2_sum += rot_geo_2(rot_pred_flat, rot_tgt_flat).item()
+            rot_pred = out["rot"] 
+         
+            rot_geo_1_sum += rot_geo_1(rot_pred, batch.y).item()
+            rot_geo_2_sum += rot_geo_2(rot_pred, batch.y).item()
 
             # L2Q
-            l2q_sum += calculate_l2q(rot_pred_flat, rot_tgt_flat, reduction='sum').item()
+            l2q_sum += calculate_l2q(rot_pred, batch.y, reduction='sum').item()
             
             # Forward kinematics
+            rot_pred = rot_pred.view(batch.num_graphs, J, F_target, 6).permute(0, 2, 1, 3) 
             root_pos_pred = out['root_pos']
             root_pos_pred = root_pos_pred.view(batch.num_graphs, F_target, 3)
             root_pos_pred = root_pos_pred * root_std + root_mean
@@ -130,20 +111,13 @@ def run_benchmark(model, loader, J, F_target, offsets, parent_indices, root_mean
             root_pos_l2_sum += l2(root_pos_pred_absolute, root_pos_tgt_absolute).item()
 
             # All positions
-            fk_pos_tgt = forward_kinematics_positions_batch( 
-                offsets=offsets,
-                parent_indices=parent_indices,
-                root_pos=root_pos_tgt_absolute,
-                rot_6d=rot_tgt
-            ) # [B, F_target, J, 3]
-
-            fk_pos_tgt_flat = fk_pos_tgt.view(batch.num_graphs, -1)
+            fk_pos_tgt_flat = fk_pos_tgt_reshaped.view(batch.num_graphs, -1)
             fk_pos_pred_flat = fk_pos_pred.view(batch.num_graphs, -1)
             all_pos_l1_sum += l1(fk_pos_pred_flat, fk_pos_tgt_flat).item()
             all_pos_l2_sum += l2(fk_pos_pred_flat, fk_pos_tgt_flat).item()
 
             # L2P
-            l2p_sum += calculate_l2p(fk_pos_pred, fk_pos_tgt, reduction='sum').item()
+            l2p_sum += calculate_l2p(fk_pos_pred, fk_pos_tgt_reshaped, reduction='sum').item()
 
             # NPSS
             fk_pos_pred_npss = fk_pos_pred.permute(0, 2, 3, 1).reshape(batch.num_graphs, J * 3, F_target)
@@ -157,7 +131,7 @@ def run_benchmark(model, loader, J, F_target, offsets, parent_indices, root_mean
 
             # Foot contact
             foot_contact_tgt = compute_foot_contact(
-                fk_pos=fk_pos_tgt,
+                fk_pos=fk_pos_tgt_reshaped,
                 foot_joint_indices=foot_joint_indices,
                 contact_height_eps=foot_height_eps,
                 contact_velocity_eps=foot_velocity_eps
@@ -244,10 +218,7 @@ test_dataset = GraphSkeletonDataset(
     context_len_pre=config["context_len_pre"],
     context_len_post=config["context_len_post"],
     target_len=config["target_len"],
-    step=config["step"],
-    foot_joint_names=constants["benchmark_foot_joint_names"],
-    foot_height_eps=constants["benchmark_foot_height_eps"],
-    foot_velocity_eps=constants["benchmark_foot_velocity_eps"]
+    step=config["step"]
 )
 print(f"Dataset ready with {len(test_dataset)} samples")
 
@@ -281,6 +252,10 @@ print(f"Loaded root stats from: {root_stats_path}")
 root_mean = torch.tensor(stats["mean"], dtype=torch.float32).to(device).view(1, 1, 3)
 root_std = torch.tensor(stats["std"], dtype=torch.float32).to(device).view(1, 1, 3)
 
+joint_names = test_dataset.joint_names
+foot_joint_names = constants["benchmark_foot_joint_names"]
+foot_joint_indices = get_joint_indices_by_name(all_joint_names=joint_names, target_joint_names=foot_joint_names)
+
 results = run_benchmark(
     model=model,
     loader=test_loader,
@@ -290,7 +265,7 @@ results = run_benchmark(
     parent_indices=test_dataset.parent_indices.to(device),
     root_mean=root_mean,
     root_std=root_std,
-    foot_joint_indices=test_dataset.foot_joint_indices.to(device),
+    foot_joint_indices=foot_joint_indices,
     foot_height_eps=constants["benchmark_foot_height_eps"],
     foot_velocity_eps=constants["benchmark_foot_velocity_eps"]
 )

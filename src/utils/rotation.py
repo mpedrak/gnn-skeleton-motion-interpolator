@@ -4,18 +4,6 @@ from scipy.spatial.transform import Rotation as R
 
 
 def euler_zyx_to_rot_6d(euler_angles):
-    # Euler angles [F, J, 3] (ZYX, rad) -> 6D [F, J, 6]
-    
-    F, J, _ = euler_angles.shape
-    euler_flat = euler_angles.reshape(-1, 3) # [F * J, 3]
-    r = R.from_euler('zyx', euler_flat, degrees=False)
-    rot_mats = r.as_matrix() # [F * J, 3, 3]
-    rot_6d = rot_mats[:, :, :2].reshape(F, J, 6)
-    
-    return rot_6d
-
-
-def euler_zyx_to_rot_6d_but_correct_this_time(euler_angles):
     # Euler angles [(shape), 3] (ZYX, rad) -> 6D [(shape), 6]
     
     orig_shape = euler_angles.shape[ : -1]
@@ -57,7 +45,8 @@ def rot_6d_to_euler_zyx(rot_6d):
 
     rot_matrix = rot_matrix.detach().cpu().numpy()
 
-    euler = R.from_matrix(rot_matrix).as_euler('zyx', degrees=False)  
+    euler = R.from_matrix(rot_matrix).as_euler('xyz', degrees=False)  
+    euler = euler[:, [2, 1, 0]]
     euler = euler.reshape(*orig_shape, 3)
 
     return euler
