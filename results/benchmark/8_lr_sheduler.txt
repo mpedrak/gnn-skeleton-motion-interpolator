@@ -1,0 +1,22 @@
+
+--- Benchmark Results ---
+
+Per joint:
+  L2P value:                         5.7129665
+  L2Q value:                         0.0412403
+  Rotation MAE [deg]:                4.7366998
+  Rotation RMSE [deg]:               8.3238783
+
+Per joint channel:
+  NPSS value:                        0.0437029
+  Root position MAE [cm]:            1.8213046
+  Root position RMSE [cm]:           3.0492474
+  All positions MAE [cm]:            2.8107036
+  All positions RMSE [cm]:           4.8508108
+  Velocity loss [cm/frame]:          2.1420808
+  Acceleration loss [cm/frame^2]:    1.2504000
+  Jerk loss [cm/frame^3]:            1.5154198
+
+Per foot joint:
+  Foot contact error rate [%]:       46.1360592
+  Foot skating loss:                 1.7731593

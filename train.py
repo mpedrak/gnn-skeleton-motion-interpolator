@@ -11,7 +11,7 @@ from torch.optim.lr_scheduler import ReduceLROnPlateau
 
 from src.dataset import GraphSkeletonDataset
 from src.model import SkeletalMotionInterpolator
-from src.utils.rotation import geodesic_rotation_loss
+from src.utils.metrics import geodesic_rotation_loss
 from src.utils.bvh import forward_kinematics_positions_batch, foot_skating_loss, compute_smoothness_loss
 
 

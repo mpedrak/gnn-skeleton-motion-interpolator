@@ -15,6 +15,19 @@ def euler_zyx_to_rot_6d(euler_angles):
     return rot_6d
 
 
+def euler_zyx_to_rot_6d_but_correct_this_time(euler_angles):
+    # Euler angles [(shape), 3] (ZYX, rad) -> 6D [(shape), 6]
+    
+    orig_shape = euler_angles.shape[ : -1]
+    euler_flat = euler_angles.reshape(-1, 3) 
+    euler_flat = euler_flat[:, [2, 1, 0]]
+    r = R.from_euler('xyz', euler_flat, degrees=False)
+    rot_mats = r.as_matrix() # [F * J, 3, 3]
+    rot_6d = rot_mats[:, :, :2].reshape(*orig_shape, 6)
+    
+    return rot_6d
+
+
 def rot_6d_to_rot_3x3(rot_6d):
     # 6D [(shape), 6] -> 3 x 3 matrix [(shape), 3, 3]
     
@@ -36,38 +49,34 @@ def rot_6d_to_rot_3x3(rot_6d):
 
 
 def rot_6d_to_euler_zyx(rot_6d):
-    # 6D [F, J, 6] -> Euler angles [F, J, 3] (ZYX, rad, numpy on CPU)
+    # 6D [(shape), 6] -> Euler angles [(shape), 3] (ZYX, rad, numpy on CPU)
     
-    F, J, _ = rot_6d.shape
-    rot_matrix = rot_6d_to_rot_3x3(rot_6d) # [F, J, 3, 3]
-    rot_matrix = rot_matrix.view(-1, 3, 3)  # [F * J, 3, 3]
+    rot_matrix = rot_6d_to_rot_3x3(rot_6d) # [(shape), 3, 3]
+    orig_shape = rot_matrix.shape[ : -2] 
+    rot_matrix = rot_matrix.view(-1, 3, 3)  
 
     rot_matrix = rot_matrix.detach().cpu().numpy()
 
     euler = R.from_matrix(rot_matrix).as_euler('zyx', degrees=False)  
-    euler = euler.reshape(F, J, 3)
+    euler = euler.reshape(*orig_shape, 3)
 
     return euler
 
 
-def geodesic_rotation_loss(pred_rot_6d, target_rot_6d):
-    # Geodesic loss with mean reduction 
+def rot_6d_to_quat(rot_6d):
+    # 6D [(shape), 6] -> Quaternions [(shape), 4] (x, y, z, w)
     
-    JxB, Fx6 = pred_rot_6d.shape
-    F = Fx6 // 6
-    pred_rot_6d = pred_rot_6d.view(JxB, F, 6)
-    target_rot_6d = target_rot_6d.view(JxB, F, 6)
-
-    R_pred = rot_6d_to_rot_3x3(pred_rot_6d)   
-    R_target = rot_6d_to_rot_3x3(target_rot_6d)  
-
-    R_rel = torch.matmul(R_pred.transpose(-1, -2), R_target) 
-    trace = R_rel[..., 0, 0] + R_rel[..., 1, 1] + R_rel[..., 2, 2]
-
-    cos_theta = (trace - 1.0) / 2.0
-    cos_theta = torch.clamp(cos_theta, -1.0 + 1e-7, 1.0 - 1e-7)
-
-    theta = torch.acos(cos_theta)  
-    loss = theta.mean()
-
-    return loss
+    orig_shape = rot_6d.shape[ : -1]
+    device = rot_6d.device
+    
+    rot_matrix = rot_6d_to_rot_3x3(rot_6d) 
+    rot_matrix_flat = rot_matrix.view(-1, 3, 3)
+    
+    rot_matrix_np = rot_matrix_flat.detach().cpu().numpy()
+    
+    quat_np = R.from_matrix(rot_matrix_np).as_quat()
+    
+    quat = torch.tensor(quat_np, dtype=rot_6d.dtype, device=device)
+    quat = quat.view(*orig_shape, 4)
+    
+    return quat
