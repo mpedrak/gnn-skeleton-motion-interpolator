@@ -12,7 +12,6 @@ from src.calculate_loss import calculate_loss
 from src.utils.various import load_configs, log_string
 
 
-
 # Argument parsing
 parser = argparse.ArgumentParser()
 parser.add_argument("config", type=str)
@@ -24,6 +23,10 @@ print(f"Loaded config: {filename}")
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
 print(f"Using device: {device}")
+
+if device == "cuda":
+    torch.set_float32_matmul_precision('high')
+    torch.backends.cudnn.benchmark = True
 
 
 # Evaluate function
@@ -43,7 +46,12 @@ def evaluate(model, loader, offsets, parent_indices, root_mean, root_std, loss_w
         for batch in tqdm(loader, desc="Test", leave=False):
             
             batch = batch.to(device)
-            out = model(batch)
+            
+            with torch.amp.autocast('cuda', dtype=torch.bfloat16): 
+                out = model(batch)
+
+            out["rot"] = out["rot"].float()
+            out["root_pos"] = out["root_pos"].float()
 
             loss, rot_geo_loss, root_pos_loss, fk_pos_loss = calculate_loss(
                 out=out, 

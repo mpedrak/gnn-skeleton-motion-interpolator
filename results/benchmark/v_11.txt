@@ -1,0 +1,24 @@
+
+--- Benchmark Results ---
+
+Model description: same as v_10, but optimized data loaders and prediction for Nvidia Blackwell, this should only affect time
+
+Per joint:
+  L2P value [cm]:                    4.6517857
+  L2Q value:                         0.0437262
+  Rotation MAE [deg]:                5.0378622
+  Rotation RMSE [deg]:               7.3096042
+
+Per joint channel:
+  NPSS value:                        0.0176557
+  Root position MAE [cm]:            1.8302989
+  Root position RMSE [cm]:           3.0665025
+  All positions MAE [cm]:            2.2883159
+  All positions RMSE [cm]:           3.6216544
+  Velocity loss [cm/frame]:          0.6304491
+  Acceleration loss [cm/frame^2]:    0.3619669
+  Jerk loss [cm/frame^3]:            0.4601432
+
+Per foot joint:
+  Foot contact error rate [%]:       40.4667927
+  Foot skating loss [cm/frame]:      1.1001697

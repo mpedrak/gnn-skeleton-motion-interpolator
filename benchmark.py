@@ -26,6 +26,10 @@ print(f"Loaded config: {filename}")
 device = "cuda" if torch.cuda.is_available() else "cpu"
 print(f"Using device: {device}")
 
+if device == "cuda":
+    torch.set_float32_matmul_precision('high')
+    torch.backends.cudnn.benchmark = True
+
 
 # Evaluate function
 def run_benchmark(model, loader, offsets, parent_indices, root_mean, root_std, n_samples, benchmark_foot_params, joint_names):
@@ -64,7 +68,12 @@ def run_benchmark(model, loader, offsets, parent_indices, root_mean, root_std, n
         for batch in tqdm(loader, desc="Test", leave=False):
             
             batch = batch.to(device)
-            out = model(batch)
+
+            with torch.amp.autocast('cuda', dtype=torch.bfloat16): 
+                out = model(batch)
+
+            out["rot"] = out["rot"].float()
+            out["root_pos"] = out["root_pos"].float()
 
             # Rotations
             rot_pred = out["rot"] 
