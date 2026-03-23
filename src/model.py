@@ -4,6 +4,21 @@ import torch.nn.functional as F
 from torch_geometric.nn import GATConv
 
 
+class ResidualLinearBlock(nn.Module):
+    def __init__(self, hidden_dim, dropout_val):
+        
+        super().__init__()
+        self.layer = nn.Sequential(
+            nn.LeakyReLU(),
+            nn.Dropout(dropout_val),
+            nn.Linear(hidden_dim, hidden_dim)
+        )
+
+    def forward(self, x):
+        # Residual connection
+        return x + self.layer(x)
+
+
 class SkeletalMotionInterpolator(nn.Module):
     def __init__(self, context_len_pre, context_len_post, target_len, rot_gnn_params, root_pos_mlp_params):
         
@@ -53,9 +68,7 @@ class SkeletalMotionInterpolator(nn.Module):
         mlp_layers.append(nn.Linear(in_features=root_pos_in, out_features=hidden_dim))
 
         for _ in range(root_pos_mlp_params["num_layers"] - 2):
-            mlp_layers.append(nn.LeakyReLU())
-            mlp_layers.append(nn.Dropout(dropout_val))
-            mlp_layers.append(nn.Linear(in_features=hidden_dim, out_features=hidden_dim))
+            mlp_layers.append(ResidualLinearBlock(hidden_dim=hidden_dim, dropout_val=dropout_val))
 
         mlp_layers.append(nn.LeakyReLU())
         mlp_layers.append(nn.Linear(in_features=hidden_dim, out_features=root_pos_out))

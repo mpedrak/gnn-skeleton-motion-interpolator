@@ -1,0 +1,24 @@
+
+--- Benchmark Results ---
+
+Model description: residual connections in root position MLP, also increased number of layers in MLP and batch size
+
+Per joint:
+  L2P value [cm]:                    5.1813629
+  L2Q value:                         0.0500537
+  Rotation MAE [deg]:                5.7664036
+  Rotation RMSE [deg]:               8.3497402
+
+Per joint channel:
+  NPSS value:                        0.0196191
+  Root position MAE [cm]:            1.8339731
+  Root position RMSE [cm]:           3.0516024
+  All positions MAE [cm]:            2.5518539
+  All positions RMSE [cm]:           4.0185376
+  Velocity loss [cm/frame]:          0.7232787
+  Acceleration loss [cm/frame^2]:    0.4732888
+  Jerk loss [cm/frame^3]:            0.6859602
+
+Per foot joint:
+  Foot contact error rate [%]:       44.4532419
+  Foot skating loss [cm/frame]:      1.3457251

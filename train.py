@@ -3,6 +3,7 @@ import numpy as np
 import os
 import argparse
 import time
+import gc
 
 from torch_geometric.loader import DataLoader
 from tqdm import tqdm
@@ -256,4 +257,11 @@ if __name__ == '__main__':
         
         log_str(f"Total training time: {int(hours):02d}h {int(minutes):02d}m {seconds:.2f}s")
         log_str("Training complete")
+        print("Cleaning memory and worker processes (this might take a few seconds)")
+
+        del train_loader
+        del val_loader
+        gc.collect()
+
+        print("Done")
         print()
