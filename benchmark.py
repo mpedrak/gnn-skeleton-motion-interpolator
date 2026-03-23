@@ -32,7 +32,7 @@ if device == "cuda":
 
 
 # Evaluate function
-def run_benchmark(model, loader, offsets, parent_indices, root_mean, root_std, n_samples, benchmark_foot_params, joint_names):
+def run_benchmark(model, loader, offsets, parent_indices, n_samples, benchmark_foot_params, joint_names):
            
     l1 = torch.nn.L1Loss(reduction='sum')
     l2 = torch.nn.MSELoss(reduction='sum')
@@ -91,7 +91,6 @@ def run_benchmark(model, loader, offsets, parent_indices, root_mean, root_std, n
             # Forward kinematics
             root_pos_pred = out['root_pos']
             root_pos_pred = root_pos_pred.view(batch.num_graphs, F_target, 3)
-            root_pos_pred = root_pos_pred * root_std + root_mean
 
             last_root_pos_absolute = batch.last_root_pos_absolute.view(batch.num_graphs, 1, 3)
             root_pos_pred_absolute = last_root_pos_absolute + torch.cumsum(root_pos_pred, dim=1)
@@ -251,14 +250,6 @@ if os.path.exists(benchmark_log_path):
 
 log_str = lambda text: log_string(text=text, log_path=benchmark_log_path)
 
-
-# Benchmarking
-root_stats_path = constants["root_stats_path"] + filename + constants["root_stats_suffix"]
-stats = np.load(root_stats_path)
-root_mean = torch.tensor(stats["mean"], dtype=torch.float32).to(device).view(1, 1, 3)
-root_std = torch.tensor(stats["std"], dtype=torch.float32).to(device).view(1, 1, 3)
-print(f"Loaded root stats from: {root_stats_path}")
-
 joint_names = bechmark_dataset.joint_names
 parent_indices = bechmark_dataset.parent_indices.to(device)
 offsets = bechmark_dataset.offsets.to(device)
@@ -269,8 +260,6 @@ results = run_benchmark(
     loader=benchmark_loader,
     offsets=bechmark_dataset.offsets.to(device),
     parent_indices=bechmark_dataset.parent_indices.to(device),
-    root_mean=root_mean,
-    root_std=root_std,
     n_samples=len(bechmark_dataset),
     benchmark_foot_params=constants["benchmark_foot_params"],
     joint_names=joint_names

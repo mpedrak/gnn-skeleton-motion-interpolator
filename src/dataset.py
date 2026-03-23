@@ -20,8 +20,6 @@ class GraphSkeletonDataset(Dataset):
         self.cache = {}
         self.samples = []
 
-        all_root_deltas = []
-
         for fname in self.files:
             filepath = os.path.join(root_dir, fname)
             cache_path = os.path.splitext(filepath)[0] + ".pt"
@@ -50,7 +48,6 @@ class GraphSkeletonDataset(Dataset):
                 print(f"Saved cache file: {cache_path}")
 
             self.cache[fname] = data
-            all_root_deltas.append(data['root_pos_deltas']) 
 
             frames = data['rot_6d'].shape[0]
             used_frames = context_len_pre + context_len_post + target_len
@@ -63,11 +60,6 @@ class GraphSkeletonDataset(Dataset):
         self.edge_index = build_edge_index_from_parents(first_data['parent_indices'])
         self.parent_indices = first_data['parent_indices']
         self.offsets = first_data['offsets']
-
-        concat_root_pos_deltas = torch.cat(all_root_deltas, dim=0) # [F, 3]
-        self.root_mean = concat_root_pos_deltas.mean(dim=0)            
-        self.root_std = concat_root_pos_deltas.std(dim=0)
-        self.root_std = torch.where(self.root_std < 1e-8, torch.ones_like(self.root_std), self.root_std)
         
 
     def __len__(self):
@@ -95,7 +87,6 @@ class GraphSkeletonDataset(Dataset):
             second_part[0, i] = 0.0
 
         root_ctx_raw = torch.cat([first_part, second_part], dim=0)
-        root_ctx_norm = (root_ctx_raw - self.root_mean) / self.root_std
 
         # Target
         rot_6d_tgt = data['rot_6d'][tgt_start : post_ctx_start]
@@ -111,7 +102,7 @@ class GraphSkeletonDataset(Dataset):
             x=x_feat,
             y=y_feat,
             edge_index=self.edge_index,
-            root_pos_ctx=root_ctx_norm,
+            root_pos_ctx=root_ctx_raw,
             root_pos_tgt=root_tgt_absolute,
             fk_pos=fk_pos,
             last_root_pos_absolute=last_root_pos_absolute

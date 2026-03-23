@@ -46,11 +46,6 @@ if __name__ == '__main__':
     )
     print(f"Dataset ready with {len(dataset)} samples")
 
-    os.makedirs(constants["root_stats_path"], exist_ok=True)
-    root_stats_path = constants["root_stats_path"] + filename + constants["root_stats_suffix"]
-    np.savez(root_stats_path, mean=dataset.root_mean.numpy(), std=dataset.root_std.numpy())
-    print(f"Saved root stats in: {root_stats_path}")
-
     n_total = len(dataset)
     n_val = max(1, int(n_total * config["validation_split"]))
     n_train = n_total - n_val
@@ -113,8 +108,6 @@ if __name__ == '__main__':
     l1_func = torch.nn.L1Loss()
     l2_func = torch.nn.MSELoss()
 
-    root_mean = dataset.root_mean.to(device).view(1, 1, 3)
-    root_std = dataset.root_std.to(device).view(1, 1, 3)
     parent_indices = dataset.parent_indices.to(device)
     offsets = dataset.offsets.to(device)
 
@@ -157,8 +150,6 @@ if __name__ == '__main__':
                     batch=batch, 
                     l1_func=l1_func, 
                     l2_func=l2_func, 
-                    root_std=root_std, 
-                    root_mean=root_mean, 
                     offsets=offsets, 
                     parent_indices=parent_indices, 
                     loss_weights=config["loss_weights"]
@@ -208,8 +199,6 @@ if __name__ == '__main__':
                         batch=batch, 
                         l1_func=l1_func, 
                         l2_func=l2_func, 
-                        root_std=root_std, 
-                        root_mean=root_mean, 
                         offsets=offsets, 
                         parent_indices=parent_indices, 
                         loss_weights=config["loss_weights"]

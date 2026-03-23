@@ -30,7 +30,7 @@ if device == "cuda":
 
 
 # Evaluate function
-def evaluate(model, loader, offsets, parent_indices, root_mean, root_std, loss_weights, n_samples, log_str):
+def evaluate(model, loader, offsets, parent_indices, loss_weights, n_samples, log_str):
     
     model.eval()
 
@@ -58,8 +58,6 @@ def evaluate(model, loader, offsets, parent_indices, root_mean, root_std, loss_w
                 batch=batch, 
                 l1_func=l1_func, 
                 l2_func=l2_func, 
-                root_std=root_std, 
-                root_mean=root_mean, 
                 offsets=offsets, 
                 parent_indices=parent_indices, 
                 loss_weights=loss_weights
@@ -119,14 +117,6 @@ if os.path.exists(test_log_path):
 
 log_str = lambda text: log_string(text=text, log_path=test_log_path)
 
-
-# Testing
-root_stats_path = constants["root_stats_path"] + filename + constants["root_stats_suffix"]
-stats = np.load(root_stats_path)
-root_mean = torch.tensor(stats["mean"], dtype=torch.float32).to(device).view(1, 1, 3)
-root_std = torch.tensor(stats["std"], dtype=torch.float32).to(device).view(1, 1, 3)
-print(f"Loaded root stats from: {root_stats_path}")
-
 parent_indices = test_dataset.parent_indices.to(device)
 offsets = test_dataset.offsets.to(device)
 
@@ -135,9 +125,7 @@ evaluate(
     model=model, 
     loader=test_loader, 
     offsets=offsets, 
-    parent_indices=parent_indices, 
-    root_mean=root_mean, 
-    root_std=root_std, 
+    parent_indices=parent_indices,
     loss_weights=config["loss_weights"], 
     n_samples=len(test_dataset), 
     log_str=log_str

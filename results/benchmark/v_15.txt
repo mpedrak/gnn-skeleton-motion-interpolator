@@ -1,0 +1,24 @@
+
+--- Benchmark Results ---
+
+Model description: same as v_13 but no root standardization
+
+Per joint:
+  L2P value [cm]:                    4.2206099
+  L2Q value:                         0.0378482
+  Rotation MAE [deg]:                4.3706144
+  Rotation RMSE [deg]:               6.5360458
+
+Per joint channel:
+  NPSS value:                        0.0161308
+  Root position MAE [cm]:            1.6220772
+  Root position RMSE [cm]:           2.7505200
+  All positions MAE [cm]:            2.0803185
+  All positions RMSE [cm]:           3.3369877
+  Velocity loss [cm/frame]:          0.6090681
+  Acceleration loss [cm/frame^2]:    0.3899439
+  Jerk loss [cm/frame^3]:            0.5254135
+
+Per foot joint:
+  Foot contact error rate [%]:       39.9168833
+  Foot skating loss [cm/frame]:      1.0955969

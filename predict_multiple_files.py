@@ -32,12 +32,6 @@ print(f"Using device: {device}")
 
 
 # Model
-root_stats_path = constants["root_stats_path"] + filename + constants["root_stats_suffix"]
-stats = np.load(root_stats_path)
-root_mean = torch.tensor(stats["mean"], dtype=torch.float32)
-root_std = torch.tensor(stats["std"], dtype=torch.float32)
-print(f"Loaded root stats from: {root_stats_path}")
-
 model = SkeletalMotionInterpolator(
     context_len_pre=config["context_len_pre"],
     context_len_post=config["context_len_post"],
@@ -89,9 +83,7 @@ for bvh_file in bvh_files:
                 context_len_pre=context_len_pre,
                 context_len_post=context_len_post,
                 target_len=target_len,
-                gap_start=gap_start_frame,
-                root_mean=root_mean.to(device),
-                root_std=root_std.to(device),
+                gap_start=gap_start_frame
             )
 
         euler_zyx_deg = rot_6d_to_euler_zyx(rot_pred, degrees=True)
