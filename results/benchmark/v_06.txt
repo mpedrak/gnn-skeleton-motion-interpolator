@@ -1,8 +1,10 @@
 
 --- Benchmark Results ---
 
+Model description: similar to v_05, but better hyperparameters
+
 Per joint:
-  L2P value:                         6.2093656
+  L2P value [cm]:                    6.2093656
   L2Q value:                         0.0501929
   Rotation MAE [deg]:                5.7642176
   Rotation RMSE [deg]:               9.3773250
@@ -19,4 +21,4 @@ Per joint channel:
 
 Per foot joint:
   Foot contact error rate [%]:       46.4614354
-  Foot skating loss:                 1.7205648
+  Foot skating loss [cm/frame]:      1.7205648

@@ -5,10 +5,10 @@ from .rotation import rot_6d_to_rot_3x3, rot_6d_to_quat
 
 def geodesic_rotation_loss(pred_rot_6d, target_rot_6d, reduction='mean'):
     
-    JxB, Fx6 = pred_rot_6d.shape
+    BxJ, Fx6 = pred_rot_6d.shape
     F = Fx6 // 6
-    pred_rot_6d = pred_rot_6d.view(JxB, F, 6)
-    target_rot_6d = target_rot_6d.view(JxB, F, 6)
+    pred_rot_6d = pred_rot_6d.view(BxJ, F, 6)
+    target_rot_6d = target_rot_6d.view(BxJ, F, 6)
 
     R_pred = rot_6d_to_rot_3x3(pred_rot_6d)   
     R_target = rot_6d_to_rot_3x3(target_rot_6d)  
@@ -52,6 +52,7 @@ def calculate_l2q(pred_rot_6d, target_rot_6d, reduction='mean'):
     elif reduction == 'none': return min_diff
     else: raise ValueError(f"Unsupported reduction: {reduction}")
 
+
 def calculate_npss(pred, target, reduction='mean', eps=1e-8):
  
     fft_pred = torch.fft.rfft(pred, dim=-1) 
@@ -77,8 +78,8 @@ def calculate_npss(pred, target, reduction='mean', eps=1e-8):
     else: raise ValueError(f"Unsupported reduction: {reduction}")
 
 
-def compute_smoothness_loss(fk_pos_pred, fk_pos_tgt, order, reduction='mean'):
-    # Compute smoothness loss of specified order (velocity = 1, acceleration = 2, jerk = 3)
+def calculate_smoothness_loss(fk_pos_pred, fk_pos_tgt, order, reduction='mean'):
+    # Calculate smoothness loss of specified order (velocity = 1, acceleration = 2, jerk = 3)
 
     if order < 1: raise ValueError("Order must be >= 1")
     v_pred = fk_pos_pred.clone()
@@ -95,7 +96,7 @@ def compute_smoothness_loss(fk_pos_pred, fk_pos_tgt, order, reduction='mean'):
     else: raise ValueError(f"Unsupported reduction: {reduction}")
 
 
-def foot_contact_loss(foot_contact_tgt, foot_contact_pred, reduction='mean'):
+def calculate_foot_contact_loss(foot_contact_tgt, foot_contact_pred, reduction='mean'):
 
     diff = foot_contact_pred - foot_contact_tgt
     

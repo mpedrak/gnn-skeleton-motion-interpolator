@@ -3,13 +3,13 @@ import torch
 from scipy.spatial.transform import Rotation as R
 
 
-def euler_zyx_to_rot_6d(euler_angles):
-    # Euler angles [(shape), 3] (ZYX, rad) -> 6D [(shape), 6]
+def euler_zyx_to_rot_6d(euler_angles, degrees):
+    # Euler angles [(shape), 3] (ZYX) -> 6D [(shape), 6]
     
     orig_shape = euler_angles.shape[ : -1]
     euler_flat = euler_angles.reshape(-1, 3) 
     euler_flat = euler_flat[:, [2, 1, 0]]
-    r = R.from_euler('xyz', euler_flat, degrees=False)
+    r = R.from_euler('xyz', euler_flat, degrees=degrees)
     rot_mats = r.as_matrix() # [F * J, 3, 3]
     rot_6d = rot_mats[:, :, :2].reshape(*orig_shape, 6)
     
@@ -36,8 +36,8 @@ def rot_6d_to_rot_3x3(rot_6d):
     return R_m
 
 
-def rot_6d_to_euler_zyx(rot_6d):
-    # 6D [(shape), 6] -> Euler angles [(shape), 3] (ZYX, rad, numpy on CPU)
+def rot_6d_to_euler_zyx(rot_6d, degrees):
+    # 6D [(shape), 6] -> Euler angles [(shape), 3] (ZYX, numpy on CPU)
     
     rot_matrix = rot_6d_to_rot_3x3(rot_6d) # [(shape), 3, 3]
     orig_shape = rot_matrix.shape[ : -2] 
@@ -45,7 +45,7 @@ def rot_6d_to_euler_zyx(rot_6d):
 
     rot_matrix = rot_matrix.detach().cpu().numpy()
 
-    euler = R.from_matrix(rot_matrix).as_euler('xyz', degrees=False)  
+    euler = R.from_matrix(rot_matrix).as_euler('xyz', degrees=degrees)  
     euler = euler[:, [2, 1, 0]]
     euler = euler.reshape(*orig_shape, 3)
 

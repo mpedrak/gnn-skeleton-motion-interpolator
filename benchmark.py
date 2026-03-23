@@ -1,5 +1,4 @@
 import torch
-import yaml
 import os
 import argparse
 import numpy as np
@@ -9,45 +8,28 @@ from tqdm import tqdm
 
 from src.dataset import GraphSkeletonDataset
 from src.model import SkeletalMotionInterpolator
-from src.utils.metrics import (geodesic_rotation_loss, calculate_l2p, calculate_l2q, calculate_npss, 
-        compute_smoothness_loss, foot_contact_loss) 
+from src.utils.metrics import geodesic_rotation_loss, calculate_l2p, calculate_l2q, calculate_npss
+from src.utils.metrics import calculate_smoothness_loss, calculate_foot_contact_loss 
 from src.utils.bvh import forward_kinematics_positions_batch, compute_foot_contact, foot_skating_loss, get_joint_indices_by_name
-from src.utils.rotation import rot_6d_to_euler_zyx
+from src.utils.various import load_configs, log_string
 
 
-# Config
-config_dir = "./config/"
-
+# Argument parsing
 parser = argparse.ArgumentParser()
 parser.add_argument("config", type=str)
 args = parser.parse_args()
-
 filename = args.config
-config_path = config_dir + filename + ".yaml"
-if not os.path.isfile(config_path):
-    raise FileNotFoundError(f"Config file not found: {config_path}")
 
-with open(config_path, "r") as f:
-    config = yaml.safe_load(f)
-
-constants_path = config_dir + "constants.yaml"
-if not os.path.isfile(constants_path):
-    raise FileNotFoundError(f"Constants file not found: {constants_path}")
-
-with open(constants_path, "r") as f:
-    constants = yaml.safe_load(f)
+config, constants = load_configs([filename, "constants"])
+print(f"Loaded config: {filename}")
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
 print(f"Using device: {device}")
 
 
 # Evaluate function
-def run_benchmark(model, loader, J, F_target, offsets, parent_indices, root_mean, root_std, foot_joint_indices, 
-                foot_height_eps, foot_velocity_eps):
-    
-    n_samples = len(loader.dataset)
-    if n_samples == 0 or J == 0 or F_target == 0: raise ValueError("Dataset is empty or has invalid dimensions")
-        
+def run_benchmark(model, loader, offsets, parent_indices, root_mean, root_std, n_samples, benchmark_foot_params, joint_names):
+           
     l1 = torch.nn.L1Loss(reduction='sum')
     l2 = torch.nn.MSELoss(reduction='sum')
     rot_geo_1 = lambda pred, target: geodesic_rotation_loss(pred, target, reduction='sum')
@@ -71,6 +53,11 @@ def run_benchmark(model, loader, J, F_target, offsets, parent_indices, root_mean
     foot_skating_weighted_motion_sum = 0.0
     foot_skating_num_active_sum = 0.0
 
+    foot_joint_indices = get_joint_indices_by_name(
+        all_joint_names=joint_names, 
+        target_joint_names=benchmark_foot_params["joint_names"]
+    )
+
     model.eval()
 
     with torch.no_grad():
@@ -81,15 +68,18 @@ def run_benchmark(model, loader, J, F_target, offsets, parent_indices, root_mean
 
             # Rotations
             rot_pred = out["rot"] 
-         
             rot_geo_1_sum += rot_geo_1(rot_pred, batch.y).item()
             rot_geo_2_sum += rot_geo_2(rot_pred, batch.y).item()
 
             # L2Q
             l2q_sum += calculate_l2q(rot_pred, batch.y, reduction='sum').item()
             
-            # Forward kinematics
+            BxJ, Fx6 = rot_pred.shape
+            F_target = Fx6 // 6
+            J = BxJ // batch.num_graphs  
             rot_pred = rot_pred.view(batch.num_graphs, J, F_target, 6).permute(0, 2, 1, 3) 
+
+            # Forward kinematics
             root_pos_pred = out['root_pos']
             root_pos_pred = root_pos_pred.view(batch.num_graphs, F_target, 3)
             root_pos_pred = root_pos_pred * root_std + root_mean
@@ -106,7 +96,7 @@ def run_benchmark(model, loader, J, F_target, offsets, parent_indices, root_mean
 
             # Root positions
             fk_pos_tgt_reshaped = batch.fk_pos.view(batch.num_graphs, F_target, J, 3)
-            root_pos_tgt_absolute = fk_pos_tgt_reshaped[:, :, 0, :] # [B, F_target, 3], root pos are correct
+            root_pos_tgt_absolute = fk_pos_tgt_reshaped[:, :, 0, :] # [B, F_target, 3]
             root_pos_l1_sum += l1(root_pos_pred_absolute, root_pos_tgt_absolute).item()
             root_pos_l2_sum += l2(root_pos_pred_absolute, root_pos_tgt_absolute).item()
 
@@ -125,26 +115,29 @@ def run_benchmark(model, loader, J, F_target, offsets, parent_indices, root_mean
             npss_sum += calculate_npss(fk_pos_pred_npss, fk_pos_tgt_npss, reduction='sum').item()
 
             # Smoothness
-            sm_1_sum += compute_smoothness_loss(fk_pos_pred, fk_pos_tgt_reshaped, order=1, reduction='sum').item()
-            sm_2_sum += compute_smoothness_loss(fk_pos_pred, fk_pos_tgt_reshaped, order=2, reduction='sum').item()
-            sm_3_sum += compute_smoothness_loss(fk_pos_pred, fk_pos_tgt_reshaped, order=3, reduction='sum').item()
+            sm_1_sum += calculate_smoothness_loss(fk_pos_pred, fk_pos_tgt_reshaped, order=1, reduction='sum').item()
+            sm_2_sum += calculate_smoothness_loss(fk_pos_pred, fk_pos_tgt_reshaped, order=2, reduction='sum').item()
+            sm_3_sum += calculate_smoothness_loss(fk_pos_pred, fk_pos_tgt_reshaped, order=3, reduction='sum').item()
 
             # Foot contact
+            height_eps = benchmark_foot_params["height_eps"]
+            velocity_eps = benchmark_foot_params["velocity_eps"]
+
             foot_contact_tgt = compute_foot_contact(
                 fk_pos=fk_pos_tgt_reshaped,
                 foot_joint_indices=foot_joint_indices,
-                contact_height_eps=foot_height_eps,
-                contact_velocity_eps=foot_velocity_eps
+                contact_height_eps=height_eps,
+                contact_velocity_eps=velocity_eps
             )
 
             foot_contact_pred = compute_foot_contact(
                 fk_pos=fk_pos_pred,
                 foot_joint_indices=foot_joint_indices,
-                contact_height_eps=foot_height_eps,
-                contact_velocity_eps=foot_velocity_eps
+                contact_height_eps=height_eps,
+                contact_velocity_eps=velocity_eps
             )
 
-            foot_contact_sum += foot_contact_loss(foot_contact_tgt, foot_contact_pred, reduction='sum').item()
+            foot_contact_sum += calculate_foot_contact_loss(foot_contact_tgt, foot_contact_pred, reduction='sum').item()
 
             # Foot skating
             a, e = foot_skating_loss(
@@ -189,7 +182,7 @@ def run_benchmark(model, loader, J, F_target, offsets, parent_indices, root_mean
 
     return {
         "Per joint" : {
-            "L2P value": l2p_value,
+            f"L2P value [{length_unit}]": l2p_value,
             "L2Q value": l2q_value,
             "Rotation MAE [deg]": geo_rot_1_deg,
             "Rotation RMSE [deg]": geo_rot_2_deg,
@@ -206,81 +199,77 @@ def run_benchmark(model, loader, J, F_target, offsets, parent_indices, root_mean
         },
         "Per foot joint": {
             "Foot contact error rate [%]": foot_contact_value,
-            "Foot skating loss": foot_skating_value
+            f"Foot skating loss [{length_unit}/frame]": foot_skating_value
         }
     }
 
 
 # Dataset
 print("Loading dataset")
-test_dataset = GraphSkeletonDataset(
+bechmark_dataset = GraphSkeletonDataset(
     root_dir=constants["benchmark_data_dir"],
     context_len_pre=config["context_len_pre"],
     context_len_post=config["context_len_post"],
     target_len=config["target_len"],
-    step=config["step"]
+    step=constants["benchmark_dataset_step"]
 )
-print(f"Dataset ready with {len(test_dataset)} samples")
+print(f"Dataset ready with {len(bechmark_dataset)} samples")
 
-test_loader = DataLoader(test_dataset, batch_size=config["batch_size"], shuffle=False)
+benchmark_loader = DataLoader(bechmark_dataset, batch_size=constants["benchmark_dataset_batch_size"], shuffle=False)
+
 
 # Model
 model = SkeletalMotionInterpolator(
     context_len_pre=config["context_len_pre"],
     context_len_post=config["context_len_post"],
     target_len=config["target_len"],
-    hidden_dim=config["hidden_dim"],
-    hidden_layers=config["hidden_layers"],
-    root_pos_hidden_dim=config["root_pos_hidden_dim"],
-    heads=config["heads"],
-    dropout=config["dropout"],
-    node_features=config["node_features"],
-    graph_features=config["graph_features"]
+    rot_gnn_params=config["rot_gnn_params"],
+    root_pos_mlp_params=config["root_pos_mlp_params"]
 )
 model = model.to(device)
 
-model_path = constants["model_path"] + filename + constants["model_suffix"]
+model_path = constants["models_path"] + filename + constants["models_suffix"]
 state = torch.load(model_path, map_location=device)
 model.load_state_dict(state)
 print(f"Loaded checkpoint: {model_path}")
 
-# Testing
-print("Starting benchmark on test set")
+
+# Logging
+os.makedirs(constants["benchmark_log_path"], exist_ok=True)
+benchmark_log_path = constants["benchmark_log_path"] + filename + constants["log_suffix"]
+if os.path.exists(benchmark_log_path):
+    os.remove(benchmark_log_path)
+
+log_str = lambda text: log_string(text=text, log_path=benchmark_log_path)
+
+
+# Benchmarking
 root_stats_path = constants["root_stats_path"] + filename + constants["root_stats_suffix"]
 stats = np.load(root_stats_path)
-print(f"Loaded root stats from: {root_stats_path}")
 root_mean = torch.tensor(stats["mean"], dtype=torch.float32).to(device).view(1, 1, 3)
 root_std = torch.tensor(stats["std"], dtype=torch.float32).to(device).view(1, 1, 3)
+print(f"Loaded root stats from: {root_stats_path}")
 
-joint_names = test_dataset.joint_names
-foot_joint_names = constants["benchmark_foot_joint_names"]
-foot_joint_indices = get_joint_indices_by_name(all_joint_names=joint_names, target_joint_names=foot_joint_names)
+joint_names = bechmark_dataset.joint_names
+parent_indices = bechmark_dataset.parent_indices.to(device)
+offsets = bechmark_dataset.offsets.to(device)
 
+print("Starting benchmark on test set")
 results = run_benchmark(
     model=model,
-    loader=test_loader,
-    J=test_dataset.num_joints,
-    F_target=config["target_len"],
-    offsets=test_dataset.offsets.to(device),
-    parent_indices=test_dataset.parent_indices.to(device),
+    loader=benchmark_loader,
+    offsets=bechmark_dataset.offsets.to(device),
+    parent_indices=bechmark_dataset.parent_indices.to(device),
     root_mean=root_mean,
     root_std=root_std,
-    foot_joint_indices=foot_joint_indices,
-    foot_height_eps=constants["benchmark_foot_height_eps"],
-    foot_velocity_eps=constants["benchmark_foot_velocity_eps"]
+    n_samples=len(bechmark_dataset),
+    benchmark_foot_params=constants["benchmark_foot_params"],
+    joint_names=joint_names
 )
 
-os.makedirs(constants["benchmark_log_path"], exist_ok=True)
-test_log_path = constants["benchmark_log_path"] + filename + constants["log_suffix"]
-if os.path.exists(test_log_path):
-    os.remove(test_log_path)
+log_str("\n--- Benchmark Results ---\n")
+log_str(f"Model description: {config['description']}")
 
-def log_str(str):
-    print(str)
-    with open(test_log_path, "a") as log_file:
-        log_file.write(str + "\n")
-
-log_str("\n--- Benchmark Results ---")
 for metric_group, metric_values in results.items():
     log_str(f"\n{metric_group}:")
     for metric_name, value in metric_values.items():

@@ -31,11 +31,5 @@ git clone --depth 1 https://github.com/mpedrak/gnn-skeleton-motion-interpolator.
 
 ```
 cd gnn-skeleton-motion-interpolator
-git lfs pull -I "checkpoints/model/X_name.pth"
-```
-
-### Current best model
-
-```
-8_lr_sheduler.pth
+git lfs pull -I "checkpoints/model/v_XX.pth"
 ```

@@ -45,10 +45,10 @@ def parse_bvh_file(filepath):
         node_index_end = mocap.get_joint_channels_index(node.name) + ch_count 
         node_index_start = node_index_end - 3     
         rot_indexes = list(range(node_index_start, node_index_end))
-        eulers = frames[:, rot_indexes] * np.pi / 180.0
+        eulers = frames[:, rot_indexes]
         angles_euler[:, j, :] = eulers
 
-    rot_6d = euler_zyx_to_rot_6d(angles_euler)
+    rot_6d = euler_zyx_to_rot_6d(angles_euler, degrees=True)
     rot_6d = torch.tensor(rot_6d, dtype=torch.float32)
 
     # Offsets
@@ -75,37 +75,8 @@ def build_edge_index_from_parents(parent_indices):
             edges.append([parent_idx, child_idx])
 
     edge_index = torch.tensor(edges, dtype=torch.long).t().contiguous() 
+    
     return edge_index
-
-
-def replace_gap_in_bvh_text(orig_text, mocap, gap_start, target_len, euler_zyx_deg, root_pred_xyz, decimals=6):
-    lines = orig_text.splitlines()
-    motion_idx = next(i for i, ln in enumerate(lines) if ln.strip().upper() == "MOTION")
-    n_frames = int(lines[motion_idx + 1].split(":")[1].strip())
-    
-    frames_start_idx = motion_idx + 3
-    motion_lines = lines[frames_start_idx : frames_start_idx + n_frames]
-    motion_vals = [ln.strip() for ln in motion_lines]
-    
-    joint_list = mocap.get_joints()
-    
-    root_pred_xyz = root_pred_xyz.detach().cpu().numpy()
-    float_format = f"{{:.{decimals}f}}"
-    
-    for t in range(0, target_len):
-        frame_values = []
-        frame_values.extend(root_pred_xyz[t, :])
-
-        for j in range(0, len(joint_list)):
-            frame_values.extend(euler_zyx_deg[t, j, :])
-        
-        insert_idx = gap_start + t
-        motion_vals[insert_idx] = " ".join(float_format.format(v) for v in frame_values)
-    
-    new_lines = lines[ : frames_start_idx] + motion_vals + lines[frames_start_idx + n_frames : ]
-    text = "\n".join(new_lines) + ("\n" if orig_text.endswith("\n") else "")
-    
-    return text
 
 
 def compute_root_deltas(root_pos):
@@ -116,50 +87,6 @@ def compute_root_deltas(root_pos):
     deltas = torch.tensor(deltas, dtype=torch.float32)
     
     return deltas
-
-
-def build_spatio_temporal_edge_index(F, J, base_edge_index):
-    # Nodes: (frame, joint), node_id = frame * num_joints + joint
-    
-    spatial_edges = [] # Copy of spatial (skeleton) edges for each frame
-    for t in range(0, F):
-        offset = t * J
-        parents = base_edge_index[0] + offset  
-        childs = base_edge_index[1] + offset  
-        spatial_edges.append(torch.stack([parents, childs], dim=0)) 
-
-    spatial_edge_index = torch.cat(spatial_edges, dim=1) 
-
-    temporal_edges = [] # Temporal edges between consecutive frames
-    if F > 1:
-        joints = torch.arange(J, dtype=torch.long) 
-        for t in range(0, F - 1):
-            offset_t = t * J
-            offset_t_next = (t + 1) * J
-
-            nodes_t = joints + offset_t   
-            nodes_t_next = joints + offset_t_next 
-
-            e_forward = torch.stack([nodes_t, nodes_t_next], dim=0)  
-            e_backward = torch.stack([nodes_t_next, nodes_t], dim=0)  
-
-            temporal_edges.append(e_forward)
-            temporal_edges.append(e_backward)
-
-    temporal_edge_index = torch.cat(temporal_edges, dim=1)  
-    edge_index = torch.cat([spatial_edge_index, temporal_edge_index], dim=1)
-    
-    return edge_index
-
-
-def get_bvh_frame_count(bvh_path):
-    with open(bvh_path, 'r') as f:
-        lines = f.readlines()
-        
-    motion_idx = next(i for i, ln in enumerate(lines) if ln.strip().upper() == "MOTION")
-    n_frames = int(lines[motion_idx + 1].split(":")[1].strip())
-
-    return n_frames
 
 
 def forward_kinematics_positions_batch(offsets, parent_indices, root_pos, rot_6d):
@@ -227,7 +154,7 @@ def compute_foot_contact(fk_pos, foot_joint_indices, contact_height_eps, contact
     # Fk_pos: [B, F, J, 3], foot_joint_indices -> contact: [B, F, n_feet] {0, 1} (torch.Tensor)
 
     feet_pos = fk_pos[:, :, foot_joint_indices, :]
-    h = feet_pos[:, :, :, 1] # [B, F, n_feet]          
+    h = feet_pos[:, :, :, 1] # [B, F, n_feet], Y is height          
 
     ground = torch.quantile(h, 0.05, dim=1, keepdim=True) # 5th percentile per foot     
 
@@ -266,11 +193,41 @@ def foot_skating_loss(fk_pos_pred, tgt_foot_contact, foot_joint_indices, return_
         return (weighted_motion.sum(), num_active)
 
 
-def compute_smoothness_loss(fk_pos_pred):
-    # Compute acceleration smoothness loss
+def get_bvh_frame_count(bvh_path):
+    with open(bvh_path, 'r') as f:
+        lines = f.readlines()
+        
+    motion_idx = next(i for i, ln in enumerate(lines) if ln.strip().upper() == "MOTION")
+    n_frames = int(lines[motion_idx + 1].split(":")[1].strip())
 
-    v = fk_pos_pred[:, 1 : ] - fk_pos_pred[:, : -1]      
-    a = v[:, 1 : ] - v[:, : -1]   
-    loss = torch.abs(a).mean()
+    return n_frames
 
-    return loss
+
+def replace_gap_in_bvh_text(orig_text, mocap, gap_start, target_len, euler_zyx_deg, root_pred_xyz, decimals=6):
+    lines = orig_text.splitlines()
+    motion_idx = next(i for i, ln in enumerate(lines) if ln.strip().upper() == "MOTION")
+    n_frames = int(lines[motion_idx + 1].split(":")[1].strip())
+    
+    frames_start_idx = motion_idx + 3
+    motion_lines = lines[frames_start_idx : frames_start_idx + n_frames]
+    motion_vals = [ln.strip() for ln in motion_lines]
+    
+    joint_list = mocap.get_joints()
+    
+    root_pred_xyz = root_pred_xyz.detach().cpu().numpy()
+    float_format = f"{{:.{decimals}f}}"
+    
+    for t in range(0, target_len):
+        frame_values = []
+        frame_values.extend(root_pred_xyz[t, :])
+
+        for j in range(0, len(joint_list)):
+            frame_values.extend(euler_zyx_deg[t, j, :])
+        
+        insert_idx = gap_start + t
+        motion_vals[insert_idx] = " ".join(float_format.format(v) for v in frame_values)
+    
+    new_lines = lines[ : frames_start_idx] + motion_vals + lines[frames_start_idx + n_frames : ]
+    text = "\n".join(new_lines) + ("\n" if orig_text.endswith("\n") else "")
+    
+    return text

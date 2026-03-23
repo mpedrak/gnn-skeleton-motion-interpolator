@@ -1,0 +1,40 @@
+description: "similar to v_08, but after 6D fix, that results in correct FK, also slightly different loss weights"
+
+# Model parameters
+context_len_pre: 10
+context_len_post: 10
+target_len: 10
+rot_gnn_params: {
+  num_features: 6,
+  hidden_dim: 96,
+  num_layers: 7,
+  dropout: 0.02,
+  num_heads: 16
+}
+root_pos_mlp_params: {
+  num_features: 3,
+  hidden_dim: 192,
+  num_layers: 3,
+  dropout: 0.02
+}
+ 
+# Dataset parameters
+step: 7                                          
+batch_size: 1024
+
+# Training parameters
+epochs: 500
+validation_split: 0.3
+patience: 7
+train_data_dir: "data/train"
+loss_weights: {
+  rot_geo_l1: 1.0,
+  root_pos_l2: 0.02,
+  fk_pos_l1: 0.2
+}
+lr_scheduler_params: {
+  start_lr: 0.001,
+  min_lr: 0.000001,
+  factor: 0.5,
+  patience: 3
+}

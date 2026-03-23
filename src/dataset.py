@@ -3,10 +3,7 @@ import torch
 
 from torch_geometric.data import Data, Dataset
 
-from .utils.bvh import (
-    parse_bvh_file, build_edge_index_from_parents, compute_root_deltas, forward_kinematics_positions,
-    get_joint_indices_by_name, compute_foot_contact
-) 
+from .utils.bvh import parse_bvh_file, build_edge_index_from_parents, compute_root_deltas, forward_kinematics_positions
 
 
 class GraphSkeletonDataset(Dataset):
@@ -104,9 +101,8 @@ class GraphSkeletonDataset(Dataset):
         rot_6d_tgt = data['rot_6d'][tgt_start : post_ctx_start]
         y_feat = rot_6d_tgt.permute(1, 0, 2).reshape(self.num_joints, -1)
    
-        root_tgt_raw = data['root_pos_deltas'][tgt_start : post_ctx_start]
-        root_tgt_norm = (root_tgt_raw - self.root_mean) / self.root_std
-
+        root_tgt_absolute = data['root_pos_absolute'][tgt_start : post_ctx_start]
+        
         fk_pos = data['fk_pos'][tgt_start : post_ctx_start]
 
         last_root_pos_absolute = data['root_pos_absolute'][tgt_start - 1].unsqueeze(0)
@@ -116,7 +112,7 @@ class GraphSkeletonDataset(Dataset):
             y=y_feat,
             edge_index=self.edge_index,
             root_pos_ctx=root_ctx_norm,
-            root_pos_tgt=root_tgt_norm,
+            root_pos_tgt=root_tgt_absolute,
             fk_pos=fk_pos,
             last_root_pos_absolute=last_root_pos_absolute
         )

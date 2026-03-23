@@ -1,8 +1,10 @@
 
 --- Benchmark Results ---
 
+Model description: addition of FK loss component, better root pos mlp
+
 Per joint:
-  L2P value:                         6.5988339
+  L2P value [cm]:                    6.5988339
   L2Q value:                         0.0569898
   Rotation MAE [deg]:                6.5441600
   Rotation RMSE [deg]:               10.2286823
@@ -19,4 +21,4 @@ Per joint channel:
 
 Per foot joint:
   Foot contact error rate [%]:       47.2851178
-  Foot skating loss:                 1.8043250
+  Foot skating loss [cm/frame]:      1.8043250

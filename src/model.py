@@ -5,38 +5,63 @@ from torch_geometric.nn import GATConv
 
 
 class SkeletalMotionInterpolator(nn.Module):
-    def __init__(self, context_len_pre, context_len_post, target_len, hidden_dim, hidden_layers, root_pos_hidden_dim,
-            heads, dropout, node_features, graph_features):
+    def __init__(self, context_len_pre, context_len_post, target_len, rot_gnn_params, root_pos_mlp_params):
         
         super().__init__()
         context_len = context_len_pre + context_len_post
 
         # GAT layers for rotations
-        graph_in_features = node_features * context_len
-        graph_out_features = node_features * target_len
-
-        self.convs = []
-        self.convs.append(GATConv(graph_in_features, hidden_dim, heads=heads, concat=True, dropout=dropout))
+        graph_in_features = rot_gnn_params["num_features"] * context_len
+        graph_out_features = rot_gnn_params["num_features"] * target_len
+        hidden_dim = rot_gnn_params["hidden_dim"] 
+        heads = rot_gnn_params["num_heads"]
+        dropout_val = rot_gnn_params["dropout"]
         
-        for _ in range(hidden_layers - 1): 
-            self.convs.append(GATConv(hidden_dim * heads, hidden_dim, heads=heads, concat=True, dropout=dropout))
+        self.convs = []
+        self.convs.append(
+            GATConv(
+                in_channels=graph_in_features,
+                out_channels=hidden_dim, 
+                heads=heads, 
+                concat=True, 
+                dropout=dropout_val
+            )
+        )
+        
+        for _ in range(rot_gnn_params["num_layers"] - 1): 
+            self.convs.append(
+                GATConv(
+                    in_channels=hidden_dim * heads,
+                    out_channels=hidden_dim, 
+                    heads=heads, 
+                    concat=True, 
+                    dropout=dropout_val
+                )
+            )
 
         self.convs = nn.ModuleList(self.convs)
-        self.dropout = nn.Dropout(dropout)
-        self.fc_rot = nn.Linear(hidden_dim * heads, graph_out_features)
+        self.dropout = nn.Dropout(dropout_val)
+        self.fc_rot = nn.Linear(in_features=hidden_dim * heads, out_features=graph_out_features)
 
         # MLP for root positions
-        root_pos_in = context_len * graph_features
-        root_pos_out = target_len * graph_features
+        root_pos_in = context_len * root_pos_mlp_params["num_features"]
+        root_pos_out = target_len * root_pos_mlp_params["num_features"]
+        hidden_dim = root_pos_mlp_params["hidden_dim"]
+        dropout_val = root_pos_mlp_params["dropout"]
+    
+        mlp_layers = []
+        mlp_layers.append(nn.Linear(in_features=root_pos_in, out_features=hidden_dim))
 
-        self.root_pos_mlp = nn.Sequential(
-            nn.Linear(root_pos_in, root_pos_hidden_dim),
-            nn.LeakyReLU(),
-            nn.Dropout(dropout),
-            nn.Linear(root_pos_hidden_dim, root_pos_hidden_dim),
-            nn.LeakyReLU(),
-            nn.Linear(root_pos_hidden_dim, root_pos_out)
-        )
+        for _ in range(root_pos_mlp_params["num_layers"] - 2):
+            mlp_layers.append(nn.LeakyReLU())
+            mlp_layers.append(nn.Dropout(dropout_val))
+            mlp_layers.append(nn.Linear(in_features=hidden_dim, out_features=hidden_dim))
+
+        mlp_layers.append(nn.LeakyReLU())
+        mlp_layers.append(nn.Linear(in_features=hidden_dim, out_features=root_pos_out))
+
+        self.root_pos_mlp = nn.Sequential(*mlp_layers)
+
 
     def forward(self, data):
         # Rotations
