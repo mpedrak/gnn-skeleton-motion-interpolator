@@ -79,16 +79,6 @@ def build_edge_index_from_parents(parent_indices):
     return edge_index
 
 
-def compute_root_deltas(root_pos):
-    # [F, 3] -> [F, 3] (deltas, torch.Tensor)
-    
-    deltas = np.zeros_like(root_pos, dtype=np.float32)
-    deltas[1 : ] = root_pos[1 : ] - root_pos[ : -1]
-    deltas = torch.tensor(deltas, dtype=torch.float32)
-    
-    return deltas
-
-
 def forward_kinematics_positions_batch(offsets, parent_indices, root_pos, rot_6d):
     # Offsets [J, 3], parent_indices [J], root_pos [B, F, 3], rot_6d [B, F, J, 6] -> positions [B, F, J, 3]
     

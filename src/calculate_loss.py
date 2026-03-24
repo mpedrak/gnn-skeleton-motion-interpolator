@@ -1,5 +1,3 @@
-import torch
-
 from .utils.metrics import geodesic_rotation_loss
 from .utils.bvh import forward_kinematics_positions_batch
 
@@ -19,8 +17,8 @@ def calculate_loss(out, batch, l1_func, l2_func, offsets, parent_indices, loss_w
     root_pos_pred = out['root_pos']
     root_pos_pred = root_pos_pred.view(batch.num_graphs, F_target, 3)
 
-    last_root_pos_absolute = batch.last_root_pos_absolute.view(batch.num_graphs, 1, 3) # position at target start frame - 1
-    root_pos_pred_absolute = last_root_pos_absolute + torch.cumsum(root_pos_pred, dim=1) # [B, F_target, 3]
+    first_ctx_root_pos = batch.first_ctx_root_pos.view(batch.num_graphs, 1, 3) # position at first context frame
+    root_pos_pred_absolute = root_pos_pred + first_ctx_root_pos
     
     root_pos_pred = root_pos_pred_absolute.view(batch.num_graphs, -1) # [B, F_target * 3]
     root_pos_tgt = batch.root_pos_tgt.view(batch.num_graphs, -1)

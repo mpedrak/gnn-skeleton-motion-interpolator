@@ -3,7 +3,7 @@ import torch
 
 from torch_geometric.data import Data, Dataset
 
-from .utils.bvh import parse_bvh_file, build_edge_index_from_parents, compute_root_deltas, forward_kinematics_positions
+from .utils.bvh import parse_bvh_file, build_edge_index_from_parents, forward_kinematics_positions
 
 
 class GraphSkeletonDataset(Dataset):
@@ -34,9 +34,7 @@ class GraphSkeletonDataset(Dataset):
                     root_pos=root_pos, 
                     rot_6d=rot_6d
                 )
-                root_pos_deltas = compute_root_deltas(root_pos)
                 data = {
-                    'root_pos_deltas': root_pos_deltas,
                     'rot_6d': rot_6d,
                     'joint_names': joint_names,
                     'parent_indices': parent_indices,
@@ -79,12 +77,12 @@ class GraphSkeletonDataset(Dataset):
         rot_6d_context = torch.cat([first_part, second_part], dim=0)  
         x_feat = rot_6d_context.permute(1, 0, 2).reshape(self.num_joints, -1) # [F, J, 6] -> [J, F * 6]
 
-        first_part = data['root_pos_deltas'][start : tgt_start].clone() 
-        second_part = data['root_pos_deltas'][post_ctx_start : end].clone()
+        first_part = data['root_pos_absolute'][start : tgt_start].clone() 
+        second_part = data['root_pos_absolute'][post_ctx_start : end].clone()
         
-        for i in [0, 1, 2]:
-            first_part[0, i] = 0.0
-            second_part[0, i] = 0.0
+        first_ctx_root_pos = first_part[0].clone()
+        first_part = first_part - first_ctx_root_pos
+        second_part = second_part - first_ctx_root_pos
 
         root_ctx_raw = torch.cat([first_part, second_part], dim=0)
 
@@ -96,8 +94,6 @@ class GraphSkeletonDataset(Dataset):
         
         fk_pos = data['fk_pos'][tgt_start : post_ctx_start]
 
-        last_root_pos_absolute = data['root_pos_absolute'][tgt_start - 1].unsqueeze(0)
-
         return Data(
             x=x_feat,
             y=y_feat,
@@ -105,5 +101,5 @@ class GraphSkeletonDataset(Dataset):
             root_pos_ctx=root_ctx_raw,
             root_pos_tgt=root_tgt_absolute,
             fk_pos=fk_pos,
-            last_root_pos_absolute=last_root_pos_absolute
+            first_ctx_root_pos=first_ctx_root_pos
         )

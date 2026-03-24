@@ -3,7 +3,7 @@ import numpy as np
 
 from torch_geometric.data import Data
 
-from .utils.bvh import compute_root_deltas, build_edge_index_from_parents
+from .utils.bvh import build_edge_index_from_parents
 
 
 @torch.no_grad()
@@ -22,9 +22,11 @@ def predict_gap(model, device, rot_6d, root_pos, parent_indices, context_len_pre
 
     # Root positions
     first_part_root_pos = root_pos[first_start : gap_start]
-    first_part_root_pos = compute_root_deltas(first_part_root_pos)
     second_part_root_pos = root_pos[second_start : end]
-    second_part_root_pos = compute_root_deltas(second_part_root_pos)
+    
+    first_ctx_root_pos = first_part_root_pos[0].clone()
+    first_part_root_pos = first_part_root_pos - first_ctx_root_pos
+    second_part_root_pos = second_part_root_pos - first_ctx_root_pos
     
     root_ctx_pos = torch.cat([first_part_root_pos, second_part_root_pos], dim=0).to(device) 
 
@@ -44,9 +46,7 @@ def predict_gap(model, device, rot_6d, root_pos, parent_indices, context_len_pre
 
     # Reconstruct root positions from deltas
     root_delta_pred = root_pos_pred.view(1, -1).view(target_len, 3)
-    start_pos = root_pos[gap_start - 1].to(device)
-    cumulative = torch.cumsum(root_delta_pred, dim=0)
-    root_pred = start_pos.unsqueeze(0) + cumulative
+    root_pred = root_delta_pred.to(device) + first_ctx_root_pos.to(device)
 
     rot_pred = rot_pred.view(J, target_len, 6).permute(1, 0, 2).contiguous() # [J, F, 6] -> [F, J, 6]                   
 

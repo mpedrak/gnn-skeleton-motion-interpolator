@@ -26,6 +26,7 @@ if __name__ == '__main__':
 
     config, constants = load_configs([filename, "constants"])
     print(f"Loaded config: {filename}")
+    print(f"Model description: {config['description']}")
 
     device = "cuda" if torch.cuda.is_available() else "cpu"
     print(f"Using device: {device}")

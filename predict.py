@@ -26,6 +26,7 @@ if not os.path.isfile(input_bvh_path):
 filename = args.config
 config, constants = load_configs([filename, "constants"])
 print(f"Loaded config: {filename}")
+print(f"Model description: {config['description']}")
 
 gap_start_frame = args.gap_start - 1 # 0 based index in code
 n_frames = get_bvh_frame_count(input_bvh_path)
