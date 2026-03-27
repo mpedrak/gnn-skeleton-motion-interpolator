@@ -22,13 +22,11 @@ def predict_gap(model, device, rot_6d, root_pos, parent_indices, context_len_pre
 
     # Root positions
     first_part_root_pos = root_pos[first_start : gap_start]
-    second_part_root_pos = root_pos[second_start : end]
-    
+    second_part_root_pos = root_pos[second_start : end] 
     first_ctx_root_pos = first_part_root_pos[0].clone()
     first_part_root_pos = first_part_root_pos - first_ctx_root_pos
-    second_part_root_pos = second_part_root_pos - first_ctx_root_pos
-    
-    root_ctx_pos = torch.cat([first_part_root_pos, second_part_root_pos], dim=0).to(device) 
+    second_part_root_pos = second_part_root_pos - first_ctx_root_pos 
+    root_pos_ctx = torch.cat([first_part_root_pos, second_part_root_pos], dim=0).to(device) 
 
     # Graph
     edge_index = build_edge_index_from_parents(parent_indices)
@@ -36,18 +34,18 @@ def predict_gap(model, device, rot_6d, root_pos, parent_indices, context_len_pre
     data = Data(
         x=x_feat,
         edge_index=edge_index,
-        root_pos_ctx=root_ctx_pos
+        root_pos_ctx=root_pos_ctx
     )
     data = data.to(device)
-
     out = model(data)
+    
+    # Reshape rotations
     rot_pred = out["rot"]
-    root_pos_pred = out["root_pos"]
+    rot_pred = rot_pred.view(J, target_len, 6).permute(1, 0, 2).contiguous() # [J, F, 6] -> [F, J, 6]      
 
     # Reconstruct root positions from deltas
-    root_delta_pred = root_pos_pred.view(1, -1).view(target_len, 3)
-    root_pred = root_delta_pred.to(device) + first_ctx_root_pos.to(device)
+    root_pos_delta_pred = out["root_pos"]
+    root_pos_delta_pred = root_pos_delta_pred.view(1, -1).view(target_len, 3)
+    root_pos_pred = root_pos_delta_pred.to(device) + first_ctx_root_pos.to(device)            
 
-    rot_pred = rot_pred.view(J, target_len, 6).permute(1, 0, 2).contiguous() # [J, F, 6] -> [F, J, 6]                   
-
-    return rot_pred.cpu(), root_pred.cpu()
+    return rot_pred.cpu(), root_pos_pred.cpu()

@@ -5,14 +5,16 @@ context_len_pre: 10
 context_len_post: 10
 target_len: 10
 rot_gnn_params: {
-  num_features: 6,
+  num_features_in: 6,
+  num_features_out: 6,
   hidden_dim: 96,
   num_layers: 7,
   dropout: 0.02,
   num_heads: 16
 }
 root_pos_mlp_params: {
-  num_features: 3,
+  num_features_in: 3,
+  num_features_out: 3,
   hidden_dim: 256,
   num_layers: 7,
   dropout: 0.01

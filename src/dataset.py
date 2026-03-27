@@ -40,7 +40,7 @@ class GraphSkeletonDataset(Dataset):
                     'parent_indices': parent_indices,
                     'offsets': offsets,
                     'fk_pos': fk_pos,
-                    'root_pos_absolute': root_pos
+                    'root_pos': root_pos
                 }
                 torch.save(data, cache_path)
                 print(f"Saved cache file: {cache_path}")
@@ -65,6 +65,7 @@ class GraphSkeletonDataset(Dataset):
 
 
     def __getitem__(self, idx):
+
         fname, start = self.samples[idx]
         data = self.cache[fname]
         tgt_start = start + self.context_len_pre
@@ -77,29 +78,26 @@ class GraphSkeletonDataset(Dataset):
         rot_6d_context = torch.cat([first_part, second_part], dim=0)  
         x_feat = rot_6d_context.permute(1, 0, 2).reshape(self.num_joints, -1) # [F, J, 6] -> [J, F * 6]
 
-        first_part = data['root_pos_absolute'][start : tgt_start].clone() 
-        second_part = data['root_pos_absolute'][post_ctx_start : end].clone()
-        
+        first_part = data['root_pos'][start : tgt_start].clone() 
+        second_part = data['root_pos'][post_ctx_start : end].clone()
         first_ctx_root_pos = first_part[0].clone()
         first_part = first_part - first_ctx_root_pos
         second_part = second_part - first_ctx_root_pos
-
-        root_ctx_raw = torch.cat([first_part, second_part], dim=0)
+        root_pos_ctx = torch.cat([first_part, second_part], dim=0)
 
         # Target
         rot_6d_tgt = data['rot_6d'][tgt_start : post_ctx_start]
         y_feat = rot_6d_tgt.permute(1, 0, 2).reshape(self.num_joints, -1)
    
-        root_tgt_absolute = data['root_pos_absolute'][tgt_start : post_ctx_start]
-        
-        fk_pos = data['fk_pos'][tgt_start : post_ctx_start]
+        root_pos_tgt = data['root_pos'][tgt_start : post_ctx_start] 
+        fk_pos_tgt = data['fk_pos'][tgt_start : post_ctx_start]
 
         return Data(
             x=x_feat,
             y=y_feat,
             edge_index=self.edge_index,
-            root_pos_ctx=root_ctx_raw,
-            root_pos_tgt=root_tgt_absolute,
-            fk_pos=fk_pos,
+            root_pos_ctx=root_pos_ctx,
+            root_pos_tgt=root_pos_tgt,
+            fk_pos=fk_pos_tgt,
             first_ctx_root_pos=first_ctx_root_pos
         )

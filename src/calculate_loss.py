@@ -8,33 +8,33 @@ def calculate_loss(out, batch, l1_func, l2_func, offsets, parent_indices, loss_w
     rot_pred = out["rot"]
     rot_geo_loss = geodesic_rotation_loss(pred_rot_6d=rot_pred, target_rot_6d=batch.y)
 
-    # Root positions
     BxJ, Fx6 = rot_pred.shape
     F_target = Fx6 // 6
     J = BxJ // batch.num_graphs    
     rot_pred = rot_pred.view(batch.num_graphs, J, F_target, 6).permute(0, 2, 1, 3) # [B, F_target, J, 6]
     
-    root_pos_pred = out['root_pos']
-    root_pos_pred = root_pos_pred.view(batch.num_graphs, F_target, 3)
+    # Root positions
+    root_pos_delta_pred = out['root_pos']
+    root_pos_delta_pred = root_pos_delta_pred.view(batch.num_graphs, F_target, 3)
 
     first_ctx_root_pos = batch.first_ctx_root_pos.view(batch.num_graphs, 1, 3) # position at first context frame
-    root_pos_pred_absolute = root_pos_pred + first_ctx_root_pos
+    root_pos_pred = root_pos_delta_pred + first_ctx_root_pos
     
-    root_pos_pred = root_pos_pred_absolute.view(batch.num_graphs, -1) # [B, F_target * 3]
-    root_pos_tgt = batch.root_pos_tgt.view(batch.num_graphs, -1)
-    root_pos_loss = l2_func(root_pos_pred, root_pos_tgt)
+    root_pos_pred_flat = root_pos_pred.view(batch.num_graphs, -1) # [B, F_target * 3]
+    root_pos_tgt_flat = batch.root_pos_tgt.view(batch.num_graphs, -1)
+    root_pos_loss = l2_func(root_pos_pred_flat, root_pos_tgt_flat)
 
     # Forward kinematics 
     fk_pos_pred = forward_kinematics_positions_batch(
         offsets=offsets,
         parent_indices=parent_indices,
-        root_pos=root_pos_pred_absolute,
+        root_pos=root_pos_pred,
         rot_6d=rot_pred
     ) 
 
-    fk_pos_tgt = batch.fk_pos.view(batch.num_graphs, -1)
-    fk_pos_pred = fk_pos_pred.view(batch.num_graphs, -1)
-    fk_pos_loss = l1_func(fk_pos_pred, fk_pos_tgt)
+    fk_pos_tgt_flat = batch.fk_pos.view(batch.num_graphs, -1)
+    fk_pos_pred_flat = fk_pos_pred.view(batch.num_graphs, -1)
+    fk_pos_loss = l1_func(fk_pos_pred_flat, fk_pos_tgt_flat)
 
     # Total loss
     rot_geo_loss_w = loss_weights['rot_geo_l1'] * rot_geo_loss

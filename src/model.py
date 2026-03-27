@@ -26,8 +26,8 @@ class SkeletalMotionInterpolator(nn.Module):
         context_len = context_len_pre + context_len_post
 
         # GAT layers for rotations
-        graph_in_features = rot_gnn_params["num_features"] * context_len
-        graph_out_features = rot_gnn_params["num_features"] * target_len
+        graph_in_features = rot_gnn_params["num_features_in"] * context_len
+        graph_out_features = rot_gnn_params["num_features_out"] * target_len
         hidden_dim = rot_gnn_params["hidden_dim"] 
         heads = rot_gnn_params["num_heads"]
         dropout_val = rot_gnn_params["dropout"]
@@ -59,8 +59,8 @@ class SkeletalMotionInterpolator(nn.Module):
         self.fc_rot = nn.Linear(in_features=hidden_dim * heads, out_features=graph_out_features)
 
         # MLP for root positions
-        root_pos_in = context_len * root_pos_mlp_params["num_features"]
-        root_pos_out = target_len * root_pos_mlp_params["num_features"]
+        root_pos_in = context_len * root_pos_mlp_params["num_features_in"]
+        root_pos_out = target_len * root_pos_mlp_params["num_features_out"]
         hidden_dim = root_pos_mlp_params["hidden_dim"]
         dropout_val = root_pos_mlp_params["dropout"]
     

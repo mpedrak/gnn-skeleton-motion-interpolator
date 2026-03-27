@@ -90,50 +90,49 @@ def run_benchmark(model, loader, offsets, parent_indices, n_samples, benchmark_f
             rot_pred = rot_pred.view(batch.num_graphs, J, F_target, 6).permute(0, 2, 1, 3) 
 
             # Forward kinematics
-            root_pos_pred = out['root_pos']
-            root_pos_pred = root_pos_pred.view(batch.num_graphs, F_target, 3)
-
+            root_pos_delta_pred = out['root_pos']
+            root_pos_delta_pred = root_pos_delta_pred.view(batch.num_graphs, F_target, 3)
             first_ctx_root_pos = batch.first_ctx_root_pos.view(batch.num_graphs, 1, 3)
-            root_pos_pred_absolute = root_pos_pred + first_ctx_root_pos
+            root_pos_pred = root_pos_delta_pred + first_ctx_root_pos
 
             fk_pos_pred = forward_kinematics_positions_batch( 
                 offsets=offsets,
                 parent_indices=parent_indices,
-                root_pos=root_pos_pred_absolute,
+                root_pos=root_pos_pred,
                 rot_6d=rot_pred
             ) # [B, F_target, J, 3]
 
             # Root positions
-            fk_pos_tgt_reshaped = batch.fk_pos.view(batch.num_graphs, F_target, J, 3)
-            root_pos_tgt_absolute = fk_pos_tgt_reshaped[:, :, 0, :] # [B, F_target, 3]
-            root_pos_l1_sum += l1(root_pos_pred_absolute, root_pos_tgt_absolute).item()
-            root_pos_l2_sum += l2(root_pos_pred_absolute, root_pos_tgt_absolute).item()
+            root_pos_tgt = batch.root_pos_tgt.view(batch.num_graphs, F_target, 3)
+            root_pos_l1_sum += l1(root_pos_pred, root_pos_tgt).item()
+            root_pos_l2_sum += l2(root_pos_pred, root_pos_tgt).item()
 
             # All positions
-            fk_pos_tgt_flat = fk_pos_tgt_reshaped.view(batch.num_graphs, -1)
+            fk_pos_tgt = batch.fk_pos.view(batch.num_graphs, F_target, J, 3)
+            fk_pos_tgt_flat = fk_pos_tgt.view(batch.num_graphs, -1)
             fk_pos_pred_flat = fk_pos_pred.view(batch.num_graphs, -1)
             all_pos_l1_sum += l1(fk_pos_pred_flat, fk_pos_tgt_flat).item()
             all_pos_l2_sum += l2(fk_pos_pred_flat, fk_pos_tgt_flat).item()
 
             # L2P
-            l2p_sum += calculate_l2p(fk_pos_pred, fk_pos_tgt_reshaped, reduction='sum').item()
+            l2p_sum += calculate_l2p(fk_pos_pred, fk_pos_tgt, reduction='sum').item()
 
             # NPSS
             fk_pos_pred_npss = fk_pos_pred.permute(0, 2, 3, 1).reshape(batch.num_graphs, J * 3, F_target)
-            fk_pos_tgt_npss = fk_pos_tgt_reshaped.permute(0, 2, 3, 1).reshape(batch.num_graphs, J * 3, F_target)
+            fk_pos_tgt_npss = fk_pos_tgt.permute(0, 2, 3, 1).reshape(batch.num_graphs, J * 3, F_target)
             npss_sum += calculate_npss(fk_pos_pred_npss, fk_pos_tgt_npss, reduction='sum').item()
 
             # Smoothness
-            sm_1_sum += calculate_smoothness_loss(fk_pos_pred, fk_pos_tgt_reshaped, order=1, reduction='sum').item()
-            sm_2_sum += calculate_smoothness_loss(fk_pos_pred, fk_pos_tgt_reshaped, order=2, reduction='sum').item()
-            sm_3_sum += calculate_smoothness_loss(fk_pos_pred, fk_pos_tgt_reshaped, order=3, reduction='sum').item()
+            sm_1_sum += calculate_smoothness_loss(fk_pos_pred, fk_pos_tgt, order=1, reduction='sum').item()
+            sm_2_sum += calculate_smoothness_loss(fk_pos_pred, fk_pos_tgt, order=2, reduction='sum').item()
+            sm_3_sum += calculate_smoothness_loss(fk_pos_pred, fk_pos_tgt, order=3, reduction='sum').item()
 
             # Foot contact
             height_eps = benchmark_foot_params["height_eps"]
             velocity_eps = benchmark_foot_params["velocity_eps"]
 
             foot_contact_tgt = compute_foot_contact(
-                fk_pos=fk_pos_tgt_reshaped,
+                fk_pos=fk_pos_tgt,
                 foot_joint_indices=foot_joint_indices,
                 contact_height_eps=height_eps,
                 contact_velocity_eps=velocity_eps

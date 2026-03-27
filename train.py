@@ -1,5 +1,4 @@
 import torch
-import numpy as np
 import os
 import argparse
 import time
@@ -234,12 +233,15 @@ if __name__ == '__main__':
                 log_str(f"No improvement in validation loss for {epochs_no_improve} epochs")
                 if epochs_no_improve >= patience:
                     log_str(f"Early stopped at epoch {epoch}")
+                    print()
                     break
 
     except KeyboardInterrupt:
         log_str("\nTraining interrupted by user")
 
     finally:
+        if epoch == epochs: print()
+
         end_time = time.time()
         elapsed_time = end_time - start_time
         hours, rem = divmod(elapsed_time, 3600)

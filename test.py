@@ -1,7 +1,6 @@
 import torch
 import os
 import argparse
-import numpy as np
 
 from torch_geometric.loader import DataLoader 
 from tqdm import tqdm
