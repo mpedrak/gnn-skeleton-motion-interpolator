@@ -92,6 +92,8 @@ class GraphSkeletonDataset(Dataset):
         root_pos_tgt = data['root_pos'][tgt_start : post_ctx_start] 
         fk_pos_tgt = data['fk_pos'][tgt_start : post_ctx_start]
 
+        root_pos_for_lerp = torch.stack([data['root_pos'][tgt_start - 1], data['root_pos'][post_ctx_start]], dim=0)
+
         return Data(
             x=x_feat,
             y=y_feat,
@@ -99,5 +101,5 @@ class GraphSkeletonDataset(Dataset):
             root_pos_ctx=root_pos_ctx,
             root_pos_tgt=root_pos_tgt,
             fk_pos=fk_pos_tgt,
-            first_ctx_root_pos=first_ctx_root_pos
+            root_pos_for_lerp=root_pos_for_lerp
         )

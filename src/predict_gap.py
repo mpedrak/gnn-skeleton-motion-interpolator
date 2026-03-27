@@ -4,6 +4,7 @@ import numpy as np
 from torch_geometric.data import Data
 
 from .utils.bvh import build_edge_index_from_parents
+from .utils.various import compute_lerp
 
 
 @torch.no_grad()
@@ -45,7 +46,10 @@ def predict_gap(model, device, rot_6d, root_pos, parent_indices, context_len_pre
 
     # Reconstruct root positions from deltas
     root_pos_delta_pred = out["root_pos"]
-    root_pos_delta_pred = root_pos_delta_pred.view(1, -1).view(target_len, 3)
-    root_pos_pred = root_pos_delta_pred.to(device) + first_ctx_root_pos.to(device)            
+    root_pos_delta_pred = root_pos_delta_pred.view(1, -1).view(target_len, 3) # [F, 3]
+    lerp_start_pos = root_pos[gap_start - 1]
+    lerp_end_pos = root_pos[second_start]
+    root_pos_lerp = compute_lerp(lerp_start_pos, lerp_end_pos, target_len)
+    root_pos_pred = root_pos_delta_pred + root_pos_lerp.to(device)        
 
     return rot_pred.cpu(), root_pos_pred.cpu()

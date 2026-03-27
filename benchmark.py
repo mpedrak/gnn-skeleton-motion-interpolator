@@ -11,7 +11,7 @@ from src.model import SkeletalMotionInterpolator
 from src.utils.metrics import geodesic_rotation_loss, calculate_l2p, calculate_l2q, calculate_npss
 from src.utils.metrics import calculate_smoothness_loss, calculate_foot_contact_loss 
 from src.utils.bvh import forward_kinematics_positions_batch, compute_foot_contact, foot_skating_loss, get_joint_indices_by_name
-from src.utils.various import load_configs, log_string
+from src.utils.various import load_configs, log_string, compute_lerp_batch
 
 
 # Argument parsing
@@ -92,8 +92,11 @@ def run_benchmark(model, loader, offsets, parent_indices, n_samples, benchmark_f
             # Forward kinematics
             root_pos_delta_pred = out['root_pos']
             root_pos_delta_pred = root_pos_delta_pred.view(batch.num_graphs, F_target, 3)
-            first_ctx_root_pos = batch.first_ctx_root_pos.view(batch.num_graphs, 1, 3)
-            root_pos_pred = root_pos_delta_pred + first_ctx_root_pos
+            root_pos_for_lerp = batch.root_pos_for_lerp.view(batch.num_graphs, 2, 3) # [B, 2, 3]
+            lerp_start_pos = root_pos_for_lerp[:, 0, :] 
+            lerp_end_pos = root_pos_for_lerp[:, 1, :]
+            root_pos_lerp = compute_lerp_batch(lerp_start_pos, lerp_end_pos, F_target)
+            root_pos_pred = root_pos_delta_pred + root_pos_lerp
 
             fk_pos_pred = forward_kinematics_positions_batch( 
                 offsets=offsets,

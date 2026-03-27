@@ -1,5 +1,6 @@
 from .utils.metrics import geodesic_rotation_loss
 from .utils.bvh import forward_kinematics_positions_batch
+from .utils.various import compute_lerp_batch
 
 
 def calculate_loss(out, batch, l1_func, l2_func, offsets, parent_indices, loss_weights):
@@ -16,9 +17,11 @@ def calculate_loss(out, batch, l1_func, l2_func, offsets, parent_indices, loss_w
     # Root positions
     root_pos_delta_pred = out['root_pos']
     root_pos_delta_pred = root_pos_delta_pred.view(batch.num_graphs, F_target, 3)
-
-    first_ctx_root_pos = batch.first_ctx_root_pos.view(batch.num_graphs, 1, 3) # position at first context frame
-    root_pos_pred = root_pos_delta_pred + first_ctx_root_pos
+    root_pos_for_lerp = batch.root_pos_for_lerp.view(batch.num_graphs, 2, 3) # [B, 2, 3]
+    lerp_start_pos = root_pos_for_lerp[:, 0, :] 
+    lerp_end_pos = root_pos_for_lerp[:, 1, :]
+    root_pos_lerp = compute_lerp_batch(lerp_start_pos, lerp_end_pos, F_target)
+    root_pos_pred = root_pos_delta_pred + root_pos_lerp
     
     root_pos_pred_flat = root_pos_pred.view(batch.num_graphs, -1) # [B, F_target * 3]
     root_pos_tgt_flat = batch.root_pos_tgt.view(batch.num_graphs, -1)
