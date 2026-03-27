@@ -3,11 +3,13 @@ import os
 import argparse
 import time
 import gc
+import matplotlib.pyplot as plt
 
 from torch_geometric.loader import DataLoader
 from tqdm import tqdm
 from torch.utils.data import random_split
 from torch.optim.lr_scheduler import ReduceLROnPlateau
+from matplotlib.ticker import FormatStrFormatter, MaxNLocator
 
 from src.dataset import GraphSkeletonDataset
 from src.model import SkeletalMotionInterpolator
@@ -93,6 +95,11 @@ if __name__ == '__main__':
 
     log_str = lambda text: log_string(text=text, log_path=train_log_path)
 
+    os.makedirs(constants["train_plot_path"], exist_ok=True)
+    train_plot_path = constants["train_plot_path"] + filename + constants["plot_suffix"]
+    if os.path.exists(train_plot_path):
+        os.remove(train_plot_path)
+    
 
     # Training preparation
     scheduler_params = config["lr_scheduler_params"]
@@ -115,6 +122,12 @@ if __name__ == '__main__':
     epochs_no_improve = 0
     patience = config["patience"]
     epochs = config["epochs"]
+
+    train_losses = []
+    val_losses = []
+    val_rot_losses = []
+    val_root_pos_losses = []
+    val_fk_losses = []
 
     start_time = time.time()
     print("Starting time measurement")
@@ -169,8 +182,10 @@ if __name__ == '__main__':
             avg_root_pos_loss = total_root_pos_loss / n_samples
             avg_fk_loss = total_fk_loss / n_samples
 
+            train_losses.append(avg_loss)
+
             log_str(f"Training loss:                  {avg_loss:.7f}")
-            log_str(f"'- Rotations Geodesic L1:       '- {avg_rot_loss:.4f}")
+            log_str(f"'- Rotations geodesic L1:       '- {avg_rot_loss:.4f}")
             log_str(f"'- Root positions L2:           '- {avg_root_pos_loss:.4f}")
             log_str(f"'- FK positions L1:             '- {avg_fk_loss:.4f}")
 
@@ -215,14 +230,19 @@ if __name__ == '__main__':
             avg_root_pos_loss = total_root_pos_loss / n_samples
             avg_fk_loss = total_fk_loss / n_samples
 
+            val_losses.append(avg_loss)
+            val_rot_losses.append(avg_rot_loss)
+            val_root_pos_losses.append(avg_root_pos_loss)
+            val_fk_losses.append(avg_fk_loss)
+
             log_str(f"Validation loss:                {avg_loss:.7f}")
-            log_str(f"'- Rotations Geodesic L1:       '- {avg_rot_loss:.4f}")
+            log_str(f"'- Rotations geodesic L1:       '- {avg_rot_loss:.4f}")
             log_str(f"'- Root positions L2:           '- {avg_root_pos_loss:.4f}")
             log_str(f"'- FK positions L1:             '- {avg_fk_loss:.4f}")
 
             scheduler.step(avg_loss)
 
-            if avg_loss < best_val_loss:
+            if avg_loss < (best_val_loss - config["early_stop_eps"]):
                 best_val_loss = avg_loss
                 epochs_no_improve = 0
                 log_str("Validation loss improved, saving checkpoint")
@@ -246,6 +266,31 @@ if __name__ == '__main__':
         elapsed_time = end_time - start_time
         hours, rem = divmod(elapsed_time, 3600)
         minutes, seconds = divmod(rem, 60)
+
+        if len(val_losses) > 0:
+            plt.figure(figsize=(12, 7))
+            plt.plot(range(1, len(train_losses) + 1), train_losses, label='Train loss', linewidth=2)
+            plt.plot(range(1, len(val_losses) + 1), val_losses, label='Val loss', linewidth=2)
+
+            plt.plot(range(1, len(val_rot_losses) + 1), val_rot_losses, label='Val rotations geodesic L1 loss', alpha=0.5)
+            plt.plot(range(1, len(val_root_pos_losses) + 1), val_root_pos_losses, label='Val root positions L2 loss', alpha=0.5)
+            plt.plot(range(1, len(val_fk_losses) + 1), val_fk_losses, label='Val FK positions L1 loss', alpha=0.5)
+            
+            plt.xlabel('Epoch')
+            plt.ylabel('Loss (log scale)')
+            plt.yscale('log')
+            ax = plt.gca() 
+            formatter = FormatStrFormatter('%g') 
+            ax.yaxis.set_major_formatter(formatter)
+            ax.yaxis.set_minor_formatter(formatter)
+            ax.xaxis.set_major_locator(MaxNLocator(integer=True))
+            
+            plt.title('Training and validation loss')
+            plt.legend()
+            plt.grid(True, which="both", linestyle='--', linewidth=0.5, alpha=0.7) 
+            plt.tight_layout()
+            plt.savefig(train_plot_path)
+            plt.close()
         
         log_str(f"Total training time: {int(hours):02d}h {int(minutes):02d}m {seconds:.2f}s")
         log_str("Training complete")

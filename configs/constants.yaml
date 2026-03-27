@@ -10,7 +10,9 @@ root_stats_suffix: ".npz"
 
 # Logs
 log_suffix: ".txt"
+plot_suffix: ".png"
 train_log_path: "results/train/"
+train_plot_path: "results/train_plots/"
 test_log_path: "results/test/"
 benchmark_log_path: "results/benchmark/"
 
