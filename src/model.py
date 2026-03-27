@@ -1,5 +1,6 @@
 import torch.nn as nn
 import torch.nn.functional as F
+import torch
 
 from torch_geometric.nn import GATConv
 
@@ -27,10 +28,11 @@ class SkeletalMotionInterpolator(nn.Module):
 
         # GAT layers for rotations
         graph_in_features = rot_gnn_params["num_features_in"] * context_len
-        graph_out_features = rot_gnn_params["num_features_out"] * target_len
         hidden_dim = rot_gnn_params["hidden_dim"] 
         heads = rot_gnn_params["num_heads"]
         dropout_val = rot_gnn_params["dropout"]
+        graph_out_features = hidden_dim * heads
+        fc_rot_out_dim = rot_gnn_params["num_features_out"] * target_len
         
         self.convs = []
         self.convs.append(
@@ -56,13 +58,15 @@ class SkeletalMotionInterpolator(nn.Module):
 
         self.convs = nn.ModuleList(self.convs)
         self.dropout = nn.Dropout(dropout_val)
-        self.fc_rot = nn.Linear(in_features=hidden_dim * heads, out_features=graph_out_features)
+        self.fc_rot = nn.Linear(in_features=graph_out_features, out_features=fc_rot_out_dim)
 
         # MLP for root positions
-        root_pos_in = context_len * root_pos_mlp_params["num_features_in"]
+        root_pos_in = (context_len * root_pos_mlp_params["num_features_in"]) + root_pos_mlp_params["num_features_in_from_gnn"]
         root_pos_out = target_len * root_pos_mlp_params["num_features_out"]
         hidden_dim = root_pos_mlp_params["hidden_dim"]
         dropout_val = root_pos_mlp_params["dropout"]
+
+        self.reduce_graph_dim = nn.Linear(graph_out_features, root_pos_mlp_params["num_features_in_from_gnn"])
     
         mlp_layers = []
         mlp_layers.append(nn.Linear(in_features=root_pos_in, out_features=hidden_dim))
@@ -88,9 +92,16 @@ class SkeletalMotionInterpolator(nn.Module):
         rot_pred = self.fc_rot(x) 
 
         # Root positions
-        root_pos_ctx = data.root_pos_ctx
-        if not hasattr(data, 'num_graphs'): root_pos_ctx = root_pos_ctx.reshape(1, -1)
-        else: root_pos_ctx = root_pos_ctx.view(data.num_graphs, -1) 
-        root_pos_pred = self.root_pos_mlp(root_pos_ctx) 
+        if not hasattr(data, 'num_graphs'): batch_size = 1
+        else: batch_size = data.num_graphs
+
+        root_pos_ctx = data.root_pos_ctx.view(batch_size, -1) 
+        J = data.num_nodes // batch_size
+        graph_out_reshaped = x.view(batch_size, J, -1) # [B, J, graph_out_features]
+        root_graph_out = graph_out_reshaped[:, 0, :]
+        root_graph_reduced = F.relu(self.reduce_graph_dim(root_graph_out))
+        root_mlp_ctx = torch.cat([root_pos_ctx, root_graph_reduced], dim=1) 
+
+        root_pos_pred = self.root_pos_mlp(root_mlp_ctx) 
 
         return {'rot': rot_pred, 'root_pos': root_pos_pred}

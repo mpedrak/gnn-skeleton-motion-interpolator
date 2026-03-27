@@ -1,0 +1,45 @@
+description: "similar to v_19, but with root rotation GNN embedding in context for root pos MLP"
+
+# Model parameters
+context_len_pre: 10
+context_len_post: 10
+target_len: 10
+rot_gnn_params: {
+  num_features_in: 6,
+  num_features_out: 6,
+  hidden_dim: 96,
+  num_layers: 7,
+  dropout: 0.02,
+  num_heads: 16
+}
+root_pos_mlp_params: {
+  num_features_in: 3,
+  num_features_out: 3,
+  hidden_dim: 256,
+  num_layers: 7,
+  dropout: 0.05,
+  num_features_in_from_gnn: 64
+}
+
+# Dataset parameters
+step: 7                                          
+batch_size: 512
+num_workers: 8
+
+# Training parameters
+epochs: 200
+validation_split: 0.3
+patience: 7
+early_stop_eps: 0.0000001
+train_data_dir: "data/train"
+loss_weights: {
+  rot_geo_l1: 1.0,
+  root_pos_l2: 0.05,
+  fk_pos_l1: 0.1
+}
+lr_scheduler_params: {
+  start_lr: 0.001,
+  min_lr: 0.000001,
+  factor: 0.5,
+  patience: 3
+}
