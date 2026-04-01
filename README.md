@@ -1,3 +1,5 @@
+# GNN skeleton motion interpolator
+
 ## Installation
 
 ### To download without pretrained models
