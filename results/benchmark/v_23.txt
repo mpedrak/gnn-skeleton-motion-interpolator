@@ -1,0 +1,24 @@
+
+--- Benchmark Results ---
+
+Model description: similar to v_22, but with GAT norm and residual connections and attention global pool embedding for MLP
+
+Per joint:
+  L2P value [cm]:                    1.9265388
+  L2Q value:                         0.0282319
+  Rotation MAE [deg]:                3.2792014
+  Rotation RMSE [deg]:               5.1825555
+
+Per joint channel:
+  NPSS value:                        0.0085672
+  Root position MAE [cm]:            0.5204102
+  Root position RMSE [cm]:           0.8405797
+  All positions MAE [cm]:            0.9564045
+  All positions RMSE [cm]:           1.6592944
+  Velocity loss [cm/frame]:          0.3810546
+  Acceleration loss [cm/frame^2]:    0.2752921
+  Jerk loss [cm/frame^3]:            0.3161254
+
+Per foot joint:
+  Foot contact error rate [%]:       26.9321673
+  Foot skating loss [cm/frame]:      0.6986817
