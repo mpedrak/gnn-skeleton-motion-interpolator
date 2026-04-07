@@ -8,7 +8,7 @@ from tqdm import tqdm
 from src.dataset import GraphSkeletonDataset
 from src.model import SkeletalMotionInterpolator
 from src.calculate_loss import calculate_loss
-from src.utils.various import load_configs, log_string
+from src.utils.various import load_configs, log_string, set_global_seed
 
 
 # Argument parsing
@@ -23,6 +23,8 @@ print(f"Model description: {config['description']}")
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
 print(f"Using device: {device}")
+
+set_global_seed(constants["seed"])
 
 if device == "cuda":
     torch.set_float32_matmul_precision('high')

@@ -8,7 +8,7 @@ from src.model import SkeletalMotionInterpolator
 from src.utils.bvh import replace_gap_in_bvh_text, parse_bvh_file, get_bvh_frame_count
 from src.utils.rotation import rot_6d_to_euler_zyx
 from src.predict_gap import predict_gap
-from src.utils.various import load_configs
+from src.utils.various import load_configs, set_global_seed
 
 
 # Additional arguments
@@ -29,6 +29,8 @@ print(f"Model description: {config['description']}")
         
 device = "cuda" if torch.cuda.is_available() else "cpu"
 print(f"Using device: {device}")
+
+set_global_seed(constants["seed"])
 
 
 # Model

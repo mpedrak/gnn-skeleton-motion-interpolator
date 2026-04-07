@@ -11,7 +11,7 @@ from src.model import SkeletalMotionInterpolator
 from src.utils.metrics import geodesic_rotation_loss, calculate_l2p, calculate_l2q, calculate_npss
 from src.utils.metrics import calculate_smoothness_loss, calculate_foot_contact_loss 
 from src.utils.bvh import forward_kinematics_positions_batch, compute_foot_contact, foot_skating_loss, get_joint_indices_by_name
-from src.utils.various import load_configs, log_string, compute_lerp_batch
+from src.utils.various import load_configs, log_string, compute_lerp_batch, set_global_seed
 
 
 # Argument parsing
@@ -26,6 +26,8 @@ print(f"Model description: {config['description']}")
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
 print(f"Using device: {device}")
+
+set_global_seed(constants["seed"])
 
 if device == "cuda":
     torch.set_float32_matmul_precision('high')

@@ -14,7 +14,7 @@ from matplotlib.ticker import FormatStrFormatter, MaxNLocator
 from src.dataset import GraphSkeletonDataset
 from src.model import SkeletalMotionInterpolator
 from src.calculate_loss import calculate_loss
-from src.utils.various import load_configs, log_string
+from src.utils.various import load_configs, log_string, set_global_seed, set_worker_seed
 
 
 if __name__ == '__main__':
@@ -32,6 +32,8 @@ if __name__ == '__main__':
     device = "cuda" if torch.cuda.is_available() else "cpu"
     print(f"Using device: {device}")
 
+    set_global_seed(constants["seed"])
+
     if device == "cuda":
         torch.set_float32_matmul_precision('high')
         torch.backends.cudnn.benchmark = True
@@ -48,10 +50,13 @@ if __name__ == '__main__':
     )
     print(f"Dataset ready with {len(dataset)} samples")
 
+    torch_generator = torch.Generator()
+    torch_generator.manual_seed(constants["seed"])
+    
     n_total = len(dataset)
     n_val = max(1, int(n_total * config["validation_split"]))
     n_train = n_total - n_val
-    train_dataset, val_dataset = random_split(dataset, [n_train, n_val], generator=torch.Generator().manual_seed(7))
+    train_dataset, val_dataset = random_split(dataset, [n_train, n_val], generator=torch_generator)
 
     batch_size = config["batch_size"]
     train_loader = DataLoader(
@@ -60,7 +65,9 @@ if __name__ == '__main__':
         shuffle=True, 
         num_workers=config["num_workers"], 
         pin_memory=True, 
-        persistent_workers=True
+        persistent_workers=True,
+        generator=torch_generator,
+        worker_init_fn=set_worker_seed
     )
 
     val_loader = DataLoader(
@@ -69,7 +76,9 @@ if __name__ == '__main__':
         shuffle=False, 
         num_workers=config["num_workers"], 
         pin_memory=True, 
-        persistent_workers=True
+        persistent_workers=True,
+        generator=torch_generator,
+        worker_init_fn=set_worker_seed
     )
 
 

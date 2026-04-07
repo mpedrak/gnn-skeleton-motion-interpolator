@@ -1,4 +1,5 @@
 length_unit: "cm" 
+seed: 7
 
 # Model
 models_path: "checkpoints/model/"

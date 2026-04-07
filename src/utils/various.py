@@ -1,6 +1,8 @@
 import os
 import yaml
 import torch
+import random
+import numpy as np
 
 
 def load_configs(filenames, config_dir="./configs/", config_suffix=".yaml"):
@@ -45,3 +47,18 @@ def compute_lerp(start, end, count_to_generate):
     result = start + t * (end - start)
 
     return result
+
+
+def set_global_seed(seed):
+    random.seed(seed)
+    os.environ['PYTHONHASHSEED'] = str(seed)
+    np.random.seed(seed)
+    torch.manual_seed(seed)
+    torch.cuda.manual_seed(seed)
+    torch.cuda.manual_seed_all(seed)
+
+
+def set_worker_seed(worker_id):
+    worker_seed = torch.initial_seed() % 2**32
+    np.random.seed(worker_seed)
+    random.seed(worker_seed)

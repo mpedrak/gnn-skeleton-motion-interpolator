@@ -1,1101 +1,1145 @@
 
 --- Epoch 1/200 ---
 Learning rate:                  1.000e-03
-Training loss:                  2.3384707
-'- Rotations geodesic L1:       '- 1.0040
-'- Root positions L2:           '- 0.1639
-'- FK positions L1:             '- 1.1705
-Validation loss:                1.0216774
-'- Rotations geodesic L1:       '- 0.4449
-'- Root positions L2:           '- 0.0903
-'- FK positions L1:             '- 0.4864
+Training loss:                  2.2044157
+'- Rotations geodesic L1:       '- 0.8553
+'- Root positions L2:           '- 0.1762
+'- FK positions L1:             '- 1.1729
+Validation loss:                0.7516363
+'- Rotations geodesic L1:       '- 0.2203
+'- Root positions L2:           '- 0.1132
+'- FK positions L1:             '- 0.4182
 Validation loss improved, saving checkpoint
-Model saved to: checkpoints/model/v_22.pth
+Model saved to: checkpoints/model/v_23.pth
 
 --- Epoch 2/200 ---
 Learning rate:                  1.000e-03
-Training loss:                  0.8099984
-'- Rotations geodesic L1:       '- 0.3293
-'- Root positions L2:           '- 0.0765
-'- FK positions L1:             '- 0.4042
-Validation loss:                0.5067244
-'- Rotations geodesic L1:       '- 0.1485
-'- Root positions L2:           '- 0.0659
-'- FK positions L1:             '- 0.2922
+Training loss:                  0.6207143
+'- Rotations geodesic L1:       '- 0.1884
+'- Root positions L2:           '- 0.0826
+'- FK positions L1:             '- 0.3497
+Validation loss:                0.5290135
+'- Rotations geodesic L1:       '- 0.1564
+'- Root positions L2:           '- 0.0735
+'- FK positions L1:             '- 0.2991
 Validation loss improved, saving checkpoint
-Model saved to: checkpoints/model/v_22.pth
+Model saved to: checkpoints/model/v_23.pth
 
 --- Epoch 3/200 ---
 Learning rate:                  1.000e-03
-Training loss:                  0.4722495
-'- Rotations geodesic L1:       '- 0.1380
-'- Root positions L2:           '- 0.0625
-'- FK positions L1:             '- 0.2718
-Validation loss:                0.4104907
-'- Rotations geodesic L1:       '- 0.1103
-'- Root positions L2:           '- 0.0644
-'- FK positions L1:             '- 0.2358
+Training loss:                  0.4927010
+'- Rotations geodesic L1:       '- 0.1476
+'- Root positions L2:           '- 0.0680
+'- FK positions L1:             '- 0.2771
+Validation loss:                0.4263167
+'- Rotations geodesic L1:       '- 0.1251
+'- Root positions L2:           '- 0.0652
+'- FK positions L1:             '- 0.2360
 Validation loss improved, saving checkpoint
-Model saved to: checkpoints/model/v_22.pth
+Model saved to: checkpoints/model/v_23.pth
 
 --- Epoch 4/200 ---
 Learning rate:                  1.000e-03
-Training loss:                  0.4044902
-'- Rotations geodesic L1:       '- 0.1141
-'- Root positions L2:           '- 0.0568
-'- FK positions L1:             '- 0.2337
-Validation loss:                0.3778431
-'- Rotations geodesic L1:       '- 0.1011
-'- Root positions L2:           '- 0.0538
-'- FK positions L1:             '- 0.2230
+Training loss:                  0.4234551
+'- Rotations geodesic L1:       '- 0.1237
+'- Root positions L2:           '- 0.0610
+'- FK positions L1:             '- 0.2388
+Validation loss:                0.3682993
+'- Rotations geodesic L1:       '- 0.1050
+'- Root positions L2:           '- 0.0583
+'- FK positions L1:             '- 0.2050
 Validation loss improved, saving checkpoint
-Model saved to: checkpoints/model/v_22.pth
+Model saved to: checkpoints/model/v_23.pth
 
 --- Epoch 5/200 ---
 Learning rate:                  1.000e-03
-Training loss:                  0.3655442
-'- Rotations geodesic L1:       '- 0.1042
-'- Root positions L2:           '- 0.0525
-'- FK positions L1:             '- 0.2088
-Validation loss:                0.3401632
-'- Rotations geodesic L1:       '- 0.0927
-'- Root positions L2:           '- 0.0488
-'- FK positions L1:             '- 0.1987
+Training loss:                  0.3770047
+'- Rotations geodesic L1:       '- 0.1082
+'- Root positions L2:           '- 0.0561
+'- FK positions L1:             '- 0.2127
+Validation loss:                0.3407537
+'- Rotations geodesic L1:       '- 0.0959
+'- Root positions L2:           '- 0.0545
+'- FK positions L1:             '- 0.1903
 Validation loss improved, saving checkpoint
-Model saved to: checkpoints/model/v_22.pth
+Model saved to: checkpoints/model/v_23.pth
 
 --- Epoch 6/200 ---
 Learning rate:                  1.000e-03
-Training loss:                  0.3395948
-'- Rotations geodesic L1:       '- 0.0977
-'- Root positions L2:           '- 0.0502
-'- FK positions L1:             '- 0.1917
-Validation loss:                0.3196306
-'- Rotations geodesic L1:       '- 0.0894
-'- Root positions L2:           '- 0.0471
-'- FK positions L1:             '- 0.1832
+Training loss:                  0.3462482
+'- Rotations geodesic L1:       '- 0.1000
+'- Root positions L2:           '- 0.0530
+'- FK positions L1:             '- 0.1932
+Validation loss:                0.3122344
+'- Rotations geodesic L1:       '- 0.0884
+'- Root positions L2:           '- 0.0567
+'- FK positions L1:             '- 0.1672
 Validation loss improved, saving checkpoint
-Model saved to: checkpoints/model/v_22.pth
+Model saved to: checkpoints/model/v_23.pth
 
 --- Epoch 7/200 ---
 Learning rate:                  1.000e-03
-Training loss:                  0.3163548
-'- Rotations geodesic L1:       '- 0.0921
-'- Root positions L2:           '- 0.0473
-'- FK positions L1:             '- 0.1770
-Validation loss:                0.3208402
-'- Rotations geodesic L1:       '- 0.0856
-'- Root positions L2:           '- 0.0463
-'- FK positions L1:             '- 0.1890
-No improvement in validation loss for 1 epochs
+Training loss:                  0.3242048
+'- Rotations geodesic L1:       '- 0.0947
+'- Root positions L2:           '- 0.0502
+'- FK positions L1:             '- 0.1793
+Validation loss:                0.2926856
+'- Rotations geodesic L1:       '- 0.0849
+'- Root positions L2:           '- 0.0491
+'- FK positions L1:             '- 0.1586
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_23.pth
 
 --- Epoch 8/200 ---
 Learning rate:                  1.000e-03
-Training loss:                  0.3015950
-'- Rotations geodesic L1:       '- 0.0881
-'- Root positions L2:           '- 0.0460
-'- FK positions L1:             '- 0.1674
-Validation loss:                0.2777331
-'- Rotations geodesic L1:       '- 0.0802
+Training loss:                  0.3079188
+'- Rotations geodesic L1:       '- 0.0905
 '- Root positions L2:           '- 0.0482
-'- FK positions L1:             '- 0.1494
+'- FK positions L1:             '- 0.1692
+Validation loss:                0.2854828
+'- Rotations geodesic L1:       '- 0.0815
+'- Root positions L2:           '- 0.0463
+'- FK positions L1:             '- 0.1576
 Validation loss improved, saving checkpoint
-Model saved to: checkpoints/model/v_22.pth
+Model saved to: checkpoints/model/v_23.pth
 
 --- Epoch 9/200 ---
 Learning rate:                  1.000e-03
-Training loss:                  0.2875653
-'- Rotations geodesic L1:       '- 0.0841
-'- Root positions L2:           '- 0.0444
-'- FK positions L1:             '- 0.1590
-Validation loss:                0.2697958
-'- Rotations geodesic L1:       '- 0.0762
-'- Root positions L2:           '- 0.0422
-'- FK positions L1:             '- 0.1514
+Training loss:                  0.2930338
+'- Rotations geodesic L1:       '- 0.0860
+'- Root positions L2:           '- 0.0463
+'- FK positions L1:             '- 0.1607
+Validation loss:                0.2783406
+'- Rotations geodesic L1:       '- 0.0784
+'- Root positions L2:           '- 0.0472
+'- FK positions L1:             '- 0.1527
 Validation loss improved, saving checkpoint
-Model saved to: checkpoints/model/v_22.pth
+Model saved to: checkpoints/model/v_23.pth
 
 --- Epoch 10/200 ---
 Learning rate:                  1.000e-03
-Training loss:                  0.2777891
-'- Rotations geodesic L1:       '- 0.0805
-'- Root positions L2:           '- 0.0437
-'- FK positions L1:             '- 0.1536
-Validation loss:                0.2557847
-'- Rotations geodesic L1:       '- 0.0720
-'- Root positions L2:           '- 0.0438
-'- FK positions L1:             '- 0.1401
+Training loss:                  0.2815525
+'- Rotations geodesic L1:       '- 0.0828
+'- Root positions L2:           '- 0.0448
+'- FK positions L1:             '- 0.1540
+Validation loss:                0.2655493
+'- Rotations geodesic L1:       '- 0.0751
+'- Root positions L2:           '- 0.0444
+'- FK positions L1:             '- 0.1461
 Validation loss improved, saving checkpoint
-Model saved to: checkpoints/model/v_22.pth
+Model saved to: checkpoints/model/v_23.pth
 
 --- Epoch 11/200 ---
 Learning rate:                  1.000e-03
-Training loss:                  0.2678789
-'- Rotations geodesic L1:       '- 0.0776
-'- Root positions L2:           '- 0.0423
-'- FK positions L1:             '- 0.1480
-Validation loss:                0.2603963
-'- Rotations geodesic L1:       '- 0.0700
-'- Root positions L2:           '- 0.0443
-'- FK positions L1:             '- 0.1461
-No improvement in validation loss for 1 epochs
+Training loss:                  0.2727935
+'- Rotations geodesic L1:       '- 0.0801
+'- Root positions L2:           '- 0.0437
+'- FK positions L1:             '- 0.1490
+Validation loss:                0.2651806
+'- Rotations geodesic L1:       '- 0.0736
+'- Root positions L2:           '- 0.0465
+'- FK positions L1:             '- 0.1451
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_23.pth
 
 --- Epoch 12/200 ---
 Learning rate:                  1.000e-03
-Training loss:                  0.2614537
-'- Rotations geodesic L1:       '- 0.0754
-'- Root positions L2:           '- 0.0414
-'- FK positions L1:             '- 0.1446
-Validation loss:                0.2515006
-'- Rotations geodesic L1:       '- 0.0697
-'- Root positions L2:           '- 0.0467
-'- FK positions L1:             '- 0.1351
+Training loss:                  0.2651671
+'- Rotations geodesic L1:       '- 0.0778
+'- Root positions L2:           '- 0.0425
+'- FK positions L1:             '- 0.1448
+Validation loss:                0.2534254
+'- Rotations geodesic L1:       '- 0.0705
+'- Root positions L2:           '- 0.0424
+'- FK positions L1:             '- 0.1405
 Validation loss improved, saving checkpoint
-Model saved to: checkpoints/model/v_22.pth
+Model saved to: checkpoints/model/v_23.pth
 
 --- Epoch 13/200 ---
 Learning rate:                  1.000e-03
-Training loss:                  0.2549304
-'- Rotations geodesic L1:       '- 0.0738
-'- Root positions L2:           '- 0.0402
-'- FK positions L1:             '- 0.1409
-Validation loss:                0.2372749
-'- Rotations geodesic L1:       '- 0.0683
-'- Root positions L2:           '- 0.0409
-'- FK positions L1:             '- 0.1281
+Training loss:                  0.2582881
+'- Rotations geodesic L1:       '- 0.0757
+'- Root positions L2:           '- 0.0414
+'- FK positions L1:             '- 0.1412
+Validation loss:                0.2507716
+'- Rotations geodesic L1:       '- 0.0690
+'- Root positions L2:           '- 0.0427
+'- FK positions L1:             '- 0.1391
 Validation loss improved, saving checkpoint
-Model saved to: checkpoints/model/v_22.pth
+Model saved to: checkpoints/model/v_23.pth
 
 --- Epoch 14/200 ---
 Learning rate:                  1.000e-03
-Training loss:                  0.2508255
-'- Rotations geodesic L1:       '- 0.0724
-'- Root positions L2:           '- 0.0395
-'- FK positions L1:             '- 0.1389
-Validation loss:                0.2604627
-'- Rotations geodesic L1:       '- 0.0675
-'- Root positions L2:           '- 0.0452
-'- FK positions L1:             '- 0.1478
-No improvement in validation loss for 1 epochs
+Training loss:                  0.2524873
+'- Rotations geodesic L1:       '- 0.0740
+'- Root positions L2:           '- 0.0405
+'- FK positions L1:             '- 0.1380
+Validation loss:                0.2454634
+'- Rotations geodesic L1:       '- 0.0679
+'- Root positions L2:           '- 0.0422
+'- FK positions L1:             '- 0.1354
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_23.pth
 
 --- Epoch 15/200 ---
 Learning rate:                  1.000e-03
-Training loss:                  0.2450501
-'- Rotations geodesic L1:       '- 0.0711
-'- Root positions L2:           '- 0.0386
-'- FK positions L1:             '- 0.1353
-Validation loss:                0.2384192
-'- Rotations geodesic L1:       '- 0.0642
-'- Root positions L2:           '- 0.0437
-'- FK positions L1:             '- 0.1305
-No improvement in validation loss for 2 epochs
+Training loss:                  0.2490217
+'- Rotations geodesic L1:       '- 0.0726
+'- Root positions L2:           '- 0.0403
+'- FK positions L1:             '- 0.1361
+Validation loss:                0.2366658
+'- Rotations geodesic L1:       '- 0.0669
+'- Root positions L2:           '- 0.0399
+'- FK positions L1:             '- 0.1299
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_23.pth
 
 --- Epoch 16/200 ---
 Learning rate:                  1.000e-03
-Training loss:                  0.2414075
-'- Rotations geodesic L1:       '- 0.0700
-'- Root positions L2:           '- 0.0382
-'- FK positions L1:             '- 0.1332
-Validation loss:                0.2276100
-'- Rotations geodesic L1:       '- 0.0648
-'- Root positions L2:           '- 0.0409
-'- FK positions L1:             '- 0.1219
+Training loss:                  0.2437933
+'- Rotations geodesic L1:       '- 0.0712
+'- Root positions L2:           '- 0.0395
+'- FK positions L1:             '- 0.1331
+Validation loss:                0.2334082
+'- Rotations geodesic L1:       '- 0.0653
+'- Root positions L2:           '- 0.0395
+'- FK positions L1:             '- 0.1286
 Validation loss improved, saving checkpoint
-Model saved to: checkpoints/model/v_22.pth
+Model saved to: checkpoints/model/v_23.pth
 
 --- Epoch 17/200 ---
 Learning rate:                  1.000e-03
-Training loss:                  0.2377268
-'- Rotations geodesic L1:       '- 0.0689
-'- Root positions L2:           '- 0.0378
-'- FK positions L1:             '- 0.1310
-Validation loss:                0.2332812
-'- Rotations geodesic L1:       '- 0.0636
-'- Root positions L2:           '- 0.0429
-'- FK positions L1:             '- 0.1268
-No improvement in validation loss for 1 epochs
+Training loss:                  0.2393001
+'- Rotations geodesic L1:       '- 0.0699
+'- Root positions L2:           '- 0.0390
+'- FK positions L1:             '- 0.1304
+Validation loss:                0.2244308
+'- Rotations geodesic L1:       '- 0.0633
+'- Root positions L2:           '- 0.0425
+'- FK positions L1:             '- 0.1186
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_23.pth
 
 --- Epoch 18/200 ---
 Learning rate:                  1.000e-03
-Training loss:                  0.2348249
-'- Rotations geodesic L1:       '- 0.0680
-'- Root positions L2:           '- 0.0374
-'- FK positions L1:             '- 0.1294
-Validation loss:                0.2158456
-'- Rotations geodesic L1:       '- 0.0620
-'- Root positions L2:           '- 0.0404
-'- FK positions L1:             '- 0.1135
+Training loss:                  0.2365428
+'- Rotations geodesic L1:       '- 0.0688
+'- Root positions L2:           '- 0.0386
+'- FK positions L1:             '- 0.1291
+Validation loss:                0.2213280
+'- Rotations geodesic L1:       '- 0.0624
+'- Root positions L2:           '- 0.0390
+'- FK positions L1:             '- 0.1199
 Validation loss improved, saving checkpoint
-Model saved to: checkpoints/model/v_22.pth
+Model saved to: checkpoints/model/v_23.pth
 
 --- Epoch 19/200 ---
 Learning rate:                  1.000e-03
-Training loss:                  0.2311927
-'- Rotations geodesic L1:       '- 0.0672
-'- Root positions L2:           '- 0.0366
-'- FK positions L1:             '- 0.1274
-Validation loss:                0.2159477
-'- Rotations geodesic L1:       '- 0.0622
-'- Root positions L2:           '- 0.0378
-'- FK positions L1:             '- 0.1159
+Training loss:                  0.2325946
+'- Rotations geodesic L1:       '- 0.0678
+'- Root positions L2:           '- 0.0377
+'- FK positions L1:             '- 0.1270
+Validation loss:                0.2327608
+'- Rotations geodesic L1:       '- 0.0627
+'- Root positions L2:           '- 0.0457
+'- FK positions L1:             '- 0.1243
 No improvement in validation loss for 1 epochs
 
 --- Epoch 20/200 ---
 Learning rate:                  1.000e-03
-Training loss:                  0.2288087
-'- Rotations geodesic L1:       '- 0.0667
-'- Root positions L2:           '- 0.0361
-'- FK positions L1:             '- 0.1260
-Validation loss:                0.2181929
-'- Rotations geodesic L1:       '- 0.0616
-'- Root positions L2:           '- 0.0365
-'- FK positions L1:             '- 0.1202
-No improvement in validation loss for 2 epochs
+Training loss:                  0.2290460
+'- Rotations geodesic L1:       '- 0.0668
+'- Root positions L2:           '- 0.0374
+'- FK positions L1:             '- 0.1249
+Validation loss:                0.2125291
+'- Rotations geodesic L1:       '- 0.0609
+'- Root positions L2:           '- 0.0381
+'- FK positions L1:             '- 0.1135
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_23.pth
 
 --- Epoch 21/200 ---
 Learning rate:                  1.000e-03
-Training loss:                  0.2251034
-'- Rotations geodesic L1:       '- 0.0657
-'- Root positions L2:           '- 0.0356
+Training loss:                  0.2261712
+'- Rotations geodesic L1:       '- 0.0659
+'- Root positions L2:           '- 0.0364
 '- FK positions L1:             '- 0.1239
-Validation loss:                0.2123469
-'- Rotations geodesic L1:       '- 0.0601
-'- Root positions L2:           '- 0.0383
-'- FK positions L1:             '- 0.1140
-Validation loss improved, saving checkpoint
-Model saved to: checkpoints/model/v_22.pth
+Validation loss:                0.2133256
+'- Rotations geodesic L1:       '- 0.0612
+'- Root positions L2:           '- 0.0386
+'- FK positions L1:             '- 0.1136
+No improvement in validation loss for 1 epochs
 
 --- Epoch 22/200 ---
 Learning rate:                  1.000e-03
-Training loss:                  0.2227577
-'- Rotations geodesic L1:       '- 0.0649
-'- Root positions L2:           '- 0.0353
-'- FK positions L1:             '- 0.1226
-Validation loss:                0.2143898
-'- Rotations geodesic L1:       '- 0.0611
-'- Root positions L2:           '- 0.0371
-'- FK positions L1:             '- 0.1162
-No improvement in validation loss for 1 epochs
+Training loss:                  0.2236136
+'- Rotations geodesic L1:       '- 0.0651
+'- Root positions L2:           '- 0.0368
+'- FK positions L1:             '- 0.1217
+Validation loss:                0.2147256
+'- Rotations geodesic L1:       '- 0.0604
+'- Root positions L2:           '- 0.0373
+'- FK positions L1:             '- 0.1170
+No improvement in validation loss for 2 epochs
 
 --- Epoch 23/200 ---
 Learning rate:                  1.000e-03
-Training loss:                  0.2207531
+Training loss:                  0.2211964
 '- Rotations geodesic L1:       '- 0.0644
-'- Root positions L2:           '- 0.0350
-'- FK positions L1:             '- 0.1214
-Validation loss:                0.2107091
-'- Rotations geodesic L1:       '- 0.0590
-'- Root positions L2:           '- 0.0361
-'- FK positions L1:             '- 0.1156
+'- Root positions L2:           '- 0.0360
+'- FK positions L1:             '- 0.1208
+Validation loss:                0.2117464
+'- Rotations geodesic L1:       '- 0.0586
+'- Root positions L2:           '- 0.0400
+'- FK positions L1:             '- 0.1131
 Validation loss improved, saving checkpoint
-Model saved to: checkpoints/model/v_22.pth
+Model saved to: checkpoints/model/v_23.pth
 
 --- Epoch 24/200 ---
 Learning rate:                  1.000e-03
-Training loss:                  0.2185035
+Training loss:                  0.2183596
 '- Rotations geodesic L1:       '- 0.0638
-'- Root positions L2:           '- 0.0345
-'- FK positions L1:             '- 0.1202
-Validation loss:                0.2060823
-'- Rotations geodesic L1:       '- 0.0586
-'- Root positions L2:           '- 0.0360
-'- FK positions L1:             '- 0.1115
+'- Root positions L2:           '- 0.0352
+'- FK positions L1:             '- 0.1194
+Validation loss:                0.2084870
+'- Rotations geodesic L1:       '- 0.0583
+'- Root positions L2:           '- 0.0364
+'- FK positions L1:             '- 0.1139
 Validation loss improved, saving checkpoint
-Model saved to: checkpoints/model/v_22.pth
+Model saved to: checkpoints/model/v_23.pth
 
 --- Epoch 25/200 ---
 Learning rate:                  1.000e-03
-Training loss:                  0.2160222
-'- Rotations geodesic L1:       '- 0.0633
-'- Root positions L2:           '- 0.0338
-'- FK positions L1:             '- 0.1190
-Validation loss:                0.2035644
-'- Rotations geodesic L1:       '- 0.0584
-'- Root positions L2:           '- 0.0363
-'- FK positions L1:             '- 0.1088
-Validation loss improved, saving checkpoint
-Model saved to: checkpoints/model/v_22.pth
+Training loss:                  0.2184375
+'- Rotations geodesic L1:       '- 0.0637
+'- Root positions L2:           '- 0.0351
+'- FK positions L1:             '- 0.1196
+Validation loss:                0.2137699
+'- Rotations geodesic L1:       '- 0.0598
+'- Root positions L2:           '- 0.0392
+'- FK positions L1:             '- 0.1147
+No improvement in validation loss for 1 epochs
 
 --- Epoch 26/200 ---
 Learning rate:                  1.000e-03
-Training loss:                  0.2145089
+Training loss:                  0.2151692
 '- Rotations geodesic L1:       '- 0.0628
-'- Root positions L2:           '- 0.0338
-'- FK positions L1:             '- 0.1180
-Validation loss:                0.1963685
-'- Rotations geodesic L1:       '- 0.0573
-'- Root positions L2:           '- 0.0349
-'- FK positions L1:             '- 0.1042
+'- Root positions L2:           '- 0.0347
+'- FK positions L1:             '- 0.1176
+Validation loss:                0.1987222
+'- Rotations geodesic L1:       '- 0.0576
+'- Root positions L2:           '- 0.0361
+'- FK positions L1:             '- 0.1051
 Validation loss improved, saving checkpoint
-Model saved to: checkpoints/model/v_22.pth
+Model saved to: checkpoints/model/v_23.pth
 
 --- Epoch 27/200 ---
 Learning rate:                  1.000e-03
-Training loss:                  0.2124211
-'- Rotations geodesic L1:       '- 0.0622
-'- Root positions L2:           '- 0.0333
-'- FK positions L1:             '- 0.1169
-Validation loss:                0.2090496
-'- Rotations geodesic L1:       '- 0.0586
-'- Root positions L2:           '- 0.0382
-'- FK positions L1:             '- 0.1122
-No improvement in validation loss for 1 epochs
+Training loss:                  0.2124721
+'- Rotations geodesic L1:       '- 0.0624
+'- Root positions L2:           '- 0.0340
+'- FK positions L1:             '- 0.1161
+Validation loss:                0.1983934
+'- Rotations geodesic L1:       '- 0.0572
+'- Root positions L2:           '- 0.0358
+'- FK positions L1:             '- 0.1054
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_23.pth
 
 --- Epoch 28/200 ---
 Learning rate:                  1.000e-03
-Training loss:                  0.2098423
-'- Rotations geodesic L1:       '- 0.0617
-'- Root positions L2:           '- 0.0330
-'- FK positions L1:             '- 0.1152
-Validation loss:                0.2019496
-'- Rotations geodesic L1:       '- 0.0566
-'- Root positions L2:           '- 0.0351
-'- FK positions L1:             '- 0.1103
-No improvement in validation loss for 2 epochs
+Training loss:                  0.2106159
+'- Rotations geodesic L1:       '- 0.0618
+'- Root positions L2:           '- 0.0338
+'- FK positions L1:             '- 0.1150
+Validation loss:                0.2100783
+'- Rotations geodesic L1:       '- 0.0572
+'- Root positions L2:           '- 0.0390
+'- FK positions L1:             '- 0.1139
+No improvement in validation loss for 1 epochs
 
 --- Epoch 29/200 ---
 Learning rate:                  1.000e-03
-Training loss:                  0.2087824
-'- Rotations geodesic L1:       '- 0.0612
-'- Root positions L2:           '- 0.0327
-'- FK positions L1:             '- 0.1149
-Validation loss:                0.2008752
+Training loss:                  0.2085035
+'- Rotations geodesic L1:       '- 0.0613
+'- Root positions L2:           '- 0.0333
+'- FK positions L1:             '- 0.1139
+Validation loss:                0.2110568
 '- Rotations geodesic L1:       '- 0.0568
-'- Root positions L2:           '- 0.0346
-'- FK positions L1:             '- 0.1095
-No improvement in validation loss for 3 epochs
+'- Root positions L2:           '- 0.0371
+'- FK positions L1:             '- 0.1171
+No improvement in validation loss for 2 epochs
 
 --- Epoch 30/200 ---
 Learning rate:                  1.000e-03
-Training loss:                  0.2066095
-'- Rotations geodesic L1:       '- 0.0606
-'- Root positions L2:           '- 0.0324
-'- FK positions L1:             '- 0.1136
-Validation loss:                0.1944585
-'- Rotations geodesic L1:       '- 0.0562
-'- Root positions L2:           '- 0.0340
-'- FK positions L1:             '- 0.1043
+Training loss:                  0.2069070
+'- Rotations geodesic L1:       '- 0.0609
+'- Root positions L2:           '- 0.0331
+'- FK positions L1:             '- 0.1130
+Validation loss:                0.1965944
+'- Rotations geodesic L1:       '- 0.0555
+'- Root positions L2:           '- 0.0351
+'- FK positions L1:             '- 0.1059
 Validation loss improved, saving checkpoint
-Model saved to: checkpoints/model/v_22.pth
+Model saved to: checkpoints/model/v_23.pth
 
 --- Epoch 31/200 ---
 Learning rate:                  1.000e-03
-Training loss:                  0.2049270
-'- Rotations geodesic L1:       '- 0.0602
-'- Root positions L2:           '- 0.0321
-'- FK positions L1:             '- 0.1126
-Validation loss:                0.1999853
-'- Rotations geodesic L1:       '- 0.0573
-'- Root positions L2:           '- 0.0329
-'- FK positions L1:             '- 0.1098
+Training loss:                  0.2051982
+'- Rotations geodesic L1:       '- 0.0604
+'- Root positions L2:           '- 0.0328
+'- FK positions L1:             '- 0.1119
+Validation loss:                0.2019868
+'- Rotations geodesic L1:       '- 0.0565
+'- Root positions L2:           '- 0.0400
+'- FK positions L1:             '- 0.1054
 No improvement in validation loss for 1 epochs
 
 --- Epoch 32/200 ---
 Learning rate:                  1.000e-03
-Training loss:                  0.2034515
-'- Rotations geodesic L1:       '- 0.0598
-'- Root positions L2:           '- 0.0318
-'- FK positions L1:             '- 0.1118
-Validation loss:                0.2069246
-'- Rotations geodesic L1:       '- 0.0562
-'- Root positions L2:           '- 0.0389
-'- FK positions L1:             '- 0.1118
-No improvement in validation loss for 2 epochs
+Training loss:                  0.2032776
+'- Rotations geodesic L1:       '- 0.0600
+'- Root positions L2:           '- 0.0325
+'- FK positions L1:             '- 0.1107
+Validation loss:                0.1959600
+'- Rotations geodesic L1:       '- 0.0559
+'- Root positions L2:           '- 0.0361
+'- FK positions L1:             '- 0.1040
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_23.pth
 
 --- Epoch 33/200 ---
 Learning rate:                  1.000e-03
-Training loss:                  0.2022495
-'- Rotations geodesic L1:       '- 0.0596
-'- Root positions L2:           '- 0.0315
-'- FK positions L1:             '- 0.1111
-Validation loss:                0.2055186
-'- Rotations geodesic L1:       '- 0.0561
-'- Root positions L2:           '- 0.0376
-'- FK positions L1:             '- 0.1119
-No improvement in validation loss for 3 epochs
+Training loss:                  0.2014333
+'- Rotations geodesic L1:       '- 0.0597
+'- Root positions L2:           '- 0.0319
+'- FK positions L1:             '- 0.1099
+Validation loss:                0.1940908
+'- Rotations geodesic L1:       '- 0.0550
+'- Root positions L2:           '- 0.0338
+'- FK positions L1:             '- 0.1052
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_23.pth
 
 --- Epoch 34/200 ---
 Learning rate:                  1.000e-03
-Training loss:                  0.2014292
-'- Rotations geodesic L1:       '- 0.0593
-'- Root positions L2:           '- 0.0315
-'- FK positions L1:             '- 0.1106
-Validation loss:                0.1937484
-'- Rotations geodesic L1:       '- 0.0546
-'- Root positions L2:           '- 0.0378
-'- FK positions L1:             '- 0.1014
-Validation loss improved, saving checkpoint
-Model saved to: checkpoints/model/v_22.pth
+Training loss:                  0.2000147
+'- Rotations geodesic L1:       '- 0.0592
+'- Root positions L2:           '- 0.0317
+'- FK positions L1:             '- 0.1091
+Validation loss:                0.1959697
+'- Rotations geodesic L1:       '- 0.0555
+'- Root positions L2:           '- 0.0341
+'- FK positions L1:             '- 0.1063
+No improvement in validation loss for 1 epochs
 
 --- Epoch 35/200 ---
 Learning rate:                  1.000e-03
-Training loss:                  0.1990658
-'- Rotations geodesic L1:       '- 0.0588
+Training loss:                  0.1983345
+'- Rotations geodesic L1:       '- 0.0589
 '- Root positions L2:           '- 0.0312
-'- FK positions L1:             '- 0.1091
-Validation loss:                0.2023256
-'- Rotations geodesic L1:       '- 0.0549
-'- Root positions L2:           '- 0.0342
-'- FK positions L1:             '- 0.1132
-No improvement in validation loss for 1 epochs
+'- FK positions L1:             '- 0.1082
+Validation loss:                0.1951626
+'- Rotations geodesic L1:       '- 0.0543
+'- Root positions L2:           '- 0.0366
+'- FK positions L1:             '- 0.1043
+No improvement in validation loss for 2 epochs
 
 --- Epoch 36/200 ---
 Learning rate:                  1.000e-03
-Training loss:                  0.1975524
-'- Rotations geodesic L1:       '- 0.0585
-'- Root positions L2:           '- 0.0304
-'- FK positions L1:             '- 0.1086
-Validation loss:                0.1920350
-'- Rotations geodesic L1:       '- 0.0548
-'- Root positions L2:           '- 0.0334
-'- FK positions L1:             '- 0.1039
+Training loss:                  0.1975658
+'- Rotations geodesic L1:       '- 0.0586
+'- Root positions L2:           '- 0.0312
+'- FK positions L1:             '- 0.1077
+Validation loss:                0.1872702
+'- Rotations geodesic L1:       '- 0.0542
+'- Root positions L2:           '- 0.0344
+'- FK positions L1:             '- 0.0987
 Validation loss improved, saving checkpoint
-Model saved to: checkpoints/model/v_22.pth
+Model saved to: checkpoints/model/v_23.pth
 
 --- Epoch 37/200 ---
 Learning rate:                  1.000e-03
-Training loss:                  0.1959263
-'- Rotations geodesic L1:       '- 0.0581
-'- Root positions L2:           '- 0.0302
-'- FK positions L1:             '- 0.1076
-Validation loss:                0.1880252
-'- Rotations geodesic L1:       '- 0.0540
-'- Root positions L2:           '- 0.0330
-'- FK positions L1:             '- 0.1011
-Validation loss improved, saving checkpoint
-Model saved to: checkpoints/model/v_22.pth
+Training loss:                  0.1995717
+'- Rotations geodesic L1:       '- 0.0596
+'- Root positions L2:           '- 0.0309
+'- FK positions L1:             '- 0.1090
+Validation loss:                0.1920066
+'- Rotations geodesic L1:       '- 0.0542
+'- Root positions L2:           '- 0.0373
+'- FK positions L1:             '- 0.1005
+No improvement in validation loss for 1 epochs
 
 --- Epoch 38/200 ---
 Learning rate:                  1.000e-03
-Training loss:                  0.1952659
-'- Rotations geodesic L1:       '- 0.0578
-'- Root positions L2:           '- 0.0302
-'- FK positions L1:             '- 0.1072
-Validation loss:                0.1891955
-'- Rotations geodesic L1:       '- 0.0537
-'- Root positions L2:           '- 0.0337
-'- FK positions L1:             '- 0.1018
-No improvement in validation loss for 1 epochs
+Training loss:                  0.1960942
+'- Rotations geodesic L1:       '- 0.0584
+'- Root positions L2:           '- 0.0308
+'- FK positions L1:             '- 0.1068
+Validation loss:                0.1943241
+'- Rotations geodesic L1:       '- 0.0544
+'- Root positions L2:           '- 0.0336
+'- FK positions L1:             '- 0.1063
+No improvement in validation loss for 2 epochs
 
 --- Epoch 39/200 ---
 Learning rate:                  1.000e-03
-Training loss:                  0.1939814
-'- Rotations geodesic L1:       '- 0.0575
-'- Root positions L2:           '- 0.0300
-'- FK positions L1:             '- 0.1065
-Validation loss:                0.1972058
+Training loss:                  0.2084307
+'- Rotations geodesic L1:       '- 0.0601
+'- Root positions L2:           '- 0.0330
+'- FK positions L1:             '- 0.1154
+Validation loss:                0.1928797
 '- Rotations geodesic L1:       '- 0.0541
-'- Root positions L2:           '- 0.0342
-'- FK positions L1:             '- 0.1089
-No improvement in validation loss for 2 epochs
+'- Root positions L2:           '- 0.0362
+'- FK positions L1:             '- 0.1026
+No improvement in validation loss for 3 epochs
 
 --- Epoch 40/200 ---
-Learning rate:                  1.000e-03
-Training loss:                  0.1935535
-'- Rotations geodesic L1:       '- 0.0573
-'- Root positions L2:           '- 0.0301
-'- FK positions L1:             '- 0.1061
-Validation loss:                0.1833458
-'- Rotations geodesic L1:       '- 0.0534
-'- Root positions L2:           '- 0.0321
-'- FK positions L1:             '- 0.0979
+Learning rate:                  5.000e-04
+Training loss:                  0.1803684
+'- Rotations geodesic L1:       '- 0.0565
+'- Root positions L2:           '- 0.0271
+'- FK positions L1:             '- 0.0968
+Validation loss:                0.1640518
+'- Rotations geodesic L1:       '- 0.0515
+'- Root positions L2:           '- 0.0289
+'- FK positions L1:             '- 0.0836
 Validation loss improved, saving checkpoint
-Model saved to: checkpoints/model/v_22.pth
+Model saved to: checkpoints/model/v_23.pth
 
 --- Epoch 41/200 ---
-Learning rate:                  1.000e-03
-Training loss:                  0.1914040
-'- Rotations geodesic L1:       '- 0.0570
-'- Root positions L2:           '- 0.0293
-'- FK positions L1:             '- 0.1051
-Validation loss:                0.1887130
-'- Rotations geodesic L1:       '- 0.0533
-'- Root positions L2:           '- 0.0323
-'- FK positions L1:             '- 0.1032
+Learning rate:                  5.000e-04
+Training loss:                  0.1784014
+'- Rotations geodesic L1:       '- 0.0561
+'- Root positions L2:           '- 0.0265
+'- FK positions L1:             '- 0.0958
+Validation loss:                0.1686872
+'- Rotations geodesic L1:       '- 0.0516
+'- Root positions L2:           '- 0.0301
+'- FK positions L1:             '- 0.0870
 No improvement in validation loss for 1 epochs
 
 --- Epoch 42/200 ---
-Learning rate:                  1.000e-03
-Training loss:                  0.1911689
-'- Rotations geodesic L1:       '- 0.0568
-'- Root positions L2:           '- 0.0294
-'- FK positions L1:             '- 0.1050
-Validation loss:                0.1849917
-'- Rotations geodesic L1:       '- 0.0532
-'- Root positions L2:           '- 0.0316
-'- FK positions L1:             '- 0.1002
+Learning rate:                  5.000e-04
+Training loss:                  0.1780082
+'- Rotations geodesic L1:       '- 0.0559
+'- Root positions L2:           '- 0.0265
+'- FK positions L1:             '- 0.0957
+Validation loss:                0.1682952
+'- Rotations geodesic L1:       '- 0.0515
+'- Root positions L2:           '- 0.0287
+'- FK positions L1:             '- 0.0881
 No improvement in validation loss for 2 epochs
 
 --- Epoch 43/200 ---
-Learning rate:                  1.000e-03
-Training loss:                  0.1907275
-'- Rotations geodesic L1:       '- 0.0567
-'- Root positions L2:           '- 0.0292
-'- FK positions L1:             '- 0.1049
-Validation loss:                0.1939843
-'- Rotations geodesic L1:       '- 0.0533
-'- Root positions L2:           '- 0.0313
-'- FK positions L1:             '- 0.1094
+Learning rate:                  5.000e-04
+Training loss:                  0.1774010
+'- Rotations geodesic L1:       '- 0.0557
+'- Root positions L2:           '- 0.0260
+'- FK positions L1:             '- 0.0957
+Validation loss:                0.1692589
+'- Rotations geodesic L1:       '- 0.0513
+'- Root positions L2:           '- 0.0298
+'- FK positions L1:             '- 0.0882
 No improvement in validation loss for 3 epochs
 
 --- Epoch 44/200 ---
-Learning rate:                  1.000e-03
-Training loss:                  0.1896177
-'- Rotations geodesic L1:       '- 0.0566
-'- Root positions L2:           '- 0.0289
-'- FK positions L1:             '- 0.1041
-Validation loss:                0.1867528
-'- Rotations geodesic L1:       '- 0.0533
-'- Root positions L2:           '- 0.0313
-'- FK positions L1:             '- 0.1022
-No improvement in validation loss for 4 epochs
+Learning rate:                  2.500e-04
+Training loss:                  0.1704439
+'- Rotations geodesic L1:       '- 0.0549
+'- Root positions L2:           '- 0.0245
+'- FK positions L1:             '- 0.0910
+Validation loss:                0.1571018
+'- Rotations geodesic L1:       '- 0.0505
+'- Root positions L2:           '- 0.0271
+'- FK positions L1:             '- 0.0795
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_23.pth
 
 --- Epoch 45/200 ---
-Learning rate:                  5.000e-04
-Training loss:                  0.1733425
-'- Rotations geodesic L1:       '- 0.0546
-'- Root positions L2:           '- 0.0256
-'- FK positions L1:             '- 0.0932
-Validation loss:                0.1640094
+Learning rate:                  2.500e-04
+Training loss:                  0.1703473
+'- Rotations geodesic L1:       '- 0.0550
+'- Root positions L2:           '- 0.0241
+'- FK positions L1:             '- 0.0912
+Validation loss:                0.1572762
 '- Rotations geodesic L1:       '- 0.0503
-'- Root positions L2:           '- 0.0290
-'- FK positions L1:             '- 0.0847
-Validation loss improved, saving checkpoint
-Model saved to: checkpoints/model/v_22.pth
-
---- Epoch 46/200 ---
-Learning rate:                  5.000e-04
-Training loss:                  0.1718481
-'- Rotations geodesic L1:       '- 0.0543
-'- Root positions L2:           '- 0.0251
-'- FK positions L1:             '- 0.0925
-Validation loss:                0.1634062
-'- Rotations geodesic L1:       '- 0.0501
-'- Root positions L2:           '- 0.0283
-'- FK positions L1:             '- 0.0850
-Validation loss improved, saving checkpoint
-Model saved to: checkpoints/model/v_22.pth
-
---- Epoch 47/200 ---
-Learning rate:                  5.000e-04
-Training loss:                  0.1717940
-'- Rotations geodesic L1:       '- 0.0542
-'- Root positions L2:           '- 0.0249
-'- FK positions L1:             '- 0.0927
-Validation loss:                0.1663383
-'- Rotations geodesic L1:       '- 0.0504
-'- Root positions L2:           '- 0.0294
-'- FK positions L1:             '- 0.0866
+'- Root positions L2:           '- 0.0275
+'- FK positions L1:             '- 0.0795
 No improvement in validation loss for 1 epochs
 
---- Epoch 48/200 ---
-Learning rate:                  5.000e-04
-Training loss:                  0.1721202
-'- Rotations geodesic L1:       '- 0.0541
-'- Root positions L2:           '- 0.0249
-'- FK positions L1:             '- 0.0931
-Validation loss:                0.1689164
-'- Rotations geodesic L1:       '- 0.0508
-'- Root positions L2:           '- 0.0291
-'- FK positions L1:             '- 0.0890
+--- Epoch 46/200 ---
+Learning rate:                  2.500e-04
+Training loss:                  0.1694345
+'- Rotations geodesic L1:       '- 0.0547
+'- Root positions L2:           '- 0.0240
+'- FK positions L1:             '- 0.0907
+Validation loss:                0.1598882
+'- Rotations geodesic L1:       '- 0.0504
+'- Root positions L2:           '- 0.0272
+'- FK positions L1:             '- 0.0823
 No improvement in validation loss for 2 epochs
 
---- Epoch 49/200 ---
-Learning rate:                  5.000e-04
-Training loss:                  0.1716621
-'- Rotations geodesic L1:       '- 0.0540
-'- Root positions L2:           '- 0.0247
-'- FK positions L1:             '- 0.0930
-Validation loss:                0.1627850
+--- Epoch 47/200 ---
+Learning rate:                  2.500e-04
+Training loss:                  0.1690662
+'- Rotations geodesic L1:       '- 0.0546
+'- Root positions L2:           '- 0.0239
+'- FK positions L1:             '- 0.0906
+Validation loss:                0.1576738
 '- Rotations geodesic L1:       '- 0.0501
-'- Root positions L2:           '- 0.0283
-'- FK positions L1:             '- 0.0844
+'- Root positions L2:           '- 0.0275
+'- FK positions L1:             '- 0.0800
+No improvement in validation loss for 3 epochs
+
+--- Epoch 48/200 ---
+Learning rate:                  1.250e-04
+Training loss:                  0.1653259
+'- Rotations geodesic L1:       '- 0.0541
+'- Root positions L2:           '- 0.0230
+'- FK positions L1:             '- 0.0882
+Validation loss:                0.1524471
+'- Rotations geodesic L1:       '- 0.0496
+'- Root positions L2:           '- 0.0266
+'- FK positions L1:             '- 0.0762
 Validation loss improved, saving checkpoint
-Model saved to: checkpoints/model/v_22.pth
+Model saved to: checkpoints/model/v_23.pth
+
+--- Epoch 49/200 ---
+Learning rate:                  1.250e-04
+Training loss:                  0.1648344
+'- Rotations geodesic L1:       '- 0.0540
+'- Root positions L2:           '- 0.0229
+'- FK positions L1:             '- 0.0879
+Validation loss:                0.1522745
+'- Rotations geodesic L1:       '- 0.0496
+'- Root positions L2:           '- 0.0262
+'- FK positions L1:             '- 0.0764
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_23.pth
 
 --- Epoch 50/200 ---
-Learning rate:                  5.000e-04
-Training loss:                  0.1706455
-'- Rotations geodesic L1:       '- 0.0537
-'- Root positions L2:           '- 0.0245
-'- FK positions L1:             '- 0.0924
-Validation loss:                0.1653822
-'- Rotations geodesic L1:       '- 0.0501
-'- Root positions L2:           '- 0.0274
-'- FK positions L1:             '- 0.0879
+Learning rate:                  1.250e-04
+Training loss:                  0.1644631
+'- Rotations geodesic L1:       '- 0.0539
+'- Root positions L2:           '- 0.0227
+'- FK positions L1:             '- 0.0878
+Validation loss:                0.1530863
+'- Rotations geodesic L1:       '- 0.0496
+'- Root positions L2:           '- 0.0263
+'- FK positions L1:             '- 0.0771
 No improvement in validation loss for 1 epochs
 
 --- Epoch 51/200 ---
-Learning rate:                  5.000e-04
-Training loss:                  0.1704476
-'- Rotations geodesic L1:       '- 0.0537
-'- Root positions L2:           '- 0.0244
-'- FK positions L1:             '- 0.0924
-Validation loss:                0.1639549
-'- Rotations geodesic L1:       '- 0.0500
-'- Root positions L2:           '- 0.0279
-'- FK positions L1:             '- 0.0861
+Learning rate:                  1.250e-04
+Training loss:                  0.1642486
+'- Rotations geodesic L1:       '- 0.0539
+'- Root positions L2:           '- 0.0227
+'- FK positions L1:             '- 0.0877
+Validation loss:                0.1530500
+'- Rotations geodesic L1:       '- 0.0496
+'- Root positions L2:           '- 0.0266
+'- FK positions L1:             '- 0.0769
 No improvement in validation loss for 2 epochs
 
 --- Epoch 52/200 ---
-Learning rate:                  5.000e-04
-Training loss:                  0.1699861
-'- Rotations geodesic L1:       '- 0.0535
-'- Root positions L2:           '- 0.0243
-'- FK positions L1:             '- 0.0922
-Validation loss:                0.1592421
-'- Rotations geodesic L1:       '- 0.0498
-'- Root positions L2:           '- 0.0269
-'- FK positions L1:             '- 0.0825
+Learning rate:                  1.250e-04
+Training loss:                  0.1639762
+'- Rotations geodesic L1:       '- 0.0538
+'- Root positions L2:           '- 0.0226
+'- FK positions L1:             '- 0.0875
+Validation loss:                0.1520855
+'- Rotations geodesic L1:       '- 0.0495
+'- Root positions L2:           '- 0.0262
+'- FK positions L1:             '- 0.0764
 Validation loss improved, saving checkpoint
-Model saved to: checkpoints/model/v_22.pth
+Model saved to: checkpoints/model/v_23.pth
 
 --- Epoch 53/200 ---
-Learning rate:                  5.000e-04
-Training loss:                  0.1690566
-'- Rotations geodesic L1:       '- 0.0533
-'- Root positions L2:           '- 0.0242
-'- FK positions L1:             '- 0.0916
-Validation loss:                0.1653168
-'- Rotations geodesic L1:       '- 0.0499
-'- Root positions L2:           '- 0.0278
-'- FK positions L1:             '- 0.0876
-No improvement in validation loss for 1 epochs
+Learning rate:                  1.250e-04
+Training loss:                  0.1635216
+'- Rotations geodesic L1:       '- 0.0537
+'- Root positions L2:           '- 0.0225
+'- FK positions L1:             '- 0.0873
+Validation loss:                0.1509802
+'- Rotations geodesic L1:       '- 0.0493
+'- Root positions L2:           '- 0.0260
+'- FK positions L1:             '- 0.0756
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_23.pth
 
 --- Epoch 54/200 ---
-Learning rate:                  5.000e-04
-Training loss:                  0.1686997
-'- Rotations geodesic L1:       '- 0.0532
-'- Root positions L2:           '- 0.0241
-'- FK positions L1:             '- 0.0914
-Validation loss:                0.1657568
-'- Rotations geodesic L1:       '- 0.0502
-'- Root positions L2:           '- 0.0274
-'- FK positions L1:             '- 0.0882
-No improvement in validation loss for 2 epochs
+Learning rate:                  1.250e-04
+Training loss:                  0.1632936
+'- Rotations geodesic L1:       '- 0.0536
+'- Root positions L2:           '- 0.0225
+'- FK positions L1:             '- 0.0872
+Validation loss:                0.1521934
+'- Rotations geodesic L1:       '- 0.0493
+'- Root positions L2:           '- 0.0263
+'- FK positions L1:             '- 0.0766
+No improvement in validation loss for 1 epochs
 
 --- Epoch 55/200 ---
-Learning rate:                  5.000e-04
-Training loss:                  0.1680491
-'- Rotations geodesic L1:       '- 0.0530
-'- Root positions L2:           '- 0.0239
-'- FK positions L1:             '- 0.0911
-Validation loss:                0.1624446
-'- Rotations geodesic L1:       '- 0.0494
-'- Root positions L2:           '- 0.0278
-'- FK positions L1:             '- 0.0852
-No improvement in validation loss for 3 epochs
+Learning rate:                  1.250e-04
+Training loss:                  0.1630006
+'- Rotations geodesic L1:       '- 0.0535
+'- Root positions L2:           '- 0.0224
+'- FK positions L1:             '- 0.0871
+Validation loss:                0.1509527
+'- Rotations geodesic L1:       '- 0.0493
+'- Root positions L2:           '- 0.0262
+'- FK positions L1:             '- 0.0755
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_23.pth
 
 --- Epoch 56/200 ---
-Learning rate:                  5.000e-04
-Training loss:                  0.1678057
-'- Rotations geodesic L1:       '- 0.0529
-'- Root positions L2:           '- 0.0239
-'- FK positions L1:             '- 0.0910
-Validation loss:                0.1667411
-'- Rotations geodesic L1:       '- 0.0499
-'- Root positions L2:           '- 0.0282
-'- FK positions L1:             '- 0.0886
-No improvement in validation loss for 4 epochs
+Learning rate:                  1.250e-04
+Training loss:                  0.1626508
+'- Rotations geodesic L1:       '- 0.0535
+'- Root positions L2:           '- 0.0223
+'- FK positions L1:             '- 0.0869
+Validation loss:                0.1512657
+'- Rotations geodesic L1:       '- 0.0492
+'- Root positions L2:           '- 0.0262
+'- FK positions L1:             '- 0.0759
+No improvement in validation loss for 1 epochs
 
 --- Epoch 57/200 ---
-Learning rate:                  2.500e-04
-Training loss:                  0.1602076
-'- Rotations geodesic L1:       '- 0.0521
-'- Root positions L2:           '- 0.0222
-'- FK positions L1:             '- 0.0860
-Validation loss:                0.1505168
-'- Rotations geodesic L1:       '- 0.0483
-'- Root positions L2:           '- 0.0256
-'- FK positions L1:             '- 0.0766
+Learning rate:                  1.250e-04
+Training loss:                  0.1624052
+'- Rotations geodesic L1:       '- 0.0534
+'- Root positions L2:           '- 0.0223
+'- FK positions L1:             '- 0.0868
+Validation loss:                0.1508890
+'- Rotations geodesic L1:       '- 0.0492
+'- Root positions L2:           '- 0.0261
+'- FK positions L1:             '- 0.0756
 Validation loss improved, saving checkpoint
-Model saved to: checkpoints/model/v_22.pth
+Model saved to: checkpoints/model/v_23.pth
 
 --- Epoch 58/200 ---
-Learning rate:                  2.500e-04
-Training loss:                  0.1593600
-'- Rotations geodesic L1:       '- 0.0519
-'- Root positions L2:           '- 0.0220
-'- FK positions L1:             '- 0.0855
-Validation loss:                0.1531734
-'- Rotations geodesic L1:       '- 0.0484
-'- Root positions L2:           '- 0.0252
-'- FK positions L1:             '- 0.0796
-No improvement in validation loss for 1 epochs
+Learning rate:                  1.250e-04
+Training loss:                  0.1619694
+'- Rotations geodesic L1:       '- 0.0533
+'- Root positions L2:           '- 0.0222
+'- FK positions L1:             '- 0.0865
+Validation loss:                0.1501190
+'- Rotations geodesic L1:       '- 0.0491
+'- Root positions L2:           '- 0.0259
+'- FK positions L1:             '- 0.0752
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_23.pth
 
 --- Epoch 59/200 ---
-Learning rate:                  2.500e-04
-Training loss:                  0.1591771
-'- Rotations geodesic L1:       '- 0.0518
-'- Root positions L2:           '- 0.0218
-'- FK positions L1:             '- 0.0855
-Validation loss:                0.1506089
-'- Rotations geodesic L1:       '- 0.0482
-'- Root positions L2:           '- 0.0253
-'- FK positions L1:             '- 0.0771
-No improvement in validation loss for 2 epochs
-
---- Epoch 60/200 ---
-Learning rate:                  2.500e-04
-Training loss:                  0.1591112
-'- Rotations geodesic L1:       '- 0.0518
-'- Root positions L2:           '- 0.0217
-'- FK positions L1:             '- 0.0856
-Validation loss:                0.1535087
-'- Rotations geodesic L1:       '- 0.0484
-'- Root positions L2:           '- 0.0258
-'- FK positions L1:             '- 0.0793
-No improvement in validation loss for 3 epochs
-
---- Epoch 61/200 ---
-Learning rate:                  2.500e-04
-Training loss:                  0.1589704
-'- Rotations geodesic L1:       '- 0.0517
-'- Root positions L2:           '- 0.0217
-'- FK positions L1:             '- 0.0855
-Validation loss:                0.1491435
-'- Rotations geodesic L1:       '- 0.0481
-'- Root positions L2:           '- 0.0253
-'- FK positions L1:             '- 0.0757
-Validation loss improved, saving checkpoint
-Model saved to: checkpoints/model/v_22.pth
-
---- Epoch 62/200 ---
-Learning rate:                  2.500e-04
-Training loss:                  0.1585654
-'- Rotations geodesic L1:       '- 0.0516
-'- Root positions L2:           '- 0.0216
-'- FK positions L1:             '- 0.0853
-Validation loss:                0.1518523
-'- Rotations geodesic L1:       '- 0.0482
-'- Root positions L2:           '- 0.0258
-'- FK positions L1:             '- 0.0778
+Learning rate:                  1.250e-04
+Training loss:                  0.1617907
+'- Rotations geodesic L1:       '- 0.0533
+'- Root positions L2:           '- 0.0221
+'- FK positions L1:             '- 0.0864
+Validation loss:                0.1502796
+'- Rotations geodesic L1:       '- 0.0490
+'- Root positions L2:           '- 0.0259
+'- FK positions L1:             '- 0.0754
 No improvement in validation loss for 1 epochs
 
---- Epoch 63/200 ---
-Learning rate:                  2.500e-04
-Training loss:                  0.1583771
-'- Rotations geodesic L1:       '- 0.0516
-'- Root positions L2:           '- 0.0216
-'- FK positions L1:             '- 0.0852
-Validation loss:                0.1509729
-'- Rotations geodesic L1:       '- 0.0482
-'- Root positions L2:           '- 0.0249
-'- FK positions L1:             '- 0.0779
+--- Epoch 60/200 ---
+Learning rate:                  1.250e-04
+Training loss:                  0.1613905
+'- Rotations geodesic L1:       '- 0.0532
+'- Root positions L2:           '- 0.0220
+'- FK positions L1:             '- 0.0862
+Validation loss:                0.1497868
+'- Rotations geodesic L1:       '- 0.0490
+'- Root positions L2:           '- 0.0257
+'- FK positions L1:             '- 0.0751
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_23.pth
+
+--- Epoch 61/200 ---
+Learning rate:                  1.250e-04
+Training loss:                  0.1610605
+'- Rotations geodesic L1:       '- 0.0531
+'- Root positions L2:           '- 0.0220
+'- FK positions L1:             '- 0.0860
+Validation loss:                0.1500667
+'- Rotations geodesic L1:       '- 0.0489
+'- Root positions L2:           '- 0.0258
+'- FK positions L1:             '- 0.0754
+No improvement in validation loss for 1 epochs
+
+--- Epoch 62/200 ---
+Learning rate:                  1.250e-04
+Training loss:                  0.1607370
+'- Rotations geodesic L1:       '- 0.0530
+'- Root positions L2:           '- 0.0219
+'- FK positions L1:             '- 0.0859
+Validation loss:                0.1497896
+'- Rotations geodesic L1:       '- 0.0488
+'- Root positions L2:           '- 0.0258
+'- FK positions L1:             '- 0.0751
 No improvement in validation loss for 2 epochs
 
+--- Epoch 63/200 ---
+Learning rate:                  1.250e-04
+Training loss:                  0.1604759
+'- Rotations geodesic L1:       '- 0.0530
+'- Root positions L2:           '- 0.0218
+'- FK positions L1:             '- 0.0857
+Validation loss:                0.1495486
+'- Rotations geodesic L1:       '- 0.0488
+'- Root positions L2:           '- 0.0256
+'- FK positions L1:             '- 0.0752
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_23.pth
+
 --- Epoch 64/200 ---
-Learning rate:                  2.500e-04
-Training loss:                  0.1579420
-'- Rotations geodesic L1:       '- 0.0515
-'- Root positions L2:           '- 0.0215
-'- FK positions L1:             '- 0.0850
-Validation loss:                0.1506347
-'- Rotations geodesic L1:       '- 0.0480
-'- Root positions L2:           '- 0.0257
-'- FK positions L1:             '- 0.0769
-No improvement in validation loss for 3 epochs
+Learning rate:                  1.250e-04
+Training loss:                  0.1602675
+'- Rotations geodesic L1:       '- 0.0529
+'- Root positions L2:           '- 0.0218
+'- FK positions L1:             '- 0.0856
+Validation loss:                0.1504844
+'- Rotations geodesic L1:       '- 0.0488
+'- Root positions L2:           '- 0.0255
+'- FK positions L1:             '- 0.0762
+No improvement in validation loss for 1 epochs
 
 --- Epoch 65/200 ---
-Learning rate:                  2.500e-04
-Training loss:                  0.1575932
-'- Rotations geodesic L1:       '- 0.0514
-'- Root positions L2:           '- 0.0214
-'- FK positions L1:             '- 0.0848
-Validation loss:                0.1507727
-'- Rotations geodesic L1:       '- 0.0479
-'- Root positions L2:           '- 0.0253
-'- FK positions L1:             '- 0.0776
-No improvement in validation loss for 4 epochs
+Learning rate:                  1.250e-04
+Training loss:                  0.1599621
+'- Rotations geodesic L1:       '- 0.0528
+'- Root positions L2:           '- 0.0217
+'- FK positions L1:             '- 0.0854
+Validation loss:                0.1490897
+'- Rotations geodesic L1:       '- 0.0487
+'- Root positions L2:           '- 0.0257
+'- FK positions L1:             '- 0.0747
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_23.pth
 
 --- Epoch 66/200 ---
 Learning rate:                  1.250e-04
-Training loss:                  0.1540161
-'- Rotations geodesic L1:       '- 0.0510
-'- Root positions L2:           '- 0.0206
-'- FK positions L1:             '- 0.0825
-Validation loss:                0.1450811
-'- Rotations geodesic L1:       '- 0.0474
-'- Root positions L2:           '- 0.0243
-'- FK positions L1:             '- 0.0733
-Validation loss improved, saving checkpoint
-Model saved to: checkpoints/model/v_22.pth
+Training loss:                  0.1597310
+'- Rotations geodesic L1:       '- 0.0528
+'- Root positions L2:           '- 0.0217
+'- FK positions L1:             '- 0.0853
+Validation loss:                0.1492846
+'- Rotations geodesic L1:       '- 0.0486
+'- Root positions L2:           '- 0.0255
+'- FK positions L1:             '- 0.0752
+No improvement in validation loss for 1 epochs
 
 --- Epoch 67/200 ---
 Learning rate:                  1.250e-04
-Training loss:                  0.1535818
-'- Rotations geodesic L1:       '- 0.0509
-'- Root positions L2:           '- 0.0205
-'- FK positions L1:             '- 0.0822
-Validation loss:                0.1450642
-'- Rotations geodesic L1:       '- 0.0474
-'- Root positions L2:           '- 0.0247
-'- FK positions L1:             '- 0.0730
-Validation loss improved, saving checkpoint
-Model saved to: checkpoints/model/v_22.pth
+Training loss:                  0.1594148
+'- Rotations geodesic L1:       '- 0.0527
+'- Root positions L2:           '- 0.0215
+'- FK positions L1:             '- 0.0852
+Validation loss:                0.1498310
+'- Rotations geodesic L1:       '- 0.0486
+'- Root positions L2:           '- 0.0255
+'- FK positions L1:             '- 0.0757
+No improvement in validation loss for 2 epochs
 
 --- Epoch 68/200 ---
 Learning rate:                  1.250e-04
-Training loss:                  0.1534384
-'- Rotations geodesic L1:       '- 0.0508
-'- Root positions L2:           '- 0.0204
-'- FK positions L1:             '- 0.0822
-Validation loss:                0.1451043
-'- Rotations geodesic L1:       '- 0.0473
-'- Root positions L2:           '- 0.0244
-'- FK positions L1:             '- 0.0734
-No improvement in validation loss for 1 epochs
+Training loss:                  0.1590558
+'- Rotations geodesic L1:       '- 0.0526
+'- Root positions L2:           '- 0.0215
+'- FK positions L1:             '- 0.0849
+Validation loss:                0.1483189
+'- Rotations geodesic L1:       '- 0.0485
+'- Root positions L2:           '- 0.0254
+'- FK positions L1:             '- 0.0744
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_23.pth
 
 --- Epoch 69/200 ---
 Learning rate:                  1.250e-04
-Training loss:                  0.1534428
-'- Rotations geodesic L1:       '- 0.0508
-'- Root positions L2:           '- 0.0204
-'- FK positions L1:             '- 0.0822
-Validation loss:                0.1445969
-'- Rotations geodesic L1:       '- 0.0473
-'- Root positions L2:           '- 0.0243
-'- FK positions L1:             '- 0.0729
-Validation loss improved, saving checkpoint
-Model saved to: checkpoints/model/v_22.pth
+Training loss:                  0.1588871
+'- Rotations geodesic L1:       '- 0.0526
+'- Root positions L2:           '- 0.0215
+'- FK positions L1:             '- 0.0849
+Validation loss:                0.1490221
+'- Rotations geodesic L1:       '- 0.0486
+'- Root positions L2:           '- 0.0254
+'- FK positions L1:             '- 0.0751
+No improvement in validation loss for 1 epochs
 
 --- Epoch 70/200 ---
 Learning rate:                  1.250e-04
-Training loss:                  0.1531503
-'- Rotations geodesic L1:       '- 0.0508
-'- Root positions L2:           '- 0.0203
-'- FK positions L1:             '- 0.0821
-Validation loss:                0.1443109
-'- Rotations geodesic L1:       '- 0.0473
-'- Root positions L2:           '- 0.0244
-'- FK positions L1:             '- 0.0727
-Validation loss improved, saving checkpoint
-Model saved to: checkpoints/model/v_22.pth
+Training loss:                  0.1585773
+'- Rotations geodesic L1:       '- 0.0525
+'- Root positions L2:           '- 0.0214
+'- FK positions L1:             '- 0.0847
+Validation loss:                0.1487326
+'- Rotations geodesic L1:       '- 0.0485
+'- Root positions L2:           '- 0.0255
+'- FK positions L1:             '- 0.0747
+No improvement in validation loss for 2 epochs
 
 --- Epoch 71/200 ---
 Learning rate:                  1.250e-04
-Training loss:                  0.1530119
-'- Rotations geodesic L1:       '- 0.0507
-'- Root positions L2:           '- 0.0203
-'- FK positions L1:             '- 0.0820
-Validation loss:                0.1446551
-'- Rotations geodesic L1:       '- 0.0472
-'- Root positions L2:           '- 0.0242
-'- FK positions L1:             '- 0.0732
-No improvement in validation loss for 1 epochs
+Training loss:                  0.1590083
+'- Rotations geodesic L1:       '- 0.0526
+'- Root positions L2:           '- 0.0214
+'- FK positions L1:             '- 0.0851
+Validation loss:                0.1478675
+'- Rotations geodesic L1:       '- 0.0485
+'- Root positions L2:           '- 0.0255
+'- FK positions L1:             '- 0.0739
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_23.pth
 
 --- Epoch 72/200 ---
 Learning rate:                  1.250e-04
-Training loss:                  0.1528193
-'- Rotations geodesic L1:       '- 0.0507
-'- Root positions L2:           '- 0.0203
-'- FK positions L1:             '- 0.0819
-Validation loss:                0.1443923
-'- Rotations geodesic L1:       '- 0.0471
-'- Root positions L2:           '- 0.0245
-'- FK positions L1:             '- 0.0728
-No improvement in validation loss for 2 epochs
+Training loss:                  0.1582139
+'- Rotations geodesic L1:       '- 0.0524
+'- Root positions L2:           '- 0.0213
+'- FK positions L1:             '- 0.0845
+Validation loss:                0.1477044
+'- Rotations geodesic L1:       '- 0.0484
+'- Root positions L2:           '- 0.0254
+'- FK positions L1:             '- 0.0739
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_23.pth
 
 --- Epoch 73/200 ---
 Learning rate:                  1.250e-04
-Training loss:                  0.1526967
-'- Rotations geodesic L1:       '- 0.0506
-'- Root positions L2:           '- 0.0202
-'- FK positions L1:             '- 0.0819
-Validation loss:                0.1441879
-'- Rotations geodesic L1:       '- 0.0472
-'- Root positions L2:           '- 0.0244
-'- FK positions L1:             '- 0.0726
-Validation loss improved, saving checkpoint
-Model saved to: checkpoints/model/v_22.pth
+Training loss:                  0.1578282
+'- Rotations geodesic L1:       '- 0.0523
+'- Root positions L2:           '- 0.0212
+'- FK positions L1:             '- 0.0843
+Validation loss:                0.1487375
+'- Rotations geodesic L1:       '- 0.0484
+'- Root positions L2:           '- 0.0255
+'- FK positions L1:             '- 0.0748
+No improvement in validation loss for 1 epochs
 
 --- Epoch 74/200 ---
 Learning rate:                  1.250e-04
-Training loss:                  0.1523139
-'- Rotations geodesic L1:       '- 0.0505
-'- Root positions L2:           '- 0.0201
-'- FK positions L1:             '- 0.0816
-Validation loss:                0.1445294
-'- Rotations geodesic L1:       '- 0.0471
-'- Root positions L2:           '- 0.0242
-'- FK positions L1:             '- 0.0732
-No improvement in validation loss for 1 epochs
+Training loss:                  0.1576080
+'- Rotations geodesic L1:       '- 0.0523
+'- Root positions L2:           '- 0.0212
+'- FK positions L1:             '- 0.0842
+Validation loss:                0.1476291
+'- Rotations geodesic L1:       '- 0.0483
+'- Root positions L2:           '- 0.0256
+'- FK positions L1:             '- 0.0738
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_23.pth
 
 --- Epoch 75/200 ---
 Learning rate:                  1.250e-04
-Training loss:                  0.1521927
-'- Rotations geodesic L1:       '- 0.0505
-'- Root positions L2:           '- 0.0201
-'- FK positions L1:             '- 0.0816
-Validation loss:                0.1457288
-'- Rotations geodesic L1:       '- 0.0471
-'- Root positions L2:           '- 0.0243
-'- FK positions L1:             '- 0.0743
-No improvement in validation loss for 2 epochs
+Training loss:                  0.1575650
+'- Rotations geodesic L1:       '- 0.0522
+'- Root positions L2:           '- 0.0212
+'- FK positions L1:             '- 0.0842
+Validation loss:                0.1476433
+'- Rotations geodesic L1:       '- 0.0483
+'- Root positions L2:           '- 0.0253
+'- FK positions L1:             '- 0.0741
+No improvement in validation loss for 1 epochs
 
 --- Epoch 76/200 ---
 Learning rate:                  1.250e-04
-Training loss:                  0.1520762
-'- Rotations geodesic L1:       '- 0.0505
-'- Root positions L2:           '- 0.0201
-'- FK positions L1:             '- 0.0815
-Validation loss:                0.1449351
-'- Rotations geodesic L1:       '- 0.0470
-'- Root positions L2:           '- 0.0246
-'- FK positions L1:             '- 0.0734
-No improvement in validation loss for 3 epochs
+Training loss:                  0.1572248
+'- Rotations geodesic L1:       '- 0.0522
+'- Root positions L2:           '- 0.0211
+'- FK positions L1:             '- 0.0840
+Validation loss:                0.1464716
+'- Rotations geodesic L1:       '- 0.0481
+'- Root positions L2:           '- 0.0251
+'- FK positions L1:             '- 0.0732
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_23.pth
 
 --- Epoch 77/200 ---
 Learning rate:                  1.250e-04
-Training loss:                  0.1519550
-'- Rotations geodesic L1:       '- 0.0504
-'- Root positions L2:           '- 0.0200
-'- FK positions L1:             '- 0.0815
-Validation loss:                0.1448872
-'- Rotations geodesic L1:       '- 0.0473
-'- Root positions L2:           '- 0.0241
-'- FK positions L1:             '- 0.0735
-No improvement in validation loss for 4 epochs
+Training loss:                  0.1569701
+'- Rotations geodesic L1:       '- 0.0521
+'- Root positions L2:           '- 0.0211
+'- FK positions L1:             '- 0.0838
+Validation loss:                0.1473208
+'- Rotations geodesic L1:       '- 0.0482
+'- Root positions L2:           '- 0.0254
+'- FK positions L1:             '- 0.0737
+No improvement in validation loss for 1 epochs
 
 --- Epoch 78/200 ---
-Learning rate:                  1.000e-04
-Training loss:                  0.1509575
-'- Rotations geodesic L1:       '- 0.0503
-'- Root positions L2:           '- 0.0198
-'- FK positions L1:             '- 0.0808
-Validation loss:                0.1430490
-'- Rotations geodesic L1:       '- 0.0469
-'- Root positions L2:           '- 0.0241
-'- FK positions L1:             '- 0.0720
-Validation loss improved, saving checkpoint
-Model saved to: checkpoints/model/v_22.pth
+Learning rate:                  1.250e-04
+Training loss:                  0.1568142
+'- Rotations geodesic L1:       '- 0.0520
+'- Root positions L2:           '- 0.0210
+'- FK positions L1:             '- 0.0838
+Validation loss:                0.1469100
+'- Rotations geodesic L1:       '- 0.0481
+'- Root positions L2:           '- 0.0250
+'- FK positions L1:             '- 0.0738
+No improvement in validation loss for 2 epochs
 
 --- Epoch 79/200 ---
-Learning rate:                  1.000e-04
-Training loss:                  0.1507989
-'- Rotations geodesic L1:       '- 0.0503
-'- Root positions L2:           '- 0.0198
-'- FK positions L1:             '- 0.0807
-Validation loss:                0.1427072
-'- Rotations geodesic L1:       '- 0.0468
-'- Root positions L2:           '- 0.0239
-'- FK positions L1:             '- 0.0720
-Validation loss improved, saving checkpoint
-Model saved to: checkpoints/model/v_22.pth
+Learning rate:                  1.250e-04
+Training loss:                  0.1565621
+'- Rotations geodesic L1:       '- 0.0520
+'- Root positions L2:           '- 0.0210
+'- FK positions L1:             '- 0.0836
+Validation loss:                0.1478334
+'- Rotations geodesic L1:       '- 0.0481
+'- Root positions L2:           '- 0.0251
+'- FK positions L1:             '- 0.0746
+No improvement in validation loss for 3 epochs
 
 --- Epoch 80/200 ---
 Learning rate:                  1.000e-04
-Training loss:                  0.1505806
-'- Rotations geodesic L1:       '- 0.0502
-'- Root positions L2:           '- 0.0198
-'- FK positions L1:             '- 0.0806
-Validation loss:                0.1434069
-'- Rotations geodesic L1:       '- 0.0469
-'- Root positions L2:           '- 0.0239
-'- FK positions L1:             '- 0.0726
-No improvement in validation loss for 1 epochs
+Training loss:                  0.1555701
+'- Rotations geodesic L1:       '- 0.0518
+'- Root positions L2:           '- 0.0207
+'- FK positions L1:             '- 0.0830
+Validation loss:                0.1464149
+'- Rotations geodesic L1:       '- 0.0480
+'- Root positions L2:           '- 0.0251
+'- FK positions L1:             '- 0.0733
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_23.pth
 
 --- Epoch 81/200 ---
 Learning rate:                  1.000e-04
-Training loss:                  0.1504900
-'- Rotations geodesic L1:       '- 0.0502
-'- Root positions L2:           '- 0.0197
-'- FK positions L1:             '- 0.0806
-Validation loss:                0.1428476
-'- Rotations geodesic L1:       '- 0.0469
-'- Root positions L2:           '- 0.0241
-'- FK positions L1:             '- 0.0719
-No improvement in validation loss for 2 epochs
+Training loss:                  0.1552999
+'- Rotations geodesic L1:       '- 0.0518
+'- Root positions L2:           '- 0.0206
+'- FK positions L1:             '- 0.0829
+Validation loss:                0.1463004
+'- Rotations geodesic L1:       '- 0.0479
+'- Root positions L2:           '- 0.0249
+'- FK positions L1:             '- 0.0735
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_23.pth
 
 --- Epoch 82/200 ---
 Learning rate:                  1.000e-04
-Training loss:                  0.1503811
-'- Rotations geodesic L1:       '- 0.0501
-'- Root positions L2:           '- 0.0197
-'- FK positions L1:             '- 0.0805
-Validation loss:                0.1415682
-'- Rotations geodesic L1:       '- 0.0468
-'- Root positions L2:           '- 0.0238
-'- FK positions L1:             '- 0.0710
+Training loss:                  0.1552145
+'- Rotations geodesic L1:       '- 0.0518
+'- Root positions L2:           '- 0.0207
+'- FK positions L1:             '- 0.0828
+Validation loss:                0.1456391
+'- Rotations geodesic L1:       '- 0.0479
+'- Root positions L2:           '- 0.0251
+'- FK positions L1:             '- 0.0727
 Validation loss improved, saving checkpoint
-Model saved to: checkpoints/model/v_22.pth
+Model saved to: checkpoints/model/v_23.pth
 
 --- Epoch 83/200 ---
 Learning rate:                  1.000e-04
-Training loss:                  0.1501684
-'- Rotations geodesic L1:       '- 0.0501
-'- Root positions L2:           '- 0.0196
-'- FK positions L1:             '- 0.0804
-Validation loss:                0.1420695
-'- Rotations geodesic L1:       '- 0.0468
-'- Root positions L2:           '- 0.0238
-'- FK positions L1:             '- 0.0715
-No improvement in validation loss for 1 epochs
+Training loss:                  0.1550995
+'- Rotations geodesic L1:       '- 0.0517
+'- Root positions L2:           '- 0.0206
+'- FK positions L1:             '- 0.0828
+Validation loss:                0.1453431
+'- Rotations geodesic L1:       '- 0.0479
+'- Root positions L2:           '- 0.0248
+'- FK positions L1:             '- 0.0727
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_23.pth
 
 --- Epoch 84/200 ---
 Learning rate:                  1.000e-04
-Training loss:                  0.1500138
-'- Rotations geodesic L1:       '- 0.0501
-'- Root positions L2:           '- 0.0196
-'- FK positions L1:             '- 0.0803
-Validation loss:                0.1437269
-'- Rotations geodesic L1:       '- 0.0468
-'- Root positions L2:           '- 0.0239
-'- FK positions L1:             '- 0.0730
-No improvement in validation loss for 2 epochs
+Training loss:                  0.1547630
+'- Rotations geodesic L1:       '- 0.0517
+'- Root positions L2:           '- 0.0205
+'- FK positions L1:             '- 0.0826
+Validation loss:                0.1459547
+'- Rotations geodesic L1:       '- 0.0479
+'- Root positions L2:           '- 0.0250
+'- FK positions L1:             '- 0.0731
+No improvement in validation loss for 1 epochs
 
 --- Epoch 85/200 ---
 Learning rate:                  1.000e-04
-Training loss:                  0.1498720
-'- Rotations geodesic L1:       '- 0.0500
-'- Root positions L2:           '- 0.0196
-'- FK positions L1:             '- 0.0803
-Validation loss:                0.1414370
-'- Rotations geodesic L1:       '- 0.0467
-'- Root positions L2:           '- 0.0238
-'- FK positions L1:             '- 0.0710
-Validation loss improved, saving checkpoint
-Model saved to: checkpoints/model/v_22.pth
+Training loss:                  0.1546961
+'- Rotations geodesic L1:       '- 0.0516
+'- Root positions L2:           '- 0.0205
+'- FK positions L1:             '- 0.0826
+Validation loss:                0.1460387
+'- Rotations geodesic L1:       '- 0.0479
+'- Root positions L2:           '- 0.0252
+'- FK positions L1:             '- 0.0730
+No improvement in validation loss for 2 epochs
 
 --- Epoch 86/200 ---
 Learning rate:                  1.000e-04
-Training loss:                  0.1497157
-'- Rotations geodesic L1:       '- 0.0500
-'- Root positions L2:           '- 0.0196
-'- FK positions L1:             '- 0.0802
-Validation loss:                0.1417633
-'- Rotations geodesic L1:       '- 0.0466
-'- Root positions L2:           '- 0.0238
-'- FK positions L1:             '- 0.0714
-No improvement in validation loss for 1 epochs
+Training loss:                  0.1545732
+'- Rotations geodesic L1:       '- 0.0516
+'- Root positions L2:           '- 0.0205
+'- FK positions L1:             '- 0.0825
+Validation loss:                0.1449500
+'- Rotations geodesic L1:       '- 0.0477
+'- Root positions L2:           '- 0.0249
+'- FK positions L1:             '- 0.0724
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_23.pth
 
 --- Epoch 87/200 ---
 Learning rate:                  1.000e-04
-Training loss:                  0.1495773
-'- Rotations geodesic L1:       '- 0.0500
-'- Root positions L2:           '- 0.0195
-'- FK positions L1:             '- 0.0801
-Validation loss:                0.1419080
-'- Rotations geodesic L1:       '- 0.0466
-'- Root positions L2:           '- 0.0238
-'- FK positions L1:             '- 0.0715
-No improvement in validation loss for 2 epochs
+Training loss:                  0.1542760
+'- Rotations geodesic L1:       '- 0.0515
+'- Root positions L2:           '- 0.0204
+'- FK positions L1:             '- 0.0823
+Validation loss:                0.1445234
+'- Rotations geodesic L1:       '- 0.0477
+'- Root positions L2:           '- 0.0249
+'- FK positions L1:             '- 0.0720
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_23.pth
 
 --- Epoch 88/200 ---
 Learning rate:                  1.000e-04
-Training loss:                  0.1494414
-'- Rotations geodesic L1:       '- 0.0499
-'- Root positions L2:           '- 0.0195
-'- FK positions L1:             '- 0.0800
-Validation loss:                0.1430335
-'- Rotations geodesic L1:       '- 0.0468
-'- Root positions L2:           '- 0.0237
-'- FK positions L1:             '- 0.0726
-No improvement in validation loss for 3 epochs
+Training loss:                  0.1541368
+'- Rotations geodesic L1:       '- 0.0515
+'- Root positions L2:           '- 0.0204
+'- FK positions L1:             '- 0.0822
+Validation loss:                0.1452444
+'- Rotations geodesic L1:       '- 0.0477
+'- Root positions L2:           '- 0.0247
+'- FK positions L1:             '- 0.0729
+No improvement in validation loss for 1 epochs
 
 --- Epoch 89/200 ---
 Learning rate:                  1.000e-04
+Training loss:                  0.1539239
+'- Rotations geodesic L1:       '- 0.0515
+'- Root positions L2:           '- 0.0203
+'- FK positions L1:             '- 0.0821
+Validation loss:                0.1454286
+'- Rotations geodesic L1:       '- 0.0477
+'- Root positions L2:           '- 0.0251
+'- FK positions L1:             '- 0.0727
+No improvement in validation loss for 2 epochs
 
-Training interrupted by user
-Total training time: 01h 11m 12.10s
+--- Epoch 90/200 ---
+Learning rate:                  1.000e-04
+Training loss:                  0.1538672
+'- Rotations geodesic L1:       '- 0.0514
+'- Root positions L2:           '- 0.0204
+'- FK positions L1:             '- 0.0821
+Validation loss:                0.1450290
+'- Rotations geodesic L1:       '- 0.0476
+'- Root positions L2:           '- 0.0249
+'- FK positions L1:             '- 0.0725
+No improvement in validation loss for 3 epochs
+
+--- Epoch 91/200 ---
+Learning rate:                  1.000e-04
+Training loss:                  0.1535608
+'- Rotations geodesic L1:       '- 0.0514
+'- Root positions L2:           '- 0.0202
+'- FK positions L1:             '- 0.0820
+Validation loss:                0.1450712
+'- Rotations geodesic L1:       '- 0.0476
+'- Root positions L2:           '- 0.0247
+'- FK positions L1:             '- 0.0727
+No improvement in validation loss for 4 epochs
+Early stopped at epoch 91
+Total training time: 01h 42m 57.14s
 Training complete
