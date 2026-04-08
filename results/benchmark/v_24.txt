@@ -1,0 +1,24 @@
+
+--- Benchmark Results ---
+
+Model description: same as v_23, but context len before target is 20 instead of 10, and target is 15 instead of 10
+
+Per joint:
+  L2P value [cm]:                    3.3168561
+  L2Q value:                         0.0398367
+  Rotation MAE [deg]:                4.5889253
+  Rotation RMSE [deg]:               7.1210051
+
+Per joint channel:
+  NPSS value:                        0.0132036
+  Root position MAE [cm]:            0.8647429
+  Root position RMSE [cm]:           1.3765489
+  All positions MAE [cm]:            1.6412082
+  All positions RMSE [cm]:           2.8903513
+  Velocity loss [cm/frame]:          0.4918623
+  Acceleration loss [cm/frame^2]:    0.2909125
+  Jerk loss [cm/frame^3]:            0.3217310
+
+Per foot joint:
+  Foot contact error rate [%]:       34.6645611
+  Foot skating loss [cm/frame]:      0.9260409
