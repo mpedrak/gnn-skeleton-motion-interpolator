@@ -1,0 +1,24 @@
+
+--- Benchmark Results ---
+
+Model description: same as v_25, but bigger hidden dim, less layers and less heads for GNN
+
+Per joint:
+  L2P value [cm]:                    2.3421245
+  L2Q value:                         0.0335458
+  Rotation MAE [deg]:                3.8728547
+  Rotation RMSE [deg]:               6.0684088
+
+Per joint channel:
+  NPSS value:                        0.0112880
+  Root position MAE [cm]:            0.6025749
+  Root position RMSE [cm]:           0.9778257
+  All positions MAE [cm]:            1.1637392
+  All positions RMSE [cm]:           2.0617907
+  Velocity loss [cm/frame]:          0.4190886
+  Acceleration loss [cm/frame^2]:    0.2982268
+  Jerk loss [cm/frame^3]:            0.3603876
+
+Per foot joint:
+  Foot contact error rate [%]:       31.9967699
+  Foot skating loss [cm/frame]:      0.8539414

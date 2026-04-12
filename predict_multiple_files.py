@@ -14,7 +14,7 @@ from src.utils.various import load_configs, set_global_seed
 # Additional arguments
 predict_data_dir = "./data/predict/"
 bvh_files = ["aiming", "dance", "fight", "ground", "jumps", "run", "walk"]
-hole_starts = [i for i in range(30, 450 + 1, 30)]
+hole_starts = [i for i in range(20, 480 + 1, 20)]
 
 
 # Argument parsing
