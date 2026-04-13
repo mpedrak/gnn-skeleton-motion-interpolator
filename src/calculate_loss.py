@@ -1,18 +1,31 @@
+import torch
+
 from .utils.metrics import geodesic_rotation_loss
 from .utils.bvh import forward_kinematics_positions_batch
-from .utils.various import compute_lerp_batch
+from .utils.various import compute_lerp_batch, compute_slerp_batch
+from .utils.rotation import rot_6d_to_rot_3x3, rot_3x3_to_rot_6d
 
 
 def calculate_loss(out, batch, l1_func, l2_func, offsets, parent_indices, loss_weights):
     
     # Rotations
-    rot_pred = out["rot"]
-    rot_geo_loss = geodesic_rotation_loss(pred_rot_6d=rot_pred, target_rot_6d=batch.y)
-
-    BxJ, Fx6 = rot_pred.shape
+    rot_pred_delta = out["rot"]
+    BxJ, Fx6 = rot_pred_delta.shape
     F_target = Fx6 // 6
     J = BxJ // batch.num_graphs    
-    rot_pred = rot_pred.view(batch.num_graphs, J, F_target, 6).permute(0, 2, 1, 3) # [B, F_target, J, 6]
+    rot_pred_delta = rot_pred_delta.view(batch.num_graphs, J, F_target, 6).permute(0, 2, 1, 3) # [B, F_target, J, 6]
+
+    rot_6d_for_slerp = batch.rot_6d_for_slerp.view(batch.num_graphs, 2, J, 6) # [B, 2, J, 6]
+    slerp_start_6d = rot_6d_for_slerp[:, 0, :, :]
+    slerp_end_6d = rot_6d_for_slerp[:, 1, :, :]
+    rot_slerp = compute_slerp_batch(slerp_start_6d, slerp_end_6d, F_target) 
+    
+    rot_pred_delta = rot_6d_to_rot_3x3(rot_pred_delta)
+    rot_pred = torch.matmul(rot_pred_delta, rot_slerp)
+    rot_pred = rot_3x3_to_rot_6d(rot_pred) 
+    
+    rot_pred_for_geo = rot_pred.permute(0, 2, 1, 3).reshape(BxJ, Fx6)
+    rot_geo_loss = geodesic_rotation_loss(pred_rot_6d=rot_pred_for_geo, target_rot_6d=batch.y)
     
     # Root positions
     root_pos_delta_pred = out['root_pos']

@@ -1,6 +1,6 @@
 # Deletes cache files from selected directories based on suffixes
 
-dirs_to_clear = ["./train", "./test"]
+dirs_to_clear = ["./train-small", "./test", "./train"]
 suffixes_to_clear = [".pt"]
 
 # ---

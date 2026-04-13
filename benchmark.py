@@ -11,7 +11,8 @@ from src.model import SkeletalMotionInterpolator
 from src.utils.metrics import geodesic_rotation_loss, calculate_l2p, calculate_l2q, calculate_npss
 from src.utils.metrics import calculate_smoothness_loss, calculate_foot_contact_loss 
 from src.utils.bvh import forward_kinematics_positions_batch, compute_foot_contact, foot_skating_loss, get_joint_indices_by_name
-from src.utils.various import load_configs, log_string, compute_lerp_batch, set_global_seed
+from src.utils.various import load_configs, log_string, compute_lerp_batch, set_global_seed, compute_slerp_batch
+from src.utils.rotation import rot_6d_to_rot_3x3, rot_3x3_to_rot_6d
 
 
 # Argument parsing
@@ -79,18 +80,29 @@ def run_benchmark(model, loader, offsets, parent_indices, n_samples, benchmark_f
             out["root_pos"] = out["root_pos"].float()
 
             # Rotations
-            rot_pred = out["rot"] 
-            rot_geo_1_sum += rot_geo_1(rot_pred, batch.y).item()
-            rot_geo_2_sum += rot_geo_2(rot_pred, batch.y).item()
+            rot_pred_delta = out["rot"] 
+           
+            BxJ, Fx6 = rot_pred_delta.shape
+            F_target = Fx6 // 6
+            J = BxJ // batch.num_graphs    
+            rot_pred_delta = rot_pred_delta.view(batch.num_graphs, J, F_target, 6).permute(0, 2, 1, 3) # [B, F_target, J, 6]
+
+            rot_6d_for_slerp = batch.rot_6d_for_slerp.view(batch.num_graphs, 2, J, 6) # [B, 2, J, 6]
+            slerp_start_6d = rot_6d_for_slerp[:, 0, :, :]
+            slerp_end_6d = rot_6d_for_slerp[:, 1, :, :]
+            rot_slerp = compute_slerp_batch(slerp_start_6d, slerp_end_6d, F_target) 
+            
+            rot_pred_delta = rot_6d_to_rot_3x3(rot_pred_delta)
+            rot_pred = torch.matmul(rot_pred_delta, rot_slerp)
+            rot_pred = rot_3x3_to_rot_6d(rot_pred) 
+
+            rot_pred_for_geo_and_l2q = rot_pred.permute(0, 2, 1, 3).reshape(BxJ, Fx6)
+            rot_geo_1_sum += rot_geo_1(rot_pred_for_geo_and_l2q, batch.y).item()
+            rot_geo_2_sum += rot_geo_2(rot_pred_for_geo_and_l2q, batch.y).item()
 
             # L2Q
-            l2q_sum += calculate_l2q(rot_pred, batch.y, reduction='sum').item()
+            l2q_sum += calculate_l2q(rot_pred_for_geo_and_l2q, batch.y, reduction='sum').item()
             
-            BxJ, Fx6 = rot_pred.shape
-            F_target = Fx6 // 6
-            J = BxJ // batch.num_graphs  
-            rot_pred = rot_pred.view(batch.num_graphs, J, F_target, 6).permute(0, 2, 1, 3) 
-
             # Forward kinematics
             root_pos_delta_pred = out['root_pos']
             root_pos_delta_pred = root_pos_delta_pred.view(batch.num_graphs, F_target, 3)

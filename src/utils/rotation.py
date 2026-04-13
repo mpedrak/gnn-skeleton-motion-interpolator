@@ -52,7 +52,7 @@ def rot_6d_to_euler_zyx(rot_6d, degrees):
     return euler
 
 
-def rot_6d_to_quat(rot_6d):
+def rot_6d_to_quat_numpy(rot_6d):
     # 6D [(shape), 6] -> Quaternions [(shape), 4] (x, y, z, w)
     
     orig_shape = rot_6d.shape[ : -1]
@@ -69,3 +69,109 @@ def rot_6d_to_quat(rot_6d):
     quat = quat.view(*orig_shape, 4)
     
     return quat
+
+
+def rot_6d_to_quat_torch(rot_6d):
+    # 6D [(shape), 6] -> Quaternions [(shape), 4] (x, y, z, w)
+      
+    orig_shape = rot_6d.shape[ : -1]
+    
+    rot_matrix = rot_6d_to_rot_3x3(rot_6d) 
+    rot_matrix_flat = rot_matrix.view(-1, 3, 3)
+
+    m00 = rot_matrix_flat[:, 0, 0]
+    m01 = rot_matrix_flat[:, 0, 1]
+    m02 = rot_matrix_flat[:, 0, 2]
+    
+    m10 = rot_matrix_flat[:, 1, 0]
+    m11 = rot_matrix_flat[:, 1, 1]
+    m12 = rot_matrix_flat[:, 1, 2]
+    
+    m20 = rot_matrix_flat[:, 2, 0]
+    m21 = rot_matrix_flat[:, 2, 1]
+    m22 = rot_matrix_flat[:, 2, 2]
+
+    q_abs = torch.stack([
+        1.0 + m00 + m11 + m22,
+        1.0 + m00 - m11 - m22,
+        1.0 - m00 + m11 - m22,
+        1.0 - m00 - m11 + m22,
+    ], dim=-1)
+    q_abs = torch.sqrt(torch.clamp(q_abs, min=0.0))
+
+    quat_by_w = torch.stack([q_abs[:, 0], m21 - m12, m02 - m20, m10 - m01], dim=-1)
+    quat_by_x = torch.stack([m21 - m12, q_abs[:, 1], m01 + m10, m02 + m20], dim=-1)
+    quat_by_y = torch.stack([m02 - m20, m01 + m10, q_abs[:, 2], m12 + m21], dim=-1)
+    quat_by_z = torch.stack([m10 - m01, m02 + m20, m12 + m21, q_abs[:, 3]], dim=-1)
+
+    idx = torch.argmax(q_abs, dim=-1)
+    
+    quat = torch.empty_like(quat_by_w)
+    quat[idx == 0] = quat_by_w[idx == 0]
+    quat[idx == 1] = quat_by_x[idx == 1]
+    quat[idx == 2] = quat_by_y[idx == 2]
+    quat[idx == 3] = quat_by_z[idx == 3]
+
+    quat = torch.nn.functional.normalize(quat, dim=-1)
+
+    quat = quat[:, [1, 2, 3, 0]]
+    
+    quat = quat.view(*orig_shape, 4)
+    
+    return quat
+
+
+def quat_to_rot_3x3(quat):
+    # Quaternions [(shape), 4] (x, y, z, w) -> 3 x 3 matrix [(shape), 3, 3]
+    
+    orig_shape = quat.shape[ : -1]
+    quat_flat = quat.reshape(-1, 4)
+
+    x = quat_flat[:, 0]
+    y = quat_flat[:, 1]
+    z = quat_flat[:, 2]
+    w = quat_flat[:, 3]
+
+    x2 = x + x
+    y2 = y + y
+    z2 = z + z
+
+    xx = x * x2
+    yy = y * y2
+    zz = z * z2
+    xy = x * y2
+    yz = y * z2
+    xz = x * z2
+    wx = w * x2
+    wy = w * y2
+    wz = w * z2
+
+    r00 = 1.0 - (yy + zz)
+    r01 = xy - wz
+    r02 = xz + wy
+
+    r10 = xy + wz
+    r11 = 1.0 - (xx + zz)
+    r12 = yz - wx
+
+    r20 = xz - wy
+    r21 = yz + wx
+    r22 = 1.0 - (xx + yy)
+
+    row0 = torch.stack([r00, r01, r02], dim=-1)
+    row1 = torch.stack([r10, r11, r12], dim=-1)
+    row2 = torch.stack([r20, r21, r22], dim=-1)
+
+    R_m = torch.stack([row0, row1, row2], dim=-2)  
+    R_m = R_m.view(*orig_shape, 3, 3)
+
+    return R_m
+
+
+def rot_3x3_to_rot_6d(rot_matrix):
+    # 3 x 3 matrix [(shape), 3, 3] -> 6D [(shape), 6]
+    
+    orig_shape = rot_matrix.shape[ : -2]
+    rot_6d = rot_matrix[..., :, : 2].reshape(*orig_shape, 6)
+    
+    return rot_6d

@@ -4,7 +4,8 @@ import numpy as np
 from torch_geometric.data import Data
 
 from .utils.bvh import build_edge_index_from_parents
-from .utils.various import compute_lerp
+from .utils.various import compute_lerp, compute_slerp
+from .utils.rotation import rot_6d_to_rot_3x3, rot_3x3_to_rot_6d
 
 
 @torch.no_grad()
@@ -41,8 +42,16 @@ def predict_gap(model, device, rot_6d, root_pos, parent_indices, context_len_pre
     out = model(data)
     
     # Reshape rotations
-    rot_pred = out["rot"]
-    rot_pred = rot_pred.view(J, target_len, 6).permute(1, 0, 2).contiguous() # [J, F, 6] -> [F, J, 6]      
+    rot_pred_delta = out["rot"]
+    rot_pred_delta = rot_pred_delta.view(J, target_len, 6).permute(1, 0, 2).contiguous() # [J, F, 6] -> [F, J, 6]  
+
+    # Reconstruct rotations from deltas
+    slerp_start_6d = rot_6d[gap_start - 1].clone().detach().to(device, dtype=torch.float32)
+    slerp_end_6d = rot_6d[second_start].clone().detach().to(device, dtype=torch.float32)
+    rot_slerp = compute_slerp(slerp_start_6d, slerp_end_6d, target_len)
+    rot_pred_delta = rot_6d_to_rot_3x3(rot_pred_delta) 
+    rot_pred = torch.matmul(rot_pred_delta, rot_slerp)
+    rot_pred = rot_3x3_to_rot_6d(rot_pred)   
 
     # Reconstruct root positions from deltas
     root_pos_delta_pred = out["root_pos"]

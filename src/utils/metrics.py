@@ -1,6 +1,6 @@
 import torch
 
-from .rotation import rot_6d_to_rot_3x3, rot_6d_to_quat
+from .rotation import rot_6d_to_rot_3x3, rot_6d_to_quat_numpy
 
 
 def geodesic_rotation_loss(pred_rot_6d, target_rot_6d, reduction='mean'):
@@ -39,8 +39,8 @@ def calculate_l2p(pred_pos, target_pos, reduction='mean'):
 
 def calculate_l2q(pred_rot_6d, target_rot_6d, reduction='mean'):
 
-    pred_q = rot_6d_to_quat(pred_rot_6d.view(-1, 6))
-    target_q = rot_6d_to_quat(target_rot_6d.view(-1, 6))
+    pred_q = rot_6d_to_quat_numpy(pred_rot_6d.view(-1, 6))
+    target_q = rot_6d_to_quat_numpy(target_rot_6d.view(-1, 6))
 
     diff_1 = torch.linalg.norm(pred_q - target_q, dim=-1)
     diff_2 = torch.linalg.norm(pred_q + target_q, dim=-1)
