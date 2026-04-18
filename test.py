@@ -32,7 +32,7 @@ if device == "cuda":
 
 
 # Evaluate function
-def evaluate(model, loader, offsets, parent_indices, loss_weights, n_samples, log_str):
+def evaluate(model, loader, loss_weights, n_samples, log_str):
     
     model.eval()
 
@@ -60,8 +60,6 @@ def evaluate(model, loader, offsets, parent_indices, loss_weights, n_samples, lo
                 batch=batch, 
                 l1_func=l1_func, 
                 l2_func=l2_func, 
-                offsets=offsets, 
-                parent_indices=parent_indices, 
                 loss_weights=loss_weights
             )
 
@@ -82,15 +80,14 @@ def evaluate(model, loader, offsets, parent_indices, loss_weights, n_samples, lo
 
 
 # Dataset
-print("Loading dataset")
 test_dataset = GraphSkeletonDataset(
-    root_dir=constants["test_data_dir"],
+    data_dirs=config["test_data_dirs"],
     context_len_pre=config["context_len_pre"],
     context_len_post=config["context_len_post"],
     target_len=config["target_len"],
-    step=config["step"]
+    step=config["step"],
+    skip_start=config["skip_start"]
 )
-print(f"Dataset ready with {len(test_dataset)} samples")
 
 test_loader = DataLoader(test_dataset, batch_size=config["batch_size"], shuffle=False)
 
@@ -119,15 +116,12 @@ if os.path.exists(test_log_path):
 
 log_str = lambda text: log_string(text=text, log_path=test_log_path)
 
-parent_indices = test_dataset.parent_indices.to(device)
-offsets = test_dataset.offsets.to(device)
 
+# Evaluation
 print("\nStarting evaluation on test set")
 evaluate(
     model=model, 
     loader=test_loader, 
-    offsets=offsets, 
-    parent_indices=parent_indices,
     loss_weights=config["loss_weights"], 
     n_samples=len(test_dataset), 
     log_str=log_str

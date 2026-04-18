@@ -3,9 +3,8 @@ import numpy as np
 
 from torch_geometric.data import Data
 
-from .utils.bvh import build_edge_index_from_parents
-from .utils.various import compute_lerp, compute_slerp
-from .utils.rotation import rot_6d_to_rot_3x3, rot_3x3_to_rot_6d
+from .utils.bvh import build_edge_index, compute_lerp
+from .utils.rotation import rot_6d_to_rot_3x3, rot_3x3_to_rot_6d, compute_slerp
 
 
 @torch.no_grad()
@@ -31,7 +30,7 @@ def predict_gap(model, device, rot_6d, root_pos, parent_indices, context_len_pre
     root_pos_ctx = torch.cat([first_part_root_pos, second_part_root_pos], dim=0).to(device) 
 
     # Graph
-    edge_index = build_edge_index_from_parents(parent_indices)
+    edge_index = build_edge_index(parent_indices)
 
     data = Data(
         x=x_feat,

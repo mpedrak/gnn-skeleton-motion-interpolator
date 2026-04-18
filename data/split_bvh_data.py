@@ -1,12 +1,12 @@
-# Splits BVH files into training and testing sets based on filename suffixes
+# Splits BVH files into training and testing sets based on phrase in filename
 
-data_dir = "./lafan1"    
+data_dir = "./datasets/ACCAD"    
 
-train_dir = "./train-small"   
-train_suffixes = ["subject1.bvh"]
+train_dir = "./train/ACCAD"   
+train_phrases = ["Female1_B", "Female1_C", "Female1_D", "Male1_B", "Male1_C", "Male2_A", "Male2_B", "Male2_D", "Male2_E", "Male2_F", "Male2_G", "eric", "flip", "swagger"]
 
-test_dir = "./test"   
-test_suffixes = ["subject5.bvh"]
+test_dir = "./test/ACCAD"   
+test_phrases = ["Female1_A", "Male1_A", "Male2_C"]
 
 # ---
 
@@ -20,8 +20,8 @@ for filename in os.listdir(data_dir):
     if filename.lower().endswith(".bvh"):
         src_path = os.path.join(data_dir, filename)
 
-        if filename.endswith(tuple(test_suffixes)): dst_path = os.path.join(test_dir, filename)
-        elif filename.endswith(tuple(train_suffixes)): dst_path = os.path.join(train_dir, filename)
+        if any(phrase in filename for phrase in test_phrases): dst_path = os.path.join(test_dir, filename)
+        elif any(phrase in filename for phrase in train_phrases): dst_path = os.path.join(train_dir, filename)
         else: continue
 
         shutil.copy2(src_path, dst_path)

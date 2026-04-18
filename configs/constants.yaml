@@ -5,10 +5,6 @@ seed: 7
 models_path: "checkpoints/model/"
 models_suffix: ".pth"
 
-# Root stats
-root_stats_path: "checkpoints/root_stats/"
-root_stats_suffix: ".npz"
-
 # Logs
 log_suffix: ".txt"
 plot_suffix: ".png"
@@ -17,12 +13,9 @@ train_plot_path: "results/train_plots/"
 test_log_path: "results/test/"
 benchmark_log_path: "results/benchmark/"
 
-# Testing parameters
-test_data_dir: "data/test"
-
 # Benchmark parameters
-benchmark_data_dir: "data/test"
 benchmark_dataset_step: 7
+benchmark_dataset_skip_start: 50
 benchmark_dataset_batch_size: 1024
 benchmark_foot_params: {
   height_eps: 2.0,

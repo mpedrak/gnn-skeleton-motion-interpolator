@@ -10,9 +10,9 @@ from src.dataset import GraphSkeletonDataset
 from src.model import SkeletalMotionInterpolator
 from src.utils.metrics import geodesic_rotation_loss, calculate_l2p, calculate_l2q, calculate_npss
 from src.utils.metrics import calculate_smoothness_loss, calculate_foot_contact_loss 
-from src.utils.bvh import forward_kinematics_positions_batch, compute_foot_contact, foot_skating_loss, get_joint_indices_by_name
-from src.utils.various import load_configs, log_string, compute_lerp_batch, set_global_seed, compute_slerp_batch
-from src.utils.rotation import rot_6d_to_rot_3x3, rot_3x3_to_rot_6d
+from src.utils.bvh import forward_kinematics_pos_dense_batch, compute_foot_contact, foot_skating_loss, get_joint_indices_by_name, compute_lerp_batch
+from src.utils.various import load_configs, log_string, set_global_seed
+from src.utils.rotation import rot_6d_to_rot_3x3, compute_slerp_batch, rot_3x3_to_rot_6d
 
 
 # Argument parsing
@@ -36,7 +36,7 @@ if device == "cuda":
 
 
 # Evaluate function
-def run_benchmark(model, loader, offsets, parent_indices, n_samples, benchmark_foot_params, joint_names):
+def run_benchmark(model, loader, n_samples, benchmark_foot_params):
            
     l1 = torch.nn.L1Loss(reduction='sum')
     l2 = torch.nn.MSELoss(reduction='sum')
@@ -57,14 +57,16 @@ def run_benchmark(model, loader, offsets, parent_indices, n_samples, benchmark_f
     sm_2_sum = 0.0
     sm_3_sum = 0.0
 
-    foot_contact_sum = 0.0
-    foot_skating_weighted_motion_sum = 0.0
-    foot_skating_num_active_sum = 0.0
+    total_joints = 0
 
-    foot_joint_indices = get_joint_indices_by_name(
-        all_joint_names=joint_names, 
-        target_joint_names=benchmark_foot_params["joint_names"]
-    )
+    # foot_contact_sum = 0.0
+    # foot_skating_weighted_motion_sum = 0.0
+    # foot_skating_num_active_sum = 0.0
+
+    # foot_joint_indices = get_joint_indices_by_name(
+    #     all_joint_names=joint_names, 
+    #     target_joint_names=benchmark_foot_params["joint_names"]
+    # )
 
     model.eval()
 
@@ -81,27 +83,28 @@ def run_benchmark(model, loader, offsets, parent_indices, n_samples, benchmark_f
 
             # Rotations
             rot_pred_delta = out["rot"] 
-           
-            BxJ, Fx6 = rot_pred_delta.shape
-            F_target = Fx6 // 6
-            J = BxJ // batch.num_graphs    
-            rot_pred_delta = rot_pred_delta.view(batch.num_graphs, J, F_target, 6).permute(0, 2, 1, 3) # [B, F_target, J, 6]
+            N_total, Fx6 = rot_pred_delta.shape
+            F_target = Fx6 // 6 
+            rot_pred_delta = rot_pred_delta.view(N_total, F_target, 6)
 
-            rot_6d_for_slerp = batch.rot_6d_for_slerp.view(batch.num_graphs, 2, J, 6) # [B, 2, J, 6]
-            slerp_start_6d = rot_6d_for_slerp[:, 0, :, :]
-            slerp_end_6d = rot_6d_for_slerp[:, 1, :, :]
+            total_joints += N_total
+
+            rot_6d_for_slerp = batch.rot_6d_for_slerp # [N_total, 2, 6]
+            slerp_start_6d = rot_6d_for_slerp[:, 0, :]
+            slerp_end_6d = rot_6d_for_slerp[:, 1, :]
             rot_slerp = compute_slerp_batch(slerp_start_6d, slerp_end_6d, F_target) 
             
-            rot_pred_delta = rot_6d_to_rot_3x3(rot_pred_delta)
-            rot_pred = torch.matmul(rot_pred_delta, rot_slerp)
-            rot_pred = rot_3x3_to_rot_6d(rot_pred) 
+            rot_pred_delta_3x3 = rot_6d_to_rot_3x3(rot_pred_delta)
+            rot_pred_3x3 = torch.matmul(rot_pred_delta_3x3, rot_slerp) # [N_total, F_target, 3, 3]
 
-            rot_pred_for_geo_and_l2q = rot_pred.permute(0, 2, 1, 3).reshape(BxJ, Fx6)
-            rot_geo_1_sum += rot_geo_1(rot_pred_for_geo_and_l2q, batch.y).item()
-            rot_geo_2_sum += rot_geo_2(rot_pred_for_geo_and_l2q, batch.y).item()
+            rot_tgt_3x3 = rot_6d_to_rot_3x3(batch.y.view(N_total, F_target, 6))
+            rot_geo_1_sum += rot_geo_1(rot_pred_3x3, rot_tgt_3x3).item()
+            rot_geo_2_sum += rot_geo_2(rot_pred_3x3, rot_tgt_3x3).item()
 
             # L2Q
-            l2q_sum += calculate_l2q(rot_pred_for_geo_and_l2q, batch.y, reduction='sum').item()
+            rot_pred_6d = rot_3x3_to_rot_6d(rot_pred_3x3)
+            rot_tgt_6d = rot_tgt_6d = batch.y.view(N_total, F_target, 6)
+            l2q_sum += calculate_l2q(rot_pred_6d, rot_tgt_6d, reduction='sum').item()
             
             # Forward kinematics
             root_pos_delta_pred = out['root_pos']
@@ -112,12 +115,13 @@ def run_benchmark(model, loader, offsets, parent_indices, n_samples, benchmark_f
             root_pos_lerp = compute_lerp_batch(lerp_start_pos, lerp_end_pos, F_target)
             root_pos_pred = root_pos_delta_pred + root_pos_lerp
 
-            fk_pos_pred = forward_kinematics_positions_batch( 
-                offsets=offsets,
-                parent_indices=parent_indices,
+            fk_pos_pred = forward_kinematics_pos_dense_batch( 
+                offsets=batch.offsets,
+                parent_indices=batch.parent_indices,
                 root_pos=root_pos_pred,
-                rot_6d=rot_pred
-            ) # [B, F_target, J, 3]
+                rot_3x3=rot_pred_3x3,
+                batch_index=batch.batch
+            ) # [N_total, F_target, 3]
 
             # Root positions
             root_pos_tgt = batch.root_pos_tgt.view(batch.num_graphs, F_target, 3)
@@ -125,9 +129,9 @@ def run_benchmark(model, loader, offsets, parent_indices, n_samples, benchmark_f
             root_pos_l2_sum += l2(root_pos_pred, root_pos_tgt).item()
 
             # All positions
-            fk_pos_tgt = batch.fk_pos.view(batch.num_graphs, F_target, J, 3)
-            fk_pos_tgt_flat = fk_pos_tgt.view(batch.num_graphs, -1)
-            fk_pos_pred_flat = fk_pos_pred.view(batch.num_graphs, -1)
+            fk_pos_tgt = batch.fk_pos_tgt
+            fk_pos_tgt_flat = fk_pos_tgt.view(N_total, -1)
+            fk_pos_pred_flat = fk_pos_pred.view(N_total, -1)
             all_pos_l1_sum += l1(fk_pos_pred_flat, fk_pos_tgt_flat).item()
             all_pos_l2_sum += l2(fk_pos_pred_flat, fk_pos_tgt_flat).item()
 
@@ -135,8 +139,8 @@ def run_benchmark(model, loader, offsets, parent_indices, n_samples, benchmark_f
             l2p_sum += calculate_l2p(fk_pos_pred, fk_pos_tgt, reduction='sum').item()
 
             # NPSS
-            fk_pos_pred_npss = fk_pos_pred.permute(0, 2, 3, 1).reshape(batch.num_graphs, J * 3, F_target)
-            fk_pos_tgt_npss = fk_pos_tgt.permute(0, 2, 3, 1).reshape(batch.num_graphs, J * 3, F_target)
+            fk_pos_pred_npss = fk_pos_pred.permute(0, 2, 1)
+            fk_pos_tgt_npss = fk_pos_tgt.permute(0, 2, 1)
             npss_sum += calculate_npss(fk_pos_pred_npss, fk_pos_tgt_npss, reduction='sum').item()
 
             # Smoothness
@@ -144,64 +148,66 @@ def run_benchmark(model, loader, offsets, parent_indices, n_samples, benchmark_f
             sm_2_sum += calculate_smoothness_loss(fk_pos_pred, fk_pos_tgt, order=2, reduction='sum').item()
             sm_3_sum += calculate_smoothness_loss(fk_pos_pred, fk_pos_tgt, order=3, reduction='sum').item()
 
-            # Foot contact
-            height_eps = benchmark_foot_params["height_eps"]
-            velocity_eps = benchmark_foot_params["velocity_eps"]
+            # # Foot contact
+            # height_eps = benchmark_foot_params["height_eps"]
+            # velocity_eps = benchmark_foot_params["velocity_eps"]
 
-            foot_contact_tgt = compute_foot_contact(
-                fk_pos=fk_pos_tgt,
-                foot_joint_indices=foot_joint_indices,
-                contact_height_eps=height_eps,
-                contact_velocity_eps=velocity_eps
-            )
+            # foot_contact_tgt = compute_foot_contact(
+            #     fk_pos=fk_pos_tgt,
+            #     foot_joint_indices=foot_joint_indices,
+            #     contact_height_eps=height_eps,
+            #     contact_velocity_eps=velocity_eps
+            # )
 
-            foot_contact_pred = compute_foot_contact(
-                fk_pos=fk_pos_pred,
-                foot_joint_indices=foot_joint_indices,
-                contact_height_eps=height_eps,
-                contact_velocity_eps=velocity_eps
-            )
+            # foot_contact_pred = compute_foot_contact(
+            #     fk_pos=fk_pos_pred,
+            #     foot_joint_indices=foot_joint_indices,
+            #     contact_height_eps=height_eps,
+            #     contact_velocity_eps=velocity_eps
+            # )
 
-            foot_contact_sum += calculate_foot_contact_loss(foot_contact_tgt, foot_contact_pred, reduction='sum').item()
+            # foot_contact_sum += calculate_foot_contact_loss(foot_contact_tgt, foot_contact_pred, reduction='sum').item()
 
-            # Foot skating
-            a, e = foot_skating_loss(
-                fk_pos_pred=fk_pos_pred,
-                tgt_foot_contact=foot_contact_tgt,
-                foot_joint_indices=foot_joint_indices,
-                return_elements=True
-            )
+            # # Foot skating
+            # a, e = foot_skating_loss(
+            #     fk_pos_pred=fk_pos_pred,
+            #     tgt_foot_contact=foot_contact_tgt,
+            #     foot_joint_indices=foot_joint_indices,
+            #     return_elements=True
+            # )
 
-            foot_skating_weighted_motion_sum += a.item()
-            foot_skating_num_active_sum += e.item()
+            # foot_skating_weighted_motion_sum += a.item()
+            # foot_skating_num_active_sum += e.item()
 
 
-    geo_rot_1 = rot_geo_1_sum / (n_samples * J * F_target)
+    geo_rot_1 = rot_geo_1_sum / (total_joints * F_target)
     geo_rot_1_deg = geo_rot_1 * (180.0 / np.pi)
 
-    geo_rot_2 = np.sqrt(rot_geo_2_sum / (n_samples * J * F_target))
+    geo_rot_2 = np.sqrt(rot_geo_2_sum / (total_joints * F_target))
     geo_rot_2_deg = geo_rot_2 * (180.0 / np.pi)
 
     root_pos_mae = root_pos_l1_sum / (n_samples * F_target * 3)
     
     root_pos_rmse = np.sqrt(root_pos_l2_sum / (n_samples * F_target * 3))
 
-    all_pos_mae = all_pos_l1_sum / (n_samples * F_target * J * 3)
+    all_pos_mae = all_pos_l1_sum / (total_joints * F_target  * 3)
    
-    all_pos_rmse = np.sqrt(all_pos_l2_sum / (n_samples * F_target * J * 3))
+    all_pos_rmse = np.sqrt(all_pos_l2_sum / (total_joints * F_target  * 3))
 
-    l2p_value = l2p_sum / (n_samples * F_target * J)
+    l2p_value = l2p_sum / (total_joints * F_target)
 
-    l2q_value = l2q_sum / (n_samples * F_target * J)
+    l2q_value = l2q_sum / (total_joints * F_target)
 
-    npss_value = npss_sum / (n_samples * J * 3)
+    npss_value = npss_sum / (total_joints * 3)
 
-    sm_1_value = sm_1_sum / (n_samples * (F_target - 1) * J * 3)
-    sm_2_value = sm_2_sum / (n_samples * (F_target - 2) * J * 3)
-    sm_3_value = sm_3_sum / (n_samples * (F_target - 3) * J * 3)
+    sm_1_value = sm_1_sum / (total_joints * (F_target - 1) * 3)
+    sm_2_value = sm_2_sum / (total_joints * (F_target - 2) * 3)
+    sm_3_value = sm_3_sum / (total_joints * (F_target - 3) * 3)
 
-    foot_contact_value = (foot_contact_sum / (n_samples * F_target * len(foot_joint_indices))) * 100.0
-    foot_skating_value = foot_skating_weighted_motion_sum / foot_skating_num_active_sum if foot_skating_num_active_sum > 0 else 0.0
+    # foot_contact_value = (foot_contact_sum / (n_samples * F_target * len(foot_joint_indices))) * 100.0
+    # foot_skating_value = foot_skating_weighted_motion_sum / foot_skating_num_active_sum if foot_skating_num_active_sum > 0 else 0.0
+    foot_contact_value = -1.0
+    foot_skating_value = -1.0
 
     length_unit = constants["length_unit"]
 
@@ -230,15 +236,14 @@ def run_benchmark(model, loader, offsets, parent_indices, n_samples, benchmark_f
 
 
 # Dataset
-print("Loading dataset")
 bechmark_dataset = GraphSkeletonDataset(
-    root_dir=constants["benchmark_data_dir"],
+    data_dirs=config["test_data_dirs"],
     context_len_pre=config["context_len_pre"],
     context_len_post=config["context_len_post"],
     target_len=config["target_len"],
-    step=constants["benchmark_dataset_step"]
+    step=constants["benchmark_dataset_step"],
+    skip_start=constants["benchmark_dataset_skip_start"]
 )
-print(f"Dataset ready with {len(bechmark_dataset)} samples")
 
 benchmark_loader = DataLoader(bechmark_dataset, batch_size=constants["benchmark_dataset_batch_size"], shuffle=False)
 
@@ -267,19 +272,13 @@ if os.path.exists(benchmark_log_path):
 
 log_str = lambda text: log_string(text=text, log_path=benchmark_log_path)
 
-joint_names = bechmark_dataset.joint_names
-parent_indices = bechmark_dataset.parent_indices.to(device)
-offsets = bechmark_dataset.offsets.to(device)
 
 print("Starting benchmark on test set")
 results = run_benchmark(
     model=model,
     loader=benchmark_loader,
-    offsets=bechmark_dataset.offsets.to(device),
-    parent_indices=bechmark_dataset.parent_indices.to(device),
     n_samples=len(bechmark_dataset),
     benchmark_foot_params=constants["benchmark_foot_params"],
-    joint_names=joint_names
 )
 
 log_str("\n--- Benchmark Results ---\n")

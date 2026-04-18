@@ -40,15 +40,14 @@ if __name__ == '__main__':
 
 
     # Dataset
-    print("Loading dataset")
     dataset = GraphSkeletonDataset(
-        root_dir=config["train_data_dir"],
+        data_dirs=config["train_data_dirs"],
         context_len_pre=config["context_len_pre"],
         context_len_post=config["context_len_post"],
         target_len=config["target_len"],
-        step=config["step"]
+        step=config["step"],
+        skip_start=config["skip_start"],
     )
-    print(f"Dataset ready with {len(dataset)} samples")
 
     torch_generator = torch.Generator()
     torch_generator.manual_seed(constants["seed"])
@@ -124,9 +123,6 @@ if __name__ == '__main__':
     l1_func = torch.nn.L1Loss()
     l2_func = torch.nn.MSELoss()
 
-    parent_indices = dataset.parent_indices.to(device)
-    offsets = dataset.offsets.to(device)
-
     best_val_loss = float('inf')
     epochs_no_improve = 0
     patience = config["patience"]
@@ -172,8 +168,6 @@ if __name__ == '__main__':
                     batch=batch, 
                     l1_func=l1_func, 
                     l2_func=l2_func, 
-                    offsets=offsets, 
-                    parent_indices=parent_indices, 
                     loss_weights=config["loss_weights"]
                 )
 
@@ -223,8 +217,6 @@ if __name__ == '__main__':
                         batch=batch, 
                         l1_func=l1_func, 
                         l2_func=l2_func, 
-                        offsets=offsets, 
-                        parent_indices=parent_indices, 
                         loss_weights=config["loss_weights"]
                     )
 

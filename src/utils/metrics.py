@@ -1,19 +1,11 @@
 import torch
 
-from .rotation import rot_6d_to_rot_3x3, rot_6d_to_quat_numpy
+from .rotation import rot_6d_to_quat_numpy
 
 
-def geodesic_rotation_loss(pred_rot_6d, target_rot_6d, reduction='mean'):
+def geodesic_rotation_loss(pred_rot_3x3, target_rot_3x3, reduction='mean'):
     
-    BxJ, Fx6 = pred_rot_6d.shape
-    F = Fx6 // 6
-    pred_rot_6d = pred_rot_6d.view(BxJ, F, 6)
-    target_rot_6d = target_rot_6d.view(BxJ, F, 6)
-
-    R_pred = rot_6d_to_rot_3x3(pred_rot_6d)   
-    R_target = rot_6d_to_rot_3x3(target_rot_6d)  
-
-    R_rel = torch.matmul(R_pred.transpose(-1, -2), R_target) 
+    R_rel = torch.matmul(pred_rot_3x3.transpose(-1, -2), target_rot_3x3) 
     trace = R_rel[..., 0, 0] + R_rel[..., 1, 1] + R_rel[..., 2, 2]
 
     cos_theta = (trace - 1.0) / 2.0

@@ -1,0 +1,24 @@
+
+--- Benchmark Results ---
+
+Model description: same as v_31, but trained on two datasets (lafan1 subject-1 and ACCAD)
+
+Per joint:
+  L2P value [cm]:                    2.5692717
+  L2Q value:                         0.0352937
+  Rotation MAE [deg]:                4.0538944
+  Rotation RMSE [deg]:               6.3264329
+
+Per joint channel:
+  NPSS value:                        0.0114362
+  Root position MAE [cm]:            0.5425101
+  Root position RMSE [cm]:           0.8890859
+  All positions MAE [cm]:            1.2679809
+  All positions RMSE [cm]:           2.5118181
+  Velocity loss [cm/frame]:          0.4120503
+  Acceleration loss [cm/frame^2]:    0.2745075
+  Jerk loss [cm/frame^3]:            0.3062516
+
+Per foot joint:
+  Foot contact error rate [%]:       -1.0000000
+  Foot skating loss [cm/frame]:      -1.0000000

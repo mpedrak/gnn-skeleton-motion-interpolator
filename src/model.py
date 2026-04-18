@@ -90,12 +90,12 @@ class SkeletalMotionInterpolator(nn.Module):
         if not hasattr(data, 'num_graphs'): batch_size = 1
         else: batch_size = data.num_graphs
 
-        # Rotations
         x, edge_index = data.x, data.edge_index
 
         if hasattr(data, 'batch') and data.batch is not None: batch = data.batch 
         else: batch = torch.zeros(x.size(0), dtype=torch.long, device=x.device)
 
+        # Rotations
         for i, conv in enumerate(self.convs):
             x_prev = x
             x = conv(x, edge_index)

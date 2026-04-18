@@ -6,7 +6,7 @@ from bvh import Bvh
 
 from src.model import SkeletalMotionInterpolator
 from src.utils.bvh import replace_gap_in_bvh_text, parse_bvh_file, get_bvh_frame_count
-from src.utils.rotation import rot_6d_to_euler_zyx
+from src.utils.rotation import rot_6d_to_euler
 from src.predict_gap import predict_gap
 from src.utils.various import load_configs, set_global_seed
 
@@ -59,7 +59,7 @@ with open(input_bvh_path, "r") as f:
     text = f.read()
 
 mocap = Bvh(text)
-root_pos, rot_6d, joint_names, parent_indices, _ = parse_bvh_file(input_bvh_path)
+root_pos, rot_6d, joint_names, parent_indices, _, rot_order = parse_bvh_file(input_bvh_path)
 frames_total = rot_6d.shape[0]
 
 
@@ -83,15 +83,15 @@ with torch.no_grad():
         gap_start=gap_start_frame
     )
 
-euler_zyx_deg = rot_6d_to_euler_zyx(rot_pred, degrees=True)
+euler_deg = rot_6d_to_euler(rot_6d=rot_pred, order=rot_order, degrees=True)
 
 new_text = replace_gap_in_bvh_text(
     orig_text=text,
     mocap=mocap,
     gap_start=gap_start_frame,
     target_len=target_len,
-    euler_zyx_deg=euler_zyx_deg,
-    root_pred_xyz=root_pred
+    euler_deg=euler_deg,
+    root_pred=root_pred
 )
 
 out_path = os.path.splitext(input_bvh_path)[0] + "_pred.bvh"
