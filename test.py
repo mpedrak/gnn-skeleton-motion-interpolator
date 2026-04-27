@@ -81,15 +81,13 @@ def evaluate(model, loader, loss_weights, n_samples, log_str):
 
 # Dataset
 test_dataset = GraphSkeletonDataset(
-    data_dirs=config["test_data_dirs"],
+    data_params=config["test_data_params"],
     context_len_pre=config["context_len_pre"],
     context_len_post=config["context_len_post"],
-    target_len=config["target_len"],
-    step=config["step"],
-    skip_start=config["skip_start"]
+    target_len=config["target_len"]
 )
 
-test_loader = DataLoader(test_dataset, batch_size=config["batch_size"], shuffle=False)
+test_loader = DataLoader(test_dataset, batch_size=config["test_batch_size"], shuffle=False)
 
 
 # Model

@@ -13,7 +13,7 @@ from src.utils.various import load_configs, set_global_seed
 
 # Additional arguments
 predict_data_dir = "./data/predict/"
-dataset_dirs = ["lafan1", "ACCAD"]
+dataset_dirs = ["lafan1", "ACCAD", "SFU", "PFNN"]
 
 
 # Argument parsing

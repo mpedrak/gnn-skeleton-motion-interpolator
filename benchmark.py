@@ -237,15 +237,13 @@ def run_benchmark(model, loader, n_samples, benchmark_foot_params):
 
 # Dataset
 bechmark_dataset = GraphSkeletonDataset(
-    data_dirs=config["test_data_dirs"],
+    data_params=config["test_data_params"],
     context_len_pre=config["context_len_pre"],
     context_len_post=config["context_len_post"],
-    target_len=config["target_len"],
-    step=constants["benchmark_dataset_step"],
-    skip_start=constants["benchmark_dataset_skip_start"]
+    target_len=config["target_len"]
 )
 
-benchmark_loader = DataLoader(bechmark_dataset, batch_size=constants["benchmark_dataset_batch_size"], shuffle=False)
+benchmark_loader = DataLoader(bechmark_dataset, batch_size=config["test_batch_size"], shuffle=False)
 
 
 # Model
@@ -278,7 +276,7 @@ results = run_benchmark(
     model=model,
     loader=benchmark_loader,
     n_samples=len(bechmark_dataset),
-    benchmark_foot_params=constants["benchmark_foot_params"],
+    benchmark_foot_params=config["benchmark_foot_params"],
 )
 
 log_str("\n--- Benchmark Results ---\n")

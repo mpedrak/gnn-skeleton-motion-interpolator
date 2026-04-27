@@ -7,7 +7,7 @@ from .utils.bvh import parse_bvh_file, build_edge_index, forward_kinematics_pos,
 
 
 class GraphSkeletonDataset(Dataset):
-    def __init__(self, data_dirs, context_len_pre, context_len_post, target_len, step, skip_start):
+    def __init__(self, data_params, context_len_pre, context_len_post, target_len):
 
         super().__init__()
         self.context_len_pre = context_len_pre
@@ -16,10 +16,16 @@ class GraphSkeletonDataset(Dataset):
 
         self.cache = {}
         self.samples = []
-        
+
+        self.dir_info = []
+       
         print("Loading dataset")
         
-        for root_dir in data_dirs:
+        for data in data_params:
+
+            root_dir = data["dir"]
+            step = data["step"]
+            skip_start = data["skip_start"]
 
             print(f"Processing directory: {root_dir}")
 
@@ -65,10 +71,22 @@ class GraphSkeletonDataset(Dataset):
 
             first_data = self.cache[files[0]]
             print(f"Finished processing: {root_dir}")
-            print(f"Number of joints: {len(first_data['joint_names'])}, samples from this dir: {len(self.samples) - prev_sample_count}")
-            print_skeleton_hierarchy(joint_names=first_data["joint_names"], parent_indices=first_data["parent_indices"])
 
-        print(f"Dataset ready with {len(self.samples)} samples")
+            self.dir_info.append({
+                "root_dir": root_dir,
+                "num_joints": len(first_data['joint_names']),
+                "num_samples": len(self.samples) - prev_sample_count,
+                "joint_names": first_data['joint_names'],
+                "parent_indices": first_data['parent_indices']
+            })
+
+        print(f"\nDataset ready with {len(self.samples)} samples")
+        
+        for dir in self.dir_info:
+            print(f"Directory: {dir['root_dir']}")
+            print(f"Number of joints: {dir['num_joints']}, samples from this dir: {dir['num_samples']}")
+            print_skeleton_hierarchy(joint_names=dir["joint_names"], parent_indices=dir["parent_indices"])
+            print()
 
 
     def __len__(self):

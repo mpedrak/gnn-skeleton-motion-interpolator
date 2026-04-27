@@ -41,12 +41,10 @@ if __name__ == '__main__':
 
     # Dataset
     dataset = GraphSkeletonDataset(
-        data_dirs=config["train_data_dirs"],
+        data_params=config["train_data_params"],
         context_len_pre=config["context_len_pre"],
         context_len_post=config["context_len_post"],
-        target_len=config["target_len"],
-        step=config["step"],
-        skip_start=config["skip_start"],
+        target_len=config["target_len"]
     )
 
     torch_generator = torch.Generator()
@@ -57,12 +55,12 @@ if __name__ == '__main__':
     n_train = n_total - n_val
     train_dataset, val_dataset = random_split(dataset, [n_train, n_val], generator=torch_generator)
 
-    batch_size = config["batch_size"]
+    batch_size = config["train_batch_size"]
     train_loader = DataLoader(
         train_dataset, 
         batch_size=batch_size, 
         shuffle=True, 
-        num_workers=config["num_workers"], 
+        num_workers=constants["num_workers"], 
         pin_memory=True, 
         persistent_workers=True,
         generator=torch_generator,
@@ -73,7 +71,7 @@ if __name__ == '__main__':
         val_dataset, 
         batch_size=batch_size, 
         shuffle=False, 
-        num_workers=config["num_workers"], 
+        num_workers=constants["num_workers"], 
         pin_memory=True, 
         persistent_workers=True,
         generator=torch_generator,

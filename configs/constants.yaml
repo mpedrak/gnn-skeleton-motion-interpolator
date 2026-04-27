@@ -1,5 +1,7 @@
+# Various
 length_unit: "cm" 
 seed: 7
+num_workers: 8
 
 # Model
 models_path: "checkpoints/model/"
@@ -12,13 +14,3 @@ train_log_path: "results/train/"
 train_plot_path: "results/train_plots/"
 test_log_path: "results/test/"
 benchmark_log_path: "results/benchmark/"
-
-# Benchmark parameters
-benchmark_dataset_step: 7
-benchmark_dataset_skip_start: 50
-benchmark_dataset_batch_size: 1024
-benchmark_foot_params: {
-  height_eps: 2.0,
-  velocity_eps: 0.5,
-  joint_names: ["LeftToe", "RightToe"]
-}

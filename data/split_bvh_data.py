@@ -1,12 +1,12 @@
 # Splits BVH files into training and testing sets based on phrase in filename
 
-data_dir = "./datasets/ACCAD"    
+data_dir = "./datasets/SFU"   
 
-train_dir = "./train/ACCAD"   
-train_phrases = ["Female1_B", "Female1_C", "Female1_D", "Male1_B", "Male1_C", "Male2_A", "Male2_B", "Male2_D", "Male2_E", "Male2_F", "Male2_G", "eric", "flip", "swagger"]
+test_dir = "./test/SFU-5"   
+test_phrases = ["0005_BackwardsWalk001", "0008_Walking002", "0018_DanceTurns002", "0018_XinJiang003", "0015_JumpOverObstacle001"]
 
-test_dir = "./test/ACCAD"   
-test_phrases = ["Female1_A", "Male1_A", "Male2_C"]
+train_dir = "./train/SFU"   
+train_phrases = ["_"]
 
 # ---
 
