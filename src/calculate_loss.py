@@ -38,7 +38,7 @@ def calculate_loss(out, batch, l1_func, l2_func, loss_weights):
     root_pos_loss = l2_func(root_pos_pred_flat, root_pos_tgt_flat)
 
     # Forward kinematics 
-    fk_pos_pred = forward_kinematics_pos_dense_batch(
+    fk_pos_pred, _ = forward_kinematics_pos_dense_batch(
         offsets=batch.offsets,
         parent_indices=batch.parent_indices,
         root_pos=root_pos_pred,

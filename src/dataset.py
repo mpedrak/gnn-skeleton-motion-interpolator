@@ -43,7 +43,7 @@ class GraphSkeletonDataset(Dataset):
                     print(f"Loaded cached file: {cache_path}")
                 else:
                     root_pos, rot_6d, joint_names, parent_indices, offsets, _ = parse_bvh_file(filepath)
-                    fk_pos = forward_kinematics_pos(
+                    fk_pos, global_3x3_rots = forward_kinematics_pos(
                         offsets=offsets, 
                         parent_indices=parent_indices, 
                         root_pos=root_pos, 
@@ -57,7 +57,8 @@ class GraphSkeletonDataset(Dataset):
                         'joint_names': joint_names,
                         'parent_indices': parent_indices,
                         'offsets': offsets,
-                        'edge_index': edge_index
+                        'edge_index': edge_index,
+                        'global_3x3_rots': global_3x3_rots
                     }
                     torch.save(data, cache_path)
                     print(f"Saved and loaded cache file: {cache_path}")
@@ -121,12 +122,15 @@ class GraphSkeletonDataset(Dataset):
  
         root_pos_for_lerp = torch.stack([data['root_pos'][tgt_start - 1], data['root_pos'][post_ctx_start]], dim=0) # [2, 3]
         rot_6d_for_slerp = torch.stack([data['rot_6d'][tgt_start - 1], data['rot_6d'][post_ctx_start]], dim=0) # [2, J, 6]
+
+        global_3x3_rots_tgt = data['global_3x3_rots'][tgt_start : post_ctx_start] # [F, J, 3, 3]
         
         # Permute node level features for PyG batch
         x_feat = rot_6d_ctx.permute(1, 0, 2).reshape(num_joints, -1) # -> [J, F * 6]
         y_feat = rot_6d_tgt.permute(1, 0, 2).reshape(num_joints, -1) # -> [J, F * 6]
         fk_pos_tgt = fk_pos_tgt.permute(1, 0, 2) # -> [J, F, 3]
         rot_6d_for_slerp = rot_6d_for_slerp.permute(1, 0, 2) # -> [J, 2, 6]
+        global_3x3_rots_tgt = global_3x3_rots_tgt.permute(1, 0, 2, 3) # -> [J, F, 3, 3]
 
         return Data(
             x=x_feat,
@@ -136,6 +140,7 @@ class GraphSkeletonDataset(Dataset):
             fk_pos_tgt=fk_pos_tgt,
             root_pos_for_lerp=root_pos_for_lerp,
             rot_6d_for_slerp=rot_6d_for_slerp,
+            global_3x3_rots_tgt=global_3x3_rots_tgt,
             offsets=data['offsets'],
             edge_index=data['edge_index'],
             parent_indices=data['parent_indices'],

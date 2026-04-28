@@ -85,7 +85,7 @@ def build_edge_index(parent_indices):
 
 def forward_kinematics_pos_batch(offsets, parent_indices, root_pos, rot_6d):
     # Offsets [J, 3], parent_indices [J], root_pos [B, F, 3], rot_6d [B, F, J, 6] 
-    # -> positions [B, F, J, 3]
+    # -> positions [B, F, J, 3], global_rots [B, F, J, 3, 3]
     
     B, F, J, _ = rot_6d.shape
     device = rot_6d.device
@@ -111,17 +111,17 @@ def forward_kinematics_pos_batch(offsets, parent_indices, root_pos, rot_6d):
         global_rots[:, :, j, :, :] = torch.matmul(parent_rot, rot_mats[:, :, j, :, :])
         positions[:, :, j, :] = positions[:, :, p, :] + torch.matmul(parent_rot, offsets[j])
         
-    return positions
+    return positions, global_rots
 
 
 def forward_kinematics_pos(offsets, parent_indices, root_pos, rot_6d):
     # Offsets [J, 3], parent_indices [J], root_pos [F, 3], rot_6d [F, J, 6] 
-    # -> positions [F, J, 3]
+    # -> positions [F, J, 3], global_rots [F, J, 3, 3]
     
     root_pos_batched = root_pos.unsqueeze(0)      
     rot_6d_batched = rot_6d.unsqueeze(0) 
 
-    positions_batched = forward_kinematics_pos_batch(
+    positions_batched, global_rots_batched = forward_kinematics_pos_batch(
         offsets=offsets,
         parent_indices=parent_indices,
         root_pos=root_pos_batched,
@@ -129,14 +129,15 @@ def forward_kinematics_pos(offsets, parent_indices, root_pos, rot_6d):
     )
 
     positions = positions_batched.squeeze(0)
+    global_3x3_rots = global_rots_batched.squeeze(0)
 
-    return positions
+    return positions, global_3x3_rots
 
 
 def forward_kinematics_pos_dense_batch(offsets, parent_indices, root_pos, rot_3x3, batch_index):
     # Offsets: [N_total, 3], parent_indices: [N_total], root_pos: [B, F, 3], rot_3x3: [N_total, F, 3, 3], batch_index: [N_total]
-    # -> positions: [N_total, F, 3]
-    
+    # -> positions: [N_total, F, 3], global_rot: [N_total, F, 3, 3]
+
     rot_d, mask = to_dense_batch(rot_3x3, batch_index) # [B, max_J, F, 3, 3], [B, max_J] (True / False)
     offsets_d, _ = to_dense_batch(offsets, batch_index)
     parent_indices_d, _ = to_dense_batch(parent_indices, batch_index, fill_value=-1)
@@ -180,8 +181,11 @@ def forward_kinematics_pos_dense_batch(offsets, parent_indices, root_pos, rot_3x
         
     pos_dense = torch.stack(pos_list, dim=1) # [B, max_J, F, 3]
     positions = pos_dense[mask] # [N_total, F, 3]
+
+    rot_dense = torch.stack(rot_list, dim=1) # [B, max_J, F, 3, 3]
+    global_3x3_rots = rot_dense[mask] # [N_total, F, 3, 3]
     
-    return positions
+    return positions, global_3x3_rots
 
 
 def get_joint_indices_by_name(all_joint_names, target_joint_names):

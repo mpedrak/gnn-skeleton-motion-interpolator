@@ -53,8 +53,3 @@ test_data_params: [
   {step: 4, skip_start: 30, dir: "data/test/PFNN-LF-2-9-11"},
   {step: 1, skip_start: 1, dir: "data/test/SFU-5"}
 ]
-benchmark_foot_params: {
-  height_eps: 2.0,
-  velocity_eps: 0.5,
-  joint_names: ["LeftToe", "RightToe"]
-}
