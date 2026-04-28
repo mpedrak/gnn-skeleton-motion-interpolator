@@ -43,6 +43,9 @@ def evaluate(model, loader, loss_weights, n_samples, log_str):
     total_rot_loss = 0.0
     total_root_pos_loss = 0.0
     total_fk_loss = 0.0
+    total_sm_vel_loss = 0.0
+    total_sm_acc_loss = 0.0
+    total_sm_jerk_loss = 0.0
 
     with torch.no_grad():
         for batch in tqdm(loader, desc="Test", leave=False):
@@ -55,7 +58,7 @@ def evaluate(model, loader, loss_weights, n_samples, log_str):
             out["rot"] = out["rot"].float()
             out["root_pos"] = out["root_pos"].float()
 
-            loss, rot_geo_loss, root_pos_loss, fk_pos_loss = calculate_loss(
+            loss, rot_geo_loss, root_pos_loss, fk_pos_loss, sm_vel_loss, sm_acc_loss, sm_jerk_loss = calculate_loss(
                 out=out, 
                 batch=batch, 
                 l1_func=l1_func, 
@@ -66,17 +69,26 @@ def evaluate(model, loader, loss_weights, n_samples, log_str):
             total_loss += loss.item() * batch.num_graphs
             total_rot_loss += rot_geo_loss.item() * batch.num_graphs
             total_root_pos_loss += root_pos_loss.item() * batch.num_graphs
-            total_fk_loss += fk_pos_loss.item() * batch.num_graphs           
+            total_fk_loss += fk_pos_loss.item() * batch.num_graphs      
+            total_sm_vel_loss += sm_vel_loss.item() * batch.num_graphs
+            total_sm_acc_loss += sm_acc_loss.item() * batch.num_graphs
+            total_sm_jerk_loss += sm_jerk_loss.item() * batch.num_graphs
 
         avg_loss = total_loss / n_samples
         avg_rot_loss = total_rot_loss / n_samples
         avg_root_pos_loss = total_root_pos_loss / n_samples
         avg_fk_loss = total_fk_loss / n_samples
+        avg_sm_vel_loss = total_sm_vel_loss / n_samples
+        avg_sm_acc_loss = total_sm_acc_loss / n_samples
+        avg_sm_jerk_loss = total_sm_jerk_loss / n_samples
 
         log_str(f"Test loss:                      {avg_loss:.7f}")
         log_str(f"'- Rotations Geodesic L1:       '- {avg_rot_loss:.4f}")
         log_str(f"'- Root positions L2:           '- {avg_root_pos_loss:.4f}")
         log_str(f"'- FK positions L1:             '- {avg_fk_loss:.4f}")  
+        log_str(f"'- Velocity loss:               '- {avg_sm_vel_loss:.4f}")
+        log_str(f"'- Acceleration loss:           '- {avg_sm_acc_loss:.4f}")
+        log_str(f"'- Jerk loss:                   '- {avg_sm_jerk_loss:.4f}")
 
 
 # Dataset

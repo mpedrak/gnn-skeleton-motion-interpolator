@@ -1,6 +1,6 @@
 import torch
 
-from .utils.metrics import geodesic_rotation_loss
+from .utils.metrics import calculate_smoothness_loss, geodesic_rotation_loss
 from .utils.bvh import forward_kinematics_pos_dense_batch, compute_lerp_batch
 from .utils.rotation import rot_6d_to_rot_3x3, compute_slerp_batch
 
@@ -44,16 +44,25 @@ def calculate_loss(out, batch, l1_func, l2_func, loss_weights):
         root_pos=root_pos_pred,
         rot_3x3=rot_pred_3x3,
         batch_index=batch.batch
-    ) 
+    )
 
     fk_pos_tgt_flat = batch.fk_pos_tgt.view(N_total, -1)
     fk_pos_pred_flat = fk_pos_pred.view(N_total, -1)
     fk_pos_loss = l1_func(fk_pos_pred_flat, fk_pos_tgt_flat)
 
+    fk_pos_tgt = batch.fk_pos_tgt.view(N_total, F_target, 3)
+    sm_1_loss = calculate_smoothness_loss(fk_pos_pred, fk_pos_tgt, order=1, reduction='mean')
+    sm_2_loss = calculate_smoothness_loss(fk_pos_pred, fk_pos_tgt, order=2, reduction='mean')
+    sm_3_loss = calculate_smoothness_loss(fk_pos_pred, fk_pos_tgt, order=3, reduction='mean')
+
     # Total loss
     rot_geo_loss_w = loss_weights['rot_geo_l1'] * rot_geo_loss
     root_pos_loss_w = loss_weights['root_pos_l2'] * root_pos_loss
     fk_pos_loss_w = loss_weights['fk_pos_l1'] * fk_pos_loss
-    loss = rot_geo_loss_w + root_pos_loss_w + fk_pos_loss_w
+    sm_vel_loss_w = loss_weights['sm_vel'] * sm_1_loss
+    sm_acc_loss_w = loss_weights['sm_acc'] * sm_2_loss
+    sm_jerk_loss_w = loss_weights['sm_jerk'] * sm_3_loss
 
-    return loss, rot_geo_loss_w, root_pos_loss_w, fk_pos_loss_w
+    loss = rot_geo_loss_w + root_pos_loss_w + fk_pos_loss_w + sm_vel_loss_w + sm_acc_loss_w + sm_jerk_loss_w
+
+    return loss, rot_geo_loss_w, root_pos_loss_w, fk_pos_loss_w, sm_vel_loss_w, sm_acc_loss_w, sm_jerk_loss_w

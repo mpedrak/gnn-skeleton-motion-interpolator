@@ -131,6 +131,9 @@ if __name__ == '__main__':
     val_rot_losses = []
     val_root_pos_losses = []
     val_fk_losses = []
+    val_sm_vel_losses = []
+    val_sm_acc_losses = []
+    val_sm_jerk_losses = []
 
     start_time = time.time()
     print("Starting time measurement")
@@ -149,6 +152,9 @@ if __name__ == '__main__':
             total_rot_loss = 0.0
             total_root_pos_loss = 0.0
             total_fk_loss = 0.0
+            total_sm_vel_loss = 0.0
+            total_sm_acc_loss = 0.0
+            total_sm_jerk_loss = 0.0
 
             for batch in tqdm(train_loader, desc="Train", leave=False):
                 
@@ -161,7 +167,7 @@ if __name__ == '__main__':
                 out["rot"] = out["rot"].float()
                 out["root_pos"] = out["root_pos"].float()
 
-                loss, rot_geo_loss, root_pos_loss, fk_pos_loss = calculate_loss(
+                loss, rot_geo_loss, root_pos_loss, fk_pos_loss, sm_vel_loss, sm_acc_loss, sm_jerk_loss = calculate_loss(
                     out=out, 
                     batch=batch, 
                     l1_func=l1_func, 
@@ -176,12 +182,18 @@ if __name__ == '__main__':
                 total_rot_loss += rot_geo_loss.item() * batch.num_graphs
                 total_root_pos_loss += root_pos_loss.item() * batch.num_graphs
                 total_fk_loss += fk_pos_loss.item() * batch.num_graphs
+                total_sm_vel_loss += sm_vel_loss.item() * batch.num_graphs
+                total_sm_acc_loss += sm_acc_loss.item() * batch.num_graphs
+                total_sm_jerk_loss += sm_jerk_loss.item() * batch.num_graphs
 
             n_samples = len(train_dataset)
             avg_loss = total_loss / n_samples
             avg_rot_loss = total_rot_loss / n_samples
             avg_root_pos_loss = total_root_pos_loss / n_samples
             avg_fk_loss = total_fk_loss / n_samples
+            avg_sm_vel_loss = total_sm_vel_loss / n_samples
+            avg_sm_acc_loss = total_sm_acc_loss / n_samples
+            avg_sm_jerk_loss = total_sm_jerk_loss / n_samples
 
             train_losses.append(avg_loss)
 
@@ -189,7 +201,9 @@ if __name__ == '__main__':
             log_str(f"'- Rotations geodesic L1:       '- {avg_rot_loss:.4f}")
             log_str(f"'- Root positions L2:           '- {avg_root_pos_loss:.4f}")
             log_str(f"'- FK positions L1:             '- {avg_fk_loss:.4f}")
-
+            log_str(f"'- Velocity loss:               '- {avg_sm_vel_loss:.4f}")
+            log_str(f"'- Acceleration loss:           '- {avg_sm_acc_loss:.4f}")
+            log_str(f"'- Jerk loss:                   '- {avg_sm_jerk_loss:.4f}")
 
             # Validation
             model.eval()
@@ -198,6 +212,9 @@ if __name__ == '__main__':
             total_rot_loss = 0.0
             total_root_pos_loss = 0.0
             total_fk_loss = 0.0
+            total_sm_vel_loss = 0.0
+            total_sm_acc_loss = 0.0
+            total_sm_jerk_loss = 0.0
 
             with torch.no_grad():
                 for batch in tqdm(val_loader, desc="Val", leave=False):
@@ -210,7 +227,7 @@ if __name__ == '__main__':
                     out["rot"] = out["rot"].float()
                     out["root_pos"] = out["root_pos"].float()
 
-                    loss, rot_geo_loss, root_pos_loss, fk_pos_loss = calculate_loss(
+                    loss, rot_geo_loss, root_pos_loss, fk_pos_loss, sm_vel_loss, sm_acc_loss, sm_jerk_loss = calculate_loss(
                         out=out, 
                         batch=batch, 
                         l1_func=l1_func, 
@@ -222,22 +239,34 @@ if __name__ == '__main__':
                     total_rot_loss += rot_geo_loss.item() * batch.num_graphs
                     total_root_pos_loss += root_pos_loss.item() * batch.num_graphs
                     total_fk_loss += fk_pos_loss.item() * batch.num_graphs
+                    total_sm_vel_loss += sm_vel_loss.item() * batch.num_graphs
+                    total_sm_acc_loss += sm_acc_loss.item() * batch.num_graphs
+                    total_sm_jerk_loss += sm_jerk_loss.item() * batch.num_graphs
 
             n_samples = len(val_dataset)
             avg_loss = total_loss / n_samples
             avg_rot_loss = total_rot_loss / n_samples
             avg_root_pos_loss = total_root_pos_loss / n_samples
             avg_fk_loss = total_fk_loss / n_samples
+            avg_sm_vel_loss = total_sm_vel_loss / n_samples
+            avg_sm_acc_loss = total_sm_acc_loss / n_samples
+            avg_sm_jerk_loss = total_sm_jerk_loss / n_samples
 
             val_losses.append(avg_loss)
             val_rot_losses.append(avg_rot_loss)
             val_root_pos_losses.append(avg_root_pos_loss)
             val_fk_losses.append(avg_fk_loss)
+            val_sm_vel_losses.append(avg_sm_vel_loss)
+            val_sm_acc_losses.append(avg_sm_acc_loss)
+            val_sm_jerk_losses.append(avg_sm_jerk_loss)
 
             log_str(f"Validation loss:                {avg_loss:.7f}")
             log_str(f"'- Rotations geodesic L1:       '- {avg_rot_loss:.4f}")
             log_str(f"'- Root positions L2:           '- {avg_root_pos_loss:.4f}")
             log_str(f"'- FK positions L1:             '- {avg_fk_loss:.4f}")
+            log_str(f"'- Velocity loss:               '- {avg_sm_vel_loss:.4f}")
+            log_str(f"'- Acceleration loss:           '- {avg_sm_acc_loss:.4f}")
+            log_str(f"'- Jerk loss:                   '- {avg_sm_jerk_loss:.4f}")
 
             scheduler.step(avg_loss)
 
@@ -274,6 +303,9 @@ if __name__ == '__main__':
             plt.plot(range(1, len(val_rot_losses) + 1), val_rot_losses, label='Val rotations geodesic L1 loss', alpha=0.5)
             plt.plot(range(1, len(val_root_pos_losses) + 1), val_root_pos_losses, label='Val root positions L2 loss', alpha=0.5)
             plt.plot(range(1, len(val_fk_losses) + 1), val_fk_losses, label='Val FK positions L1 loss', alpha=0.5)
+            plt.plot(range(1, len(val_sm_vel_losses) + 1), val_sm_vel_losses, label='Val velocity loss', alpha=0.5)
+            plt.plot(range(1, len(val_sm_acc_losses) + 1), val_sm_acc_losses, label='Val acceleration loss', alpha=0.5)
+            plt.plot(range(1, len(val_sm_jerk_losses) + 1), val_sm_jerk_losses, label='Val jerk loss', alpha=0.5)
             
             plt.xlabel('Epoch')
             plt.ylabel('Loss (log scale)')
