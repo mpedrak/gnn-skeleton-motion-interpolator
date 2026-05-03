@@ -4,6 +4,7 @@ import argparse
 import time
 import gc
 import matplotlib.pyplot as plt
+import json
 
 from torch_geometric.loader import DataLoader
 from tqdm import tqdm
@@ -46,6 +47,13 @@ if __name__ == '__main__':
         context_len_post=config["context_len_post"],
         target_len=config["target_len"]
     )
+
+    os.makedirs(constants["skeletons_path"], exist_ok=True)
+    skeletons_path = constants["skeletons_path"] + filename + constants["skeletons_suffix"]
+    serializable_skeletons = [list(skeleton) for skeleton in dataset.skeleton_topologies]
+    with open(skeletons_path, 'w') as f:
+        json.dump(serializable_skeletons, f, indent=4)
+
 
     torch_generator = torch.Generator()
     torch_generator.manual_seed(constants["seed"])

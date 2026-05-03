@@ -6,6 +6,8 @@ num_workers: 8
 # Model
 models_path: "checkpoints/model/"
 models_suffix: ".pth"
+skeletons_path: "checkpoints/skeletons/"
+skeletons_suffix: ".json"
 
 # Logs
 log_suffix: ".txt"

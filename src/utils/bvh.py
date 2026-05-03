@@ -338,3 +338,15 @@ def replace_gap_in_bvh_text(orig_text, mocap, gap_start, target_len, euler_deg, 
     text = "\n".join(new_lines) + ("\n" if orig_text.endswith("\n") else "")
     
     return text
+
+
+def compress_skeleton_hierarchy(parent_indices, joint_names):
+    hierarchy = []
+    for i, parent_idx in enumerate(parent_indices):
+        current_name = joint_names[i]
+        parent_name = None if parent_idx == -1 else joint_names[parent_idx]
+        hierarchy.append((current_name, parent_name))
+
+    hierarchy = sorted(hierarchy)
+        
+    return hierarchy

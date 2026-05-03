@@ -1,11 +1,12 @@
 import os
 import torch
 import argparse
+import json
 
 from bvh import Bvh
 
 from src.model import SkeletalMotionInterpolator
-from src.utils.bvh import replace_gap_in_bvh_text, parse_bvh_file, get_bvh_frame_count
+from src.utils.bvh import replace_gap_in_bvh_text, parse_bvh_file, get_bvh_frame_count, compress_skeleton_hierarchy
 from src.utils.rotation import rot_6d_to_euler
 from src.predict_gap import predict_gap
 from src.utils.various import load_configs, set_global_seed
@@ -53,6 +54,12 @@ state = torch.load(model_path, map_location=device)
 model.load_state_dict(state)
 print(f"Loaded checkpoint: {model_path}")
 
+skeletons_path = constants["skeletons_path"] + filename + constants["skeletons_suffix"]
+with open(skeletons_path, 'r') as f:
+    loaded_list = json.load(f)
+
+model_supported_skeletons = {tuple(tuple(joint) for joint in skeleton) for skeleton in loaded_list}
+
 
 # Parsing BVH 
 with open(input_bvh_path, "r") as f:
@@ -61,6 +68,14 @@ with open(input_bvh_path, "r") as f:
 mocap = Bvh(text)
 root_pos, rot_6d, joint_names, parent_indices, _, rot_order = parse_bvh_file(input_bvh_path)
 frames_total = rot_6d.shape[0]
+
+compressed_skeleton = tuple(compress_skeleton_hierarchy(
+    parent_indices=parent_indices, 
+    joint_names=joint_names
+))
+
+if compressed_skeleton not in model_supported_skeletons:
+    print(f"WARNING: this skeleton topology was not used during training")
 
 
 # Prediction

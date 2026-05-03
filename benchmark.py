@@ -2,6 +2,7 @@ import torch
 import os
 import argparse
 import numpy as np
+import json
 
 from torch_geometric.loader import DataLoader 
 from tqdm import tqdm
@@ -198,14 +199,22 @@ def run_benchmark(model, loader, n_samples):
 
 
 # Dataset
-bechmark_dataset = GraphSkeletonDataset(
+benchmark_dataset = GraphSkeletonDataset(
     data_params=config["test_data_params"],
     context_len_pre=config["context_len_pre"],
     context_len_post=config["context_len_post"],
     target_len=config["target_len"]
 )
 
-benchmark_loader = DataLoader(bechmark_dataset, batch_size=config["test_batch_size"], shuffle=False)
+benchmark_loader = DataLoader(benchmark_dataset, batch_size=config["test_batch_size"], shuffle=False)
+
+skeletons_path = constants["skeletons_path"] + filename + constants["skeletons_suffix"]
+with open(skeletons_path, 'r') as f:
+    loaded_list = json.load(f)
+
+model_supported_skeletons = {tuple(tuple(joint) for joint in skeleton) for skeleton in loaded_list}
+if benchmark_dataset.skeleton_topologies != model_supported_skeletons:
+    print("WARNING: skeleton topologies in the test dataset do not match those used during training")
 
 
 # Model
@@ -237,7 +246,7 @@ print("Starting benchmark on test set")
 results = run_benchmark(
     model=model,
     loader=benchmark_loader,
-    n_samples=len(bechmark_dataset)
+    n_samples=len(benchmark_dataset)
 )
 
 log_str("\n--- Benchmark Results ---\n")

@@ -1,6 +1,7 @@
 import torch
 import os
 import argparse
+import json
 
 from torch_geometric.loader import DataLoader 
 from tqdm import tqdm
@@ -100,6 +101,14 @@ test_dataset = GraphSkeletonDataset(
 )
 
 test_loader = DataLoader(test_dataset, batch_size=config["test_batch_size"], shuffle=False)
+
+skeletons_path = constants["skeletons_path"] + filename + constants["skeletons_suffix"]
+with open(skeletons_path, 'r') as f:
+    loaded_list = json.load(f)
+
+model_supported_skeletons = {tuple(tuple(joint) for joint in skeleton) for skeleton in loaded_list}
+if test_dataset.skeleton_topologies != model_supported_skeletons:
+    print("WARNING: skeleton topologies in the test dataset do not match those used during training")
 
 
 # Model

@@ -3,7 +3,7 @@ import torch
 
 from torch_geometric.data import Data, Dataset
 
-from .utils.bvh import parse_bvh_file, build_edge_index, forward_kinematics_pos, print_skeleton_hierarchy
+from .utils.bvh import parse_bvh_file, build_edge_index, forward_kinematics_pos, print_skeleton_hierarchy, compress_skeleton_hierarchy
 
 
 class GraphSkeletonDataset(Dataset):
@@ -18,6 +18,7 @@ class GraphSkeletonDataset(Dataset):
         self.samples = []
 
         self.dir_info = []
+        self.skeleton_topologies = set()
        
         print("Loading dataset")
         
@@ -26,6 +27,8 @@ class GraphSkeletonDataset(Dataset):
             root_dir = data["dir"]
             step = data["step"]
             skip_start = data["skip_start"]
+
+            unique_skeletons = set()
 
             print(f"Processing directory: {root_dir}")
 
@@ -65,28 +68,41 @@ class GraphSkeletonDataset(Dataset):
 
                 self.cache[fname] = data
 
+                parent_indices = data['parent_indices']
+                joint_names = data['joint_names']
+
+                if isinstance(parent_indices, torch.Tensor): parent_indices = parent_indices.tolist()
+                if isinstance(joint_names, torch.Tensor): joint_names = joint_names.tolist()
+
+                unique_skeletons.add((tuple(parent_indices), tuple(joint_names)))
+
+                self.skeleton_topologies.add(tuple(compress_skeleton_hierarchy(
+                    parent_indices=parent_indices, 
+                    joint_names=joint_names
+                )))
+
                 frames = data['rot_6d'].shape[0]
                 used_frames = context_len_pre + context_len_post + target_len
                 for start in range(skip_start, frames - used_frames, step):
                     self.samples.append((fname, start))
 
-            first_data = self.cache[files[0]]
             print(f"Finished processing: {root_dir}")
 
             self.dir_info.append({
                 "root_dir": root_dir,
-                "num_joints": len(first_data['joint_names']),
                 "num_samples": len(self.samples) - prev_sample_count,
-                "joint_names": first_data['joint_names'],
-                "parent_indices": first_data['parent_indices']
+                "skeletons": unique_skeletons
             })
 
-        print(f"\nDataset ready with {len(self.samples)} samples")
+        print(f"\nDataset ready with {len(self.samples)} samples, {len(self.skeleton_topologies)} unique skeleton topologies\n")
         
         for dir in self.dir_info:
             print(f"Directory: {dir['root_dir']}")
-            print(f"Number of joints: {dir['num_joints']}, samples from this dir: {dir['num_samples']}")
-            print_skeleton_hierarchy(joint_names=dir["joint_names"], parent_indices=dir["parent_indices"])
+            print(f"Samples from this dir: {dir['num_samples']}, unique skeletons: {len(dir['skeletons'])}")
+            for parent_indices, joint_names in dir["skeletons"]:
+                print(f"Number of joints: {len(joint_names)}")
+                print_skeleton_hierarchy(joint_names=joint_names, parent_indices=parent_indices)
+            
             print()
 
 

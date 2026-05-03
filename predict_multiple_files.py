@@ -1,11 +1,12 @@
 import os
 import torch
 import argparse
+import json
 
 from bvh import Bvh
 
 from src.model import SkeletalMotionInterpolator
-from src.utils.bvh import replace_gap_in_bvh_text, parse_bvh_file, get_bvh_frame_count
+from src.utils.bvh import replace_gap_in_bvh_text, parse_bvh_file, get_bvh_frame_count, compress_skeleton_hierarchy
 from src.utils.rotation import rot_6d_to_euler
 from src.predict_gap import predict_gap
 from src.utils.various import load_configs, set_global_seed
@@ -13,7 +14,7 @@ from src.utils.various import load_configs, set_global_seed
 
 # Additional arguments
 predict_data_dir = "./data/predict/"
-dataset_dirs = ["lafan1", "ACCAD", "SFU", "PFNN"]
+dataset_dirs = ["lafan1", "ACCAD", "SFU", "PFNN", "ACCAD-other", "SFU-other"]
 
 
 # Argument parsing
@@ -62,6 +63,12 @@ for dataset_dir in dataset_dirs:
         if file.endswith(".bvh") and not file.endswith("_pred_multi.bvh"):
             bvh_paths.append(os.path.join(dataset_path, file))
 
+skeletons_path = constants["skeletons_path"] + filename + constants["skeletons_suffix"]
+with open(skeletons_path, 'r') as f:
+    loaded_list = json.load(f)
+
+model_supported_skeletons = {tuple(tuple(joint) for joint in skeleton) for skeleton in loaded_list}
+
 model.eval()
 
 for input_bvh_path in bvh_paths:
@@ -72,6 +79,15 @@ for input_bvh_path in bvh_paths:
 
     mocap = Bvh(text)
     root_pos, rot_6d, joint_names, parent_indices, _,  rot_order = parse_bvh_file(input_bvh_path)
+
+    compressed_skeleton = tuple(compress_skeleton_hierarchy(
+        parent_indices=parent_indices, 
+        joint_names=joint_names
+    ))
+
+    if compressed_skeleton not in model_supported_skeletons:
+        print(f"WARNING: this skeleton topology was not used during training")
+
     frames_total = rot_6d.shape[0]   
     new_text = text  
 
