@@ -35,7 +35,7 @@ class SkeletalMotionInterpolator(nn.Module):
         self.convs = []
         self.convs.append(
             GATConv(
-                in_channels=rot_gnn_params["num_features_in"] * context_len,
+                in_channels=(rot_gnn_params["num_features_in"] * context_len) + rot_gnn_params["additional_features_in"],
                 out_channels=gat_hidden_dim, 
                 heads=heads, 
                 concat=True, 

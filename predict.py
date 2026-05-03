@@ -66,7 +66,7 @@ with open(input_bvh_path, "r") as f:
     text = f.read()
 
 mocap = Bvh(text)
-root_pos, rot_6d, joint_names, parent_indices, _, rot_order = parse_bvh_file(input_bvh_path)
+root_pos, rot_6d, joint_names, parent_indices, offsets, rot_order = parse_bvh_file(input_bvh_path)
 frames_total = rot_6d.shape[0]
 
 compressed_skeleton = tuple(compress_skeleton_hierarchy(
@@ -95,7 +95,8 @@ with torch.no_grad():
         context_len_pre=context_len_pre,
         context_len_post=context_len_post,
         target_len=target_len,
-        gap_start=gap_start_frame
+        gap_start=gap_start_frame,
+        offsets=offsets
     )
 
 euler_deg = rot_6d_to_euler(rot_6d=rot_pred, order=rot_order, degrees=True)

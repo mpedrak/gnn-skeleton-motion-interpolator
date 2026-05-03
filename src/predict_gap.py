@@ -8,18 +8,23 @@ from .utils.rotation import rot_6d_to_rot_3x3, rot_3x3_to_rot_6d, compute_slerp
 
 
 @torch.no_grad()
-def predict_gap(model, device, rot_6d, root_pos, parent_indices, context_len_pre, context_len_post, target_len, gap_start):
+def predict_gap(model, device, rot_6d, root_pos, parent_indices, context_len_pre, context_len_post, target_len, gap_start, offsets):
     
     J = rot_6d.shape[1]
     second_start = gap_start + target_len
     end = second_start + context_len_post
     first_start = gap_start - context_len_pre
 
-    # Rotations
+    # Rotations and offsets
     first_part_rot = rot_6d[first_start : gap_start]
     second_part_rot = rot_6d[second_start : end]
     rot_ctx = np.concatenate([first_part_rot, second_part_rot], axis=0)
     x_feat = torch.tensor(rot_ctx, dtype=torch.float32).permute(1, 0, 2).reshape(J, -1) # [J, F * 6]
+    offsets_tensor = torch.tensor(offsets, dtype=torch.float32) if not isinstance(offsets, torch.Tensor) else offsets.clone()
+    parent_tensor = torch.tensor(parent_indices) if not isinstance(parent_indices, torch.Tensor) else parent_indices
+    offsets_tensor[parent_tensor == -1] = 0.0
+    bone_lengths = torch.linalg.norm(offsets_tensor, dim=1, keepdim=True)
+    x_feat = torch.cat([x_feat, bone_lengths], dim=1) # [J, F * 6 + 1]
 
     # Root positions
     first_part_root_pos = root_pos[first_start : gap_start]

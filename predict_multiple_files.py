@@ -78,7 +78,7 @@ for input_bvh_path in bvh_paths:
         text = f.read()
 
     mocap = Bvh(text)
-    root_pos, rot_6d, joint_names, parent_indices, _,  rot_order = parse_bvh_file(input_bvh_path)
+    root_pos, rot_6d, joint_names, parent_indices, offsets, rot_order = parse_bvh_file(input_bvh_path)
 
     compressed_skeleton = tuple(compress_skeleton_hierarchy(
         parent_indices=parent_indices, 
@@ -110,7 +110,8 @@ for input_bvh_path in bvh_paths:
                 context_len_pre=context_len_pre,
                 context_len_post=context_len_post,
                 target_len=target_len,
-                gap_start=gap_start_frame
+                gap_start=gap_start_frame,
+                offsets=offsets
             )
 
         euler_deg = rot_6d_to_euler(rot_6d=rot_pred, order=rot_order, degrees=True)

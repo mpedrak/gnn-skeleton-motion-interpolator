@@ -131,6 +131,10 @@ class GraphSkeletonDataset(Dataset):
         second_part = second_part.clone() - first_ctx_root_pos
         root_pos_ctx = torch.cat([first_part, second_part], dim=0) # [F, 3]
 
+        offsets = data['offsets'].clone() # [J, 3]
+        offsets[data['parent_indices'] == -1] = 0.0
+        bone_lengths = torch.linalg.norm(offsets, dim=1, keepdim=True) # [J, 1]
+
         # Target
         rot_6d_tgt = data['rot_6d'][tgt_start : post_ctx_start] # [F, J, 6]
         root_pos_tgt = data['root_pos'][tgt_start : post_ctx_start] # [F, 3]
@@ -143,6 +147,7 @@ class GraphSkeletonDataset(Dataset):
         
         # Permute node level features for PyG batch
         x_feat = rot_6d_ctx.permute(1, 0, 2).reshape(num_joints, -1) # -> [J, F * 6]
+        x_feat = torch.cat([x_feat, bone_lengths], dim=1) # -> [J, (F * 6) + 1]
         y_feat = rot_6d_tgt.permute(1, 0, 2).reshape(num_joints, -1) # -> [J, F * 6]
         fk_pos_tgt = fk_pos_tgt.permute(1, 0, 2) # -> [J, F, 3]
         rot_6d_for_slerp = rot_6d_for_slerp.permute(1, 0, 2) # -> [J, 2, 6]
@@ -157,7 +162,7 @@ class GraphSkeletonDataset(Dataset):
             root_pos_for_lerp=root_pos_for_lerp,
             rot_6d_for_slerp=rot_6d_for_slerp,
             global_3x3_rots_tgt=global_3x3_rots_tgt,
-            offsets=data['offsets'],
+            offsets=offsets,
             edge_index=data['edge_index'],
             parent_indices=data['parent_indices'],
         )

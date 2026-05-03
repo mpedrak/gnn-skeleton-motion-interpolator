@@ -213,7 +213,7 @@ with open(skeletons_path, 'r') as f:
     loaded_list = json.load(f)
 
 model_supported_skeletons = {tuple(tuple(joint) for joint in skeleton) for skeleton in loaded_list}
-if benchmark_dataset.skeleton_topologies != model_supported_skeletons:
+if not benchmark_dataset.skeleton_topologies.issubset(model_supported_skeletons):
     print("WARNING: skeleton topologies in the test dataset do not match those used during training")
 
 
