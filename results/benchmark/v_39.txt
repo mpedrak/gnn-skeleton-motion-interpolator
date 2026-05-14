@@ -1,0 +1,22 @@
+
+--- Benchmark Results ---
+
+Model description: similiar to v_38, but GNN hidden dim is 384, max epochs are 400 and trained on different dataset
+
+Per joint:
+  L2P value [cm]:                       3.54105
+  L2Q value:                            0.07715
+  Rotation MAE [deg]:                   8.84723
+  Rotation RMSE [deg]:                 12.68023
+
+Per joint quaternion channel:
+  NPSS value:                           0.08430
+
+Per joint axis channel:
+  Root position MAE [cm]:               0.62488
+  Root position RMSE [cm]:              1.11701
+  All positions MAE [cm]:               1.74792
+  All positions RMSE [cm]:              3.37116
+  Velocity loss [cm/frame]:             0.42788
+  Acceleration loss [cm/frame^2]:       0.21650
+  Jerk loss [cm/frame^3]:               0.21991

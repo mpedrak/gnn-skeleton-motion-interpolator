@@ -1,11 +1,11 @@
 # Splits BVH files into training and testing sets based on phrase in filename
 
-data_dir = "./datasets/SFU"   
+data_dir = "./datasets/UNOC_30"   
 
-test_dir = "./test/SFU-5"   
-test_phrases = ["0005_BackwardsWalk001", "0008_Walking002", "0018_DanceTurns002", "0018_XinJiang003", "0015_JumpOverObstacle001"]
+test_dir = "./test/UNOC-S2-S6-S9"   
+test_phrases = ["S2", "S6", "S9"]
 
-train_dir = "./train/SFU"   
+train_dir = "./train/UNOC"   
 train_phrases = ["_"]
 
 # ---
