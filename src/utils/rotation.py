@@ -101,20 +101,20 @@ def rot_6d_to_quat_torch(rot_6d):
     m21 = rot_matrix_flat[:, 2, 1]
     m22 = rot_matrix_flat[:, 2, 2]
 
-    q_abs = torch.stack([
+    q_sq = torch.stack([
         1.0 + m00 + m11 + m22,
         1.0 + m00 - m11 - m22,
         1.0 - m00 + m11 - m22,
         1.0 - m00 - m11 + m22,
     ], dim=-1)
-    q_abs = torch.sqrt(torch.clamp(q_abs, min=0.0))
+    q_sq = torch.clamp(q_sq, min=0.0)
 
-    quat_by_w = torch.stack([q_abs[:, 0], m21 - m12, m02 - m20, m10 - m01], dim=-1)
-    quat_by_x = torch.stack([m21 - m12, q_abs[:, 1], m01 + m10, m02 + m20], dim=-1)
-    quat_by_y = torch.stack([m02 - m20, m01 + m10, q_abs[:, 2], m12 + m21], dim=-1)
-    quat_by_z = torch.stack([m10 - m01, m02 + m20, m12 + m21, q_abs[:, 3]], dim=-1)
+    quat_by_w = torch.stack([q_sq[:, 0], m21 - m12, m02 - m20, m10 - m01], dim=-1)
+    quat_by_x = torch.stack([m21 - m12, q_sq[:, 1], m01 + m10, m02 + m20], dim=-1)
+    quat_by_y = torch.stack([m02 - m20, m01 + m10, q_sq[:, 2], m12 + m21], dim=-1)
+    quat_by_z = torch.stack([m10 - m01, m02 + m20, m12 + m21, q_sq[:, 3]], dim=-1)
 
-    idx = torch.argmax(q_abs, dim=-1)
+    idx = torch.argmax(q_sq, dim=-1)
     
     quat = torch.empty_like(quat_by_w)
     quat[idx == 0] = quat_by_w[idx == 0]
@@ -125,7 +125,6 @@ def rot_6d_to_quat_torch(rot_6d):
     quat = torch.nn.functional.normalize(quat, dim=-1)
 
     quat = quat[:, [1, 2, 3, 0]]
-    
     quat = quat.view(*orig_shape, 4)
     
     return quat
@@ -198,7 +197,7 @@ def compute_slerp_batch(start_6d, end_6d, count_to_generate):
     cos_half_theta = torch.abs(cos_half_theta)
 
     mask = cos_half_theta > 0.9995
-    half_theta = torch.acos(torch.clamp(cos_half_theta, -1.0, 1.0))
+    half_theta = torch.acos(torch.clamp(cos_half_theta, -1.0 + 1e-7, 1.0 - 1e-7))
     sin_half_theta = torch.sqrt(1.0 - cos_half_theta**2) + 1e-8 
 
     ratio_a = torch.sin((1 - t) * half_theta) / sin_half_theta

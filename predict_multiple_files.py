@@ -2,8 +2,10 @@ import os
 import torch
 import argparse
 import json
+import time
 
 from bvh import Bvh
+from statistics import mean, median
 
 from src.model import SkeletalMotionInterpolator
 from src.utils.bvh import replace_gap_in_bvh_text, parse_bvh_file, get_bvh_frame_count, compress_skeleton_hierarchy
@@ -69,6 +71,8 @@ with open(skeletons_path, 'r') as f:
 
 model_supported_skeletons = {tuple(tuple(joint) for joint in skeleton) for skeleton in loaded_list}
 
+prediction_times = []
+
 model.eval()
 
 for input_bvh_path in bvh_paths:
@@ -99,6 +103,8 @@ for input_bvh_path in bvh_paths:
         if gap_start_frame <= context_len_pre or gap_start_frame >= n_frames - context_len_post - target_len:
             raise ValueError("Invalid gap start frame")   
 
+        start_time = time.perf_counter()
+        
         # Interpolation
         with torch.no_grad():
             rot_pred, root_pred = predict_gap(
@@ -114,6 +120,13 @@ for input_bvh_path in bvh_paths:
                 offsets=offsets
             )
 
+        if device == "cuda":
+            torch.cuda.synchronize()
+        
+        end_time = time.perf_counter()
+        elapsed_time = (end_time - start_time) * 1000
+        prediction_times.append(elapsed_time)
+        
         euler_deg = rot_6d_to_euler(rot_6d=rot_pred, order=rot_order, degrees=True)
 
         new_text = replace_gap_in_bvh_text(
@@ -132,4 +145,9 @@ for input_bvh_path in bvh_paths:
     print(f"Saved predicted BVH to: {out_path}")
 
 print("All predictions done")
+print("Prediction time statistics")
+print(f"   Average: {int(mean(prediction_times))} ms")
+print(f"   Median:  {int(median(prediction_times))} ms")
+print(f"   Minimum: {int(min(prediction_times))} ms")
+print(f"   Maximum: {int(max(prediction_times))} ms")
 print()

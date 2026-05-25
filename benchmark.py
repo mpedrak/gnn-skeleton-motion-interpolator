@@ -51,6 +51,7 @@ def run_benchmark(model, loader, n_samples):
     all_pos_l1_sum = 0.0
     all_pos_l2_sum = 0.0
     l2p_sum = 0.0
+    root_l2p_sum = 0.0
     l2q_sum = 0.0
     npss_sum = 0.0
     
@@ -129,6 +130,7 @@ def run_benchmark(model, loader, n_samples):
 
             # L2P
             l2p_sum += calculate_l2p(fk_pos_pred, fk_pos_tgt, reduction='sum').item()
+            root_l2p_sum += calculate_l2p(root_pos_pred, root_pos_tgt, reduction='sum').item()
 
             # NPSS
             global_quat_pred = rot_6d_to_quat_torch(global_rot_pred_6d)
@@ -165,6 +167,7 @@ def run_benchmark(model, loader, n_samples):
     all_pos_rmse = np.sqrt(all_pos_l2_sum / (total_joints * F_target  * 3))
 
     l2p_value = l2p_sum / (total_joints * F_target)
+    root_l2p_value = root_l2p_sum / (n_samples * F_target)
 
     l2q_value = l2q_sum / (total_joints * F_target)
 
@@ -180,8 +183,9 @@ def run_benchmark(model, loader, n_samples):
         "Per joint" : {
             f"L2P value [{length_unit}]": l2p_value,
             "L2Q value": l2q_value,
-            "Rotation MAE [deg]": geo_rot_1_deg,
-            "Rotation RMSE [deg]": geo_rot_2_deg,
+            "Global rotation MAE [deg]": geo_rot_1_deg,
+            "Global rotation RMSE [deg]": geo_rot_2_deg,
+            f"Root L2P value [{length_unit}]": root_l2p_value
         },
         "Per joint quaternion channel" : {
             "NPSS value": npss_value,

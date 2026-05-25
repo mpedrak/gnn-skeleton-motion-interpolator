@@ -1,4 +1,4 @@
-description: "similiar to v_38, but GNN hidden dim is 384, max epochs are 400 and trained on different dataset" 
+description: "similiar to v_38, but GNN hidden dim is 384 and trained on different dataset" 
 
 # Model parameters
 context_len_pre: 15
@@ -24,7 +24,7 @@ root_pos_mlp_params: {
 
 # Training parameters
 train_batch_size: 512
-epochs: 400
+epochs: 200
 validation_split: 0.2
 patience: 7
 early_stop_eps: 0.00001

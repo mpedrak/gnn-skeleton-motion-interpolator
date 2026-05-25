@@ -1,6 +1,100 @@
 [
     [
         [
+            "Chest",
+            "Hips"
+        ],
+        [
+            "Chest2",
+            "Chest"
+        ],
+        [
+            "Chest3",
+            "Chest2"
+        ],
+        [
+            "Chest4",
+            "Chest3"
+        ],
+        [
+            "Head",
+            "Neck"
+        ],
+        [
+            "Hips",
+            null
+        ],
+        [
+            "LeftAnkle",
+            "LeftKnee"
+        ],
+        [
+            "LeftCollar",
+            "Chest4"
+        ],
+        [
+            "LeftElbow",
+            "LeftShoulder"
+        ],
+        [
+            "LeftHip",
+            "Hips"
+        ],
+        [
+            "LeftKnee",
+            "LeftHip"
+        ],
+        [
+            "LeftShoulder",
+            "LeftCollar"
+        ],
+        [
+            "LeftToe",
+            "LeftAnkle"
+        ],
+        [
+            "LeftWrist",
+            "LeftElbow"
+        ],
+        [
+            "Neck",
+            "Chest4"
+        ],
+        [
+            "RightAnkle",
+            "RightKnee"
+        ],
+        [
+            "RightCollar",
+            "Chest4"
+        ],
+        [
+            "RightElbow",
+            "RightShoulder"
+        ],
+        [
+            "RightHip",
+            "Hips"
+        ],
+        [
+            "RightKnee",
+            "RightHip"
+        ],
+        [
+            "RightShoulder",
+            "RightCollar"
+        ],
+        [
+            "RightToe",
+            "RightAnkle"
+        ],
+        [
+            "RightWrist",
+            "RightElbow"
+        ]
+    ],
+    [
+        [
             "Head",
             "Neck"
         ],
@@ -30,10 +124,10 @@
         ],
         [
             "LeftShoulder",
-            "Spine2"
+            "Spine1"
         ],
         [
-            "LeftToe",
+            "LeftToeBase",
             "LeftFoot"
         ],
         [
@@ -42,7 +136,7 @@
         ],
         [
             "Neck",
-            "Spine2"
+            "Spine1"
         ],
         [
             "RightArm",
@@ -66,10 +160,10 @@
         ],
         [
             "RightShoulder",
-            "Spine2"
+            "Spine1"
         ],
         [
-            "RightToe",
+            "RightToeBase",
             "RightFoot"
         ],
         [
@@ -78,15 +172,15 @@
         ],
         [
             "Spine",
-            "Hips"
+            "ToSpine"
         ],
         [
             "Spine1",
             "Spine"
         ],
         [
-            "Spine2",
-            "Spine1"
+            "ToSpine",
+            "Hips"
         ]
     ],
     [
@@ -329,100 +423,6 @@
     ],
     [
         [
-            "Chest",
-            "Hips"
-        ],
-        [
-            "Chest2",
-            "Chest"
-        ],
-        [
-            "Chest3",
-            "Chest2"
-        ],
-        [
-            "Chest4",
-            "Chest3"
-        ],
-        [
-            "Head",
-            "Neck"
-        ],
-        [
-            "Hips",
-            null
-        ],
-        [
-            "LeftAnkle",
-            "LeftKnee"
-        ],
-        [
-            "LeftCollar",
-            "Chest4"
-        ],
-        [
-            "LeftElbow",
-            "LeftShoulder"
-        ],
-        [
-            "LeftHip",
-            "Hips"
-        ],
-        [
-            "LeftKnee",
-            "LeftHip"
-        ],
-        [
-            "LeftShoulder",
-            "LeftCollar"
-        ],
-        [
-            "LeftToe",
-            "LeftAnkle"
-        ],
-        [
-            "LeftWrist",
-            "LeftElbow"
-        ],
-        [
-            "Neck",
-            "Chest4"
-        ],
-        [
-            "RightAnkle",
-            "RightKnee"
-        ],
-        [
-            "RightCollar",
-            "Chest4"
-        ],
-        [
-            "RightElbow",
-            "RightShoulder"
-        ],
-        [
-            "RightHip",
-            "Hips"
-        ],
-        [
-            "RightKnee",
-            "RightHip"
-        ],
-        [
-            "RightShoulder",
-            "RightCollar"
-        ],
-        [
-            "RightToe",
-            "RightAnkle"
-        ],
-        [
-            "RightWrist",
-            "RightElbow"
-        ]
-    ],
-    [
-        [
             "Head",
             "Neck"
         ],
@@ -452,10 +452,10 @@
         ],
         [
             "LeftShoulder",
-            "Spine1"
+            "Spine2"
         ],
         [
-            "LeftToeBase",
+            "LeftToe",
             "LeftFoot"
         ],
         [
@@ -464,7 +464,7 @@
         ],
         [
             "Neck",
-            "Spine1"
+            "Spine2"
         ],
         [
             "RightArm",
@@ -488,10 +488,10 @@
         ],
         [
             "RightShoulder",
-            "Spine1"
+            "Spine2"
         ],
         [
-            "RightToeBase",
+            "RightToe",
             "RightFoot"
         ],
         [
@@ -500,15 +500,15 @@
         ],
         [
             "Spine",
-            "ToSpine"
+            "Hips"
         ],
         [
             "Spine1",
             "Spine"
         ],
         [
-            "ToSpine",
-            "Hips"
+            "Spine2",
+            "Spine1"
         ]
     ],
     [

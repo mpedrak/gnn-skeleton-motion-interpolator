@@ -165,4 +165,5 @@ class GraphSkeletonDataset(Dataset):
             offsets=offsets,
             edge_index=data['edge_index'],
             parent_indices=data['parent_indices'],
+            first_absolute_root_pos=first_ctx_root_pos
         )
