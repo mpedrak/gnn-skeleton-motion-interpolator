@@ -4,15 +4,17 @@ import torch
 from torch_geometric.data import Data, Dataset
 
 from .utils.bvh import parse_bvh_file, build_edge_index, forward_kinematics_pos, print_skeleton_hierarchy, compress_skeleton_hierarchy
+from .utils.rotation import rot_3x3_to_rot_6d
 
 
 class GraphSkeletonDataset(Dataset):
-    def __init__(self, data_params, context_len_pre, context_len_post, target_len):
+    def __init__(self, data_params, context_len_pre, context_len_post, target_len, inner_local_rots):
 
         super().__init__()
         self.context_len_pre = context_len_pre
         self.context_len_post = context_len_post
         self.target_len = target_len
+        self.inner_local_rots = inner_local_rots
 
         self.cache = {}
         self.samples = []
@@ -21,6 +23,7 @@ class GraphSkeletonDataset(Dataset):
         self.skeleton_topologies = set()
        
         print("Loading dataset")
+        print("Model will use local rots" if inner_local_rots else "Model will use global rots")
         
         for data in data_params:
 
@@ -50,7 +53,8 @@ class GraphSkeletonDataset(Dataset):
                         offsets=offsets, 
                         parent_indices=parent_indices, 
                         root_pos=root_pos, 
-                        rot_6d=rot_6d
+                        rot_6d=rot_6d,
+                        local_rots=True
                     )
                     edge_index = build_edge_index(parent_indices)
                     data = {
@@ -120,10 +124,16 @@ class GraphSkeletonDataset(Dataset):
         num_joints = len(data['joint_names'])
         
         # Context
-        first_part = data['rot_6d'][start : tgt_start]
-        second_part = data['rot_6d'][post_ctx_start : end]
-        rot_6d_ctx = torch.cat([first_part, second_part], dim=0) # [F, J, 6]  
-       
+        if self.inner_local_rots:
+            first_part = data['rot_6d'][start : tgt_start]
+            second_part = data['rot_6d'][post_ctx_start : end]
+            rot_6d_ctx = torch.cat([first_part, second_part], dim=0) # [F, J, 6]  
+        else:
+            first_part = data['global_3x3_rots'][start : tgt_start]
+            second_part = data['global_3x3_rots'][post_ctx_start : end]
+            rot_3x3_ctx = torch.cat([first_part, second_part], dim=0) # [F, J, 3, 3]
+            rot_6d_ctx = rot_3x3_to_rot_6d(rot_3x3_ctx) # [F, J, 6]
+
         first_part = data['root_pos'][start : tgt_start]
         second_part = data['root_pos'][post_ctx_start : end]
         first_ctx_root_pos = first_part[0].clone()
@@ -136,12 +146,22 @@ class GraphSkeletonDataset(Dataset):
         bone_lengths = torch.linalg.norm(offsets, dim=1, keepdim=True) # [J, 1]
 
         # Target
-        rot_6d_tgt = data['rot_6d'][tgt_start : post_ctx_start] # [F, J, 6]
+        if self.inner_local_rots:
+            rot_6d_tgt = data['rot_6d'][tgt_start : post_ctx_start] # [F, J, 6]
+        else:
+            rot_3x3_tgt = data['global_3x3_rots'][tgt_start : post_ctx_start] # [F, J, 3, 3]
+            rot_6d_tgt = rot_3x3_to_rot_6d(rot_3x3_tgt) # [F, J, 6]
+
         root_pos_tgt = data['root_pos'][tgt_start : post_ctx_start] # [F, 3]
         fk_pos_tgt = data['fk_pos'][tgt_start : post_ctx_start] # [F, J, 3]
  
         root_pos_for_lerp = torch.stack([data['root_pos'][tgt_start - 1], data['root_pos'][post_ctx_start]], dim=0) # [2, 3]
-        rot_6d_for_slerp = torch.stack([data['rot_6d'][tgt_start - 1], data['rot_6d'][post_ctx_start]], dim=0) # [2, J, 6]
+
+        if self.inner_local_rots:
+            rot_6d_for_slerp = torch.stack([data['rot_6d'][tgt_start - 1], data['rot_6d'][post_ctx_start]], dim=0) # [2, J, 6]
+        else:
+            rot_3x3_for_slerp = torch.stack([data['global_3x3_rots'][tgt_start - 1], data['global_3x3_rots'][post_ctx_start]], dim=0) # [2, J, 3, 3]
+            rot_6d_for_slerp = rot_3x3_to_rot_6d(rot_3x3_for_slerp) # [2, J, 6]
 
         global_3x3_rots_tgt = data['global_3x3_rots'][tgt_start : post_ctx_start] # [F, J, 3, 3]
         

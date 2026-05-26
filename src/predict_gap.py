@@ -3,12 +3,12 @@ import numpy as np
 
 from torch_geometric.data import Data
 
-from .utils.bvh import build_edge_index, compute_lerp
+from .utils.bvh import build_edge_index, compute_lerp, forward_kinematics_pos, global_to_local_rot
 from .utils.rotation import rot_6d_to_rot_3x3, rot_3x3_to_rot_6d, compute_slerp
 
 
 @torch.no_grad()
-def predict_gap(model, device, rot_6d, root_pos, parent_indices, context_len_pre, context_len_post, target_len, gap_start, offsets):
+def predict_gap(model, device, rot_6d, root_pos, parent_indices, context_len_pre, context_len_post, target_len, gap_start, offsets, inner_local_rots):
     
     J = rot_6d.shape[1]
     second_start = gap_start + target_len
@@ -18,7 +18,25 @@ def predict_gap(model, device, rot_6d, root_pos, parent_indices, context_len_pre
     # Rotations and offsets
     first_part_rot = rot_6d[first_start : gap_start]
     second_part_rot = rot_6d[second_start : end]
-    rot_ctx = np.concatenate([first_part_rot, second_part_rot], axis=0)
+    rot_ctx = np.concatenate([first_part_rot, second_part_rot], axis=0) # [F, J, 6]
+
+    if not inner_local_rots:
+        first_part_root_pos = root_pos[first_start : gap_start]
+        second_part_root_pos = root_pos[second_start : end] 
+        root_pos_ctx = torch.cat([first_part_root_pos, second_part_root_pos], dim=0).to(device) 
+        rot_ctx_tensor = torch.from_numpy(rot_ctx).to(device, dtype=torch.float32)
+        offsets_tensor = offsets.clone().detach().to(device, dtype=torch.float32)
+        parents_tensor = parent_indices.clone().detach().to(device)
+        _, global_3x3_rots = forward_kinematics_pos(
+            offsets=offsets_tensor,
+            parent_indices=parents_tensor,
+            root_pos=root_pos_ctx,
+            rot_6d=rot_ctx_tensor,
+            local_rots=True
+        )
+        rot_ctx = rot_3x3_to_rot_6d(global_3x3_rots)
+        rot_ctx = rot_ctx.cpu().numpy()
+        
     x_feat = torch.tensor(rot_ctx, dtype=torch.float32).permute(1, 0, 2).reshape(J, -1) # [J, F * 6]
     offsets_tensor = torch.tensor(offsets, dtype=torch.float32) if not isinstance(offsets, torch.Tensor) else offsets.clone()
     parent_tensor = torch.tensor(parent_indices) if not isinstance(parent_indices, torch.Tensor) else parent_indices
@@ -52,10 +70,35 @@ def predict_gap(model, device, rot_6d, root_pos, parent_indices, context_len_pre
     # Reconstruct rotations from deltas
     slerp_start_6d = rot_6d[gap_start - 1].clone().detach().to(device, dtype=torch.float32)
     slerp_end_6d = rot_6d[second_start].clone().detach().to(device, dtype=torch.float32)
+    
+    if not inner_local_rots:
+        slerps_rots = torch.cat([slerp_start_6d.unsqueeze(0), slerp_end_6d.unsqueeze(0)], dim=0) # [2, J, 6]
+        slerps_root_pos = torch.cat([root_pos[gap_start - 1].unsqueeze(0), root_pos[second_start].unsqueeze(0)], dim=0).to(device) # [2, 3]
+        offsets_tensor = offsets.clone().detach().to(device, dtype=torch.float32)
+        parents_tensor = parent_indices.clone().detach().to(device)
+        _, global_3x3_rots = forward_kinematics_pos(
+            offsets=offsets_tensor,
+            parent_indices=parents_tensor,
+            root_pos=slerps_root_pos,
+            rot_6d=slerps_rots,
+            local_rots=True
+        )
+        global_6d_rots = rot_3x3_to_rot_6d(global_3x3_rots)
+        slerp_start_6d = global_6d_rots[0]
+        slerp_end_6d = global_6d_rots[1]
+
     rot_slerp = compute_slerp(slerp_start_6d, slerp_end_6d, target_len)
     rot_pred_delta = rot_6d_to_rot_3x3(rot_pred_delta) 
     rot_pred = torch.matmul(rot_pred_delta, rot_slerp)
-    rot_pred = rot_3x3_to_rot_6d(rot_pred)   
+
+    if not inner_local_rots:
+        parents_tensor = parent_indices.clone().detach().to(device)
+        rot_pred = global_to_local_rot(
+                global_rots=rot_pred,
+                parent_indices=parents_tensor
+            )  
+        
+    rot_pred = rot_3x3_to_rot_6d(rot_pred) 
 
     # Reconstruct root positions from deltas
     root_pos_delta_pred = out["root_pos"]

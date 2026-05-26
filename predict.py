@@ -96,7 +96,8 @@ with torch.no_grad():
         context_len_post=context_len_post,
         target_len=target_len,
         gap_start=gap_start_frame,
-        offsets=offsets
+        offsets=offsets,
+        inner_local_rots=config["inner_local_rots"]
     )
 
 euler_deg = rot_6d_to_euler(rot_6d=rot_pred, order=rot_order, degrees=True)

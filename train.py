@@ -45,7 +45,8 @@ if __name__ == '__main__':
         data_params=config["train_data_params"],
         context_len_pre=config["context_len_pre"],
         context_len_post=config["context_len_post"],
-        target_len=config["target_len"]
+        target_len=config["target_len"],
+        inner_local_rots=config["inner_local_rots"]
     )
 
     os.makedirs(constants["skeletons_path"], exist_ok=True)
@@ -180,7 +181,8 @@ if __name__ == '__main__':
                     batch=batch, 
                     l1_func=l1_func, 
                     l2_func=l2_func, 
-                    loss_weights=config["loss_weights"]
+                    loss_weights=config["loss_weights"],
+                    inner_local_rots=config["inner_local_rots"]
                 )
 
                 loss.backward()
@@ -240,7 +242,8 @@ if __name__ == '__main__':
                         batch=batch, 
                         l1_func=l1_func, 
                         l2_func=l2_func, 
-                        loss_weights=config["loss_weights"]
+                        loss_weights=config["loss_weights"],
+                        inner_local_rots=config["inner_local_rots"]
                     )
 
                     total_loss += loss.item() * batch.num_graphs

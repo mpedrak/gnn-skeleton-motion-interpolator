@@ -37,7 +37,7 @@ if device == "cuda":
 
 
 # Evaluate function
-def run_benchmark(model, loader, n_samples):
+def run_benchmark(model, loader, n_samples, inner_local_rots):
            
     l1 = torch.nn.L1Loss(reduction='sum')
     l2 = torch.nn.MSELoss(reduction='sum')
@@ -103,7 +103,8 @@ def run_benchmark(model, loader, n_samples):
                 parent_indices=batch.parent_indices,
                 root_pos=root_pos_pred,
                 rot_3x3=rot_pred_3x3,
-                batch_index=batch.batch
+                batch_index=batch.batch,
+                local_rots=inner_local_rots
             ) # [N_total, F_target, 3], [N_total, F_target, 3, 3]
 
             # Rotation metrics
@@ -207,7 +208,8 @@ benchmark_dataset = GraphSkeletonDataset(
     data_params=config["test_data_params"],
     context_len_pre=config["context_len_pre"],
     context_len_post=config["context_len_post"],
-    target_len=config["target_len"]
+    target_len=config["target_len"],
+    inner_local_rots=config["inner_local_rots"]
 )
 
 benchmark_loader = DataLoader(benchmark_dataset, batch_size=config["test_batch_size"], shuffle=False)
@@ -250,7 +252,8 @@ print("Starting benchmark on test set")
 results = run_benchmark(
     model=model,
     loader=benchmark_loader,
-    n_samples=len(benchmark_dataset)
+    n_samples=len(benchmark_dataset),
+    inner_local_rots=config["inner_local_rots"]
 )
 
 log_str("\n--- Benchmark Results ---\n")

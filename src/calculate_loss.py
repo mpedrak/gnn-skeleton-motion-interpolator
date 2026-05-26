@@ -5,7 +5,7 @@ from .utils.bvh import forward_kinematics_pos_dense_batch, compute_lerp_batch
 from .utils.rotation import rot_6d_to_rot_3x3, compute_slerp_batch
 
 
-def calculate_loss(out, batch, l1_func, l2_func, loss_weights):
+def calculate_loss(out, batch, l1_func, l2_func, loss_weights, inner_local_rots):
     
     # Rotations
     rot_pred_delta = out["rot"]
@@ -43,7 +43,8 @@ def calculate_loss(out, batch, l1_func, l2_func, loss_weights):
         parent_indices=batch.parent_indices,
         root_pos=root_pos_pred,
         rot_3x3=rot_pred_3x3,
-        batch_index=batch.batch
+        batch_index=batch.batch,
+        local_rots=inner_local_rots
     )
 
     fk_pos_tgt_flat = batch.fk_pos_tgt.view(N_total, -1)

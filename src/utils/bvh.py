@@ -83,8 +83,8 @@ def build_edge_index(parent_indices):
     return edge_index
 
 
-def forward_kinematics_pos_batch(offsets, parent_indices, root_pos, rot_6d):
-    # Offsets [J, 3], parent_indices [J], root_pos [B, F, 3], rot_6d [B, F, J, 6] 
+def forward_kinematics_pos_batch(offsets, parent_indices, root_pos, rot_6d, local_rots):
+    # Offsets [J, 3], parent_indices [J], root_pos [B, F, 3], rot_6d [B, F, J, 6], local_rots: bool
     # -> positions [B, F, J, 3], global_rots [B, F, J, 3, 3]
     
     B, F, J, _ = rot_6d.shape
@@ -92,7 +92,8 @@ def forward_kinematics_pos_batch(offsets, parent_indices, root_pos, rot_6d):
     rot_mats = rot_6d_to_rot_3x3(rot_6d)  
 
     positions = torch.zeros((B, F, J, 3), device=device)
-    global_rots = torch.zeros((B, F, J, 3, 3), device=device)
+    if local_rots: global_rots = torch.zeros((B, F, J, 3, 3), device=device)
+    else: global_rots = rot_6d_to_rot_3x3(rot_6d.clone())
 
     root_idx = 0
     for j in range(0, J):
@@ -101,21 +102,21 @@ def forward_kinematics_pos_batch(offsets, parent_indices, root_pos, rot_6d):
             break
 
     positions[:, :, root_idx, :] = root_pos[:, :, :]
-    global_rots[:, :, root_idx, :, :] = rot_mats[:, :, root_idx, :, :]
+    if local_rots: global_rots[:, :, root_idx, :, :] = rot_mats[:, :, root_idx, :, :]
 
     for j in range(0, J):
         if j == root_idx: continue   
         p = parent_indices[j]
         if p >= j: raise ValueError("Wrong parent index order for FK computation")
         parent_rot = global_rots[:, :, p, :, :].clone() 
-        global_rots[:, :, j, :, :] = torch.matmul(parent_rot, rot_mats[:, :, j, :, :])
+        if local_rots: global_rots[:, :, j, :, :] = torch.matmul(parent_rot, rot_mats[:, :, j, :, :])        
         positions[:, :, j, :] = positions[:, :, p, :] + torch.matmul(parent_rot, offsets[j])
         
     return positions, global_rots
 
 
-def forward_kinematics_pos(offsets, parent_indices, root_pos, rot_6d):
-    # Offsets [J, 3], parent_indices [J], root_pos [F, 3], rot_6d [F, J, 6] 
+def forward_kinematics_pos(offsets, parent_indices, root_pos, rot_6d, local_rots):
+    # Offsets [J, 3], parent_indices [J], root_pos [F, 3], rot_6d [F, J, 6], local_rots: bool 
     # -> positions [F, J, 3], global_rots [F, J, 3, 3]
     
     root_pos_batched = root_pos.unsqueeze(0)      
@@ -126,6 +127,7 @@ def forward_kinematics_pos(offsets, parent_indices, root_pos, rot_6d):
         parent_indices=parent_indices,
         root_pos=root_pos_batched,
         rot_6d=rot_6d_batched,
+        local_rots=local_rots
     )
 
     positions = positions_batched.squeeze(0)
@@ -134,8 +136,8 @@ def forward_kinematics_pos(offsets, parent_indices, root_pos, rot_6d):
     return positions, global_3x3_rots
 
 
-def forward_kinematics_pos_dense_batch(offsets, parent_indices, root_pos, rot_3x3, batch_index):
-    # Offsets: [N_total, 3], parent_indices: [N_total], root_pos: [B, F, 3], rot_3x3: [N_total, F, 3, 3], batch_index: [N_total]
+def forward_kinematics_pos_dense_batch(offsets, parent_indices, root_pos, rot_3x3, batch_index, local_rots):
+    # Offsets: [N_total, 3], parent_indices: [N_total], root_pos: [B, F, 3], rot_3x3: [N_total, F, 3, 3], batch_index: [N_total], local_rots: bool
     # -> positions: [N_total, F, 3], global_rot: [N_total, F, 3, 3]
 
     rot_d, mask = to_dense_batch(rot_3x3, batch_index) # [B, max_J, F, 3, 3], [B, max_J] (True / False)
@@ -171,7 +173,8 @@ def forward_kinematics_pos_dense_batch(offsets, parent_indices, root_pos, rot_3x
                 parent_pos = pos_list[parent_int][parent_mask, :, :]
                 parent_rot = rot_list[parent_int][parent_mask, :, :, :]
                 
-                current_rot[parent_mask, :, :, :] = torch.matmul(parent_rot, rot_d[parent_mask, j, :, :, :])
+                if local_rots: current_rot[parent_mask, :, :, :] = torch.matmul(parent_rot, rot_d[parent_mask, j, :, :, :])
+                else: current_rot[parent_mask, :, :, :] = rot_d[parent_mask, j, :, :, :]
                 
                 off_rot = torch.matmul(parent_rot, offsets_d[parent_mask, j].view(-1, 1, 3, 1)).squeeze(-1)
                 current_pos[parent_mask, :, :] = parent_pos + off_rot
@@ -186,6 +189,26 @@ def forward_kinematics_pos_dense_batch(offsets, parent_indices, root_pos, rot_3x
     global_3x3_rots = rot_dense[mask] # [N_total, F, 3, 3]
     
     return positions, global_3x3_rots
+
+
+def global_to_local_rot(global_rots, parent_indices):
+    # Global_rots: [F, J, 3, 3], parent_indices: [J]
+    # -> local_rots: [F, J, 3, 3]
+    
+    F, J, _, _ = global_rots.shape    
+    local_rots = torch.zeros_like(global_rots)
+    
+    for j in range(0, J):
+        p = parent_indices[j].item()
+        if p == -1: local_rots[:, j, :, :] = global_rots[:, j, :, :]
+        else:
+            parent_rot_global = global_rots[:, p, :, :]
+            child_rot_global = global_rots[:, j, :, :]
+            
+            parent_rot_global_inv = parent_rot_global.transpose(-1, -2)
+            local_rots[:, j, :, :] = torch.matmul(parent_rot_global_inv, child_rot_global)
+            
+    return local_rots
 
 
 def get_joint_indices_by_name(all_joint_names, target_joint_names):

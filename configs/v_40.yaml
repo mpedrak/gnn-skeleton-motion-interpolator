@@ -1,10 +1,10 @@
-description: "similiar to v_38, but GNN hidden dim is 384 and trained on different dataset" 
+description: "similiar to v_39, but inner rots are global" 
 
 # Model parameters
 context_len_pre: 15
 context_len_post: 15
 target_len: 15
-inner_local_rots: True
+inner_local_rots: False
 rot_gnn_params: {
   num_features_in: 6,
   additional_features_in: 1,
