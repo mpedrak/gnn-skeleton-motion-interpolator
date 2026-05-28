@@ -4,7 +4,8 @@ description: "similiar to v_38, but GNN hidden dim is 384 and trained on differe
 context_len_pre: 15
 context_len_post: 15
 target_len: 15
-inner_local_rots: True
+inner_rots: "local" # "local" or "global"
+delta_mode: "linear" # "linear" (lerp and slerp) or "last" (frame)
 rot_gnn_params: {
   num_features_in: 6,
   additional_features_in: 1,

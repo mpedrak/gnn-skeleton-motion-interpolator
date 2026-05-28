@@ -33,7 +33,7 @@ if device == "cuda":
 
 
 # Evaluate function
-def evaluate(model, loader, loss_weights, n_samples, log_str, inner_local_rots):
+def evaluate(model, loader, loss_weights, n_samples, log_str, inner_rots, delta_mode):
     
     model.eval()
 
@@ -65,7 +65,8 @@ def evaluate(model, loader, loss_weights, n_samples, log_str, inner_local_rots):
                 l1_func=l1_func, 
                 l2_func=l2_func, 
                 loss_weights=loss_weights,
-                inner_local_rots=inner_local_rots
+                inner_rots=inner_rots,
+                delta_mode=delta_mode
             )
 
             total_loss += loss.item() * batch.num_graphs
@@ -99,7 +100,8 @@ test_dataset = GraphSkeletonDataset(
     context_len_pre=config["context_len_pre"],
     context_len_post=config["context_len_post"],
     target_len=config["target_len"],
-    inner_local_rots=config["inner_local_rots"]
+    inner_rots=config["inner_rots"],
+    delta_mode=config["delta_mode"]
 )
 
 test_loader = DataLoader(test_dataset, batch_size=config["test_batch_size"], shuffle=False)
@@ -146,7 +148,8 @@ evaluate(
     loss_weights=config["loss_weights"], 
     n_samples=len(test_dataset), 
     log_str=log_str,
-    inner_local_rots=config["inner_local_rots"]
+    inner_rots=config["inner_rots"],
+    delta_mode=config["delta_mode"]
 )
 
 print("\nTesting completed")

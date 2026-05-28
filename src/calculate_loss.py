@@ -5,7 +5,7 @@ from .utils.bvh import forward_kinematics_pos_dense_batch, compute_lerp_batch
 from .utils.rotation import rot_6d_to_rot_3x3, compute_slerp_batch
 
 
-def calculate_loss(out, batch, l1_func, l2_func, loss_weights, inner_local_rots):
+def calculate_loss(out, batch, l1_func, l2_func, loss_weights, inner_rots, delta_mode):
     
     # Rotations
     rot_pred_delta = out["rot"]
@@ -15,8 +15,13 @@ def calculate_loss(out, batch, l1_func, l2_func, loss_weights, inner_local_rots)
 
     rot_6d_for_slerp = batch.rot_6d_for_slerp # [N_total, 2, 6]
     slerp_start_6d = rot_6d_for_slerp[:, 0, :]
-    slerp_end_6d = rot_6d_for_slerp[:, 1, :]
-    rot_slerp = compute_slerp_batch(slerp_start_6d, slerp_end_6d, F_target) 
+
+    if delta_mode == "linear": 
+        slerp_end_6d = rot_6d_for_slerp[:, 1, :]
+        rot_slerp = compute_slerp_batch(slerp_start_6d, slerp_end_6d, F_target) 
+    else: 
+        rot_slerp = slerp_start_6d.unsqueeze(1).expand(-1, F_target, -1) # [N_total, F_target, 6]
+        rot_slerp = rot_6d_to_rot_3x3(rot_slerp)
     
     rot_pred_delta_3x3 = rot_6d_to_rot_3x3(rot_pred_delta)
     rot_pred_3x3 = torch.matmul(rot_pred_delta_3x3, rot_slerp) # [N_total, F_target, 3, 3]
@@ -29,8 +34,13 @@ def calculate_loss(out, batch, l1_func, l2_func, loss_weights, inner_local_rots)
     root_pos_delta_pred = root_pos_delta_pred.view(batch.num_graphs, F_target, 3)
     root_pos_for_lerp = batch.root_pos_for_lerp.view(batch.num_graphs, 2, 3)
     lerp_start_pos = root_pos_for_lerp[:, 0, :] 
-    lerp_end_pos = root_pos_for_lerp[:, 1, :]
-    root_pos_lerp = compute_lerp_batch(lerp_start_pos, lerp_end_pos, F_target)
+
+    if delta_mode == "linear":
+        lerp_end_pos = root_pos_for_lerp[:, 1, :]
+        root_pos_lerp = compute_lerp_batch(lerp_start_pos, lerp_end_pos, F_target)
+    else:
+        root_pos_lerp = lerp_start_pos.unsqueeze(1).expand(-1, F_target, -1) # [B, F_target, 3]
+
     root_pos_pred = root_pos_delta_pred + root_pos_lerp
     
     root_pos_pred_flat = root_pos_pred.view(batch.num_graphs, -1) # [B, F_target * 3]
@@ -44,7 +54,7 @@ def calculate_loss(out, batch, l1_func, l2_func, loss_weights, inner_local_rots)
         root_pos=root_pos_pred,
         rot_3x3=rot_pred_3x3,
         batch_index=batch.batch,
-        local_rots=inner_local_rots
+        local_rots=True if inner_rots == "local" else False
     )
 
     fk_pos_tgt_flat = batch.fk_pos_tgt.view(N_total, -1)

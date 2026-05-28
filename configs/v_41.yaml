@@ -1,11 +1,11 @@
-description: "similiar to v_39, but inner rots are global" 
+description: "similiar to v_40, but model predicts deltas to last frame, not lerp and slerp" 
 
 # Model parameters
 context_len_pre: 15
 context_len_post: 15
 target_len: 15
 inner_rots: "global" # "local" or "global"
-delta_mode: "linear" # "linear" (lerp and slerp) or "last" (frame)
+delta_mode: "last" # "linear" (lerp and slerp) or "last" (frame)
 rot_gnn_params: {
   num_features_in: 6,
   additional_features_in: 1,
@@ -28,10 +28,10 @@ root_pos_mlp_params: {
 train_batch_size: 512
 epochs: 200
 validation_split: 0.2
-patience: 7
+patience: 12
 early_stop_eps: 0.00001
 loss_weights: {
-  rot_geo_l1: 1.0,
+  rot_geo_l1: 0.5,
   root_pos_l2: 0.05,
   fk_pos_l1: 0.1,
   sm_vel: 0.1,

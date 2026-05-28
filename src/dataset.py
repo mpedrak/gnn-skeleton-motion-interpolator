@@ -8,13 +8,12 @@ from .utils.rotation import rot_3x3_to_rot_6d
 
 
 class GraphSkeletonDataset(Dataset):
-    def __init__(self, data_params, context_len_pre, context_len_post, target_len, inner_local_rots):
+    def __init__(self, data_params, context_len_pre, context_len_post, target_len, inner_rots, delta_mode):
 
         super().__init__()
         self.context_len_pre = context_len_pre
         self.context_len_post = context_len_post
         self.target_len = target_len
-        self.inner_local_rots = inner_local_rots
 
         self.cache = {}
         self.samples = []
@@ -22,8 +21,20 @@ class GraphSkeletonDataset(Dataset):
         self.dir_info = []
         self.skeleton_topologies = set()
        
+        if inner_rots == "local":
+            print("Model will use local rots")
+            self.inner_local_rots = True
+        elif inner_rots == "global":
+            print("Model will use global rots")
+            self.inner_local_rots = False
+        else:
+            raise ValueError(f"Invalid inner_rots value: {inner_rots}, expected 'local' or 'global'")
+        
+        if delta_mode == "linear": print("Model will predict deltas to lerp and slerp")
+        elif delta_mode == "last": print("Model will predict deltas to last frame")
+        else: raise ValueError(f"Invalid delta_mode value: {delta_mode}, expected 'linear' or 'last'")
+
         print("Loading dataset")
-        print("Model will use local rots" if inner_local_rots else "Model will use global rots")
         
         for data in data_params:
 

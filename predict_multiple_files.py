@@ -118,7 +118,8 @@ for input_bvh_path in bvh_paths:
                 target_len=target_len,
                 gap_start=gap_start_frame,
                 offsets=offsets,
-                inner_local_rots=config["inner_local_rots"]
+                inner_rots=config["inner_rots"],
+                delta_mode=config["delta_mode"]
             )
 
         if device == "cuda":

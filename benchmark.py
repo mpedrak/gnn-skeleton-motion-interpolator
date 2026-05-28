@@ -37,7 +37,7 @@ if device == "cuda":
 
 
 # Evaluate function
-def run_benchmark(model, loader, n_samples, inner_local_rots):
+def run_benchmark(model, loader, n_samples, inner_rots, delta_mode):
            
     l1 = torch.nn.L1Loss(reduction='sum')
     l2 = torch.nn.MSELoss(reduction='sum')
@@ -83,8 +83,13 @@ def run_benchmark(model, loader, n_samples, inner_local_rots):
             # Rotations reconstructing from deltas
             rot_6d_for_slerp = batch.rot_6d_for_slerp # [N_total, 2, 6]
             slerp_start_6d = rot_6d_for_slerp[:, 0, :]
-            slerp_end_6d = rot_6d_for_slerp[:, 1, :]
-            rot_slerp = compute_slerp_batch(slerp_start_6d, slerp_end_6d, F_target) 
+
+            if delta_mode == "linear": 
+                slerp_end_6d = rot_6d_for_slerp[:, 1, :]
+                rot_slerp = compute_slerp_batch(slerp_start_6d, slerp_end_6d, F_target) 
+            else: 
+                rot_slerp = slerp_start_6d.unsqueeze(1).expand(-1, F_target, -1) # [N_total, F_target, 6]
+                rot_slerp = rot_6d_to_rot_3x3(rot_slerp)
             
             rot_pred_delta_3x3 = rot_6d_to_rot_3x3(rot_pred_delta)
             rot_pred_3x3 = torch.matmul(rot_pred_delta_3x3, rot_slerp) # [N_total, F_target, 3, 3]
@@ -94,8 +99,13 @@ def run_benchmark(model, loader, n_samples, inner_local_rots):
             root_pos_delta_pred = root_pos_delta_pred.view(batch.num_graphs, F_target, 3)
             root_pos_for_lerp = batch.root_pos_for_lerp.view(batch.num_graphs, 2, 3) # [B, 2, 3]
             lerp_start_pos = root_pos_for_lerp[:, 0, :] 
-            lerp_end_pos = root_pos_for_lerp[:, 1, :]
-            root_pos_lerp = compute_lerp_batch(lerp_start_pos, lerp_end_pos, F_target)
+            
+            if delta_mode == "linear":
+                lerp_end_pos = root_pos_for_lerp[:, 1, :]
+                root_pos_lerp = compute_lerp_batch(lerp_start_pos, lerp_end_pos, F_target)
+            else:
+                root_pos_lerp = lerp_start_pos.unsqueeze(1).expand(-1, F_target, -1) # [B, F_target, 3]
+
             root_pos_pred = root_pos_delta_pred + root_pos_lerp
 
             fk_pos_pred, global_3x3_rots_pred = forward_kinematics_pos_dense_batch( 
@@ -104,7 +114,7 @@ def run_benchmark(model, loader, n_samples, inner_local_rots):
                 root_pos=root_pos_pred,
                 rot_3x3=rot_pred_3x3,
                 batch_index=batch.batch,
-                local_rots=inner_local_rots
+                local_rots=True if inner_rots == "local" else False
             ) # [N_total, F_target, 3], [N_total, F_target, 3, 3]
 
             # Rotation metrics
@@ -209,7 +219,8 @@ benchmark_dataset = GraphSkeletonDataset(
     context_len_pre=config["context_len_pre"],
     context_len_post=config["context_len_post"],
     target_len=config["target_len"],
-    inner_local_rots=config["inner_local_rots"]
+    inner_rots=config["inner_rots"],
+    delta_mode=config["delta_mode"]
 )
 
 benchmark_loader = DataLoader(benchmark_dataset, batch_size=config["test_batch_size"], shuffle=False)
@@ -253,7 +264,8 @@ results = run_benchmark(
     model=model,
     loader=benchmark_loader,
     n_samples=len(benchmark_dataset),
-    inner_local_rots=config["inner_local_rots"]
+    inner_rots=config["inner_rots"],
+    delta_mode=config["delta_mode"]
 )
 
 log_str("\n--- Benchmark Results ---\n")
