@@ -33,7 +33,7 @@ if __name__ == '__main__':
     device = "cuda" if torch.cuda.is_available() else "cpu"
     print(f"Using device: {device}")
 
-    set_global_seed(constants["seed"])
+    set_global_seed(config["seed"])
 
     if device == "cuda":
         torch.set_float32_matmul_precision('high')
@@ -47,7 +47,8 @@ if __name__ == '__main__':
         context_len_post=config["context_len_post"],
         target_len=config["target_len"],
         inner_rots=config["inner_rots"],
-        delta_mode=config["delta_mode"]
+        delta_mode=config["delta_mode"],
+        slerp_version=config["slerp_version"]
     )
 
     os.makedirs(constants["skeletons_path"], exist_ok=True)
@@ -58,7 +59,7 @@ if __name__ == '__main__':
 
 
     torch_generator = torch.Generator()
-    torch_generator.manual_seed(constants["seed"])
+    torch_generator.manual_seed(config["seed"])
     
     n_total = len(dataset)
     n_val = max(1, int(n_total * config["validation_split"]))
@@ -184,7 +185,8 @@ if __name__ == '__main__':
                     l2_func=l2_func, 
                     loss_weights=config["loss_weights"],
                     inner_rots=config["inner_rots"],
-                    delta_mode=config["delta_mode"]
+                    delta_mode=config["delta_mode"],
+                    slerp_version=config["slerp_version"]
                 )
 
                 loss.backward()
@@ -246,7 +248,8 @@ if __name__ == '__main__':
                         l2_func=l2_func, 
                         loss_weights=config["loss_weights"],
                         inner_rots=config["inner_rots"],
-                        delta_mode=config["delta_mode"]
+                        delta_mode=config["delta_mode"],
+                        slerp_version=config["slerp_version"]
                     )
 
                     total_loss += loss.item() * batch.num_graphs

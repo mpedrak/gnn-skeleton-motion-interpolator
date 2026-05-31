@@ -8,7 +8,7 @@ from .utils.rotation import rot_3x3_to_rot_6d
 
 
 class GraphSkeletonDataset(Dataset):
-    def __init__(self, data_params, context_len_pre, context_len_post, target_len, inner_rots, delta_mode):
+    def __init__(self, data_params, context_len_pre, context_len_post, target_len, inner_rots, delta_mode, slerp_version):
 
         super().__init__()
         self.context_len_pre = context_len_pre
@@ -21,18 +21,24 @@ class GraphSkeletonDataset(Dataset):
         self.dir_info = []
         self.skeleton_topologies = set()
        
-        if inner_rots == "local":
-            print("Model will use local rots")
-            self.inner_local_rots = True
-        elif inner_rots == "global":
-            print("Model will use global rots")
-            self.inner_local_rots = False
-        else:
-            raise ValueError(f"Invalid inner_rots value: {inner_rots}, expected 'local' or 'global'")
-        
+        if inner_rots == "local": print("Model will use local rots")
+        elif inner_rots == "global": print("Model will use global rots")
+        else: raise ValueError(f"Invalid inner_rots value: {inner_rots}, expected 'local' or 'global'")
+
         if delta_mode == "linear": print("Model will predict deltas to lerp and slerp")
         elif delta_mode == "last": print("Model will predict deltas to last frame")
-        else: raise ValueError(f"Invalid delta_mode value: {delta_mode}, expected 'linear' or 'last'")
+        elif delta_mode == "lerp_only": print("Model will predict absolute rots and position deltas to lerp")
+        elif delta_mode == "none": print("Model will predict absolute rots and positions")
+        else: raise ValueError(f"Invalid delta_mode value: {delta_mode}, expected 'linear', 'last', 'lerp_only' or 'none'")
+
+        if inner_rots == "global" and delta_mode == "linear":
+            if slerp_version == "global": print("Slerp will be performed on 2 global rotations")
+            elif slerp_version == "local": print("Slerp will be performed on 2 local rotations, then converted to global")
+            else: raise ValueError(f"Invalid slerp_version value: {slerp_version}, expected 'global' or 'local'")
+
+        self.inner_rots = inner_rots
+        self.delta_mode = delta_mode
+        self.slerp_version = slerp_version
 
         print("Loading dataset")
         
@@ -135,7 +141,7 @@ class GraphSkeletonDataset(Dataset):
         num_joints = len(data['joint_names'])
         
         # Context
-        if self.inner_local_rots:
+        if self.inner_rots == "local":
             first_part = data['rot_6d'][start : tgt_start]
             second_part = data['rot_6d'][post_ctx_start : end]
             rot_6d_ctx = torch.cat([first_part, second_part], dim=0) # [F, J, 6]  
@@ -157,7 +163,7 @@ class GraphSkeletonDataset(Dataset):
         bone_lengths = torch.linalg.norm(offsets, dim=1, keepdim=True) # [J, 1]
 
         # Target
-        if self.inner_local_rots:
+        if self.inner_rots == "local":
             rot_6d_tgt = data['rot_6d'][tgt_start : post_ctx_start] # [F, J, 6]
         else:
             rot_3x3_tgt = data['global_3x3_rots'][tgt_start : post_ctx_start] # [F, J, 3, 3]
@@ -166,13 +172,13 @@ class GraphSkeletonDataset(Dataset):
         root_pos_tgt = data['root_pos'][tgt_start : post_ctx_start] # [F, 3]
         fk_pos_tgt = data['fk_pos'][tgt_start : post_ctx_start] # [F, J, 3]
  
-        root_pos_for_lerp = torch.stack([data['root_pos'][tgt_start - 1], data['root_pos'][post_ctx_start]], dim=0) # [2, 3]
+        root_pos_on_ends = torch.stack([data['root_pos'][tgt_start - 1], data['root_pos'][post_ctx_start]], dim=0) # [2, 3]
 
-        if self.inner_local_rots:
-            rot_6d_for_slerp = torch.stack([data['rot_6d'][tgt_start - 1], data['rot_6d'][post_ctx_start]], dim=0) # [2, J, 6]
+        if self.inner_rots == "local" or (self.inner_rots == "global" and self.slerp_version == "local"):
+            rot_6d_on_ends = torch.stack([data['rot_6d'][tgt_start - 1], data['rot_6d'][post_ctx_start]], dim=0) # [2, J, 6]
         else:
             rot_3x3_for_slerp = torch.stack([data['global_3x3_rots'][tgt_start - 1], data['global_3x3_rots'][post_ctx_start]], dim=0) # [2, J, 3, 3]
-            rot_6d_for_slerp = rot_3x3_to_rot_6d(rot_3x3_for_slerp) # [2, J, 6]
+            rot_6d_on_ends = rot_3x3_to_rot_6d(rot_3x3_for_slerp) # [2, J, 6]
 
         global_3x3_rots_tgt = data['global_3x3_rots'][tgt_start : post_ctx_start] # [F, J, 3, 3]
         
@@ -181,7 +187,7 @@ class GraphSkeletonDataset(Dataset):
         x_feat = torch.cat([x_feat, bone_lengths], dim=1) # -> [J, (F * 6) + 1]
         y_feat = rot_6d_tgt.permute(1, 0, 2).reshape(num_joints, -1) # -> [J, F * 6]
         fk_pos_tgt = fk_pos_tgt.permute(1, 0, 2) # -> [J, F, 3]
-        rot_6d_for_slerp = rot_6d_for_slerp.permute(1, 0, 2) # -> [J, 2, 6]
+        rot_6d_on_ends = rot_6d_on_ends.permute(1, 0, 2) # -> [J, 2, 6]
         global_3x3_rots_tgt = global_3x3_rots_tgt.permute(1, 0, 2, 3) # -> [J, F, 3, 3]
 
         return Data(
@@ -190,8 +196,8 @@ class GraphSkeletonDataset(Dataset):
             root_pos_ctx=root_pos_ctx,
             root_pos_tgt=root_pos_tgt,
             fk_pos_tgt=fk_pos_tgt,
-            root_pos_for_lerp=root_pos_for_lerp,
-            rot_6d_for_slerp=rot_6d_for_slerp,
+            root_pos_on_ends=root_pos_on_ends,
+            rot_6d_on_ends=rot_6d_on_ends,
             global_3x3_rots_tgt=global_3x3_rots_tgt,
             offsets=offsets,
             edge_index=data['edge_index'],

@@ -34,7 +34,7 @@ hole_starts_interval = config["target_len"] + max(config["context_len_pre"], con
 device = "cuda" if torch.cuda.is_available() else "cpu"
 print(f"Using device: {device}")
 
-set_global_seed(constants["seed"])
+set_global_seed(config["seed"])
 
 
 # Model

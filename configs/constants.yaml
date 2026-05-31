@@ -1,6 +1,5 @@
 # Various
 length_unit: "cm" 
-seed: 7
 num_workers: 8
 
 # Model

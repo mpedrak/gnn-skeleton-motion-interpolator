@@ -36,7 +36,7 @@ if gap_start_frame <= config["context_len_pre"] or gap_start_frame >= n_frames -
 device = "cuda" if torch.cuda.is_available() else "cpu"
 print(f"Using device: {device}")
 
-set_global_seed(constants["seed"])
+set_global_seed(config["seed"])
 
 
 # Model

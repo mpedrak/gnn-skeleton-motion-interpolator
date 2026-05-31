@@ -1,11 +1,13 @@
 description: "similiar to v_39, but inner rots are global" 
+seed: 7
 
 # Model parameters
 context_len_pre: 15
 context_len_post: 15
 target_len: 15
 inner_rots: "global" # "local" or "global"
-delta_mode: "linear" # "linear" (lerp and slerp) or "last" (frame)
+delta_mode: "linear" # "none", "lerp_only" (only for pos), "linear" (lerp and slerp) or "last" (frame)
+slerp_version: "global" # only used if linear delta mode and global inner rots, "global" (slerp on 2 globals) or "local" (slerp on 2 locals, then convert to global)
 rot_gnn_params: {
   num_features_in: 6,
   additional_features_in: 1,

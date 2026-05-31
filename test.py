@@ -25,7 +25,7 @@ print(f"Model description: {config['description']}")
 device = "cuda" if torch.cuda.is_available() else "cpu"
 print(f"Using device: {device}")
 
-set_global_seed(constants["seed"])
+set_global_seed(config["seed"])
 
 if device == "cuda":
     torch.set_float32_matmul_precision('high')
@@ -33,7 +33,7 @@ if device == "cuda":
 
 
 # Evaluate function
-def evaluate(model, loader, loss_weights, n_samples, log_str, inner_rots, delta_mode):
+def evaluate(model, loader, loss_weights, n_samples, log_str, inner_rots, delta_mode, slerp_version):
     
     model.eval()
 
@@ -66,7 +66,8 @@ def evaluate(model, loader, loss_weights, n_samples, log_str, inner_rots, delta_
                 l2_func=l2_func, 
                 loss_weights=loss_weights,
                 inner_rots=inner_rots,
-                delta_mode=delta_mode
+                delta_mode=delta_mode,
+                slerp_version=slerp_version
             )
 
             total_loss += loss.item() * batch.num_graphs
@@ -101,7 +102,8 @@ test_dataset = GraphSkeletonDataset(
     context_len_post=config["context_len_post"],
     target_len=config["target_len"],
     inner_rots=config["inner_rots"],
-    delta_mode=config["delta_mode"]
+    delta_mode=config["delta_mode"],
+    slerp_version=config["slerp_version"]
 )
 
 test_loader = DataLoader(test_dataset, batch_size=config["test_batch_size"], shuffle=False)
@@ -149,7 +151,8 @@ evaluate(
     n_samples=len(test_dataset), 
     log_str=log_str,
     inner_rots=config["inner_rots"],
-    delta_mode=config["delta_mode"]
+    delta_mode=config["delta_mode"],
+    slerp_version=config["slerp_version"]
 )
 
 print("\nTesting completed")

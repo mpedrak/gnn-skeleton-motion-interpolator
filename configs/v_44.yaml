@@ -1,13 +1,13 @@
-description: "similiar to v_38, but GNN hidden dim is 384 and trained on different dataset" 
+description: "similiar to v_40, but no fk loss" 
 seed: 7
 
 # Model parameters
 context_len_pre: 15
 context_len_post: 15
 target_len: 15
-inner_rots: "local" # "local" or "global"
+inner_rots: "global" # "local" or "global"
 delta_mode: "linear" # "none", "lerp_only" (only for pos), "linear" (lerp and slerp) or "last" (frame)
-slerp_version: "" # only used if linear delta mode and global inner rots, "global" (slerp on 2 globals) or "local" (slerp on 2 locals, then convert to global)
+slerp_version: "global" # only used if linear delta mode and global inner rots, "global" (slerp on 2 globals) or "local" (slerp on 2 locals, then convert to global)
 rot_gnn_params: {
   num_features_in: 6,
   additional_features_in: 1,
@@ -30,15 +30,15 @@ root_pos_mlp_params: {
 train_batch_size: 512
 epochs: 200
 validation_split: 0.2
-patience: 7
+patience: 12
 early_stop_eps: 0.00001
 loss_weights: {
-  rot_geo_l1: 1.0,
+  rot_geo_l1: 0.5,
   root_pos_l2: 0.05,
-  fk_pos_l1: 0.1,
-  sm_vel: 0.1,
-  sm_acc: 0.07,
-  sm_jerk: 0.01
+  fk_pos_l1: 0,
+  sm_vel: 0,
+  sm_acc: 0,
+  sm_jerk: 0
 }
 lr_scheduler_params: {
   start_lr: 0.001,
