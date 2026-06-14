@@ -37,7 +37,7 @@ if device == "cuda":
 
 
 # Evaluate function
-def run_benchmark(model, loader, n_samples, inner_rots, delta_mode, slerp_version):
+def run_benchmark(model, loader, n_samples, inner_rots, root_pos_delta_mode, rotations_delta_mode, slerp_version):
            
     l1 = torch.nn.L1Loss(reduction='sum')
     l2 = torch.nn.MSELoss(reduction='sum')
@@ -86,13 +86,13 @@ def run_benchmark(model, loader, n_samples, inner_rots, delta_mode, slerp_versio
             root_pos_on_ends = batch.root_pos_on_ends.view(batch.num_graphs, 2, 3) # [B, 2, 3]
             lerp_start_pos = root_pos_on_ends[:, 0, :] 
             
-            if delta_mode == "linear" or delta_mode == "lerp_only":
+            if root_pos_delta_mode == "linear":
                 lerp_end_pos = root_pos_on_ends[:, 1, :]
                 root_pos_lerp = compute_lerp_batch(lerp_start_pos, lerp_end_pos, F_target)
-            else:
+            elif root_pos_delta_mode == "last_frame":
                 root_pos_lerp = lerp_start_pos.unsqueeze(1).expand(-1, F_target, -1) # [B, F_target, 3]
 
-            if delta_mode == "none":  
+            if root_pos_delta_mode == "none":  
                 root_pos_pred = root_pos_delta_pred  
             else:
                 root_pos_pred = root_pos_delta_pred + root_pos_lerp
@@ -101,7 +101,7 @@ def run_benchmark(model, loader, n_samples, inner_rots, delta_mode, slerp_versio
             rot_6d_on_ends = batch.rot_6d_on_ends # [N_total, 2, 6]
             slerp_start_6d = rot_6d_on_ends[:, 0, :]
 
-            if delta_mode == "linear": 
+            if rotations_delta_mode == "linear": 
                 slerp_end_6d = rot_6d_on_ends[:, 1, :]
                 rot_slerp = compute_slerp_batch(slerp_start_6d, slerp_end_6d, F_target)
                 if inner_rots == "global" and slerp_version == "local":
@@ -113,11 +113,11 @@ def run_benchmark(model, loader, n_samples, inner_rots, delta_mode, slerp_versio
                         batch_index=batch.batch,
                         local_rots=True
                     )
-            elif delta_mode == "last": 
+            elif rotations_delta_mode == "last_frame": 
                 rot_slerp = slerp_start_6d.unsqueeze(1).expand(-1, F_target, -1) # [N_total, F_target, 6]
                 rot_slerp = rot_6d_to_rot_3x3(rot_slerp)
 
-            if delta_mode == "none" or delta_mode == "lerp_only":
+            if rotations_delta_mode == "none":
                 rot_pred_3x3 = rot_6d_to_rot_3x3(rot_pred_delta) # [N_total, F_target, 3, 3]
             else:
                 rot_pred_delta_3x3 = rot_6d_to_rot_3x3(rot_pred_delta)
@@ -237,7 +237,8 @@ benchmark_dataset = GraphSkeletonDataset(
     context_len_post=config["context_len_post"],
     target_len=config["target_len"],
     inner_rots=config["inner_rots"],
-    delta_mode=config["delta_mode"],
+    root_pos_delta_mode=config["root_pos_delta_mode"],
+    rotations_delta_mode=config["rotations_delta_mode"],
     slerp_version=config["slerp_version"]
 )
 
@@ -283,7 +284,8 @@ results = run_benchmark(
     loader=benchmark_loader,
     n_samples=len(benchmark_dataset),
     inner_rots=config["inner_rots"],
-    delta_mode=config["delta_mode"],
+    root_pos_delta_mode=config["root_pos_delta_mode"],
+    rotations_delta_mode=config["rotations_delta_mode"],
     slerp_version=config["slerp_version"]
 )
 

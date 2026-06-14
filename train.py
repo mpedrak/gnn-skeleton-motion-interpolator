@@ -47,7 +47,8 @@ if __name__ == '__main__':
         context_len_post=config["context_len_post"],
         target_len=config["target_len"],
         inner_rots=config["inner_rots"],
-        delta_mode=config["delta_mode"],
+        root_pos_delta_mode=config["root_pos_delta_mode"],
+        rotations_delta_mode=config["rotations_delta_mode"],
         slerp_version=config["slerp_version"]
     )
 
@@ -185,7 +186,8 @@ if __name__ == '__main__':
                     l2_func=l2_func, 
                     loss_weights=config["loss_weights"],
                     inner_rots=config["inner_rots"],
-                    delta_mode=config["delta_mode"],
+                    root_pos_delta_mode=config["root_pos_delta_mode"],
+                    rotations_delta_mode=config["rotations_delta_mode"],
                     slerp_version=config["slerp_version"]
                 )
 
@@ -248,7 +250,8 @@ if __name__ == '__main__':
                         l2_func=l2_func, 
                         loss_weights=config["loss_weights"],
                         inner_rots=config["inner_rots"],
-                        delta_mode=config["delta_mode"],
+                        root_pos_delta_mode=config["root_pos_delta_mode"],
+                        rotations_delta_mode=config["rotations_delta_mode"],
                         slerp_version=config["slerp_version"]
                     )
 
@@ -312,21 +315,34 @@ if __name__ == '__main__':
         hours, rem = divmod(elapsed_time, 3600)
         minutes, seconds = divmod(rem, 60)
 
-        if len(val_losses) > 0:
-            plt.figure(figsize=(12, 7))
-            plt.plot(range(1, len(train_losses) + 1), train_losses, label='Train loss', linewidth=2)
-            plt.plot(range(1, len(val_losses) + 1), val_losses, label='Val loss', linewidth=2)
+        skip_epochs = 1
+        
+        if len(val_losses) > skip_epochs:
+            
+            train_losses = train_losses[skip_epochs : ]
+            val_losses = val_losses[skip_epochs : ]
+            val_rot_losses = val_rot_losses[skip_epochs : ]
+            val_root_pos_losses = val_root_pos_losses[skip_epochs : ]
+            val_fk_losses = val_fk_losses[skip_epochs : ]
+            val_sm_vel_losses = val_sm_vel_losses[skip_epochs : ]
+            val_sm_acc_losses = val_sm_acc_losses[skip_epochs : ]
+            val_sm_jerk_losses = val_sm_jerk_losses[skip_epochs : ]
 
-            plt.plot(range(1, len(val_rot_losses) + 1), val_rot_losses, label='Val rotations geodesic L1 loss', alpha=0.5)
-            plt.plot(range(1, len(val_root_pos_losses) + 1), val_root_pos_losses, label='Val root positions L2 loss', alpha=0.5)
-            plt.plot(range(1, len(val_fk_losses) + 1), val_fk_losses, label='Val FK positions L1 loss', alpha=0.5)
-            plt.plot(range(1, len(val_sm_vel_losses) + 1), val_sm_vel_losses, label='Val velocity loss', alpha=0.5)
-            plt.plot(range(1, len(val_sm_acc_losses) + 1), val_sm_acc_losses, label='Val acceleration loss', alpha=0.5)
-            plt.plot(range(1, len(val_sm_jerk_losses) + 1), val_sm_jerk_losses, label='Val jerk loss', alpha=0.5)
+            plt.figure(figsize=(12, 7))
+            plt.plot(range(skip_epochs + 1, len(train_losses) + skip_epochs + 1), train_losses, label='Train loss', linewidth=2)
+            plt.plot(range(skip_epochs + 1, len(val_losses) + skip_epochs + 1), val_losses, label='Val loss', linewidth=2)
+
+            plt.plot(range(skip_epochs + 1, len(val_rot_losses) + skip_epochs + 1), val_rot_losses, label='Val rotations geodesic L1 loss', alpha=0.5)
+            plt.plot(range(skip_epochs + 1, len(val_root_pos_losses) + skip_epochs + 1), val_root_pos_losses, label='Val root positions L2 loss', alpha=0.5)
+            plt.plot(range(skip_epochs + 1, len(val_fk_losses) + skip_epochs + 1), val_fk_losses, label='Val FK positions L1 loss', alpha=0.5)
+            plt.plot(range(skip_epochs + 1, len(val_sm_vel_losses) + skip_epochs + 1), val_sm_vel_losses, label='Val velocity loss', alpha=0.5)
+            plt.plot(range(skip_epochs + 1, len(val_sm_acc_losses) + skip_epochs + 1), val_sm_acc_losses, label='Val acceleration loss', alpha=0.5)
+            plt.plot(range(skip_epochs + 1, len(val_sm_jerk_losses) + skip_epochs + 1), val_sm_jerk_losses, label='Val jerk loss', alpha=0.5)
             
             plt.xlabel('Epoch')
-            plt.ylabel('Loss (log scale)')
-            plt.yscale('log')
+            plt.ylabel('Loss')
+            # plt.ylabel('Loss (log scale)')
+            # plt.yscale('log')
             ax = plt.gca() 
             formatter = FormatStrFormatter('%g') 
             ax.yaxis.set_major_formatter(formatter)

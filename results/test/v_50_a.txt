@@ -1,0 +1,7 @@
+Test loss:                      0.3267152
+'- Rotations Geodesic L1:       '- 0.0661
+'- Root positions L2:           '- 0.0670
+'- FK positions L1:             '- 0.1389
+'- Velocity loss:               '- 0.0385
+'- Acceleration loss:           '- 0.0141
+'- Jerk loss:                   '- 0.0021

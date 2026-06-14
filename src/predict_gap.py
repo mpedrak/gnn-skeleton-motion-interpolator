@@ -8,7 +8,7 @@ from .utils.rotation import rot_6d_to_rot_3x3, rot_3x3_to_rot_6d, compute_slerp
 
 
 @torch.no_grad()
-def predict_gap(model, device, rot_6d, root_pos, parent_indices, context_len_pre, context_len_post, target_len, gap_start, offsets, inner_rots, delta_mode):
+def predict_gap(model, device, rot_6d, root_pos, parent_indices, context_len_pre, context_len_post, target_len, gap_start, offsets, inner_rots, root_pos_delta_mode, rotations_delta_mode):
     
     J = rot_6d.shape[1]
     second_start = gap_start + target_len
@@ -70,10 +70,8 @@ def predict_gap(model, device, rot_6d, root_pos, parent_indices, context_len_pre
     # Reconstruct rotations from deltas
     slerp_start_6d = rot_6d[gap_start - 1].clone().detach().to(device, dtype=torch.float32)
 
-    if delta_mode == "linear":
-
+    if rotations_delta_mode == "linear":
         slerp_end_6d = rot_6d[second_start].clone().detach().to(device, dtype=torch.float32)
-        
         if inner_rots == "global":
             slerps_rots = torch.cat([slerp_start_6d.unsqueeze(0), slerp_end_6d.unsqueeze(0)], dim=0) # [2, J, 6]
             slerps_root_pos = torch.cat([root_pos[gap_start - 1].unsqueeze(0), root_pos[second_start].unsqueeze(0)], dim=0).to(device) # [2, 3]
@@ -92,13 +90,15 @@ def predict_gap(model, device, rot_6d, root_pos, parent_indices, context_len_pre
 
         rot_slerp = compute_slerp(slerp_start_6d, slerp_end_6d, target_len)
 
-    else:
+    elif rotations_delta_mode == "last_frame":
         rot_slerp = slerp_start_6d.unsqueeze(0).expand(target_len, -1, -1) # [F, J, 6]
         rot_slerp = rot_6d_to_rot_3x3(rot_slerp)
 
-
-    rot_pred_delta = rot_6d_to_rot_3x3(rot_pred_delta) 
-    rot_pred = torch.matmul(rot_pred_delta, rot_slerp)
+    if rotations_delta_mode == "none":
+        rot_pred = rot_6d_to_rot_3x3(rot_pred_delta)
+    else:
+        rot_pred_delta = rot_6d_to_rot_3x3(rot_pred_delta) 
+        rot_pred = torch.matmul(rot_pred_delta, rot_slerp)
 
     if inner_rots == "global":
         parents_tensor = parent_indices.clone().detach().to(device)
@@ -114,12 +114,15 @@ def predict_gap(model, device, rot_6d, root_pos, parent_indices, context_len_pre
     root_pos_delta_pred = root_pos_delta_pred.view(1, -1).view(target_len, 3) # [F, 3]
     lerp_start_pos = root_pos[gap_start - 1]
 
-    if delta_mode == "linear":
+    if root_pos_delta_mode == "linear":
         lerp_end_pos = root_pos[second_start]
         root_pos_lerp = compute_lerp(lerp_start_pos, lerp_end_pos, target_len)
-    else:
+    elif root_pos_delta_mode == "last_frame":
         root_pos_lerp = lerp_start_pos.unsqueeze(0).expand(target_len, -1).to(device) # [F, 3]
 
-    root_pos_pred = root_pos_delta_pred + root_pos_lerp.to(device)        
+    if root_pos_delta_mode == "none":
+        root_pos_pred = root_pos_delta_pred
+    else:
+        root_pos_pred = root_pos_delta_pred + root_pos_lerp.to(device)        
 
     return rot_pred.cpu(), root_pos_pred.cpu()

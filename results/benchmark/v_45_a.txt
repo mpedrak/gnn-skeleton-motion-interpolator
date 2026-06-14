@@ -1,0 +1,23 @@
+
+--- Benchmark Results ---
+
+Model description: same as v_39, but GNN hidden dim is 256 and lafan step is 9 instead of 8, root_pos_delta_mode: linear and rotations_delta_mode: linear
+
+Per joint:
+  L2P value [cm]:                       2.82473
+  L2Q value:                            0.05572
+  Global rotation MAE [deg]:            6.39162
+  Global rotation RMSE [deg]:           9.76395
+  Root L2P value [cm]:                  1.27429
+
+Per joint quaternion channel:
+  NPSS value:                           0.07119
+
+Per joint axis channel:
+  Root position MAE [cm]:               0.62730
+  Root position RMSE [cm]:              1.11444
+  All positions MAE [cm]:               1.39510
+  All positions RMSE [cm]:              2.71809
+  Velocity loss [cm/frame]:             0.39391
+  Acceleration loss [cm/frame^2]:       0.20028
+  Jerk loss [cm/frame^3]:               0.18939

@@ -8,7 +8,7 @@ from .utils.rotation import rot_3x3_to_rot_6d
 
 
 class GraphSkeletonDataset(Dataset):
-    def __init__(self, data_params, context_len_pre, context_len_post, target_len, inner_rots, delta_mode, slerp_version):
+    def __init__(self, data_params, context_len_pre, context_len_post, target_len, inner_rots, root_pos_delta_mode, rotations_delta_mode, slerp_version):
 
         super().__init__()
         self.context_len_pre = context_len_pre
@@ -25,20 +25,22 @@ class GraphSkeletonDataset(Dataset):
         elif inner_rots == "global": print("Model will use global rots")
         else: raise ValueError(f"Invalid inner_rots value: {inner_rots}, expected 'local' or 'global'")
 
-        if delta_mode == "linear": print("Model will predict deltas to lerp and slerp")
-        elif delta_mode == "last": print("Model will predict deltas to last frame")
-        elif delta_mode == "lerp_only": print("Model will predict absolute rots and position deltas to lerp")
-        elif delta_mode == "none": print("Model will predict absolute rots and positions")
-        else: raise ValueError(f"Invalid delta_mode value: {delta_mode}, expected 'linear', 'last', 'lerp_only' or 'none'")
+        if root_pos_delta_mode == "none": print("Model will predict absolute root positions")
+        elif root_pos_delta_mode == "linear": print("Model will predict root pos deltas to linear interpolation")
+        elif root_pos_delta_mode == "last_frame": print("Model will predict root pos deltas to last context frame")
+        else: raise ValueError(f"Invalid root_pos_delta_mode value: {root_pos_delta_mode}, expected 'none', 'linear' or 'last_frame'")
 
-        if inner_rots == "global" and delta_mode == "linear":
+        if rotations_delta_mode == "none": print("Model will predict absolute rotations")
+        elif rotations_delta_mode == "linear": print("Model will predict rotations deltas to spherical linear interpolation")
+        elif rotations_delta_mode == "last_frame": print("Model will predict rotations deltas to last context frame")
+        else: raise ValueError(f"Invalid rotations_delta_mode value: {rotations_delta_mode}, expected 'none', 'linear' or 'last_frame'")
+
+        if inner_rots == "global" and rotations_delta_mode == "linear":
             if slerp_version == "global": print("Slerp will be performed on 2 global rotations")
             elif slerp_version == "local": print("Slerp will be performed on 2 local rotations, then converted to global")
             else: raise ValueError(f"Invalid slerp_version value: {slerp_version}, expected 'global' or 'local'")
 
         self.inner_rots = inner_rots
-        self.delta_mode = delta_mode
-        self.slerp_version = slerp_version
 
         print("Loading dataset")
         
