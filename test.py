@@ -26,6 +26,7 @@ device = "cuda" if torch.cuda.is_available() else "cpu"
 print(f"Using device: {device}")
 
 set_global_seed(config["seed"])
+print(f"Global seed set to: {config['seed']}")
 
 if device == "cuda":
     torch.set_float32_matmul_precision('high')

@@ -34,6 +34,7 @@ if __name__ == '__main__':
     print(f"Using device: {device}")
 
     set_global_seed(config["seed"])
+    print(f"Global seed set to: {config['seed']}")
 
     if device == "cuda":
         torch.set_float32_matmul_precision('high')
@@ -340,9 +341,9 @@ if __name__ == '__main__':
             plt.plot(range(skip_epochs + 1, len(val_sm_jerk_losses) + skip_epochs + 1), val_sm_jerk_losses, label='Val jerk loss', alpha=0.5)
             
             plt.xlabel('Epoch')
-            plt.ylabel('Loss')
-            # plt.ylabel('Loss (log scale)')
-            # plt.yscale('log')
+            # plt.ylabel('Loss')
+            plt.ylabel('Loss (log scale)')
+            plt.yscale('log')
             ax = plt.gca() 
             formatter = FormatStrFormatter('%g') 
             ax.yaxis.set_major_formatter(formatter)
