@@ -45,9 +45,10 @@ def calculate_l2q(pred_rot_6d, target_rot_6d, reduction='mean'):
     else: raise ValueError(f"Unsupported reduction: {reduction}")
 
 
-def calculate_npss(pred, target, reduction='mean', eps=1e-8):
+def calculate_npss(pred, target, eps=1e-8):
+    # Calculate Normalized Power Spectrum Similarity between predicted and target sequences, only mean reduction
  
-    fft_pred = torch.fft.rfft(pred, dim=-1) 
+    fft_pred = torch.fft.rfft(pred, dim=-1)
     fft_target = torch.fft.rfft(target, dim=-1)
      
     power_pred = torch.abs(fft_pred) ** 2
@@ -62,12 +63,13 @@ def calculate_npss(pred, target, reduction='mean', eps=1e-8):
     cdf_pred = torch.cumsum(norm_power_pred, dim=-1)
     cdf_target = torch.cumsum(norm_power_target, dim=-1)
     
-    emd = torch.sum(torch.abs(cdf_pred - cdf_target), dim=-1)  
-    
-    if reduction == 'mean': return emd.mean()
-    elif reduction == 'sum': return emd.sum()
-    elif reduction == 'none': return emd
-    else: raise ValueError(f"Unsupported reduction: {reduction}")
+    emd = torch.sum(torch.abs(cdf_pred - cdf_target), dim=-1)
+    p = torch.sum(power_target, dim=-1)
+   
+    p_sum = torch.sum(torch.sum(p, dim=-1), dim=0) + eps
+    npss_value = torch.sum(torch.sum(p * emd, dim=-1), dim=0) / p_sum
+
+    return npss_value
 
 
 def calculate_smoothness_loss(fk_pos_pred, fk_pos_tgt, order, reduction='mean'):

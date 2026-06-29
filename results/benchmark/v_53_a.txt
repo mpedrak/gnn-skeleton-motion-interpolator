@@ -1,0 +1,23 @@
+
+--- Benchmark Results ---
+
+Model description: similar to v_45, but trained only on lafan1 with step 4
+
+Per joint:
+  L2P value [cm]:                     3.5092803
+  L2Q value:                          0.0663116
+  Global rotation MAE [deg]:          7.6029436
+  Global rotation RMSE [deg]:        11.3398525
+  Root L2P value [cm]:                1.9592168
+
+Per joint quaternion channel:
+  NPSS value:                         0.0065572
+
+Per joint axis channel:
+  Root position MAE [cm]:             0.9642596
+  Root position RMSE [cm]:            1.5521004
+  All positions MAE [cm]:             1.7359269
+  All positions RMSE [cm]:            3.1685284
+  Velocity loss [cm/frame]:           0.5156468
+  Acceleration loss [cm/frame^2]:     0.2852059
+  Jerk loss [cm/frame^3]:             0.2924921

@@ -5,7 +5,6 @@ import json
 import time
 
 from bvh import Bvh
-from statistics import mean, median
 
 from src.model import SkeletalMotionInterpolator
 from src.utils.bvh import replace_gap_in_bvh_text, parse_bvh_file, get_bvh_frame_count, compress_skeleton_hierarchy
@@ -32,6 +31,7 @@ print(f"Model description: {config['description']}")
 hole_starts_interval = config["target_len"] + max(config["context_len_pre"], config["context_len_post"])
         
 device = "cuda" if torch.cuda.is_available() else "cpu"
+# device = "cpu"
 print(f"Using device: {device}")
 
 set_global_seed(config["seed"])
@@ -150,8 +150,10 @@ for input_bvh_path in bvh_paths:
 
 print("All predictions done")
 print("Prediction time statistics")
-print(f"   Average: {int(mean(prediction_times))} ms")
-print(f"   Median:  {int(median(prediction_times))} ms")
-print(f"   Minimum: {int(min(prediction_times))} ms")
-print(f"   Maximum: {int(max(prediction_times))} ms")
+print(f"   Count:   {len(prediction_times)}")
+print(f"   Average: {torch.tensor(prediction_times).mean():.3f} ms")
+print(f"   Std:     {torch.tensor(prediction_times).std():.3f} ms")
+print(f"   Median:  {torch.tensor(prediction_times).median():.3f} ms")
+print(f"   Minimum: {torch.tensor(prediction_times).min():.3f} ms")
+print(f"   Maximum: {torch.tensor(prediction_times).max():.3f} ms")
 print()

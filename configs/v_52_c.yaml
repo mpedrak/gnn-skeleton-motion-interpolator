@@ -1,0 +1,58 @@
+description: "similar to v_45, but trained only on lafan1 (with step 9)"
+seed: 777
+
+# Model parameters
+context_len_pre: 15
+context_len_post: 15
+target_len: 15
+inner_rots: "local" # "local" or "global"
+root_pos_delta_mode: "linear" # "none", "linear" or "last_frame"
+rotations_delta_mode: "linear" # "none", "linear" or "last_frame"
+slerp_version: "" # only used if linear rotations delta mode and global inner rots, "global" (slerp on 2 globals) or "local" (slerp on 2 locals, then convert to global)
+rot_gnn_params: {
+  num_features_in: 6,
+  additional_features_in: 1,
+  num_features_out: 6,
+  hidden_dim: 256,
+  num_layers: 4,
+  dropout: 0.01,
+  num_heads: 8
+}
+root_pos_mlp_params: {
+  num_features_in: 3,
+  num_features_out: 3,
+  hidden_dim: 256,
+  num_layers: 7,
+  dropout: 0.05,
+  num_features_in_from_gnn: 64
+}
+
+# Training parameters
+train_batch_size: 512
+epochs: 200
+validation_split: 0.2
+patience: 7
+early_stop_eps: 0.00001
+loss_weights: {
+  rot_geo_l1: 1.0,
+  root_pos_l2: 0.05,
+  fk_pos_l1: 0.1,
+  sm_vel: 0.1,
+  sm_acc: 0.07,
+  sm_jerk: 0.01
+}
+lr_scheduler_params: {
+  start_lr: 0.001,
+  min_lr: 0.0001,
+  factor: 0.75,
+  patience: 3
+}
+train_data_params: [
+  {step: 9, skip_start: 100, dir: "data/train/lafan1-S1-S2-S3-S4"},
+]
+
+# Test and benchmark parameters   
+test_batch_size: 1024                               
+test_data_params: [
+  {step: 4, skip_start: 100, dir: "data/test/lafan1-S5"}
+]

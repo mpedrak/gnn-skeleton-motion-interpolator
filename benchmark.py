@@ -173,7 +173,7 @@ def run_benchmark(model, loader, n_samples, inner_rots, root_pos_delta_mode, rot
 
             quat_pred_npss = global_quat_pred.permute(0, 2, 1)
             quat_tgt_npss = global_quat_tgt.permute(0, 2, 1)
-            npss_sum += calculate_npss(quat_pred_npss, quat_tgt_npss, reduction='sum').item()
+            npss_sum += calculate_npss(quat_pred_npss, quat_tgt_npss).item() * N_total
 
             # Smoothness metrics
             sm_1_sum += calculate_smoothness_loss(fk_pos_pred, fk_pos_tgt, order=1, reduction='sum').item()
@@ -200,7 +200,7 @@ def run_benchmark(model, loader, n_samples, inner_rots, root_pos_delta_mode, rot
 
     l2q_value = l2q_sum / (total_joints * F_target)
 
-    npss_value = npss_sum / (total_joints * 4)
+    npss_value = npss_sum / total_joints
 
     sm_1_value = sm_1_sum / (total_joints * (F_target - 1) * 3)
     sm_2_value = sm_2_sum / (total_joints * (F_target - 2) * 3)
@@ -296,6 +296,6 @@ log_str(f"Model description: {config['description']}")
 for metric_group, metric_values in results.items():
     log_str(f"\n{metric_group}:")
     for metric_name, value in metric_values.items():
-        log_str(f"  {metric_name}: {' ' * (32 - len(metric_name))} {value:10.5f}")
+        log_str(f"  {metric_name}: {' ' * (32 - len(metric_name))} {value:10.7f}")
 
 print()
