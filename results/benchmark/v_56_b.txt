@@ -1,0 +1,23 @@
+
+--- Benchmark Results ---
+
+Model description: similar to v_45, but trained only on UNOC
+
+Per joint:
+  L2P value [cm]:                     6.8464051
+  L2Q value:                          0.2244982
+  Global rotation MAE [deg]:         26.8195875
+  Global rotation RMSE [deg]:        49.2685040
+  Root L2P value [cm]:                1.5038560
+
+Per joint quaternion channel:
+  NPSS value:                         0.1390024
+
+Per joint axis channel:
+  Root position MAE [cm]:             0.7388427
+  Root position RMSE [cm]:            1.3645377
+  All positions MAE [cm]:             3.3172499
+  All positions RMSE [cm]:            5.1271217
+  Velocity loss [cm/frame]:           0.8601019
+  Acceleration loss [cm/frame^2]:     0.7542527
+  Jerk loss [cm/frame^3]:             1.0961906

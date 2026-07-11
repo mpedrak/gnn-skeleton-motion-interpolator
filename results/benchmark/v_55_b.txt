@@ -1,0 +1,23 @@
+
+--- Benchmark Results ---
+
+Model description: similar to v_45, but trained only on ACCAD
+
+Per joint:
+  L2P value [cm]:                     2.3652114
+  L2Q value:                          0.0440679
+  Global rotation MAE [deg]:          5.0809142
+  Global rotation RMSE [deg]:         9.4166881
+  Root L2P value [cm]:                1.1167631
+
+Per joint quaternion channel:
+  NPSS value:                         0.0030777
+
+Per joint axis channel:
+  Root position MAE [cm]:             0.5476129
+  Root position RMSE [cm]:            1.1717773
+  All positions MAE [cm]:             1.1632533
+  All positions RMSE [cm]:            2.8117648
+  Velocity loss [cm/frame]:           0.2979930
+  Acceleration loss [cm/frame^2]:     0.1633050
+  Jerk loss [cm/frame^3]:             0.1904871

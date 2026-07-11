@@ -1,0 +1,23 @@
+
+--- Benchmark Results ---
+
+Model description: similar to v_45, but root_pos_delta_mode: none and rotations_delta_mode: none
+
+Per joint:
+  L2P value [cm]:                    144.5516790
+  L2Q value:                          0.8818354
+  Global rotation MAE [deg]:         106.7554459
+  Global rotation RMSE [deg]:        115.6872485
+  Root L2P value [cm]:               157.2761154
+
+Per joint quaternion channel:
+  NPSS value:                         0.4537191
+
+Per joint axis channel:
+  Root position MAE [cm]:            69.3673887
+  Root position RMSE [cm]:           130.9519835
+  All positions MAE [cm]:            66.2269846
+  All positions RMSE [cm]:           118.9953839
+  Velocity loss [cm/frame]:           1.7994803
+  Acceleration loss [cm/frame^2]:     2.1579691
+  Jerk loss [cm/frame^3]:             4.1800002

@@ -1,0 +1,23 @@
+
+--- Benchmark Results ---
+
+Model description: similar to v_45, but trained only on PFNN
+
+Per joint:
+  L2P value [cm]:                     3.7444565
+  L2Q value:                          0.0686020
+  Global rotation MAE [deg]:          7.8626936
+  Global rotation RMSE [deg]:        11.2152855
+  Root L2P value [cm]:                1.6888599
+
+Per joint quaternion channel:
+  NPSS value:                         0.0053479
+
+Per joint axis channel:
+  Root position MAE [cm]:             0.8395688
+  Root position RMSE [cm]:            1.2828877
+  All positions MAE [cm]:             1.8565824
+  All positions RMSE [cm]:            3.8827948
+  Velocity loss [cm/frame]:           0.4822641
+  Acceleration loss [cm/frame^2]:     0.2301139
+  Jerk loss [cm/frame^3]:             0.2223977

@@ -1,0 +1,3730 @@
+
+--- Epoch 1/200 ---
+Learning rate:                  1.000e-03
+Training loss:                  7.4614767
+'- Rotations geodesic L1:       '- 1.9781
+'- Root positions L2:           '- 0.4764
+'- FK positions L1:             '- 2.0378
+'- Velocity loss:               '- 1.2581
+'- Acceleration loss:           '- 1.3671
+'- Jerk loss:                   '- 0.3441
+Validation loss:                6.2648650
+'- Rotations geodesic L1:       '- 1.8508
+'- Root positions L2:           '- 0.2344
+'- FK positions L1:             '- 1.8940
+'- Velocity loss:               '- 0.9683
+'- Acceleration loss:           '- 1.0483
+'- Jerk loss:                   '- 0.2690
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 2/200 ---
+Learning rate:                  1.000e-03
+Training loss:                  5.4781192
+'- Rotations geodesic L1:       '- 1.3342
+'- Root positions L2:           '- 0.2204
+'- FK positions L1:             '- 1.7384
+'- Velocity loss:               '- 0.9423
+'- Acceleration loss:           '- 0.9955
+'- Jerk loss:                   '- 0.2473
+Validation loss:                3.4529973
+'- Rotations geodesic L1:       '- 0.5175
+'- Root positions L2:           '- 0.1971
+'- FK positions L1:             '- 1.1423
+'- Velocity loss:               '- 0.7051
+'- Acceleration loss:           '- 0.7179
+'- Jerk loss:                   '- 0.1731
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 3/200 ---
+Learning rate:                  1.000e-03
+Training loss:                  1.2387072
+'- Rotations geodesic L1:       '- 0.1470
+'- Root positions L2:           '- 0.1892
+'- FK positions L1:             '- 0.3733
+'- Velocity loss:               '- 0.2270
+'- Acceleration loss:           '- 0.2409
+'- Jerk loss:                   '- 0.0612
+Validation loss:                0.7128511
+'- Rotations geodesic L1:       '- 0.0823
+'- Root positions L2:           '- 0.1757
+'- FK positions L1:             '- 0.2217
+'- Velocity loss:               '- 0.1001
+'- Acceleration loss:           '- 0.1046
+'- Jerk loss:                   '- 0.0285
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 4/200 ---
+Learning rate:                  1.000e-03
+Training loss:                  0.6650714
+'- Rotations geodesic L1:       '- 0.0839
+'- Root positions L2:           '- 0.1707
+'- FK positions L1:             '- 0.2208
+'- Velocity loss:               '- 0.0870
+'- Acceleration loss:           '- 0.0813
+'- Jerk loss:                   '- 0.0214
+Validation loss:                0.6141225
+'- Rotations geodesic L1:       '- 0.0816
+'- Root positions L2:           '- 0.1627
+'- FK positions L1:             '- 0.2122
+'- Velocity loss:               '- 0.0753
+'- Acceleration loss:           '- 0.0651
+'- Jerk loss:                   '- 0.0173
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 5/200 ---
+Learning rate:                  1.000e-03
+Training loss:                  0.6116286
+'- Rotations geodesic L1:       '- 0.0836
+'- Root positions L2:           '- 0.1560
+'- FK positions L1:             '- 0.2157
+'- Velocity loss:               '- 0.0758
+'- Acceleration loss:           '- 0.0640
+'- Jerk loss:                   '- 0.0166
+Validation loss:                0.5707635
+'- Rotations geodesic L1:       '- 0.0815
+'- Root positions L2:           '- 0.1479
+'- FK positions L1:             '- 0.2083
+'- Velocity loss:               '- 0.0677
+'- Acceleration loss:           '- 0.0521
+'- Jerk loss:                   '- 0.0133
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 6/200 ---
+Learning rate:                  1.000e-03
+Training loss:                  0.5781562
+'- Rotations geodesic L1:       '- 0.0835
+'- Root positions L2:           '- 0.1435
+'- FK positions L1:             '- 0.2126
+'- Velocity loss:               '- 0.0701
+'- Acceleration loss:           '- 0.0546
+'- Jerk loss:                   '- 0.0138
+Validation loss:                0.5511932
+'- Rotations geodesic L1:       '- 0.0814
+'- Root positions L2:           '- 0.1371
+'- FK positions L1:             '- 0.2062
+'- Velocity loss:               '- 0.0658
+'- Acceleration loss:           '- 0.0486
+'- Jerk loss:                   '- 0.0122
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 7/200 ---
+Learning rate:                  1.000e-03
+Training loss:                  0.5506579
+'- Rotations geodesic L1:       '- 0.0834
+'- Root positions L2:           '- 0.1328
+'- FK positions L1:             '- 0.2100
+'- Velocity loss:               '- 0.0658
+'- Acceleration loss:           '- 0.0471
+'- Jerk loss:                   '- 0.0116
+Validation loss:                0.5343176
+'- Rotations geodesic L1:       '- 0.0814
+'- Root positions L2:           '- 0.1290
+'- FK positions L1:             '- 0.2048
+'- Velocity loss:               '- 0.0634
+'- Acceleration loss:           '- 0.0447
+'- Jerk loss:                   '- 0.0110
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 8/200 ---
+Learning rate:                  1.000e-03
+Training loss:                  0.5389638
+'- Rotations geodesic L1:       '- 0.0834
+'- Root positions L2:           '- 0.1274
+'- FK positions L1:             '- 0.2089
+'- Velocity loss:               '- 0.0639
+'- Acceleration loss:           '- 0.0445
+'- Jerk loss:                   '- 0.0110
+Validation loss:                0.5206590
+'- Rotations geodesic L1:       '- 0.0813
+'- Root positions L2:           '- 0.1243
+'- FK positions L1:             '- 0.2033
+'- Velocity loss:               '- 0.0610
+'- Acceleration loss:           '- 0.0408
+'- Jerk loss:                   '- 0.0099
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 9/200 ---
+Learning rate:                  1.000e-03
+Training loss:                  0.5255211
+'- Rotations geodesic L1:       '- 0.0833
+'- Root positions L2:           '- 0.1217
+'- FK positions L1:             '- 0.2076
+'- Velocity loss:               '- 0.0619
+'- Acceleration loss:           '- 0.0410
+'- Jerk loss:                   '- 0.0099
+Validation loss:                0.5035125
+'- Rotations geodesic L1:       '- 0.0813
+'- Root positions L2:           '- 0.1181
+'- FK positions L1:             '- 0.2020
+'- Velocity loss:               '- 0.0582
+'- Acceleration loss:           '- 0.0357
+'- Jerk loss:                   '- 0.0082
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 10/200 ---
+Learning rate:                  1.000e-03
+Training loss:                  0.5124600
+'- Rotations geodesic L1:       '- 0.0833
+'- Root positions L2:           '- 0.1164
+'- FK positions L1:             '- 0.2064
+'- Velocity loss:               '- 0.0601
+'- Acceleration loss:           '- 0.0375
+'- Jerk loss:                   '- 0.0088
+Validation loss:                0.5050871
+'- Rotations geodesic L1:       '- 0.0813
+'- Root positions L2:           '- 0.1092
+'- FK positions L1:             '- 0.2019
+'- Velocity loss:               '- 0.0610
+'- Acceleration loss:           '- 0.0414
+'- Jerk loss:                   '- 0.0102
+No improvement in validation loss for 1 epochs
+
+--- Epoch 11/200 ---
+Learning rate:                  1.000e-03
+Training loss:                  0.5046196
+'- Rotations geodesic L1:       '- 0.0833
+'- Root positions L2:           '- 0.1110
+'- FK positions L1:             '- 0.2055
+'- Velocity loss:               '- 0.0595
+'- Acceleration loss:           '- 0.0368
+'- Jerk loss:                   '- 0.0086
+Validation loss:                0.4969694
+'- Rotations geodesic L1:       '- 0.0813
+'- Root positions L2:           '- 0.1127
+'- FK positions L1:             '- 0.2028
+'- Velocity loss:               '- 0.0578
+'- Acceleration loss:           '- 0.0346
+'- Jerk loss:                   '- 0.0079
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 12/200 ---
+Learning rate:                  1.000e-03
+Training loss:                  0.5005967
+'- Rotations geodesic L1:       '- 0.0833
+'- Root positions L2:           '- 0.1083
+'- FK positions L1:             '- 0.2049
+'- Velocity loss:               '- 0.0591
+'- Acceleration loss:           '- 0.0364
+'- Jerk loss:                   '- 0.0086
+Validation loss:                0.4959681
+'- Rotations geodesic L1:       '- 0.0813
+'- Root positions L2:           '- 0.1091
+'- FK positions L1:             '- 0.2019
+'- Velocity loss:               '- 0.0583
+'- Acceleration loss:           '- 0.0366
+'- Jerk loss:                   '- 0.0088
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 13/200 ---
+Learning rate:                  1.000e-03
+Training loss:                  0.4930324
+'- Rotations geodesic L1:       '- 0.0833
+'- Root positions L2:           '- 0.1048
+'- FK positions L1:             '- 0.2040
+'- Velocity loss:               '- 0.0580
+'- Acceleration loss:           '- 0.0348
+'- Jerk loss:                   '- 0.0082
+Validation loss:                0.4820578
+'- Rotations geodesic L1:       '- 0.0813
+'- Root positions L2:           '- 0.1033
+'- FK positions L1:             '- 0.1994
+'- Velocity loss:               '- 0.0565
+'- Acceleration loss:           '- 0.0337
+'- Jerk loss:                   '- 0.0079
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 14/200 ---
+Learning rate:                  1.000e-03
+Training loss:                  0.4870523
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.1029
+'- FK positions L1:             '- 0.2036
+'- Velocity loss:               '- 0.0570
+'- Acceleration loss:           '- 0.0328
+'- Jerk loss:                   '- 0.0075
+Validation loss:                0.4762296
+'- Rotations geodesic L1:       '- 0.0813
+'- Root positions L2:           '- 0.1020
+'- FK positions L1:             '- 0.2001
+'- Velocity loss:               '- 0.0553
+'- Acceleration loss:           '- 0.0308
+'- Jerk loss:                   '- 0.0069
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 15/200 ---
+Learning rate:                  1.000e-03
+Training loss:                  0.4750995
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0960
+'- FK positions L1:             '- 0.2023
+'- Velocity loss:               '- 0.0558
+'- Acceleration loss:           '- 0.0309
+'- Jerk loss:                   '- 0.0069
+Validation loss:                0.4553542
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0938
+'- FK positions L1:             '- 0.1965
+'- Velocity loss:               '- 0.0524
+'- Acceleration loss:           '- 0.0260
+'- Jerk loss:                   '- 0.0055
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 16/200 ---
+Learning rate:                  1.000e-03
+Training loss:                  0.4656779
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0907
+'- FK positions L1:             '- 0.2009
+'- Velocity loss:               '- 0.0549
+'- Acceleration loss:           '- 0.0294
+'- Jerk loss:                   '- 0.0065
+Validation loss:                0.4536005
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0912
+'- FK positions L1:             '- 0.1964
+'- Velocity loss:               '- 0.0525
+'- Acceleration loss:           '- 0.0265
+'- Jerk loss:                   '- 0.0057
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 17/200 ---
+Learning rate:                  1.000e-03
+Training loss:                  0.4615416
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0889
+'- FK positions L1:             '- 0.2006
+'- Velocity loss:               '- 0.0543
+'- Acceleration loss:           '- 0.0283
+'- Jerk loss:                   '- 0.0062
+Validation loss:                0.4495121
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0875
+'- FK positions L1:             '- 0.1958
+'- Velocity loss:               '- 0.0526
+'- Acceleration loss:           '- 0.0267
+'- Jerk loss:                   '- 0.0057
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 18/200 ---
+Learning rate:                  1.000e-03
+Training loss:                  0.4599354
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0890
+'- FK positions L1:             '- 0.2005
+'- Velocity loss:               '- 0.0539
+'- Acceleration loss:           '- 0.0275
+'- Jerk loss:                   '- 0.0059
+Validation loss:                0.4552959
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0916
+'- FK positions L1:             '- 0.1968
+'- Velocity loss:               '- 0.0529
+'- Acceleration loss:           '- 0.0270
+'- Jerk loss:                   '- 0.0058
+No improvement in validation loss for 1 epochs
+
+--- Epoch 19/200 ---
+Learning rate:                  1.000e-03
+Training loss:                  0.4562597
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0872
+'- FK positions L1:             '- 0.2001
+'- Velocity loss:               '- 0.0535
+'- Acceleration loss:           '- 0.0266
+'- Jerk loss:                   '- 0.0056
+Validation loss:                0.4433244
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0826
+'- FK positions L1:             '- 0.1954
+'- Velocity loss:               '- 0.0523
+'- Acceleration loss:           '- 0.0262
+'- Jerk loss:                   '- 0.0056
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 20/200 ---
+Learning rate:                  1.000e-03
+Training loss:                  0.4495368
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0826
+'- FK positions L1:             '- 0.1993
+'- Velocity loss:               '- 0.0530
+'- Acceleration loss:           '- 0.0260
+'- Jerk loss:                   '- 0.0054
+Validation loss:                0.4345088
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0800
+'- FK positions L1:             '- 0.1949
+'- Velocity loss:               '- 0.0507
+'- Acceleration loss:           '- 0.0231
+'- Jerk loss:                   '- 0.0046
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 21/200 ---
+Learning rate:                  1.000e-03
+Training loss:                  0.4439498
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0793
+'- FK positions L1:             '- 0.1986
+'- Velocity loss:               '- 0.0525
+'- Acceleration loss:           '- 0.0251
+'- Jerk loss:                   '- 0.0052
+Validation loss:                0.4375224
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0809
+'- FK positions L1:             '- 0.1950
+'- Velocity loss:               '- 0.0513
+'- Acceleration loss:           '- 0.0242
+'- Jerk loss:                   '- 0.0049
+No improvement in validation loss for 1 epochs
+
+--- Epoch 22/200 ---
+Learning rate:                  1.000e-03
+Training loss:                  0.4421752
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0780
+'- FK positions L1:             '- 0.1985
+'- Velocity loss:               '- 0.0525
+'- Acceleration loss:           '- 0.0249
+'- Jerk loss:                   '- 0.0050
+Validation loss:                0.4401220
+'- Rotations geodesic L1:       '- 0.0813
+'- Root positions L2:           '- 0.0786
+'- FK positions L1:             '- 0.1943
+'- Velocity loss:               '- 0.0530
+'- Acceleration loss:           '- 0.0273
+'- Jerk loss:                   '- 0.0057
+No improvement in validation loss for 2 epochs
+
+--- Epoch 23/200 ---
+Learning rate:                  1.000e-03
+Training loss:                  0.4436006
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0768
+'- FK positions L1:             '- 0.1986
+'- Velocity loss:               '- 0.0533
+'- Acceleration loss:           '- 0.0264
+'- Jerk loss:                   '- 0.0054
+Validation loss:                0.4304044
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0749
+'- FK positions L1:             '- 0.1940
+'- Velocity loss:               '- 0.0513
+'- Acceleration loss:           '- 0.0243
+'- Jerk loss:                   '- 0.0048
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 24/200 ---
+Learning rate:                  1.000e-03
+Training loss:                  0.4420042
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0750
+'- FK positions L1:             '- 0.1982
+'- Velocity loss:               '- 0.0533
+'- Acceleration loss:           '- 0.0268
+'- Jerk loss:                   '- 0.0056
+Validation loss:                0.4313128
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0752
+'- FK positions L1:             '- 0.1941
+'- Velocity loss:               '- 0.0514
+'- Acceleration loss:           '- 0.0245
+'- Jerk loss:                   '- 0.0049
+No improvement in validation loss for 1 epochs
+
+--- Epoch 25/200 ---
+Learning rate:                  1.000e-03
+Training loss:                  0.4349270
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0720
+'- FK positions L1:             '- 0.1975
+'- Velocity loss:               '- 0.0523
+'- Acceleration loss:           '- 0.0249
+'- Jerk loss:                   '- 0.0050
+Validation loss:                0.4277592
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0767
+'- FK positions L1:             '- 0.1934
+'- Velocity loss:               '- 0.0501
+'- Acceleration loss:           '- 0.0222
+'- Jerk loss:                   '- 0.0042
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 26/200 ---
+Learning rate:                  1.000e-03
+Training loss:                  0.4318378
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0711
+'- FK positions L1:             '- 0.1971
+'- Velocity loss:               '- 0.0518
+'- Acceleration loss:           '- 0.0239
+'- Jerk loss:                   '- 0.0047
+Validation loss:                0.4217346
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0711
+'- FK positions L1:             '- 0.1928
+'- Velocity loss:               '- 0.0501
+'- Acceleration loss:           '- 0.0223
+'- Jerk loss:                   '- 0.0042
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 27/200 ---
+Learning rate:                  1.000e-03
+Training loss:                  0.4290665
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0700
+'- FK positions L1:             '- 0.1969
+'- Velocity loss:               '- 0.0514
+'- Acceleration loss:           '- 0.0232
+'- Jerk loss:                   '- 0.0044
+Validation loss:                0.4235960
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0716
+'- FK positions L1:             '- 0.1932
+'- Velocity loss:               '- 0.0504
+'- Acceleration loss:           '- 0.0228
+'- Jerk loss:                   '- 0.0043
+No improvement in validation loss for 1 epochs
+
+--- Epoch 28/200 ---
+Learning rate:                  1.000e-03
+Training loss:                  0.4274927
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0695
+'- FK positions L1:             '- 0.1968
+'- Velocity loss:               '- 0.0511
+'- Acceleration loss:           '- 0.0226
+'- Jerk loss:                   '- 0.0043
+Validation loss:                0.4186776
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0700
+'- FK positions L1:             '- 0.1926
+'- Velocity loss:               '- 0.0496
+'- Acceleration loss:           '- 0.0213
+'- Jerk loss:                   '- 0.0039
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 29/200 ---
+Learning rate:                  1.000e-03
+Training loss:                  0.4239039
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0674
+'- FK positions L1:             '- 0.1963
+'- Velocity loss:               '- 0.0508
+'- Acceleration loss:           '- 0.0221
+'- Jerk loss:                   '- 0.0041
+Validation loss:                0.4122861
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0672
+'- FK positions L1:             '- 0.1914
+'- Velocity loss:               '- 0.0488
+'- Acceleration loss:           '- 0.0200
+'- Jerk loss:                   '- 0.0035
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 30/200 ---
+Learning rate:                  1.000e-03
+Training loss:                  0.4214835
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0661
+'- FK positions L1:             '- 0.1960
+'- Velocity loss:               '- 0.0506
+'- Acceleration loss:           '- 0.0217
+'- Jerk loss:                   '- 0.0039
+Validation loss:                0.4131227
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0659
+'- FK positions L1:             '- 0.1918
+'- Velocity loss:               '- 0.0494
+'- Acceleration loss:           '- 0.0210
+'- Jerk loss:                   '- 0.0038
+No improvement in validation loss for 1 epochs
+
+--- Epoch 31/200 ---
+Learning rate:                  1.000e-03
+Training loss:                  0.4190207
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0646
+'- FK positions L1:             '- 0.1957
+'- Velocity loss:               '- 0.0504
+'- Acceleration loss:           '- 0.0213
+'- Jerk loss:                   '- 0.0038
+Validation loss:                0.4130195
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0657
+'- FK positions L1:             '- 0.1919
+'- Velocity loss:               '- 0.0495
+'- Acceleration loss:           '- 0.0210
+'- Jerk loss:                   '- 0.0038
+No improvement in validation loss for 2 epochs
+
+--- Epoch 32/200 ---
+Learning rate:                  1.000e-03
+Training loss:                  0.4222165
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0636
+'- FK positions L1:             '- 0.1959
+'- Velocity loss:               '- 0.0514
+'- Acceleration loss:           '- 0.0235
+'- Jerk loss:                   '- 0.0046
+Validation loss:                0.4174953
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0648
+'- FK positions L1:             '- 0.1921
+'- Velocity loss:               '- 0.0507
+'- Acceleration loss:           '- 0.0239
+'- Jerk loss:                   '- 0.0048
+No improvement in validation loss for 3 epochs
+
+--- Epoch 33/200 ---
+Learning rate:                  1.000e-03
+Training loss:                  0.4201521
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0607
+'- FK positions L1:             '- 0.1952
+'- Velocity loss:               '- 0.0517
+'- Acceleration loss:           '- 0.0245
+'- Jerk loss:                   '- 0.0049
+Validation loss:                0.4134948
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0613
+'- FK positions L1:             '- 0.1916
+'- Velocity loss:               '- 0.0506
+'- Acceleration loss:           '- 0.0239
+'- Jerk loss:                   '- 0.0048
+No improvement in validation loss for 4 epochs
+
+--- Epoch 34/200 ---
+Learning rate:                  7.500e-04
+Training loss:                  0.4103161
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0573
+'- FK positions L1:             '- 0.1941
+'- Velocity loss:               '- 0.0501
+'- Acceleration loss:           '- 0.0216
+'- Jerk loss:                   '- 0.0040
+Validation loss:                0.4059074
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0597
+'- FK positions L1:             '- 0.1899
+'- Velocity loss:               '- 0.0492
+'- Acceleration loss:           '- 0.0217
+'- Jerk loss:                   '- 0.0042
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 35/200 ---
+Learning rate:                  7.500e-04
+Training loss:                  0.4083200
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0557
+'- FK positions L1:             '- 0.1939
+'- Velocity loss:               '- 0.0500
+'- Acceleration loss:           '- 0.0215
+'- Jerk loss:                   '- 0.0040
+Validation loss:                0.3979794
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0566
+'- FK positions L1:             '- 0.1891
+'- Velocity loss:               '- 0.0482
+'- Acceleration loss:           '- 0.0195
+'- Jerk loss:                   '- 0.0034
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 36/200 ---
+Learning rate:                  7.500e-04
+Training loss:                  0.4064259
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0547
+'- FK positions L1:             '- 0.1936
+'- Velocity loss:               '- 0.0498
+'- Acceleration loss:           '- 0.0212
+'- Jerk loss:                   '- 0.0039
+Validation loss:                0.3973681
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0546
+'- FK positions L1:             '- 0.1891
+'- Velocity loss:               '- 0.0485
+'- Acceleration loss:           '- 0.0203
+'- Jerk loss:                   '- 0.0037
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 37/200 ---
+Learning rate:                  7.500e-04
+Training loss:                  0.4046281
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0536
+'- FK positions L1:             '- 0.1933
+'- Velocity loss:               '- 0.0497
+'- Acceleration loss:           '- 0.0209
+'- Jerk loss:                   '- 0.0038
+Validation loss:                0.3988271
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0557
+'- FK positions L1:             '- 0.1893
+'- Velocity loss:               '- 0.0486
+'- Acceleration loss:           '- 0.0203
+'- Jerk loss:                   '- 0.0037
+No improvement in validation loss for 1 epochs
+
+--- Epoch 38/200 ---
+Learning rate:                  7.500e-04
+Training loss:                  0.4037220
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0533
+'- FK positions L1:             '- 0.1932
+'- Velocity loss:               '- 0.0496
+'- Acceleration loss:           '- 0.0207
+'- Jerk loss:                   '- 0.0037
+Validation loss:                0.3957840
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0547
+'- FK positions L1:             '- 0.1889
+'- Velocity loss:               '- 0.0481
+'- Acceleration loss:           '- 0.0195
+'- Jerk loss:                   '- 0.0034
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 39/200 ---
+Learning rate:                  7.500e-04
+Training loss:                  0.4028220
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0527
+'- FK positions L1:             '- 0.1932
+'- Velocity loss:               '- 0.0495
+'- Acceleration loss:           '- 0.0206
+'- Jerk loss:                   '- 0.0037
+Validation loss:                0.3991682
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0561
+'- FK positions L1:             '- 0.1898
+'- Velocity loss:               '- 0.0485
+'- Acceleration loss:           '- 0.0200
+'- Jerk loss:                   '- 0.0036
+No improvement in validation loss for 1 epochs
+
+--- Epoch 40/200 ---
+Learning rate:                  7.500e-04
+Training loss:                  0.4019927
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0520
+'- FK positions L1:             '- 0.1930
+'- Velocity loss:               '- 0.0495
+'- Acceleration loss:           '- 0.0206
+'- Jerk loss:                   '- 0.0037
+Validation loss:                0.3953212
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0533
+'- FK positions L1:             '- 0.1892
+'- Velocity loss:               '- 0.0483
+'- Acceleration loss:           '- 0.0198
+'- Jerk loss:                   '- 0.0035
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 41/200 ---
+Learning rate:                  7.500e-04
+Training loss:                  0.4002514
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0511
+'- FK positions L1:             '- 0.1928
+'- Velocity loss:               '- 0.0493
+'- Acceleration loss:           '- 0.0203
+'- Jerk loss:                   '- 0.0036
+Validation loss:                0.3939378
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0536
+'- FK positions L1:             '- 0.1888
+'- Velocity loss:               '- 0.0479
+'- Acceleration loss:           '- 0.0191
+'- Jerk loss:                   '- 0.0033
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 42/200 ---
+Learning rate:                  7.500e-04
+Training loss:                  0.4006155
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0515
+'- FK positions L1:             '- 0.1930
+'- Velocity loss:               '- 0.0492
+'- Acceleration loss:           '- 0.0201
+'- Jerk loss:                   '- 0.0036
+Validation loss:                0.3946251
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0529
+'- FK positions L1:             '- 0.1889
+'- Velocity loss:               '- 0.0482
+'- Acceleration loss:           '- 0.0198
+'- Jerk loss:                   '- 0.0035
+No improvement in validation loss for 1 epochs
+
+--- Epoch 43/200 ---
+Learning rate:                  7.500e-04
+Training loss:                  0.3988488
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0505
+'- FK positions L1:             '- 0.1926
+'- Velocity loss:               '- 0.0491
+'- Acceleration loss:           '- 0.0200
+'- Jerk loss:                   '- 0.0035
+Validation loss:                0.3920205
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0510
+'- FK positions L1:             '- 0.1884
+'- Velocity loss:               '- 0.0481
+'- Acceleration loss:           '- 0.0198
+'- Jerk loss:                   '- 0.0035
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 44/200 ---
+Learning rate:                  7.500e-04
+Training loss:                  0.3968721
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0489
+'- FK positions L1:             '- 0.1924
+'- Velocity loss:               '- 0.0490
+'- Acceleration loss:           '- 0.0198
+'- Jerk loss:                   '- 0.0035
+Validation loss:                0.3903047
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0506
+'- FK positions L1:             '- 0.1886
+'- Velocity loss:               '- 0.0478
+'- Acceleration loss:           '- 0.0189
+'- Jerk loss:                   '- 0.0032
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 45/200 ---
+Learning rate:                  7.500e-04
+Training loss:                  0.3980138
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0493
+'- FK positions L1:             '- 0.1925
+'- Velocity loss:               '- 0.0493
+'- Acceleration loss:           '- 0.0202
+'- Jerk loss:                   '- 0.0035
+Validation loss:                0.3910349
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0499
+'- FK positions L1:             '- 0.1884
+'- Velocity loss:               '- 0.0483
+'- Acceleration loss:           '- 0.0198
+'- Jerk loss:                   '- 0.0035
+No improvement in validation loss for 1 epochs
+
+--- Epoch 46/200 ---
+Learning rate:                  7.500e-04
+Training loss:                  0.3982192
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0485
+'- FK positions L1:             '- 0.1925
+'- Velocity loss:               '- 0.0495
+'- Acceleration loss:           '- 0.0208
+'- Jerk loss:                   '- 0.0037
+Validation loss:                0.3923817
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0496
+'- FK positions L1:             '- 0.1881
+'- Velocity loss:               '- 0.0486
+'- Acceleration loss:           '- 0.0209
+'- Jerk loss:                   '- 0.0039
+No improvement in validation loss for 2 epochs
+
+--- Epoch 47/200 ---
+Learning rate:                  7.500e-04
+Training loss:                  0.3986704
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0483
+'- FK positions L1:             '- 0.1925
+'- Velocity loss:               '- 0.0496
+'- Acceleration loss:           '- 0.0211
+'- Jerk loss:                   '- 0.0039
+Validation loss:                0.3924355
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0500
+'- FK positions L1:             '- 0.1887
+'- Velocity loss:               '- 0.0485
+'- Acceleration loss:           '- 0.0204
+'- Jerk loss:                   '- 0.0037
+No improvement in validation loss for 3 epochs
+
+--- Epoch 48/200 ---
+Learning rate:                  7.500e-04
+Training loss:                  0.3972706
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0478
+'- FK positions L1:             '- 0.1923
+'- Velocity loss:               '- 0.0494
+'- Acceleration loss:           '- 0.0208
+'- Jerk loss:                   '- 0.0038
+Validation loss:                0.3863385
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0476
+'- FK positions L1:             '- 0.1881
+'- Velocity loss:               '- 0.0476
+'- Acceleration loss:           '- 0.0187
+'- Jerk loss:                   '- 0.0031
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 49/200 ---
+Learning rate:                  7.500e-04
+Training loss:                  0.3961196
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0471
+'- FK positions L1:             '- 0.1922
+'- Velocity loss:               '- 0.0493
+'- Acceleration loss:           '- 0.0206
+'- Jerk loss:                   '- 0.0037
+Validation loss:                0.3882724
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0484
+'- FK positions L1:             '- 0.1881
+'- Velocity loss:               '- 0.0479
+'- Acceleration loss:           '- 0.0193
+'- Jerk loss:                   '- 0.0033
+No improvement in validation loss for 1 epochs
+
+--- Epoch 50/200 ---
+Learning rate:                  7.500e-04
+Training loss:                  0.3946781
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0457
+'- FK positions L1:             '- 0.1918
+'- Velocity loss:               '- 0.0493
+'- Acceleration loss:           '- 0.0208
+'- Jerk loss:                   '- 0.0038
+Validation loss:                0.3931574
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0511
+'- FK positions L1:             '- 0.1890
+'- Velocity loss:               '- 0.0482
+'- Acceleration loss:           '- 0.0200
+'- Jerk loss:                   '- 0.0036
+No improvement in validation loss for 2 epochs
+
+--- Epoch 51/200 ---
+Learning rate:                  7.500e-04
+Training loss:                  0.3954478
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0463
+'- FK positions L1:             '- 0.1920
+'- Velocity loss:               '- 0.0494
+'- Acceleration loss:           '- 0.0208
+'- Jerk loss:                   '- 0.0038
+Validation loss:                0.3878632
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0460
+'- FK positions L1:             '- 0.1877
+'- Velocity loss:               '- 0.0484
+'- Acceleration loss:           '- 0.0207
+'- Jerk loss:                   '- 0.0039
+No improvement in validation loss for 3 epochs
+
+--- Epoch 52/200 ---
+Learning rate:                  7.500e-04
+Training loss:                  0.3934715
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0450
+'- FK positions L1:             '- 0.1917
+'- Velocity loss:               '- 0.0492
+'- Acceleration loss:           '- 0.0206
+'- Jerk loss:                   '- 0.0037
+Validation loss:                0.3854044
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0456
+'- FK positions L1:             '- 0.1880
+'- Velocity loss:               '- 0.0479
+'- Acceleration loss:           '- 0.0194
+'- Jerk loss:                   '- 0.0034
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 53/200 ---
+Learning rate:                  7.500e-04
+Training loss:                  0.3919591
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0446
+'- FK positions L1:             '- 0.1916
+'- Velocity loss:               '- 0.0490
+'- Acceleration loss:           '- 0.0201
+'- Jerk loss:                   '- 0.0035
+Validation loss:                0.3861443
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0456
+'- FK positions L1:             '- 0.1874
+'- Velocity loss:               '- 0.0482
+'- Acceleration loss:           '- 0.0202
+'- Jerk loss:                   '- 0.0036
+No improvement in validation loss for 1 epochs
+
+--- Epoch 54/200 ---
+Learning rate:                  7.500e-04
+Training loss:                  0.3909895
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0440
+'- FK positions L1:             '- 0.1914
+'- Velocity loss:               '- 0.0489
+'- Acceleration loss:           '- 0.0200
+'- Jerk loss:                   '- 0.0035
+Validation loss:                0.3837328
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0444
+'- FK positions L1:             '- 0.1876
+'- Velocity loss:               '- 0.0479
+'- Acceleration loss:           '- 0.0193
+'- Jerk loss:                   '- 0.0033
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 55/200 ---
+Learning rate:                  7.500e-04
+Training loss:                  0.3900274
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0430
+'- FK positions L1:             '- 0.1912
+'- Velocity loss:               '- 0.0489
+'- Acceleration loss:           '- 0.0201
+'- Jerk loss:                   '- 0.0036
+Validation loss:                0.3817095
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0419
+'- FK positions L1:             '- 0.1872
+'- Velocity loss:               '- 0.0481
+'- Acceleration loss:           '- 0.0199
+'- Jerk loss:                   '- 0.0035
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 56/200 ---
+Learning rate:                  7.500e-04
+Training loss:                  0.3897818
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0427
+'- FK positions L1:             '- 0.1912
+'- Velocity loss:               '- 0.0489
+'- Acceleration loss:           '- 0.0202
+'- Jerk loss:                   '- 0.0036
+Validation loss:                0.3844205
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0430
+'- FK positions L1:             '- 0.1873
+'- Velocity loss:               '- 0.0483
+'- Acceleration loss:           '- 0.0207
+'- Jerk loss:                   '- 0.0039
+No improvement in validation loss for 1 epochs
+
+--- Epoch 57/200 ---
+Learning rate:                  7.500e-04
+Training loss:                  0.3892860
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0420
+'- FK positions L1:             '- 0.1910
+'- Velocity loss:               '- 0.0490
+'- Acceleration loss:           '- 0.0204
+'- Jerk loss:                   '- 0.0037
+Validation loss:                0.3841031
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0441
+'- FK positions L1:             '- 0.1872
+'- Velocity loss:               '- 0.0480
+'- Acceleration loss:           '- 0.0200
+'- Jerk loss:                   '- 0.0036
+No improvement in validation loss for 2 epochs
+
+--- Epoch 58/200 ---
+Learning rate:                  7.500e-04
+Training loss:                  0.3897062
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0425
+'- FK positions L1:             '- 0.1912
+'- Velocity loss:               '- 0.0489
+'- Acceleration loss:           '- 0.0202
+'- Jerk loss:                   '- 0.0036
+Validation loss:                0.3806574
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0430
+'- FK positions L1:             '- 0.1866
+'- Velocity loss:               '- 0.0475
+'- Acceleration loss:           '- 0.0191
+'- Jerk loss:                   '- 0.0033
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 59/200 ---
+Learning rate:                  7.500e-04
+Training loss:                  0.3878115
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0415
+'- FK positions L1:             '- 0.1909
+'- Velocity loss:               '- 0.0488
+'- Acceleration loss:           '- 0.0200
+'- Jerk loss:                   '- 0.0035
+Validation loss:                0.3809482
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0423
+'- FK positions L1:             '- 0.1867
+'- Velocity loss:               '- 0.0477
+'- Acceleration loss:           '- 0.0195
+'- Jerk loss:                   '- 0.0035
+No improvement in validation loss for 1 epochs
+
+--- Epoch 60/200 ---
+Learning rate:                  7.500e-04
+Training loss:                  0.3858848
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0402
+'- FK positions L1:             '- 0.1906
+'- Velocity loss:               '- 0.0486
+'- Acceleration loss:           '- 0.0198
+'- Jerk loss:                   '- 0.0035
+Validation loss:                0.3791514
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0414
+'- FK positions L1:             '- 0.1863
+'- Velocity loss:               '- 0.0475
+'- Acceleration loss:           '- 0.0193
+'- Jerk loss:                   '- 0.0034
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 61/200 ---
+Learning rate:                  7.500e-04
+Training loss:                  0.3864020
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0408
+'- FK positions L1:             '- 0.1908
+'- Velocity loss:               '- 0.0486
+'- Acceleration loss:           '- 0.0197
+'- Jerk loss:                   '- 0.0034
+Validation loss:                0.3776163
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0408
+'- FK positions L1:             '- 0.1862
+'- Velocity loss:               '- 0.0473
+'- Acceleration loss:           '- 0.0189
+'- Jerk loss:                   '- 0.0032
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 62/200 ---
+Learning rate:                  7.500e-04
+Training loss:                  0.3870377
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0413
+'- FK positions L1:             '- 0.1909
+'- Velocity loss:               '- 0.0486
+'- Acceleration loss:           '- 0.0197
+'- Jerk loss:                   '- 0.0034
+Validation loss:                0.3791651
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0413
+'- FK positions L1:             '- 0.1865
+'- Velocity loss:               '- 0.0476
+'- Acceleration loss:           '- 0.0193
+'- Jerk loss:                   '- 0.0034
+No improvement in validation loss for 1 epochs
+
+--- Epoch 63/200 ---
+Learning rate:                  7.500e-04
+Training loss:                  0.3847710
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0395
+'- FK positions L1:             '- 0.1904
+'- Velocity loss:               '- 0.0486
+'- Acceleration loss:           '- 0.0197
+'- Jerk loss:                   '- 0.0034
+Validation loss:                0.3791804
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0420
+'- FK positions L1:             '- 0.1864
+'- Velocity loss:               '- 0.0474
+'- Acceleration loss:           '- 0.0190
+'- Jerk loss:                   '- 0.0033
+No improvement in validation loss for 2 epochs
+
+--- Epoch 64/200 ---
+Learning rate:                  7.500e-04
+Training loss:                  0.3836343
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0390
+'- FK positions L1:             '- 0.1904
+'- Velocity loss:               '- 0.0484
+'- Acceleration loss:           '- 0.0193
+'- Jerk loss:                   '- 0.0033
+Validation loss:                0.3759357
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0395
+'- FK positions L1:             '- 0.1861
+'- Velocity loss:               '- 0.0473
+'- Acceleration loss:           '- 0.0187
+'- Jerk loss:                   '- 0.0031
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 65/200 ---
+Learning rate:                  7.500e-04
+Training loss:                  0.3826970
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0385
+'- FK positions L1:             '- 0.1902
+'- Velocity loss:               '- 0.0483
+'- Acceleration loss:           '- 0.0192
+'- Jerk loss:                   '- 0.0033
+Validation loss:                0.3766819
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0402
+'- FK positions L1:             '- 0.1862
+'- Velocity loss:               '- 0.0472
+'- Acceleration loss:           '- 0.0186
+'- Jerk loss:                   '- 0.0031
+No improvement in validation loss for 1 epochs
+
+--- Epoch 66/200 ---
+Learning rate:                  7.500e-04
+Training loss:                  0.3827835
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0390
+'- FK positions L1:             '- 0.1903
+'- Velocity loss:               '- 0.0482
+'- Acceleration loss:           '- 0.0189
+'- Jerk loss:                   '- 0.0031
+Validation loss:                0.3785253
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0412
+'- FK positions L1:             '- 0.1866
+'- Velocity loss:               '- 0.0474
+'- Acceleration loss:           '- 0.0189
+'- Jerk loss:                   '- 0.0032
+No improvement in validation loss for 2 epochs
+
+--- Epoch 67/200 ---
+Learning rate:                  7.500e-04
+Training loss:                  0.3827026
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0388
+'- FK positions L1:             '- 0.1903
+'- Velocity loss:               '- 0.0483
+'- Acceleration loss:           '- 0.0190
+'- Jerk loss:                   '- 0.0032
+Validation loss:                0.3770731
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0395
+'- FK positions L1:             '- 0.1864
+'- Velocity loss:               '- 0.0475
+'- Acceleration loss:           '- 0.0192
+'- Jerk loss:                   '- 0.0033
+No improvement in validation loss for 3 epochs
+
+--- Epoch 68/200 ---
+Learning rate:                  7.500e-04
+Training loss:                  0.3810393
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0375
+'- FK positions L1:             '- 0.1900
+'- Velocity loss:               '- 0.0482
+'- Acceleration loss:           '- 0.0190
+'- Jerk loss:                   '- 0.0032
+Validation loss:                0.3763906
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0395
+'- FK positions L1:             '- 0.1863
+'- Velocity loss:               '- 0.0474
+'- Acceleration loss:           '- 0.0189
+'- Jerk loss:                   '- 0.0032
+No improvement in validation loss for 4 epochs
+
+--- Epoch 69/200 ---
+Learning rate:                  5.625e-04
+Training loss:                  0.3760352
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0352
+'- FK positions L1:             '- 0.1893
+'- Velocity loss:               '- 0.0476
+'- Acceleration loss:           '- 0.0179
+'- Jerk loss:                   '- 0.0028
+Validation loss:                0.3694137
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0359
+'- FK positions L1:             '- 0.1855
+'- Velocity loss:               '- 0.0466
+'- Acceleration loss:           '- 0.0174
+'- Jerk loss:                   '- 0.0027
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 70/200 ---
+Learning rate:                  5.625e-04
+Training loss:                  0.3748291
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0341
+'- FK positions L1:             '- 0.1889
+'- Velocity loss:               '- 0.0476
+'- Acceleration loss:           '- 0.0181
+'- Jerk loss:                   '- 0.0029
+Validation loss:                0.3678067
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0345
+'- FK positions L1:             '- 0.1848
+'- Velocity loss:               '- 0.0466
+'- Acceleration loss:           '- 0.0178
+'- Jerk loss:                   '- 0.0029
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 71/200 ---
+Learning rate:                  5.625e-04
+Training loss:                  0.3744722
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0335
+'- FK positions L1:             '- 0.1888
+'- Velocity loss:               '- 0.0477
+'- Acceleration loss:           '- 0.0183
+'- Jerk loss:                   '- 0.0030
+Validation loss:                0.3681071
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0343
+'- FK positions L1:             '- 0.1849
+'- Velocity loss:               '- 0.0468
+'- Acceleration loss:           '- 0.0180
+'- Jerk loss:                   '- 0.0029
+No improvement in validation loss for 1 epochs
+
+--- Epoch 72/200 ---
+Learning rate:                  5.625e-04
+Training loss:                  0.3746619
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0334
+'- FK positions L1:             '- 0.1889
+'- Velocity loss:               '- 0.0477
+'- Acceleration loss:           '- 0.0184
+'- Jerk loss:                   '- 0.0030
+Validation loss:                0.3690063
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0354
+'- FK positions L1:             '- 0.1847
+'- Velocity loss:               '- 0.0467
+'- Acceleration loss:           '- 0.0181
+'- Jerk loss:                   '- 0.0030
+No improvement in validation loss for 2 epochs
+
+--- Epoch 73/200 ---
+Learning rate:                  5.625e-04
+Training loss:                  0.3741491
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0331
+'- FK positions L1:             '- 0.1888
+'- Velocity loss:               '- 0.0477
+'- Acceleration loss:           '- 0.0184
+'- Jerk loss:                   '- 0.0030
+Validation loss:                0.3668185
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0340
+'- FK positions L1:             '- 0.1845
+'- Velocity loss:               '- 0.0465
+'- Acceleration loss:           '- 0.0177
+'- Jerk loss:                   '- 0.0028
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 74/200 ---
+Learning rate:                  5.625e-04
+Training loss:                  0.3735957
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0328
+'- FK positions L1:             '- 0.1887
+'- Velocity loss:               '- 0.0476
+'- Acceleration loss:           '- 0.0183
+'- Jerk loss:                   '- 0.0030
+Validation loss:                0.3681957
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0343
+'- FK positions L1:             '- 0.1850
+'- Velocity loss:               '- 0.0467
+'- Acceleration loss:           '- 0.0180
+'- Jerk loss:                   '- 0.0029
+No improvement in validation loss for 1 epochs
+
+--- Epoch 75/200 ---
+Learning rate:                  5.625e-04
+Training loss:                  0.3729577
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0323
+'- FK positions L1:             '- 0.1886
+'- Velocity loss:               '- 0.0476
+'- Acceleration loss:           '- 0.0183
+'- Jerk loss:                   '- 0.0030
+Validation loss:                0.3660541
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0329
+'- FK positions L1:             '- 0.1846
+'- Velocity loss:               '- 0.0466
+'- Acceleration loss:           '- 0.0179
+'- Jerk loss:                   '- 0.0029
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 76/200 ---
+Learning rate:                  5.625e-04
+Training loss:                  0.3732960
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0327
+'- FK positions L1:             '- 0.1887
+'- Velocity loss:               '- 0.0476
+'- Acceleration loss:           '- 0.0182
+'- Jerk loss:                   '- 0.0030
+Validation loss:                0.3680361
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0341
+'- FK positions L1:             '- 0.1848
+'- Velocity loss:               '- 0.0468
+'- Acceleration loss:           '- 0.0182
+'- Jerk loss:                   '- 0.0030
+No improvement in validation loss for 1 epochs
+
+--- Epoch 77/200 ---
+Learning rate:                  5.625e-04
+Training loss:                  0.3727815
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0323
+'- FK positions L1:             '- 0.1886
+'- Velocity loss:               '- 0.0476
+'- Acceleration loss:           '- 0.0182
+'- Jerk loss:                   '- 0.0029
+Validation loss:                0.3655012
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0331
+'- FK positions L1:             '- 0.1845
+'- Velocity loss:               '- 0.0464
+'- Acceleration loss:           '- 0.0175
+'- Jerk loss:                   '- 0.0028
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 78/200 ---
+Learning rate:                  5.625e-04
+Training loss:                  0.3716622
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0318
+'- FK positions L1:             '- 0.1884
+'- Velocity loss:               '- 0.0474
+'- Acceleration loss:           '- 0.0180
+'- Jerk loss:                   '- 0.0029
+Validation loss:                0.3675605
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0344
+'- FK positions L1:             '- 0.1850
+'- Velocity loss:               '- 0.0466
+'- Acceleration loss:           '- 0.0176
+'- Jerk loss:                   '- 0.0028
+No improvement in validation loss for 1 epochs
+
+--- Epoch 79/200 ---
+Learning rate:                  5.625e-04
+Training loss:                  0.3717807
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0318
+'- FK positions L1:             '- 0.1885
+'- Velocity loss:               '- 0.0475
+'- Acceleration loss:           '- 0.0180
+'- Jerk loss:                   '- 0.0028
+Validation loss:                0.3658578
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0333
+'- FK positions L1:             '- 0.1847
+'- Velocity loss:               '- 0.0464
+'- Acceleration loss:           '- 0.0175
+'- Jerk loss:                   '- 0.0028
+No improvement in validation loss for 2 epochs
+
+--- Epoch 80/200 ---
+Learning rate:                  5.625e-04
+Training loss:                  0.3711915
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0315
+'- FK positions L1:             '- 0.1884
+'- Velocity loss:               '- 0.0474
+'- Acceleration loss:           '- 0.0179
+'- Jerk loss:                   '- 0.0028
+Validation loss:                0.3658762
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0334
+'- FK positions L1:             '- 0.1844
+'- Velocity loss:               '- 0.0465
+'- Acceleration loss:           '- 0.0176
+'- Jerk loss:                   '- 0.0028
+No improvement in validation loss for 3 epochs
+
+--- Epoch 81/200 ---
+Learning rate:                  5.625e-04
+Training loss:                  0.3703271
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0309
+'- FK positions L1:             '- 0.1883
+'- Velocity loss:               '- 0.0474
+'- Acceleration loss:           '- 0.0178
+'- Jerk loss:                   '- 0.0028
+Validation loss:                0.3646502
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0325
+'- FK positions L1:             '- 0.1841
+'- Velocity loss:               '- 0.0464
+'- Acceleration loss:           '- 0.0176
+'- Jerk loss:                   '- 0.0028
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 82/200 ---
+Learning rate:                  5.625e-04
+Training loss:                  0.3710377
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0312
+'- FK positions L1:             '- 0.1883
+'- Velocity loss:               '- 0.0474
+'- Acceleration loss:           '- 0.0180
+'- Jerk loss:                   '- 0.0029
+Validation loss:                0.3642712
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0324
+'- FK positions L1:             '- 0.1842
+'- Velocity loss:               '- 0.0463
+'- Acceleration loss:           '- 0.0174
+'- Jerk loss:                   '- 0.0027
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 83/200 ---
+Learning rate:                  5.625e-04
+Training loss:                  0.3709331
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0312
+'- FK positions L1:             '- 0.1883
+'- Velocity loss:               '- 0.0474
+'- Acceleration loss:           '- 0.0180
+'- Jerk loss:                   '- 0.0029
+Validation loss:                0.3646120
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0318
+'- FK positions L1:             '- 0.1842
+'- Velocity loss:               '- 0.0466
+'- Acceleration loss:           '- 0.0179
+'- Jerk loss:                   '- 0.0029
+No improvement in validation loss for 1 epochs
+
+--- Epoch 84/200 ---
+Learning rate:                  5.625e-04
+Training loss:                  0.3696873
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0304
+'- FK positions L1:             '- 0.1881
+'- Velocity loss:               '- 0.0473
+'- Acceleration loss:           '- 0.0178
+'- Jerk loss:                   '- 0.0028
+Validation loss:                0.3641971
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0316
+'- FK positions L1:             '- 0.1843
+'- Velocity loss:               '- 0.0465
+'- Acceleration loss:           '- 0.0178
+'- Jerk loss:                   '- 0.0029
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 85/200 ---
+Learning rate:                  5.625e-04
+Training loss:                  0.3703577
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0305
+'- FK positions L1:             '- 0.1882
+'- Velocity loss:               '- 0.0475
+'- Acceleration loss:           '- 0.0181
+'- Jerk loss:                   '- 0.0029
+Validation loss:                0.3640743
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0311
+'- FK positions L1:             '- 0.1843
+'- Velocity loss:               '- 0.0466
+'- Acceleration loss:           '- 0.0180
+'- Jerk loss:                   '- 0.0029
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 86/200 ---
+Learning rate:                  5.625e-04
+Training loss:                  0.3700388
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0299
+'- FK positions L1:             '- 0.1880
+'- Velocity loss:               '- 0.0475
+'- Acceleration loss:           '- 0.0184
+'- Jerk loss:                   '- 0.0030
+Validation loss:                0.3645618
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0313
+'- FK positions L1:             '- 0.1843
+'- Velocity loss:               '- 0.0466
+'- Acceleration loss:           '- 0.0181
+'- Jerk loss:                   '- 0.0030
+No improvement in validation loss for 1 epochs
+
+--- Epoch 87/200 ---
+Learning rate:                  5.625e-04
+Training loss:                  0.3708023
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0305
+'- FK positions L1:             '- 0.1882
+'- Velocity loss:               '- 0.0475
+'- Acceleration loss:           '- 0.0184
+'- Jerk loss:                   '- 0.0030
+Validation loss:                0.3636895
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0315
+'- FK positions L1:             '- 0.1839
+'- Velocity loss:               '- 0.0464
+'- Acceleration loss:           '- 0.0178
+'- Jerk loss:                   '- 0.0029
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 88/200 ---
+Learning rate:                  5.625e-04
+Training loss:                  0.3688390
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0292
+'- FK positions L1:             '- 0.1878
+'- Velocity loss:               '- 0.0474
+'- Acceleration loss:           '- 0.0183
+'- Jerk loss:                   '- 0.0030
+Validation loss:                0.3633052
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0314
+'- FK positions L1:             '- 0.1841
+'- Velocity loss:               '- 0.0463
+'- Acceleration loss:           '- 0.0175
+'- Jerk loss:                   '- 0.0028
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 89/200 ---
+Learning rate:                  5.625e-04
+Training loss:                  0.3688243
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0294
+'- FK positions L1:             '- 0.1879
+'- Velocity loss:               '- 0.0474
+'- Acceleration loss:           '- 0.0181
+'- Jerk loss:                   '- 0.0029
+Validation loss:                0.3624318
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0301
+'- FK positions L1:             '- 0.1839
+'- Velocity loss:               '- 0.0464
+'- Acceleration loss:           '- 0.0178
+'- Jerk loss:                   '- 0.0029
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 90/200 ---
+Learning rate:                  5.625e-04
+Training loss:                  0.3679867
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0289
+'- FK positions L1:             '- 0.1877
+'- Velocity loss:               '- 0.0473
+'- Acceleration loss:           '- 0.0180
+'- Jerk loss:                   '- 0.0029
+Validation loss:                0.3620049
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0302
+'- FK positions L1:             '- 0.1836
+'- Velocity loss:               '- 0.0464
+'- Acceleration loss:           '- 0.0177
+'- Jerk loss:                   '- 0.0028
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 91/200 ---
+Learning rate:                  5.625e-04
+Training loss:                  0.3680211
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0290
+'- FK positions L1:             '- 0.1877
+'- Velocity loss:               '- 0.0473
+'- Acceleration loss:           '- 0.0179
+'- Jerk loss:                   '- 0.0029
+Validation loss:                0.3623951
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0307
+'- FK positions L1:             '- 0.1839
+'- Velocity loss:               '- 0.0463
+'- Acceleration loss:           '- 0.0175
+'- Jerk loss:                   '- 0.0028
+No improvement in validation loss for 1 epochs
+
+--- Epoch 92/200 ---
+Learning rate:                  5.625e-04
+Training loss:                  0.3670771
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0285
+'- FK positions L1:             '- 0.1875
+'- Velocity loss:               '- 0.0472
+'- Acceleration loss:           '- 0.0178
+'- Jerk loss:                   '- 0.0028
+Validation loss:                0.3607550
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0291
+'- FK positions L1:             '- 0.1835
+'- Velocity loss:               '- 0.0463
+'- Acceleration loss:           '- 0.0177
+'- Jerk loss:                   '- 0.0029
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 93/200 ---
+Learning rate:                  5.625e-04
+Training loss:                  0.3677709
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0284
+'- FK positions L1:             '- 0.1875
+'- Velocity loss:               '- 0.0474
+'- Acceleration loss:           '- 0.0183
+'- Jerk loss:                   '- 0.0030
+Validation loss:                0.3626646
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0304
+'- FK positions L1:             '- 0.1835
+'- Velocity loss:               '- 0.0465
+'- Acceleration loss:           '- 0.0181
+'- Jerk loss:                   '- 0.0030
+No improvement in validation loss for 1 epochs
+
+--- Epoch 94/200 ---
+Learning rate:                  5.625e-04
+Training loss:                  0.3681627
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0285
+'- FK positions L1:             '- 0.1876
+'- Velocity loss:               '- 0.0474
+'- Acceleration loss:           '- 0.0184
+'- Jerk loss:                   '- 0.0030
+Validation loss:                0.3626025
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0297
+'- FK positions L1:             '- 0.1835
+'- Velocity loss:               '- 0.0466
+'- Acceleration loss:           '- 0.0184
+'- Jerk loss:                   '- 0.0031
+No improvement in validation loss for 2 epochs
+
+--- Epoch 95/200 ---
+Learning rate:                  5.625e-04
+Training loss:                  0.3676480
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0283
+'- FK positions L1:             '- 0.1874
+'- Velocity loss:               '- 0.0474
+'- Acceleration loss:           '- 0.0183
+'- Jerk loss:                   '- 0.0030
+Validation loss:                0.3622592
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0307
+'- FK positions L1:             '- 0.1834
+'- Velocity loss:               '- 0.0463
+'- Acceleration loss:           '- 0.0178
+'- Jerk loss:                   '- 0.0029
+No improvement in validation loss for 3 epochs
+
+--- Epoch 96/200 ---
+Learning rate:                  5.625e-04
+Training loss:                  0.3675423
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0284
+'- FK positions L1:             '- 0.1874
+'- Velocity loss:               '- 0.0473
+'- Acceleration loss:           '- 0.0183
+'- Jerk loss:                   '- 0.0030
+Validation loss:                0.3620437
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0297
+'- FK positions L1:             '- 0.1835
+'- Velocity loss:               '- 0.0464
+'- Acceleration loss:           '- 0.0182
+'- Jerk loss:                   '- 0.0030
+No improvement in validation loss for 4 epochs
+
+--- Epoch 97/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.3639647
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0269
+'- FK positions L1:             '- 0.1868
+'- Velocity loss:               '- 0.0469
+'- Acceleration loss:           '- 0.0175
+'- Jerk loss:                   '- 0.0027
+Validation loss:                0.3564855
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0274
+'- FK positions L1:             '- 0.1824
+'- Velocity loss:               '- 0.0458
+'- Acceleration loss:           '- 0.0170
+'- Jerk loss:                   '- 0.0026
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 98/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.3626703
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0260
+'- FK positions L1:             '- 0.1866
+'- Velocity loss:               '- 0.0468
+'- Acceleration loss:           '- 0.0174
+'- Jerk loss:                   '- 0.0027
+Validation loss:                0.3574282
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0284
+'- FK positions L1:             '- 0.1827
+'- Velocity loss:               '- 0.0458
+'- Acceleration loss:           '- 0.0168
+'- Jerk loss:                   '- 0.0026
+No improvement in validation loss for 1 epochs
+
+--- Epoch 99/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.3620078
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0257
+'- FK positions L1:             '- 0.1865
+'- Velocity loss:               '- 0.0467
+'- Acceleration loss:           '- 0.0172
+'- Jerk loss:                   '- 0.0026
+Validation loss:                0.3561241
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0272
+'- FK positions L1:             '- 0.1824
+'- Velocity loss:               '- 0.0457
+'- Acceleration loss:           '- 0.0169
+'- Jerk loss:                   '- 0.0026
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 100/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.3617714
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0256
+'- FK positions L1:             '- 0.1864
+'- Velocity loss:               '- 0.0467
+'- Acceleration loss:           '- 0.0172
+'- Jerk loss:                   '- 0.0026
+Validation loss:                0.3573207
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0274
+'- FK positions L1:             '- 0.1828
+'- Velocity loss:               '- 0.0460
+'- Acceleration loss:           '- 0.0173
+'- Jerk loss:                   '- 0.0027
+No improvement in validation loss for 1 epochs
+
+--- Epoch 101/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.3616871
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0256
+'- FK positions L1:             '- 0.1864
+'- Velocity loss:               '- 0.0467
+'- Acceleration loss:           '- 0.0172
+'- Jerk loss:                   '- 0.0026
+Validation loss:                0.3561923
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0270
+'- FK positions L1:             '- 0.1823
+'- Velocity loss:               '- 0.0458
+'- Acceleration loss:           '- 0.0171
+'- Jerk loss:                   '- 0.0027
+No improvement in validation loss for 2 epochs
+
+--- Epoch 102/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.3614629
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0254
+'- FK positions L1:             '- 0.1862
+'- Velocity loss:               '- 0.0467
+'- Acceleration loss:           '- 0.0173
+'- Jerk loss:                   '- 0.0026
+Validation loss:                0.3555186
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0267
+'- FK positions L1:             '- 0.1821
+'- Velocity loss:               '- 0.0457
+'- Acceleration loss:           '- 0.0171
+'- Jerk loss:                   '- 0.0026
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 103/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.3609498
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0252
+'- FK positions L1:             '- 0.1859
+'- Velocity loss:               '- 0.0467
+'- Acceleration loss:           '- 0.0173
+'- Jerk loss:                   '- 0.0027
+Validation loss:                0.3553242
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0271
+'- FK positions L1:             '- 0.1816
+'- Velocity loss:               '- 0.0457
+'- Acceleration loss:           '- 0.0171
+'- Jerk loss:                   '- 0.0027
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 104/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.3605674
+'- Rotations geodesic L1:       '- 0.0832
+'- Root positions L2:           '- 0.0253
+'- FK positions L1:             '- 0.1854
+'- Velocity loss:               '- 0.0466
+'- Acceleration loss:           '- 0.0174
+'- Jerk loss:                   '- 0.0027
+Validation loss:                0.3541988
+'- Rotations geodesic L1:       '- 0.0811
+'- Root positions L2:           '- 0.0266
+'- FK positions L1:             '- 0.1811
+'- Velocity loss:               '- 0.0456
+'- Acceleration loss:           '- 0.0170
+'- Jerk loss:                   '- 0.0027
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 105/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.3597928
+'- Rotations geodesic L1:       '- 0.0831
+'- Root positions L2:           '- 0.0249
+'- FK positions L1:             '- 0.1851
+'- Velocity loss:               '- 0.0466
+'- Acceleration loss:           '- 0.0174
+'- Jerk loss:                   '- 0.0027
+Validation loss:                0.3546686
+'- Rotations geodesic L1:       '- 0.0810
+'- Root positions L2:           '- 0.0271
+'- FK positions L1:             '- 0.1809
+'- Velocity loss:               '- 0.0456
+'- Acceleration loss:           '- 0.0173
+'- Jerk loss:                   '- 0.0027
+No improvement in validation loss for 1 epochs
+
+--- Epoch 106/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.3588729
+'- Rotations geodesic L1:       '- 0.0830
+'- Root positions L2:           '- 0.0250
+'- FK positions L1:             '- 0.1844
+'- Velocity loss:               '- 0.0464
+'- Acceleration loss:           '- 0.0173
+'- Jerk loss:                   '- 0.0027
+Validation loss:                0.3522063
+'- Rotations geodesic L1:       '- 0.0810
+'- Root positions L2:           '- 0.0265
+'- FK positions L1:             '- 0.1801
+'- Velocity loss:               '- 0.0453
+'- Acceleration loss:           '- 0.0168
+'- Jerk loss:                   '- 0.0026
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 107/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.3589073
+'- Rotations geodesic L1:       '- 0.0830
+'- Root positions L2:           '- 0.0251
+'- FK positions L1:             '- 0.1846
+'- Velocity loss:               '- 0.0464
+'- Acceleration loss:           '- 0.0172
+'- Jerk loss:                   '- 0.0026
+Validation loss:                0.3523391
+'- Rotations geodesic L1:       '- 0.0810
+'- Root positions L2:           '- 0.0266
+'- FK positions L1:             '- 0.1801
+'- Velocity loss:               '- 0.0453
+'- Acceleration loss:           '- 0.0168
+'- Jerk loss:                   '- 0.0025
+No improvement in validation loss for 1 epochs
+
+--- Epoch 108/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.3566648
+'- Rotations geodesic L1:       '- 0.0829
+'- Root positions L2:           '- 0.0245
+'- FK positions L1:             '- 0.1834
+'- Velocity loss:               '- 0.0462
+'- Acceleration loss:           '- 0.0170
+'- Jerk loss:                   '- 0.0026
+Validation loss:                0.3493041
+'- Rotations geodesic L1:       '- 0.0809
+'- Root positions L2:           '- 0.0261
+'- FK positions L1:             '- 0.1781
+'- Velocity loss:               '- 0.0450
+'- Acceleration loss:           '- 0.0166
+'- Jerk loss:                   '- 0.0025
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 109/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.3540234
+'- Rotations geodesic L1:       '- 0.0829
+'- Root positions L2:           '- 0.0244
+'- FK positions L1:             '- 0.1814
+'- Velocity loss:               '- 0.0459
+'- Acceleration loss:           '- 0.0169
+'- Jerk loss:                   '- 0.0025
+Validation loss:                0.3486672
+'- Rotations geodesic L1:       '- 0.0810
+'- Root positions L2:           '- 0.0268
+'- FK positions L1:             '- 0.1766
+'- Velocity loss:               '- 0.0449
+'- Acceleration loss:           '- 0.0168
+'- Jerk loss:                   '- 0.0025
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 110/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.3539806
+'- Rotations geodesic L1:       '- 0.0828
+'- Root positions L2:           '- 0.0248
+'- FK positions L1:             '- 0.1808
+'- Velocity loss:               '- 0.0459
+'- Acceleration loss:           '- 0.0171
+'- Jerk loss:                   '- 0.0026
+Validation loss:                0.3475419
+'- Rotations geodesic L1:       '- 0.0807
+'- Root positions L2:           '- 0.0259
+'- FK positions L1:             '- 0.1771
+'- Velocity loss:               '- 0.0448
+'- Acceleration loss:           '- 0.0165
+'- Jerk loss:                   '- 0.0025
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 111/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.3511627
+'- Rotations geodesic L1:       '- 0.0827
+'- Root positions L2:           '- 0.0245
+'- FK positions L1:             '- 0.1789
+'- Velocity loss:               '- 0.0455
+'- Acceleration loss:           '- 0.0170
+'- Jerk loss:                   '- 0.0026
+Validation loss:                0.3428673
+'- Rotations geodesic L1:       '- 0.0806
+'- Root positions L2:           '- 0.0257
+'- FK positions L1:             '- 0.1735
+'- Velocity loss:               '- 0.0443
+'- Acceleration loss:           '- 0.0164
+'- Jerk loss:                   '- 0.0024
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 112/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.3483749
+'- Rotations geodesic L1:       '- 0.0826
+'- Root positions L2:           '- 0.0243
+'- FK positions L1:             '- 0.1769
+'- Velocity loss:               '- 0.0452
+'- Acceleration loss:           '- 0.0169
+'- Jerk loss:                   '- 0.0025
+Validation loss:                0.3408529
+'- Rotations geodesic L1:       '- 0.0804
+'- Root positions L2:           '- 0.0259
+'- FK positions L1:             '- 0.1716
+'- Velocity loss:               '- 0.0440
+'- Acceleration loss:           '- 0.0165
+'- Jerk loss:                   '- 0.0025
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 113/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.3454546
+'- Rotations geodesic L1:       '- 0.0824
+'- Root positions L2:           '- 0.0240
+'- FK positions L1:             '- 0.1747
+'- Velocity loss:               '- 0.0449
+'- Acceleration loss:           '- 0.0169
+'- Jerk loss:                   '- 0.0026
+Validation loss:                0.3370405
+'- Rotations geodesic L1:       '- 0.0802
+'- Root positions L2:           '- 0.0253
+'- FK positions L1:             '- 0.1690
+'- Velocity loss:               '- 0.0436
+'- Acceleration loss:           '- 0.0164
+'- Jerk loss:                   '- 0.0025
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 114/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.3426851
+'- Rotations geodesic L1:       '- 0.0821
+'- Root positions L2:           '- 0.0238
+'- FK positions L1:             '- 0.1726
+'- Velocity loss:               '- 0.0446
+'- Acceleration loss:           '- 0.0170
+'- Jerk loss:                   '- 0.0026
+Validation loss:                0.3350047
+'- Rotations geodesic L1:       '- 0.0798
+'- Root positions L2:           '- 0.0248
+'- FK positions L1:             '- 0.1677
+'- Velocity loss:               '- 0.0435
+'- Acceleration loss:           '- 0.0167
+'- Jerk loss:                   '- 0.0026
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 115/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.3397856
+'- Rotations geodesic L1:       '- 0.0817
+'- Root positions L2:           '- 0.0239
+'- FK positions L1:             '- 0.1704
+'- Velocity loss:               '- 0.0443
+'- Acceleration loss:           '- 0.0169
+'- Jerk loss:                   '- 0.0026
+Validation loss:                0.3310645
+'- Rotations geodesic L1:       '- 0.0794
+'- Root positions L2:           '- 0.0255
+'- FK positions L1:             '- 0.1641
+'- Velocity loss:               '- 0.0429
+'- Acceleration loss:           '- 0.0165
+'- Jerk loss:                   '- 0.0025
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 116/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.3361537
+'- Rotations geodesic L1:       '- 0.0812
+'- Root positions L2:           '- 0.0241
+'- FK positions L1:             '- 0.1675
+'- Velocity loss:               '- 0.0438
+'- Acceleration loss:           '- 0.0169
+'- Jerk loss:                   '- 0.0026
+Validation loss:                0.3266440
+'- Rotations geodesic L1:       '- 0.0788
+'- Root positions L2:           '- 0.0252
+'- FK positions L1:             '- 0.1609
+'- Velocity loss:               '- 0.0424
+'- Acceleration loss:           '- 0.0167
+'- Jerk loss:                   '- 0.0026
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 117/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.3325554
+'- Rotations geodesic L1:       '- 0.0807
+'- Root positions L2:           '- 0.0239
+'- FK positions L1:             '- 0.1649
+'- Velocity loss:               '- 0.0433
+'- Acceleration loss:           '- 0.0170
+'- Jerk loss:                   '- 0.0027
+Validation loss:                0.3243558
+'- Rotations geodesic L1:       '- 0.0785
+'- Root positions L2:           '- 0.0249
+'- FK positions L1:             '- 0.1602
+'- Velocity loss:               '- 0.0420
+'- Acceleration loss:           '- 0.0163
+'- Jerk loss:                   '- 0.0025
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 118/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.3279930
+'- Rotations geodesic L1:       '- 0.0802
+'- Root positions L2:           '- 0.0237
+'- FK positions L1:             '- 0.1620
+'- Velocity loss:               '- 0.0427
+'- Acceleration loss:           '- 0.0167
+'- Jerk loss:                   '- 0.0026
+Validation loss:                0.3204882
+'- Rotations geodesic L1:       '- 0.0781
+'- Root positions L2:           '- 0.0250
+'- FK positions L1:             '- 0.1568
+'- Velocity loss:               '- 0.0415
+'- Acceleration loss:           '- 0.0164
+'- Jerk loss:                   '- 0.0026
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 119/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.3244145
+'- Rotations geodesic L1:       '- 0.0797
+'- Root positions L2:           '- 0.0239
+'- FK positions L1:             '- 0.1593
+'- Velocity loss:               '- 0.0422
+'- Acceleration loss:           '- 0.0167
+'- Jerk loss:                   '- 0.0026
+Validation loss:                0.3165048
+'- Rotations geodesic L1:       '- 0.0773
+'- Root positions L2:           '- 0.0258
+'- FK positions L1:             '- 0.1536
+'- Velocity loss:               '- 0.0409
+'- Acceleration loss:           '- 0.0163
+'- Jerk loss:                   '- 0.0026
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 120/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.3199298
+'- Rotations geodesic L1:       '- 0.0791
+'- Root positions L2:           '- 0.0235
+'- FK positions L1:             '- 0.1562
+'- Velocity loss:               '- 0.0417
+'- Acceleration loss:           '- 0.0168
+'- Jerk loss:                   '- 0.0027
+Validation loss:                0.3098884
+'- Rotations geodesic L1:       '- 0.0765
+'- Root positions L2:           '- 0.0255
+'- FK positions L1:             '- 0.1488
+'- Velocity loss:               '- 0.0401
+'- Acceleration loss:           '- 0.0163
+'- Jerk loss:                   '- 0.0026
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 121/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.3138224
+'- Rotations geodesic L1:       '- 0.0784
+'- Root positions L2:           '- 0.0232
+'- FK positions L1:             '- 0.1518
+'- Velocity loss:               '- 0.0410
+'- Acceleration loss:           '- 0.0167
+'- Jerk loss:                   '- 0.0027
+Validation loss:                0.3038982
+'- Rotations geodesic L1:       '- 0.0760
+'- Root positions L2:           '- 0.0245
+'- FK positions L1:             '- 0.1452
+'- Velocity loss:               '- 0.0395
+'- Acceleration loss:           '- 0.0162
+'- Jerk loss:                   '- 0.0026
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 122/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.3072108
+'- Rotations geodesic L1:       '- 0.0776
+'- Root positions L2:           '- 0.0229
+'- FK positions L1:             '- 0.1472
+'- Velocity loss:               '- 0.0401
+'- Acceleration loss:           '- 0.0166
+'- Jerk loss:                   '- 0.0027
+Validation loss:                0.3016744
+'- Rotations geodesic L1:       '- 0.0755
+'- Root positions L2:           '- 0.0246
+'- FK positions L1:             '- 0.1431
+'- Velocity loss:               '- 0.0392
+'- Acceleration loss:           '- 0.0165
+'- Jerk loss:                   '- 0.0028
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 123/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.3041708
+'- Rotations geodesic L1:       '- 0.0771
+'- Root positions L2:           '- 0.0231
+'- FK positions L1:             '- 0.1446
+'- Velocity loss:               '- 0.0397
+'- Acceleration loss:           '- 0.0168
+'- Jerk loss:                   '- 0.0028
+Validation loss:                0.2974223
+'- Rotations geodesic L1:       '- 0.0752
+'- Root positions L2:           '- 0.0248
+'- FK positions L1:             '- 0.1395
+'- Velocity loss:               '- 0.0386
+'- Acceleration loss:           '- 0.0166
+'- Jerk loss:                   '- 0.0028
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 124/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.2998002
+'- Rotations geodesic L1:       '- 0.0767
+'- Root positions L2:           '- 0.0231
+'- FK positions L1:             '- 0.1415
+'- Velocity loss:               '- 0.0391
+'- Acceleration loss:           '- 0.0166
+'- Jerk loss:                   '- 0.0028
+Validation loss:                0.2924940
+'- Rotations geodesic L1:       '- 0.0744
+'- Root positions L2:           '- 0.0240
+'- FK positions L1:             '- 0.1369
+'- Velocity loss:               '- 0.0381
+'- Acceleration loss:           '- 0.0163
+'- Jerk loss:                   '- 0.0027
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 125/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.2952278
+'- Rotations geodesic L1:       '- 0.0763
+'- Root positions L2:           '- 0.0225
+'- FK positions L1:             '- 0.1387
+'- Velocity loss:               '- 0.0385
+'- Acceleration loss:           '- 0.0165
+'- Jerk loss:                   '- 0.0027
+Validation loss:                0.2873939
+'- Rotations geodesic L1:       '- 0.0740
+'- Root positions L2:           '- 0.0245
+'- FK positions L1:             '- 0.1331
+'- Velocity loss:               '- 0.0373
+'- Acceleration loss:           '- 0.0159
+'- Jerk loss:                   '- 0.0026
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 126/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.2902127
+'- Rotations geodesic L1:       '- 0.0758
+'- Root positions L2:           '- 0.0223
+'- FK positions L1:             '- 0.1353
+'- Velocity loss:               '- 0.0379
+'- Acceleration loss:           '- 0.0162
+'- Jerk loss:                   '- 0.0027
+Validation loss:                0.2820025
+'- Rotations geodesic L1:       '- 0.0735
+'- Root positions L2:           '- 0.0236
+'- FK positions L1:             '- 0.1299
+'- Velocity loss:               '- 0.0366
+'- Acceleration loss:           '- 0.0158
+'- Jerk loss:                   '- 0.0026
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 127/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.2862836
+'- Rotations geodesic L1:       '- 0.0754
+'- Root positions L2:           '- 0.0225
+'- FK positions L1:             '- 0.1323
+'- Velocity loss:               '- 0.0373
+'- Acceleration loss:           '- 0.0161
+'- Jerk loss:                   '- 0.0027
+Validation loss:                0.2797817
+'- Rotations geodesic L1:       '- 0.0732
+'- Root positions L2:           '- 0.0239
+'- FK positions L1:             '- 0.1279
+'- Velocity loss:               '- 0.0364
+'- Acceleration loss:           '- 0.0158
+'- Jerk loss:                   '- 0.0026
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 128/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.2841526
+'- Rotations geodesic L1:       '- 0.0751
+'- Root positions L2:           '- 0.0225
+'- FK positions L1:             '- 0.1307
+'- Velocity loss:               '- 0.0370
+'- Acceleration loss:           '- 0.0161
+'- Jerk loss:                   '- 0.0027
+Validation loss:                0.2774387
+'- Rotations geodesic L1:       '- 0.0731
+'- Root positions L2:           '- 0.0235
+'- FK positions L1:             '- 0.1260
+'- Velocity loss:               '- 0.0361
+'- Acceleration loss:           '- 0.0160
+'- Jerk loss:                   '- 0.0027
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 129/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.2802202
+'- Rotations geodesic L1:       '- 0.0747
+'- Root positions L2:           '- 0.0220
+'- FK positions L1:             '- 0.1282
+'- Velocity loss:               '- 0.0365
+'- Acceleration loss:           '- 0.0160
+'- Jerk loss:                   '- 0.0027
+Validation loss:                0.2793594
+'- Rotations geodesic L1:       '- 0.0728
+'- Root positions L2:           '- 0.0233
+'- FK positions L1:             '- 0.1286
+'- Velocity loss:               '- 0.0363
+'- Acceleration loss:           '- 0.0157
+'- Jerk loss:                   '- 0.0027
+No improvement in validation loss for 1 epochs
+
+--- Epoch 130/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.2763807
+'- Rotations geodesic L1:       '- 0.0743
+'- Root positions L2:           '- 0.0218
+'- FK positions L1:             '- 0.1256
+'- Velocity loss:               '- 0.0360
+'- Acceleration loss:           '- 0.0160
+'- Jerk loss:                   '- 0.0027
+Validation loss:                0.2683265
+'- Rotations geodesic L1:       '- 0.0722
+'- Root positions L2:           '- 0.0232
+'- FK positions L1:             '- 0.1203
+'- Velocity loss:               '- 0.0347
+'- Acceleration loss:           '- 0.0154
+'- Jerk loss:                   '- 0.0026
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 131/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.2727206
+'- Rotations geodesic L1:       '- 0.0740
+'- Root positions L2:           '- 0.0217
+'- FK positions L1:             '- 0.1230
+'- Velocity loss:               '- 0.0355
+'- Acceleration loss:           '- 0.0159
+'- Jerk loss:                   '- 0.0027
+Validation loss:                0.2672901
+'- Rotations geodesic L1:       '- 0.0721
+'- Root positions L2:           '- 0.0233
+'- FK positions L1:             '- 0.1192
+'- Velocity loss:               '- 0.0347
+'- Acceleration loss:           '- 0.0155
+'- Jerk loss:                   '- 0.0026
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 132/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.2696465
+'- Rotations geodesic L1:       '- 0.0736
+'- Root positions L2:           '- 0.0217
+'- FK positions L1:             '- 0.1205
+'- Velocity loss:               '- 0.0351
+'- Acceleration loss:           '- 0.0160
+'- Jerk loss:                   '- 0.0027
+Validation loss:                0.2632434
+'- Rotations geodesic L1:       '- 0.0715
+'- Root positions L2:           '- 0.0233
+'- FK positions L1:             '- 0.1163
+'- Velocity loss:               '- 0.0340
+'- Acceleration loss:           '- 0.0155
+'- Jerk loss:                   '- 0.0026
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 133/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.2679265
+'- Rotations geodesic L1:       '- 0.0734
+'- Root positions L2:           '- 0.0217
+'- FK positions L1:             '- 0.1193
+'- Velocity loss:               '- 0.0349
+'- Acceleration loss:           '- 0.0159
+'- Jerk loss:                   '- 0.0027
+Validation loss:                0.2600916
+'- Rotations geodesic L1:       '- 0.0712
+'- Root positions L2:           '- 0.0230
+'- FK positions L1:             '- 0.1141
+'- Velocity loss:               '- 0.0337
+'- Acceleration loss:           '- 0.0154
+'- Jerk loss:                   '- 0.0027
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 134/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.2654802
+'- Rotations geodesic L1:       '- 0.0731
+'- Root positions L2:           '- 0.0214
+'- FK positions L1:             '- 0.1175
+'- Velocity loss:               '- 0.0346
+'- Acceleration loss:           '- 0.0160
+'- Jerk loss:                   '- 0.0028
+Validation loss:                0.2603289
+'- Rotations geodesic L1:       '- 0.0712
+'- Root positions L2:           '- 0.0230
+'- FK positions L1:             '- 0.1140
+'- Velocity loss:               '- 0.0337
+'- Acceleration loss:           '- 0.0156
+'- Jerk loss:                   '- 0.0027
+No improvement in validation loss for 1 epochs
+
+--- Epoch 135/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.2616234
+'- Rotations geodesic L1:       '- 0.0726
+'- Root positions L2:           '- 0.0212
+'- FK positions L1:             '- 0.1146
+'- Velocity loss:               '- 0.0341
+'- Acceleration loss:           '- 0.0161
+'- Jerk loss:                   '- 0.0029
+Validation loss:                0.2576073
+'- Rotations geodesic L1:       '- 0.0705
+'- Root positions L2:           '- 0.0228
+'- FK positions L1:             '- 0.1125
+'- Velocity loss:               '- 0.0334
+'- Acceleration loss:           '- 0.0156
+'- Jerk loss:                   '- 0.0027
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 136/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.2603824
+'- Rotations geodesic L1:       '- 0.0724
+'- Root positions L2:           '- 0.0213
+'- FK positions L1:             '- 0.1136
+'- Velocity loss:               '- 0.0340
+'- Acceleration loss:           '- 0.0162
+'- Jerk loss:                   '- 0.0029
+Validation loss:                0.2575768
+'- Rotations geodesic L1:       '- 0.0707
+'- Root positions L2:           '- 0.0242
+'- FK positions L1:             '- 0.1102
+'- Velocity loss:               '- 0.0335
+'- Acceleration loss:           '- 0.0162
+'- Jerk loss:                   '- 0.0029
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 137/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.2575594
+'- Rotations geodesic L1:       '- 0.0721
+'- Root positions L2:           '- 0.0214
+'- FK positions L1:             '- 0.1114
+'- Velocity loss:               '- 0.0336
+'- Acceleration loss:           '- 0.0162
+'- Jerk loss:                   '- 0.0029
+Validation loss:                0.2522591
+'- Rotations geodesic L1:       '- 0.0706
+'- Root positions L2:           '- 0.0219
+'- FK positions L1:             '- 0.1091
+'- Velocity loss:               '- 0.0327
+'- Acceleration loss:           '- 0.0153
+'- Jerk loss:                   '- 0.0027
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 138/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.2561156
+'- Rotations geodesic L1:       '- 0.0719
+'- Root positions L2:           '- 0.0210
+'- FK positions L1:             '- 0.1107
+'- Velocity loss:               '- 0.0334
+'- Acceleration loss:           '- 0.0162
+'- Jerk loss:                   '- 0.0029
+Validation loss:                0.2496523
+'- Rotations geodesic L1:       '- 0.0699
+'- Root positions L2:           '- 0.0224
+'- FK positions L1:             '- 0.1063
+'- Velocity loss:               '- 0.0326
+'- Acceleration loss:           '- 0.0157
+'- Jerk loss:                   '- 0.0028
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 139/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.2514508
+'- Rotations geodesic L1:       '- 0.0714
+'- Root positions L2:           '- 0.0206
+'- FK positions L1:             '- 0.1077
+'- Velocity loss:               '- 0.0328
+'- Acceleration loss:           '- 0.0160
+'- Jerk loss:                   '- 0.0029
+Validation loss:                0.2477714
+'- Rotations geodesic L1:       '- 0.0695
+'- Root positions L2:           '- 0.0225
+'- FK positions L1:             '- 0.1050
+'- Velocity loss:               '- 0.0322
+'- Acceleration loss:           '- 0.0157
+'- Jerk loss:                   '- 0.0028
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 140/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.2504236
+'- Rotations geodesic L1:       '- 0.0712
+'- Root positions L2:           '- 0.0207
+'- FK positions L1:             '- 0.1070
+'- Velocity loss:               '- 0.0326
+'- Acceleration loss:           '- 0.0160
+'- Jerk loss:                   '- 0.0029
+Validation loss:                0.2466572
+'- Rotations geodesic L1:       '- 0.0694
+'- Root positions L2:           '- 0.0230
+'- FK positions L1:             '- 0.1037
+'- Velocity loss:               '- 0.0319
+'- Acceleration loss:           '- 0.0158
+'- Jerk loss:                   '- 0.0029
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 141/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.2484639
+'- Rotations geodesic L1:       '- 0.0708
+'- Root positions L2:           '- 0.0209
+'- FK positions L1:             '- 0.1054
+'- Velocity loss:               '- 0.0324
+'- Acceleration loss:           '- 0.0160
+'- Jerk loss:                   '- 0.0029
+Validation loss:                0.2431632
+'- Rotations geodesic L1:       '- 0.0688
+'- Root positions L2:           '- 0.0221
+'- FK positions L1:             '- 0.1021
+'- Velocity loss:               '- 0.0315
+'- Acceleration loss:           '- 0.0157
+'- Jerk loss:                   '- 0.0029
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 142/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.2481019
+'- Rotations geodesic L1:       '- 0.0708
+'- Root positions L2:           '- 0.0203
+'- FK positions L1:             '- 0.1062
+'- Velocity loss:               '- 0.0323
+'- Acceleration loss:           '- 0.0156
+'- Jerk loss:                   '- 0.0028
+Validation loss:                0.2408107
+'- Rotations geodesic L1:       '- 0.0688
+'- Root positions L2:           '- 0.0218
+'- FK positions L1:             '- 0.1012
+'- Velocity loss:               '- 0.0313
+'- Acceleration loss:           '- 0.0151
+'- Jerk loss:                   '- 0.0027
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 143/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.2434109
+'- Rotations geodesic L1:       '- 0.0703
+'- Root positions L2:           '- 0.0202
+'- FK positions L1:             '- 0.1027
+'- Velocity loss:               '- 0.0317
+'- Acceleration loss:           '- 0.0157
+'- Jerk loss:                   '- 0.0028
+Validation loss:                0.2402379
+'- Rotations geodesic L1:       '- 0.0687
+'- Root positions L2:           '- 0.0211
+'- FK positions L1:             '- 0.1006
+'- Velocity loss:               '- 0.0313
+'- Acceleration loss:           '- 0.0156
+'- Jerk loss:                   '- 0.0029
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 144/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.2419406
+'- Rotations geodesic L1:       '- 0.0700
+'- Root positions L2:           '- 0.0201
+'- FK positions L1:             '- 0.1017
+'- Velocity loss:               '- 0.0315
+'- Acceleration loss:           '- 0.0157
+'- Jerk loss:                   '- 0.0029
+Validation loss:                0.2367430
+'- Rotations geodesic L1:       '- 0.0682
+'- Root positions L2:           '- 0.0212
+'- FK positions L1:             '- 0.0987
+'- Velocity loss:               '- 0.0308
+'- Acceleration loss:           '- 0.0151
+'- Jerk loss:                   '- 0.0027
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 145/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.2392290
+'- Rotations geodesic L1:       '- 0.0697
+'- Root positions L2:           '- 0.0197
+'- FK positions L1:             '- 0.1005
+'- Velocity loss:               '- 0.0312
+'- Acceleration loss:           '- 0.0154
+'- Jerk loss:                   '- 0.0028
+Validation loss:                0.2352120
+'- Rotations geodesic L1:       '- 0.0676
+'- Root positions L2:           '- 0.0217
+'- FK positions L1:             '- 0.0972
+'- Velocity loss:               '- 0.0305
+'- Acceleration loss:           '- 0.0153
+'- Jerk loss:                   '- 0.0028
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 146/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.2379155
+'- Rotations geodesic L1:       '- 0.0694
+'- Root positions L2:           '- 0.0199
+'- FK positions L1:             '- 0.0995
+'- Velocity loss:               '- 0.0310
+'- Acceleration loss:           '- 0.0154
+'- Jerk loss:                   '- 0.0028
+Validation loss:                0.2344994
+'- Rotations geodesic L1:       '- 0.0676
+'- Root positions L2:           '- 0.0216
+'- FK positions L1:             '- 0.0970
+'- Velocity loss:               '- 0.0305
+'- Acceleration loss:           '- 0.0151
+'- Jerk loss:                   '- 0.0027
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 147/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.2352359
+'- Rotations geodesic L1:       '- 0.0691
+'- Root positions L2:           '- 0.0200
+'- FK positions L1:             '- 0.0978
+'- Velocity loss:               '- 0.0306
+'- Acceleration loss:           '- 0.0151
+'- Jerk loss:                   '- 0.0027
+Validation loss:                0.2314681
+'- Rotations geodesic L1:       '- 0.0670
+'- Root positions L2:           '- 0.0221
+'- FK positions L1:             '- 0.0950
+'- Velocity loss:               '- 0.0298
+'- Acceleration loss:           '- 0.0148
+'- Jerk loss:                   '- 0.0027
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 148/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.2337590
+'- Rotations geodesic L1:       '- 0.0688
+'- Root positions L2:           '- 0.0200
+'- FK positions L1:             '- 0.0967
+'- Velocity loss:               '- 0.0304
+'- Acceleration loss:           '- 0.0151
+'- Jerk loss:                   '- 0.0027
+Validation loss:                0.2312230
+'- Rotations geodesic L1:       '- 0.0670
+'- Root positions L2:           '- 0.0212
+'- FK positions L1:             '- 0.0948
+'- Velocity loss:               '- 0.0301
+'- Acceleration loss:           '- 0.0153
+'- Jerk loss:                   '- 0.0028
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 149/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.2326140
+'- Rotations geodesic L1:       '- 0.0685
+'- Root positions L2:           '- 0.0198
+'- FK positions L1:             '- 0.0957
+'- Velocity loss:               '- 0.0303
+'- Acceleration loss:           '- 0.0154
+'- Jerk loss:                   '- 0.0029
+Validation loss:                0.2266744
+'- Rotations geodesic L1:       '- 0.0667
+'- Root positions L2:           '- 0.0206
+'- FK positions L1:             '- 0.0916
+'- Velocity loss:               '- 0.0295
+'- Acceleration loss:           '- 0.0154
+'- Jerk loss:                   '- 0.0029
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 150/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.2306408
+'- Rotations geodesic L1:       '- 0.0683
+'- Root positions L2:           '- 0.0195
+'- FK positions L1:             '- 0.0947
+'- Velocity loss:               '- 0.0300
+'- Acceleration loss:           '- 0.0153
+'- Jerk loss:                   '- 0.0028
+Validation loss:                0.2259908
+'- Rotations geodesic L1:       '- 0.0666
+'- Root positions L2:           '- 0.0209
+'- FK positions L1:             '- 0.0915
+'- Velocity loss:               '- 0.0294
+'- Acceleration loss:           '- 0.0149
+'- Jerk loss:                   '- 0.0027
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 151/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.2299399
+'- Rotations geodesic L1:       '- 0.0681
+'- Root positions L2:           '- 0.0194
+'- FK positions L1:             '- 0.0948
+'- Velocity loss:               '- 0.0300
+'- Acceleration loss:           '- 0.0150
+'- Jerk loss:                   '- 0.0027
+Validation loss:                0.2249640
+'- Rotations geodesic L1:       '- 0.0662
+'- Root positions L2:           '- 0.0212
+'- FK positions L1:             '- 0.0914
+'- Velocity loss:               '- 0.0291
+'- Acceleration loss:           '- 0.0145
+'- Jerk loss:                   '- 0.0026
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 152/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.2275800
+'- Rotations geodesic L1:       '- 0.0679
+'- Root positions L2:           '- 0.0192
+'- FK positions L1:             '- 0.0936
+'- Velocity loss:               '- 0.0296
+'- Acceleration loss:           '- 0.0147
+'- Jerk loss:                   '- 0.0026
+Validation loss:                0.2214255
+'- Rotations geodesic L1:       '- 0.0660
+'- Root positions L2:           '- 0.0208
+'- FK positions L1:             '- 0.0891
+'- Velocity loss:               '- 0.0286
+'- Acceleration loss:           '- 0.0144
+'- Jerk loss:                   '- 0.0026
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 153/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.2248960
+'- Rotations geodesic L1:       '- 0.0675
+'- Root positions L2:           '- 0.0192
+'- FK positions L1:             '- 0.0917
+'- Velocity loss:               '- 0.0292
+'- Acceleration loss:           '- 0.0147
+'- Jerk loss:                   '- 0.0026
+Validation loss:                0.2210952
+'- Rotations geodesic L1:       '- 0.0658
+'- Root positions L2:           '- 0.0204
+'- FK positions L1:             '- 0.0886
+'- Velocity loss:               '- 0.0288
+'- Acceleration loss:           '- 0.0148
+'- Jerk loss:                   '- 0.0027
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 154/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.2244579
+'- Rotations geodesic L1:       '- 0.0673
+'- Root positions L2:           '- 0.0190
+'- FK positions L1:             '- 0.0914
+'- Velocity loss:               '- 0.0292
+'- Acceleration loss:           '- 0.0148
+'- Jerk loss:                   '- 0.0027
+Validation loss:                0.2191130
+'- Rotations geodesic L1:       '- 0.0654
+'- Root positions L2:           '- 0.0202
+'- FK positions L1:             '- 0.0882
+'- Velocity loss:               '- 0.0284
+'- Acceleration loss:           '- 0.0144
+'- Jerk loss:                   '- 0.0026
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 155/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.2226676
+'- Rotations geodesic L1:       '- 0.0671
+'- Root positions L2:           '- 0.0189
+'- FK positions L1:             '- 0.0906
+'- Velocity loss:               '- 0.0290
+'- Acceleration loss:           '- 0.0145
+'- Jerk loss:                   '- 0.0026
+Validation loss:                0.2209260
+'- Rotations geodesic L1:       '- 0.0655
+'- Root positions L2:           '- 0.0208
+'- FK positions L1:             '- 0.0888
+'- Velocity loss:               '- 0.0287
+'- Acceleration loss:           '- 0.0145
+'- Jerk loss:                   '- 0.0026
+No improvement in validation loss for 1 epochs
+
+--- Epoch 156/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.2209692
+'- Rotations geodesic L1:       '- 0.0668
+'- Root positions L2:           '- 0.0188
+'- FK positions L1:             '- 0.0895
+'- Velocity loss:               '- 0.0288
+'- Acceleration loss:           '- 0.0145
+'- Jerk loss:                   '- 0.0026
+Validation loss:                0.2166899
+'- Rotations geodesic L1:       '- 0.0653
+'- Root positions L2:           '- 0.0201
+'- FK positions L1:             '- 0.0863
+'- Velocity loss:               '- 0.0281
+'- Acceleration loss:           '- 0.0142
+'- Jerk loss:                   '- 0.0026
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 157/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.2196018
+'- Rotations geodesic L1:       '- 0.0666
+'- Root positions L2:           '- 0.0186
+'- FK positions L1:             '- 0.0888
+'- Velocity loss:               '- 0.0286
+'- Acceleration loss:           '- 0.0145
+'- Jerk loss:                   '- 0.0026
+Validation loss:                0.2189944
+'- Rotations geodesic L1:       '- 0.0652
+'- Root positions L2:           '- 0.0203
+'- FK positions L1:             '- 0.0880
+'- Velocity loss:               '- 0.0284
+'- Acceleration loss:           '- 0.0145
+'- Jerk loss:                   '- 0.0026
+No improvement in validation loss for 1 epochs
+
+--- Epoch 158/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.2192724
+'- Rotations geodesic L1:       '- 0.0663
+'- Root positions L2:           '- 0.0190
+'- FK positions L1:             '- 0.0881
+'- Velocity loss:               '- 0.0285
+'- Acceleration loss:           '- 0.0146
+'- Jerk loss:                   '- 0.0027
+Validation loss:                0.2153050
+'- Rotations geodesic L1:       '- 0.0646
+'- Root positions L2:           '- 0.0203
+'- FK positions L1:             '- 0.0856
+'- Velocity loss:               '- 0.0278
+'- Acceleration loss:           '- 0.0143
+'- Jerk loss:                   '- 0.0026
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 159/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.2164526
+'- Rotations geodesic L1:       '- 0.0660
+'- Root positions L2:           '- 0.0185
+'- FK positions L1:             '- 0.0867
+'- Velocity loss:               '- 0.0281
+'- Acceleration loss:           '- 0.0145
+'- Jerk loss:                   '- 0.0026
+Validation loss:                0.2262679
+'- Rotations geodesic L1:       '- 0.0658
+'- Root positions L2:           '- 0.0199
+'- FK positions L1:             '- 0.0937
+'- Velocity loss:               '- 0.0294
+'- Acceleration loss:           '- 0.0148
+'- Jerk loss:                   '- 0.0027
+No improvement in validation loss for 1 epochs
+
+--- Epoch 160/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.2177953
+'- Rotations geodesic L1:       '- 0.0661
+'- Root positions L2:           '- 0.0183
+'- FK positions L1:             '- 0.0876
+'- Velocity loss:               '- 0.0284
+'- Acceleration loss:           '- 0.0147
+'- Jerk loss:                   '- 0.0027
+Validation loss:                0.2141769
+'- Rotations geodesic L1:       '- 0.0646
+'- Root positions L2:           '- 0.0196
+'- FK positions L1:             '- 0.0849
+'- Velocity loss:               '- 0.0280
+'- Acceleration loss:           '- 0.0144
+'- Jerk loss:                   '- 0.0026
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 161/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.2155730
+'- Rotations geodesic L1:       '- 0.0656
+'- Root positions L2:           '- 0.0185
+'- FK positions L1:             '- 0.0859
+'- Velocity loss:               '- 0.0281
+'- Acceleration loss:           '- 0.0147
+'- Jerk loss:                   '- 0.0027
+Validation loss:                0.2118466
+'- Rotations geodesic L1:       '- 0.0641
+'- Root positions L2:           '- 0.0200
+'- FK positions L1:             '- 0.0827
+'- Velocity loss:               '- 0.0276
+'- Acceleration loss:           '- 0.0147
+'- Jerk loss:                   '- 0.0028
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 162/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.2150542
+'- Rotations geodesic L1:       '- 0.0656
+'- Root positions L2:           '- 0.0183
+'- FK positions L1:             '- 0.0859
+'- Velocity loss:               '- 0.0281
+'- Acceleration loss:           '- 0.0145
+'- Jerk loss:                   '- 0.0027
+Validation loss:                0.2113260
+'- Rotations geodesic L1:       '- 0.0639
+'- Root positions L2:           '- 0.0199
+'- FK positions L1:             '- 0.0830
+'- Velocity loss:               '- 0.0274
+'- Acceleration loss:           '- 0.0144
+'- Jerk loss:                   '- 0.0027
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 163/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.2124318
+'- Rotations geodesic L1:       '- 0.0652
+'- Root positions L2:           '- 0.0184
+'- FK positions L1:             '- 0.0841
+'- Velocity loss:               '- 0.0276
+'- Acceleration loss:           '- 0.0144
+'- Jerk loss:                   '- 0.0026
+Validation loss:                0.2104146
+'- Rotations geodesic L1:       '- 0.0637
+'- Root positions L2:           '- 0.0199
+'- FK positions L1:             '- 0.0828
+'- Velocity loss:               '- 0.0273
+'- Acceleration loss:           '- 0.0142
+'- Jerk loss:                   '- 0.0026
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 164/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.2122462
+'- Rotations geodesic L1:       '- 0.0651
+'- Root positions L2:           '- 0.0179
+'- FK positions L1:             '- 0.0843
+'- Velocity loss:               '- 0.0277
+'- Acceleration loss:           '- 0.0146
+'- Jerk loss:                   '- 0.0027
+Validation loss:                0.2086270
+'- Rotations geodesic L1:       '- 0.0634
+'- Root positions L2:           '- 0.0196
+'- FK positions L1:             '- 0.0810
+'- Velocity loss:               '- 0.0272
+'- Acceleration loss:           '- 0.0147
+'- Jerk loss:                   '- 0.0028
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 165/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.2106237
+'- Rotations geodesic L1:       '- 0.0648
+'- Root positions L2:           '- 0.0179
+'- FK positions L1:             '- 0.0828
+'- Velocity loss:               '- 0.0275
+'- Acceleration loss:           '- 0.0148
+'- Jerk loss:                   '- 0.0028
+Validation loss:                0.2110136
+'- Rotations geodesic L1:       '- 0.0637
+'- Root positions L2:           '- 0.0195
+'- FK positions L1:             '- 0.0831
+'- Velocity loss:               '- 0.0276
+'- Acceleration loss:           '- 0.0145
+'- Jerk loss:                   '- 0.0027
+No improvement in validation loss for 1 epochs
+
+--- Epoch 166/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.2097901
+'- Rotations geodesic L1:       '- 0.0646
+'- Root positions L2:           '- 0.0178
+'- FK positions L1:             '- 0.0824
+'- Velocity loss:               '- 0.0274
+'- Acceleration loss:           '- 0.0148
+'- Jerk loss:                   '- 0.0028
+Validation loss:                0.2082570
+'- Rotations geodesic L1:       '- 0.0632
+'- Root positions L2:           '- 0.0190
+'- FK positions L1:             '- 0.0816
+'- Velocity loss:               '- 0.0272
+'- Acceleration loss:           '- 0.0146
+'- Jerk loss:                   '- 0.0028
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 167/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.2089397
+'- Rotations geodesic L1:       '- 0.0644
+'- Root positions L2:           '- 0.0174
+'- FK positions L1:             '- 0.0822
+'- Velocity loss:               '- 0.0274
+'- Acceleration loss:           '- 0.0147
+'- Jerk loss:                   '- 0.0028
+Validation loss:                0.2060310
+'- Rotations geodesic L1:       '- 0.0628
+'- Root positions L2:           '- 0.0192
+'- FK positions L1:             '- 0.0798
+'- Velocity loss:               '- 0.0269
+'- Acceleration loss:           '- 0.0146
+'- Jerk loss:                   '- 0.0027
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 168/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.2080076
+'- Rotations geodesic L1:       '- 0.0642
+'- Root positions L2:           '- 0.0176
+'- FK positions L1:             '- 0.0815
+'- Velocity loss:               '- 0.0272
+'- Acceleration loss:           '- 0.0147
+'- Jerk loss:                   '- 0.0028
+Validation loss:                0.2055602
+'- Rotations geodesic L1:       '- 0.0627
+'- Root positions L2:           '- 0.0196
+'- FK positions L1:             '- 0.0791
+'- Velocity loss:               '- 0.0268
+'- Acceleration loss:           '- 0.0145
+'- Jerk loss:                   '- 0.0027
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 169/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.2062602
+'- Rotations geodesic L1:       '- 0.0639
+'- Root positions L2:           '- 0.0174
+'- FK positions L1:             '- 0.0805
+'- Velocity loss:               '- 0.0270
+'- Acceleration loss:           '- 0.0147
+'- Jerk loss:                   '- 0.0028
+Validation loss:                0.2028313
+'- Rotations geodesic L1:       '- 0.0624
+'- Root positions L2:           '- 0.0188
+'- FK positions L1:             '- 0.0784
+'- Velocity loss:               '- 0.0264
+'- Acceleration loss:           '- 0.0142
+'- Jerk loss:                   '- 0.0026
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 170/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.2068470
+'- Rotations geodesic L1:       '- 0.0639
+'- Root positions L2:           '- 0.0176
+'- FK positions L1:             '- 0.0813
+'- Velocity loss:               '- 0.0270
+'- Acceleration loss:           '- 0.0144
+'- Jerk loss:                   '- 0.0027
+Validation loss:                0.2046993
+'- Rotations geodesic L1:       '- 0.0626
+'- Root positions L2:           '- 0.0192
+'- FK positions L1:             '- 0.0793
+'- Velocity loss:               '- 0.0267
+'- Acceleration loss:           '- 0.0142
+'- Jerk loss:                   '- 0.0026
+No improvement in validation loss for 1 epochs
+
+--- Epoch 171/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.2051495
+'- Rotations geodesic L1:       '- 0.0636
+'- Root positions L2:           '- 0.0174
+'- FK positions L1:             '- 0.0801
+'- Velocity loss:               '- 0.0268
+'- Acceleration loss:           '- 0.0145
+'- Jerk loss:                   '- 0.0027
+Validation loss:                0.2032002
+'- Rotations geodesic L1:       '- 0.0625
+'- Root positions L2:           '- 0.0189
+'- FK positions L1:             '- 0.0782
+'- Velocity loss:               '- 0.0265
+'- Acceleration loss:           '- 0.0144
+'- Jerk loss:                   '- 0.0027
+No improvement in validation loss for 2 epochs
+
+--- Epoch 172/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.2039858
+'- Rotations geodesic L1:       '- 0.0635
+'- Root positions L2:           '- 0.0173
+'- FK positions L1:             '- 0.0796
+'- Velocity loss:               '- 0.0267
+'- Acceleration loss:           '- 0.0143
+'- Jerk loss:                   '- 0.0026
+Validation loss:                0.2018774
+'- Rotations geodesic L1:       '- 0.0620
+'- Root positions L2:           '- 0.0189
+'- FK positions L1:             '- 0.0782
+'- Velocity loss:               '- 0.0262
+'- Acceleration loss:           '- 0.0139
+'- Jerk loss:                   '- 0.0026
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 173/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.2030931
+'- Rotations geodesic L1:       '- 0.0632
+'- Root positions L2:           '- 0.0172
+'- FK positions L1:             '- 0.0793
+'- Velocity loss:               '- 0.0265
+'- Acceleration loss:           '- 0.0142
+'- Jerk loss:                   '- 0.0026
+Validation loss:                0.2018398
+'- Rotations geodesic L1:       '- 0.0619
+'- Root positions L2:           '- 0.0193
+'- FK positions L1:             '- 0.0777
+'- Velocity loss:               '- 0.0263
+'- Acceleration loss:           '- 0.0141
+'- Jerk loss:                   '- 0.0026
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 174/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.2017846
+'- Rotations geodesic L1:       '- 0.0630
+'- Root positions L2:           '- 0.0169
+'- FK positions L1:             '- 0.0783
+'- Velocity loss:               '- 0.0264
+'- Acceleration loss:           '- 0.0145
+'- Jerk loss:                   '- 0.0027
+Validation loss:                0.2009597
+'- Rotations geodesic L1:       '- 0.0618
+'- Root positions L2:           '- 0.0193
+'- FK positions L1:             '- 0.0759
+'- Velocity loss:               '- 0.0262
+'- Acceleration loss:           '- 0.0149
+'- Jerk loss:                   '- 0.0029
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 175/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.2019010
+'- Rotations geodesic L1:       '- 0.0629
+'- Root positions L2:           '- 0.0169
+'- FK positions L1:             '- 0.0783
+'- Velocity loss:               '- 0.0265
+'- Acceleration loss:           '- 0.0146
+'- Jerk loss:                   '- 0.0028
+Validation loss:                0.2026610
+'- Rotations geodesic L1:       '- 0.0617
+'- Root positions L2:           '- 0.0185
+'- FK positions L1:             '- 0.0775
+'- Velocity loss:               '- 0.0269
+'- Acceleration loss:           '- 0.0152
+'- Jerk loss:                   '- 0.0030
+No improvement in validation loss for 1 epochs
+
+--- Epoch 176/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.2005951
+'- Rotations geodesic L1:       '- 0.0626
+'- Root positions L2:           '- 0.0166
+'- FK positions L1:             '- 0.0773
+'- Velocity loss:               '- 0.0264
+'- Acceleration loss:           '- 0.0148
+'- Jerk loss:                   '- 0.0029
+Validation loss:                0.1993306
+'- Rotations geodesic L1:       '- 0.0615
+'- Root positions L2:           '- 0.0175
+'- FK positions L1:             '- 0.0774
+'- Velocity loss:               '- 0.0261
+'- Acceleration loss:           '- 0.0141
+'- Jerk loss:                   '- 0.0027
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 177/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.1999052
+'- Rotations geodesic L1:       '- 0.0625
+'- Root positions L2:           '- 0.0165
+'- FK positions L1:             '- 0.0773
+'- Velocity loss:               '- 0.0263
+'- Acceleration loss:           '- 0.0145
+'- Jerk loss:                   '- 0.0028
+Validation loss:                0.1959446
+'- Rotations geodesic L1:       '- 0.0611
+'- Root positions L2:           '- 0.0180
+'- FK positions L1:             '- 0.0747
+'- Velocity loss:               '- 0.0255
+'- Acceleration loss:           '- 0.0140
+'- Jerk loss:                   '- 0.0026
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 178/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.1989351
+'- Rotations geodesic L1:       '- 0.0623
+'- Root positions L2:           '- 0.0167
+'- FK positions L1:             '- 0.0770
+'- Velocity loss:               '- 0.0261
+'- Acceleration loss:           '- 0.0142
+'- Jerk loss:                   '- 0.0027
+Validation loss:                0.1973501
+'- Rotations geodesic L1:       '- 0.0609
+'- Root positions L2:           '- 0.0184
+'- FK positions L1:             '- 0.0758
+'- Velocity loss:               '- 0.0257
+'- Acceleration loss:           '- 0.0139
+'- Jerk loss:                   '- 0.0026
+No improvement in validation loss for 1 epochs
+
+--- Epoch 179/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.1983675
+'- Rotations geodesic L1:       '- 0.0622
+'- Root positions L2:           '- 0.0165
+'- FK positions L1:             '- 0.0770
+'- Velocity loss:               '- 0.0260
+'- Acceleration loss:           '- 0.0141
+'- Jerk loss:                   '- 0.0026
+Validation loss:                0.1969833
+'- Rotations geodesic L1:       '- 0.0611
+'- Root positions L2:           '- 0.0181
+'- FK positions L1:             '- 0.0755
+'- Velocity loss:               '- 0.0257
+'- Acceleration loss:           '- 0.0139
+'- Jerk loss:                   '- 0.0026
+No improvement in validation loss for 2 epochs
+
+--- Epoch 180/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.1958735
+'- Rotations geodesic L1:       '- 0.0619
+'- Root positions L2:           '- 0.0164
+'- FK positions L1:             '- 0.0751
+'- Velocity loss:               '- 0.0257
+'- Acceleration loss:           '- 0.0142
+'- Jerk loss:                   '- 0.0027
+Validation loss:                0.1932844
+'- Rotations geodesic L1:       '- 0.0606
+'- Root positions L2:           '- 0.0178
+'- FK positions L1:             '- 0.0731
+'- Velocity loss:               '- 0.0252
+'- Acceleration loss:           '- 0.0140
+'- Jerk loss:                   '- 0.0026
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 181/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.1955694
+'- Rotations geodesic L1:       '- 0.0618
+'- Root positions L2:           '- 0.0163
+'- FK positions L1:             '- 0.0752
+'- Velocity loss:               '- 0.0257
+'- Acceleration loss:           '- 0.0141
+'- Jerk loss:                   '- 0.0026
+Validation loss:                0.1971148
+'- Rotations geodesic L1:       '- 0.0607
+'- Root positions L2:           '- 0.0178
+'- FK positions L1:             '- 0.0765
+'- Velocity loss:               '- 0.0257
+'- Acceleration loss:           '- 0.0138
+'- Jerk loss:                   '- 0.0026
+No improvement in validation loss for 1 epochs
+
+--- Epoch 182/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.1956202
+'- Rotations geodesic L1:       '- 0.0616
+'- Root positions L2:           '- 0.0161
+'- FK positions L1:             '- 0.0754
+'- Velocity loss:               '- 0.0257
+'- Acceleration loss:           '- 0.0141
+'- Jerk loss:                   '- 0.0027
+Validation loss:                0.1932125
+'- Rotations geodesic L1:       '- 0.0602
+'- Root positions L2:           '- 0.0176
+'- FK positions L1:             '- 0.0731
+'- Velocity loss:               '- 0.0255
+'- Acceleration loss:           '- 0.0142
+'- Jerk loss:                   '- 0.0027
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 183/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.1934889
+'- Rotations geodesic L1:       '- 0.0613
+'- Root positions L2:           '- 0.0161
+'- FK positions L1:             '- 0.0740
+'- Velocity loss:               '- 0.0254
+'- Acceleration loss:           '- 0.0140
+'- Jerk loss:                   '- 0.0026
+Validation loss:                0.1957865
+'- Rotations geodesic L1:       '- 0.0605
+'- Root positions L2:           '- 0.0177
+'- FK positions L1:             '- 0.0752
+'- Velocity loss:               '- 0.0256
+'- Acceleration loss:           '- 0.0142
+'- Jerk loss:                   '- 0.0027
+No improvement in validation loss for 1 epochs
+
+--- Epoch 184/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.1949000
+'- Rotations geodesic L1:       '- 0.0613
+'- Root positions L2:           '- 0.0164
+'- FK positions L1:             '- 0.0746
+'- Velocity loss:               '- 0.0256
+'- Acceleration loss:           '- 0.0143
+'- Jerk loss:                   '- 0.0027
+Validation loss:                0.1932413
+'- Rotations geodesic L1:       '- 0.0601
+'- Root positions L2:           '- 0.0179
+'- FK positions L1:             '- 0.0726
+'- Velocity loss:               '- 0.0254
+'- Acceleration loss:           '- 0.0144
+'- Jerk loss:                   '- 0.0028
+No improvement in validation loss for 2 epochs
+
+--- Epoch 185/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.1934566
+'- Rotations geodesic L1:       '- 0.0612
+'- Root positions L2:           '- 0.0158
+'- FK positions L1:             '- 0.0742
+'- Velocity loss:               '- 0.0254
+'- Acceleration loss:           '- 0.0141
+'- Jerk loss:                   '- 0.0027
+Validation loss:                0.1923114
+'- Rotations geodesic L1:       '- 0.0601
+'- Root positions L2:           '- 0.0174
+'- FK positions L1:             '- 0.0728
+'- Velocity loss:               '- 0.0253
+'- Acceleration loss:           '- 0.0140
+'- Jerk loss:                   '- 0.0026
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 186/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.1913136
+'- Rotations geodesic L1:       '- 0.0609
+'- Root positions L2:           '- 0.0156
+'- FK positions L1:             '- 0.0729
+'- Velocity loss:               '- 0.0252
+'- Acceleration loss:           '- 0.0141
+'- Jerk loss:                   '- 0.0027
+Validation loss:                0.1879642
+'- Rotations geodesic L1:       '- 0.0595
+'- Root positions L2:           '- 0.0171
+'- FK positions L1:             '- 0.0703
+'- Velocity loss:               '- 0.0247
+'- Acceleration loss:           '- 0.0138
+'- Jerk loss:                   '- 0.0026
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 187/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.1910107
+'- Rotations geodesic L1:       '- 0.0607
+'- Root positions L2:           '- 0.0158
+'- FK positions L1:             '- 0.0727
+'- Velocity loss:               '- 0.0251
+'- Acceleration loss:           '- 0.0140
+'- Jerk loss:                   '- 0.0027
+Validation loss:                0.1892818
+'- Rotations geodesic L1:       '- 0.0594
+'- Root positions L2:           '- 0.0172
+'- FK positions L1:             '- 0.0712
+'- Velocity loss:               '- 0.0248
+'- Acceleration loss:           '- 0.0140
+'- Jerk loss:                   '- 0.0027
+No improvement in validation loss for 1 epochs
+
+--- Epoch 188/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.1918066
+'- Rotations geodesic L1:       '- 0.0606
+'- Root positions L2:           '- 0.0158
+'- FK positions L1:             '- 0.0733
+'- Velocity loss:               '- 0.0253
+'- Acceleration loss:           '- 0.0141
+'- Jerk loss:                   '- 0.0027
+Validation loss:                0.1909757
+'- Rotations geodesic L1:       '- 0.0594
+'- Root positions L2:           '- 0.0172
+'- FK positions L1:             '- 0.0729
+'- Velocity loss:               '- 0.0250
+'- Acceleration loss:           '- 0.0138
+'- Jerk loss:                   '- 0.0026
+No improvement in validation loss for 2 epochs
+
+--- Epoch 189/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.1904036
+'- Rotations geodesic L1:       '- 0.0605
+'- Root positions L2:           '- 0.0156
+'- FK positions L1:             '- 0.0726
+'- Velocity loss:               '- 0.0251
+'- Acceleration loss:           '- 0.0140
+'- Jerk loss:                   '- 0.0027
+Validation loss:                0.1890920
+'- Rotations geodesic L1:       '- 0.0594
+'- Root positions L2:           '- 0.0173
+'- FK positions L1:             '- 0.0710
+'- Velocity loss:               '- 0.0248
+'- Acceleration loss:           '- 0.0139
+'- Jerk loss:                   '- 0.0027
+No improvement in validation loss for 3 epochs
+
+--- Epoch 190/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.1897538
+'- Rotations geodesic L1:       '- 0.0603
+'- Root positions L2:           '- 0.0158
+'- FK positions L1:             '- 0.0719
+'- Velocity loss:               '- 0.0250
+'- Acceleration loss:           '- 0.0141
+'- Jerk loss:                   '- 0.0027
+Validation loss:                0.1877443
+'- Rotations geodesic L1:       '- 0.0590
+'- Root positions L2:           '- 0.0169
+'- FK positions L1:             '- 0.0702
+'- Velocity loss:               '- 0.0248
+'- Acceleration loss:           '- 0.0141
+'- Jerk loss:                   '- 0.0027
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 191/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.1882759
+'- Rotations geodesic L1:       '- 0.0600
+'- Root positions L2:           '- 0.0154
+'- FK positions L1:             '- 0.0712
+'- Velocity loss:               '- 0.0248
+'- Acceleration loss:           '- 0.0141
+'- Jerk loss:                   '- 0.0027
+Validation loss:                0.1884973
+'- Rotations geodesic L1:       '- 0.0589
+'- Root positions L2:           '- 0.0171
+'- FK positions L1:             '- 0.0708
+'- Velocity loss:               '- 0.0248
+'- Acceleration loss:           '- 0.0141
+'- Jerk loss:                   '- 0.0027
+No improvement in validation loss for 1 epochs
+
+--- Epoch 192/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.1873482
+'- Rotations geodesic L1:       '- 0.0598
+'- Root positions L2:           '- 0.0156
+'- FK positions L1:             '- 0.0707
+'- Velocity loss:               '- 0.0247
+'- Acceleration loss:           '- 0.0139
+'- Jerk loss:                   '- 0.0027
+Validation loss:                0.1858420
+'- Rotations geodesic L1:       '- 0.0587
+'- Root positions L2:           '- 0.0167
+'- FK positions L1:             '- 0.0693
+'- Velocity loss:               '- 0.0246
+'- Acceleration loss:           '- 0.0139
+'- Jerk loss:                   '- 0.0026
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 193/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.1869290
+'- Rotations geodesic L1:       '- 0.0597
+'- Root positions L2:           '- 0.0150
+'- FK positions L1:             '- 0.0710
+'- Velocity loss:               '- 0.0247
+'- Acceleration loss:           '- 0.0139
+'- Jerk loss:                   '- 0.0026
+Validation loss:                0.1872912
+'- Rotations geodesic L1:       '- 0.0588
+'- Root positions L2:           '- 0.0166
+'- FK positions L1:             '- 0.0702
+'- Velocity loss:               '- 0.0249
+'- Acceleration loss:           '- 0.0141
+'- Jerk loss:                   '- 0.0027
+No improvement in validation loss for 1 epochs
+
+--- Epoch 194/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.1867869
+'- Rotations geodesic L1:       '- 0.0597
+'- Root positions L2:           '- 0.0151
+'- FK positions L1:             '- 0.0707
+'- Velocity loss:               '- 0.0247
+'- Acceleration loss:           '- 0.0140
+'- Jerk loss:                   '- 0.0027
+Validation loss:                0.1853415
+'- Rotations geodesic L1:       '- 0.0585
+'- Root positions L2:           '- 0.0162
+'- FK positions L1:             '- 0.0693
+'- Velocity loss:               '- 0.0247
+'- Acceleration loss:           '- 0.0139
+'- Jerk loss:                   '- 0.0026
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 195/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.1863962
+'- Rotations geodesic L1:       '- 0.0595
+'- Root positions L2:           '- 0.0153
+'- FK positions L1:             '- 0.0707
+'- Velocity loss:               '- 0.0246
+'- Acceleration loss:           '- 0.0138
+'- Jerk loss:                   '- 0.0026
+Validation loss:                0.1897630
+'- Rotations geodesic L1:       '- 0.0591
+'- Root positions L2:           '- 0.0172
+'- FK positions L1:             '- 0.0719
+'- Velocity loss:               '- 0.0249
+'- Acceleration loss:           '- 0.0140
+'- Jerk loss:                   '- 0.0027
+No improvement in validation loss for 1 epochs
+
+--- Epoch 196/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.1845482
+'- Rotations geodesic L1:       '- 0.0592
+'- Root positions L2:           '- 0.0150
+'- FK positions L1:             '- 0.0695
+'- Velocity loss:               '- 0.0244
+'- Acceleration loss:           '- 0.0138
+'- Jerk loss:                   '- 0.0026
+Validation loss:                0.1819169
+'- Rotations geodesic L1:       '- 0.0581
+'- Root positions L2:           '- 0.0162
+'- FK positions L1:             '- 0.0673
+'- Velocity loss:               '- 0.0240
+'- Acceleration loss:           '- 0.0137
+'- Jerk loss:                   '- 0.0026
+Validation loss improved, saving checkpoint
+Model saved to: checkpoints/model/v_55_c.pth
+
+--- Epoch 197/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.1839588
+'- Rotations geodesic L1:       '- 0.0590
+'- Root positions L2:           '- 0.0151
+'- FK positions L1:             '- 0.0690
+'- Velocity loss:               '- 0.0243
+'- Acceleration loss:           '- 0.0139
+'- Jerk loss:                   '- 0.0027
+Validation loss:                0.1842266
+'- Rotations geodesic L1:       '- 0.0581
+'- Root positions L2:           '- 0.0170
+'- FK positions L1:             '- 0.0684
+'- Velocity loss:               '- 0.0243
+'- Acceleration loss:           '- 0.0138
+'- Jerk loss:                   '- 0.0026
+No improvement in validation loss for 1 epochs
+
+--- Epoch 198/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.1844663
+'- Rotations geodesic L1:       '- 0.0590
+'- Root positions L2:           '- 0.0151
+'- FK positions L1:             '- 0.0696
+'- Velocity loss:               '- 0.0243
+'- Acceleration loss:           '- 0.0138
+'- Jerk loss:                   '- 0.0027
+Validation loss:                0.1832192
+'- Rotations geodesic L1:       '- 0.0580
+'- Root positions L2:           '- 0.0167
+'- FK positions L1:             '- 0.0685
+'- Velocity loss:               '- 0.0241
+'- Acceleration loss:           '- 0.0134
+'- Jerk loss:                   '- 0.0025
+No improvement in validation loss for 2 epochs
+
+--- Epoch 199/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.1836905
+'- Rotations geodesic L1:       '- 0.0589
+'- Root positions L2:           '- 0.0148
+'- FK positions L1:             '- 0.0696
+'- Velocity loss:               '- 0.0242
+'- Acceleration loss:           '- 0.0136
+'- Jerk loss:                   '- 0.0026
+Validation loss:                0.1819343
+'- Rotations geodesic L1:       '- 0.0578
+'- Root positions L2:           '- 0.0163
+'- FK positions L1:             '- 0.0681
+'- Velocity loss:               '- 0.0239
+'- Acceleration loss:           '- 0.0134
+'- Jerk loss:                   '- 0.0025
+No improvement in validation loss for 3 epochs
+
+--- Epoch 200/200 ---
+Learning rate:                  4.219e-04
+Training loss:                  0.1812131
+'- Rotations geodesic L1:       '- 0.0586
+'- Root positions L2:           '- 0.0147
+'- FK positions L1:             '- 0.0682
+'- Velocity loss:               '- 0.0239
+'- Acceleration loss:           '- 0.0133
+'- Jerk loss:                   '- 0.0025
+Validation loss:                0.1839931
+'- Rotations geodesic L1:       '- 0.0580
+'- Root positions L2:           '- 0.0163
+'- FK positions L1:             '- 0.0697
+'- Velocity loss:               '- 0.0241
+'- Acceleration loss:           '- 0.0134
+'- Jerk loss:                   '- 0.0025
+No improvement in validation loss for 4 epochs
+Total training time: 00h 29m 5.49s
+Training complete
