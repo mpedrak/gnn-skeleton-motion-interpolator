@@ -6,3 +6,4 @@ __pypackages__/
 *.tar.gz
 *.info
 /experiments/
+**/old/

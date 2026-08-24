@@ -1,4 +1,0 @@
-Test loss:                      0.7496761
-'- Rotations Geodesic L1:       '- 0.0720
-'- Root positions L2:           '- 0.4581
-'- FK positions L1:             '- 0.2196

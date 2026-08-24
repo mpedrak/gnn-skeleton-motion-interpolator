@@ -1,6 +1,0 @@
-
---- Test Results ---
-Total loss - weighted sum:       1.1161316
-6D rotations geodesic loss:      0.4447812
-Root positions MSE:              0.1369595
-FK positions MAE:                3.2692878

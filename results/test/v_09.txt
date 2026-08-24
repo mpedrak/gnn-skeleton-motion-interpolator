@@ -1,8 +1,0 @@
-
---- Test Results ---
-Total loss - weighted sum:       0.3611181
-6D rotations geodesic loss:      0.0957092
-Root positions MSE:              0.1220062
-FK positions MAE:                3.5037262
-Foot skating loss:               0.4429242
-Smoothness loss (not in sum):    0.5450847
