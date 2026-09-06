@@ -1,8 +1,8 @@
 # GNN Skeleton Motion Interpolator
 
-3D skeletal motion in-betweening aims to automatically generate realistic transition frames between keyframes, reducing manual work in creating character animation. This repository provides a deep learning approach for this task using Attention-based Graph Neural Networks. The most important distinguishing feature of this solution is support for multi-topology skeletons, which allows generation of animation for multiple skeletons with a single trained model. In addition, it is possible to use this solution directly in Blender software via the extension [AI Animation Bridge](https://github.com/kottajl/blender-plug-in-for-modifying-3D-animations). The repository contains many trained (on LAFAN1, ACCAD, PFNN, UNOC, 100STYLE datasets) models and the results obtained from them. It also presents quite modular and clear model architecture making it straightforward to extend, modify, or use it with new datasets.
+3D skeletal motion in-betweening aims to automatically generate realistic transition frames between keyframes, reducing manual work in creating character animation. This repository provides a deep learning approach for this task using Attention-based Graph Neural Networks. The most important distinguishing feature of this solution is support for multi-topology skeletons, which allows generation of animation for multiple skeletons with a single trained model. In addition, it is possible to use this solution directly in Blender software via the extension [AI Animation Bridge](https://github.com/kottajl/blender-plug-in-for-modifying-3D-animations). The repository contains many trained models (on LAFAN1, ACCAD, PFNN, UNOC, 100STYLE datasets) and the results obtained from them. It also presents quite modular and clear model architecture making it straightforward to extend, modify, or use it with new datasets.
 
-## Installation
+## Downloading
 
 ### To download without all pretrained models (highly advised considering their size)
 
@@ -48,42 +48,44 @@ git lfs pull -I "checkpoints/model/v_XX_x.pth"
 
 ## Usage
 
+- most python files use \<config\> argument
+
+    - it is only name without file extension
+    - configuration from relevant file in *configs* directory will be used
+
 - gnn_skeleton_motion_interpolator.py
 
     - file that can be loaded in [AI Animation Bridge](https://github.com/kottajl/blender-plug-in-for-modifying-3D-animations) Blender extension
+    - trained model and all other source files are also required
 
-- predict.py \<version\> \<file\> \<gap_start\>
+- predict.py \<config\> \<bvh_file\> \<gap_start\>
 
     - file that can be used to predict 1 motion in-betweening in 1 file
-    - \<version\> is in format v_XX_x
-    - \<file\> is absolute or relative path to single BVH file
+    - \<bvh_file\> is absolute or relative path to single BVH file
     - \<gap_start\> is single value for in-betweening start (counting from 1)
-    - result is saved as copy of \<file\> with *_pred* in name
+    - result is saved as copy of \<bvh_file\> with *_pred* in name
 
-- predict_multiple_files.py \<version\>
+- predict_multiple_files.py \<config\>
 
-    - file that can be used to predict multiple motion in-betweening in multiple files
-    - \<version\> is in format v_XX_x
+    - file that can be used to predict multiple motion in-betweening in multiple files and to measure prediction time
     - main data directory and subdirectories with BVH files are defined in code
-    - gap starts are calculated based on used version context lengths
+    - gap starts are calculated continuously based on used config context lengths
     - results are saved as copies of files with *_pred_multi* in name
+    - prediction time statistics are printed
 
-- train.py \<version\>
+- train.py \<config\>
 
     - file that can be used to train single model based on certain config
-    - \<version\> (config) is in format v_XX_x
-    - automatically saves model checkpoint, info about used skeletons and all logs
+    - automatically saves model checkpoint, info about used skeletons, training plot and all logs
 
-- test.py \<version\>
+- test.py \<config\>
 
     - file that can be used to do simple test of model (calculates train loss values on test set)
-    - \<version\> is in format v_XX_x
     - prints and automatically saves result
 
-- benchmark.py \<version\>
+- benchmark.py \<config\>
 
     - file that can be used to do advanced test of model (calculates L2P, L2Q, NPSS and some other metrics on test set)
-    - \<version\> is in format v_XX_x
     - prints and automatically saves result
 
 - in *data* directory there are some scripts that can be helpful with datasets handling
@@ -91,7 +93,7 @@ git lfs pull -I "checkpoints/model/v_XX_x.pth"
 ## Testing environment
 
 All models were trained and tested on the following hardware and software configuration
-- OS: Windows 11 Pro 25H2 (version 26200.8457)
+- OS: Windows 11 Pro 25H2
 - CPU: Intel Core i5-12600KF 
 - GPU: NVIDIA GeForce RTX 5070 Ti
 - RAM: 48GB DDR5 4600 MT/s
