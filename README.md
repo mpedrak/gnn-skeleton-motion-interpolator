@@ -30,7 +30,7 @@ On mixed test test (LAFAN1, ACCAD, PFNN, UNOC and 100STYLE) with predition time 
 
 On skeleton unseen during training (SFU)
 
-| Model                | L2P [cm] | L2Q (· 10⁻²) | NPSS (· 10⁻³) | Root L2P [cm] |
+| Model                | L2P [cm] | L2Q (· 10⁻²) | NPSS (· 10⁻²) | Root L2P [cm] |
 |:---------------------|:---------|:-------------|:--------------|:--------------|
 | v_45_b               | 4.130    | 7.905        | 1.678         | 2.222         | 
 | Linear interpolation | 5.490    | 9.158        | 1.772         | 3.356         |
