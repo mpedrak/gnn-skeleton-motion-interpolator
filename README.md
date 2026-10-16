@@ -2,6 +2,39 @@
 
 3D skeletal motion in-betweening aims to automatically generate realistic transition frames between keyframes, reducing manual work in creating character animation. This repository provides a deep learning approach for this task using Attention-based Graph Neural Networks. The most important distinguishing feature of this solution is support for multi-topology skeletons, which allows generation of animation for multiple skeletons with a single trained model. In addition, it is possible to use this solution directly in Blender software via the extension [AI Animation Bridge](https://github.com/kottajl/blender-plug-in-for-modifying-3D-animations). The repository contains many trained models (on LAFAN1, ACCAD, PFNN, UNOC, 100STYLE datasets) and the results obtained from them. It also presents quite modular and clear model architecture making it straightforward to extend, modify, or use it with new datasets.
 
+## Current best pretrained models
+
+- **v_51_c** for LAFAN1 skeleton motion in-betweening only
+
+- **v_45_b** for other skeletons (particularly ACCAD, PFNN, UNOC and 100STYLE) 
+
+- **v_50_b** for slightly faster but worse results than v_45_b 
+
+### Benchmark results
+
+On LAFAN1 only, comparison with [Motion In-betweening via Two-stage Transformers](https://github.com/victorqin/motion_inbetweening) with post-processing on.  
+
+| Model                  | L2P [cm] | L2Q (· 10⁻²) | NPSS (· 10⁻³) | Root L2P [cm] |
+|:-----------------------|:---------|:-------------|:--------------|:--------------|
+| Two-stage Transformers | 2.425    | 5.013        | 4.922         | 1.645         |
+| v_51_c                 | 3.385    | 6.228        | 6.109         | 1.960         |
+| Linear interpolation   | 7.784    | 10.634       | 11.229        | 4.707         |
+
+On mixed test test (LAFAN1, ACCAD, PFNN, UNOC and 100STYLE)
+
+| Model                | L2P [cm] | L2Q (· 10⁻²) | NPSS (· 10⁻³) | Root L2P [cm] | Prediction time on GPU [ms] |
+|:---------------------|:---------|:-------------|:--------------|:--------------|:----------------------------|
+| v_45_b               | 2.821    | 5.545        | 4.901         | 1.307         | 10.022                      |
+| v_50_b               | 2.820    | 5.752        | 5.276         | 1.332         | 6.367                       |
+| Linear interpolation | 6.220    | 8.756        | 8.707         | 3.258         | 4.665                       |
+
+On skeleton unseen during training (SFU)
+
+| Model                | L2P [cm] | L2Q (· 10⁻²) | NPSS (· 10⁻³) | Root L2P [cm] |
+|:---------------------|:---------|:-------------|:--------------|:--------------|
+| v_45_b               | 4.130    | 7.905        | 1.678         | 2.222         | 
+| Linear interpolation | 5.490    | 9.158        | 1.772         | 3.356         |
+
 ## Downloading
 
 ### To download without all pretrained models (highly advised considering their size)
@@ -37,14 +70,6 @@ git clone --depth 1 https://github.com/mpedrak/gnn-skeleton-motion-interpolator.
 cd gnn-skeleton-motion-interpolator
 git lfs pull -I "checkpoints/model/v_XX_x.pth"
 ```
-
-## Current best pretrained models
-
-- **v_51_c** for LAFAN1 skeleton motion in-betweening only
-
-- **v_45_b** for other skeletons (particularly ACCAD, PFNN, UNOC and 100STYLE) 
-
-- **v_50_b** for slightly faster but worse results than v_45_b 
 
 ## Usage
 
