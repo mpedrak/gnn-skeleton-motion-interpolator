@@ -12,7 +12,7 @@
 
 ### Benchmark results
 
-On LAFAN1 only, comparison with [Motion In-betweening via Two-stage Transformers](https://github.com/victorqin/motion_inbetweening) with post-processing on.  
+On LAFAN1 only, comparison with [Motion In-betweening via Two-stage Transformers](https://github.com/victorqin/motion_inbetweening) with post-processing on  
 
 | Model                  | L2P [cm] | L2Q (· 10⁻²) | NPSS (· 10⁻³) | Root L2P [cm] |
 |:-----------------------|:---------|:-------------|:--------------|:--------------|
