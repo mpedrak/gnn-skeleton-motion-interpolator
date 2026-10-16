@@ -20,13 +20,13 @@ On LAFAN1 only, comparison with [Motion In-betweening via Two-stage Transformers
 | v_51_c                 | 3.385    | 6.228        | 6.109         | 1.960         |
 | Linear interpolation   | 7.784    | 10.634       | 11.229        | 4.707         |
 
-On mixed test test (LAFAN1, ACCAD, PFNN, UNOC and 100STYLE)
+On mixed test test (LAFAN1, ACCAD, PFNN, UNOC and 100STYLE) with predition time on GPU
 
-| Model                | L2P [cm] | L2Q (· 10⁻²) | NPSS (· 10⁻³) | Root L2P [cm] | Prediction time on GPU [ms] |
-|:---------------------|:---------|:-------------|:--------------|:--------------|:----------------------------|
-| v_45_b               | 2.821    | 5.545        | 4.901         | 1.307         | 10.022                      |
-| v_50_b               | 2.820    | 5.752        | 5.276         | 1.332         | 6.367                       |
-| Linear interpolation | 6.220    | 8.756        | 8.707         | 3.258         | 4.665                       |
+| Model                | L2P [cm] | L2Q (· 10⁻²) | NPSS (· 10⁻³) | Root L2P [cm] | Time [ms] |
+|:---------------------|:---------|:-------------|:--------------|:--------------|:--------- |
+| v_45_b               | 2.821    | 5.545        | 4.901         | 1.307         | 10.022    |
+| v_50_b               | 2.820    | 5.752        | 5.276         | 1.332         | 6.367     |
+| Linear interpolation | 6.220    | 8.756        | 8.707         | 3.258         | 4.665     |
 
 On skeleton unseen during training (SFU)
 
