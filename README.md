@@ -110,7 +110,7 @@ git lfs pull -I "checkpoints/model/v_XX_x.pth"
 
 - benchmark.py \<config\>
 
-    - file that can be used to do advanced test of model (calculates L2P, L2Q, NPSS and some other metrics on test set)
+    - file that can be used for advanced test of model (calculates L2P, L2Q, NPSS and some other metrics on test set)
     - prints and automatically saves result
 
 - in *data* directory there are some scripts that can be helpful with datasets handling
